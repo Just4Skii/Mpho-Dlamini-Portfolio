@@ -1,0 +1,94 @@
+/* Apex Scoped Design System */
+.apex-root {
+  --apex-ink: #0F0F0F;
+  --apex-ink-2: #1A1A1A;
+  --apex-stone: #F7F5F1;
+  --apex-stone-2: #EDE9E3;
+  --apex-concrete: #8A8D93;
+  --apex-concrete-light: #D9D9D2;
+  --apex-amber: #C98A2E;
+  --apex-amber-hover: #B47A28;
+  --apex-amber-light: #FFF4E0;
+  
+  background-color: var(--apex-stone);
+  color: var(--apex-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.apex-root * {
+  box-sizing: border-box;
+}
+
+.apex-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.apex-container {
+  max-width: 88rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .apex-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.apex-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--apex-ink);
+  color: #ffffff;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.apex-btn-primary:hover {
+  background-color: var(--apex-ink-2);
+}
+
+.apex-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: var(--apex-ink);
+  border: 1px solid #d4d4d4;
+  padding: 0.875rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.apex-btn-secondary:hover {
+  border-color: var(--apex-ink);
+  background-color: var(--apex-stone);
+}
+
+.apex-badge-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--apex-amber-light);
+  color: var(--apex-amber-hover);
+  border: 1px solid rgba(201, 138, 46, 0.3);
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: monospace;
+}

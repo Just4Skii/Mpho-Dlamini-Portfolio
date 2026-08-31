@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-kasi-black: #11110F;
+  --color-kasi-charcoal: #1C1C19;
+  --color-kasi-cream: #FFFBF5;
+  --color-kasi-warm: #F5EEE6;
+  --color-kasi-stone: #E8E2D8;
+  --color-kasi-stone-dark: #D6CFC2;
+  --color-kasi-terracotta: #C45D3C;
+  --color-kasi-terracotta-hover: #A84E32;
+  --color-kasi-green: #1E3A2E;
+  --color-kasi-green-light: #E6EDE8;
+  --font-display: var(--font-instrument);
+  --font-sans: var(--font-dm-sans);
+}
+
+:root {
+  --background: #FFFBF5; /* Highveld morning – warm white */
+  --foreground: #11110F; /* Witwatersrand slate */
+  --card: #FFFFFF;
+  --card-foreground: #11110F;
+  --border: #E8E2D8; /* Table Mountain stone */
+  --muted: #F5EEE6;
+  --muted-foreground: #6B6B6B;
+  --accent: #C45D3C; /* Karoo terracotta */
+  --accent-foreground: #FFFFFF;
+  --accent-ochre: #CC8A3D; /* Savanna */
+  --accent-sage: #8FA98A; /* Fynbos */
+  --accent-sand: #D9C7B6; /* Kalahari sand */
+  --accent-slate: #1A1F2E; /* Atlantic dusk */
+}
+
+[data-theme="dark"] {
+  --background: #0F0F0E; /* Karoo night */
+  --foreground: #F0E6D8; /* Sand light */
+  --card: #1A1A18;
+  --card-foreground: #F0E6D8;
+  --border: #2A2A28;
+  --muted: #1E1E1B;
+  --muted-foreground: #9A9A8F;
+  --accent: #E07A5A; /* Terracotta lightened for dark */
+  --accent-foreground: #0F0F0E;
+  --accent-ochre: #E0A352;
+  --accent-sage: #A8C4A0;
+}
+
+* { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-width: 320px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,h2,h3 { letter-spacing: -0.02em; }
+
+/* custom scrollbar for shelves */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* focus */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* thumb-friendly tap targets */
+button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* SA flavour accent bar */
+.sa-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-ochre) 25%, var(--accent-sage) 50%, var(--accent-sand) 75%, var(--accent-slate) 100%);
+  opacity: 0.9;
+}
+
+/* card theming helpers */
+.card-surface {
+  background: var(--card);
+  border-color: var(--border);
+  color: var(--card-foreground);
+}
+
+/* animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* safe-area helper for iOS notch */
+.safe-area-pb { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
+
+/* Dark theme — restrained, premium */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+/* Keep product cards light on dark background for readability — no dark-on-dark */
+/* Only adapt subtle muted surfaces */
+[data-theme="dark"] .bg-\[\#F5EEE6\] { background-color: #1E1E1B !important; }
+[data-theme="dark"] .border-\[\#E8E2D8\] { border-color: #2A2A28 !important; }
+[data-theme="dark"] .text-stone-500 { color: #9A9A8F !important; }
+/* Primary buttons: dark in light → light in dark for contrast on dark page (exclude footer) */
+[data-theme="dark"] button.bg-\[\#11110F\],
+[data-theme="dark"] a.bg-\[\#11110F\] {
+  background-color: #F0E6D8 !important;
+  color: #0F0F0E !important;
+  border-color: #F0E6D8 !important;
+}
+[data-theme="dark"] button.bg-\[\#11110F\] span,
+[data-theme="dark"] a.bg-\[\#11110F\] span { color: #0F0F0E !important; }

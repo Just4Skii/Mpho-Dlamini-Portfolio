@@ -1,0 +1,186 @@
+import { Brand } from "@/projects/kasicart/types";
+
+export const brands: Brand[] = [
+  {
+    id: "1", slug: "moya-studio", name: "Moya Studio",
+    tagline: "Objects for quiet living.",
+    story: "Founded in Johannesburg in 2019, Moya Studio crafts small-batch ceramics and home objects inspired by Highveld light and raw clay. Every piece is thrown, glazed and fired in their Rosebank studio.",
+    location: "Rosebank, Johannesburg", city: "Johannesburg", province: "Gauteng",
+    category: ["Home", "Art & Design"],
+    image: "https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=600&fit=crop",
+    productCount: 12, established: "2019",
+    deliveryNotes: "Made to order in 3–5 days. Ships from Johannesburg.",
+    social: { instagram: "@moyastudio", website: "moyastudio.co.za" }, featured: true
+  },
+  {
+    id: "2", slug: "khumalo-home", name: "Khumalo Home",
+    tagline: "Handwoven heritage, modern home.",
+    story: "Khumalo Home works with weavers in KwaZulu-Natal to create contemporary textiles rooted in Zulu weaving traditions. Based in Durban, their throws and cushions are made from locally sourced cotton and wool.",
+    location: "Morningside, Durban", city: "Durban", province: "KwaZulu-Natal",
+    category: ["Home", "Art & Design"],
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?w=1200&h=600&fit=crop",
+    productCount: 9, established: "2017",
+    deliveryNotes: "Ships within 2 days. Free delivery over R750.",
+    social: { instagram: "@khumalohome" }, featured: true
+  },
+  {
+    id: "3", slug: "indigo-form", name: "Indigo Form",
+    tagline: "Furniture with a slower rhythm.",
+    story: "Indigo Form designs minimalist oak and ash furniture from their Woodstock workshop in Cape Town. Founded by two architects, the brand focuses on honest materials and precise joinery.",
+    location: "Woodstock, Cape Town", city: "Cape Town", province: "Western Cape",
+    category: ["Home"],
+    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=600&fit=crop",
+    productCount: 8, established: "2018",
+    deliveryNotes: "Lead time 10–14 days. Delivery across SA.",
+    social: { website: "indigoform.co.za" }, featured: true
+  },
+  {
+    id: "4", slug: "lalela-coffee", name: "Lalela Coffee",
+    tagline: "Roasted in the city, grown with care.",
+    story: "Lalela sources single-origin beans from Mpumalanga and KwaZulu-Natal, roasted in small batches in Braamfontein. Their approach is seasonal, traceable and deeply collaborative.",
+    location: "Braamfontein, Johannesburg", city: "Johannesburg", province: "Gauteng",
+    category: ["Food & Specialty"],
+    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&h=600&fit=crop",
+    productCount: 10, established: "2020",
+    deliveryNotes: "Roasted weekly. Ships within 24 hours.",
+    social: { instagram: "@lalelacoffee" }, featured: true
+  },
+  {
+    id: "5", slug: "nala-botanics", name: "Nala Botanics",
+    tagline: "Skincare from indigenous knowledge.",
+    story: "Nala Botanics creates plant-based skincare using marula, baobab and rooibos, harvested sustainably in Limpopo. Founded in Pretoria, their formulations honour generational knowledge.",
+    location: "Pretoria, Gauteng", city: "Pretoria", province: "Gauteng",
+    category: ["Beauty & Wellness"],
+    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1200&h=600&fit=crop",
+    productCount: 11, established: "2021",
+    deliveryNotes: "Vegan, cruelty-free. Ships from Pretoria in 1–2 days.",
+    social: { instagram: "@nalabotanics" }, featured: true
+  },
+  {
+    id: "6", slug: "umoya-leather", name: "Umoya Leather",
+    tagline: "Carry what matters.",
+    story: "Umoya handcrafts leather goods in Stellenbosch from ethically sourced hides. Each bag is made by a single craftsperson start to finish — no assembly lines.",
+    location: "Stellenbosch, Western Cape", city: "Cape Town", province: "Western Cape",
+    category: ["Fashion", "Gifts"],
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&h=600&fit=crop",
+    productCount: 7, established: "2016",
+    deliveryNotes: "Handmade to order. 5–7 days lead time.",
+    social: { website: "umoyaleather.co.za" }, featured: true
+  },
+  {
+    id: "7", slug: "earth-tint", name: "Earth & Tint",
+    tagline: "Natural colour, contemporary form.",
+    story: "Earth & Tint is a Durban-based ceramics and print studio exploring earth pigments from the KwaZulu-Natal coast.",
+    location: "Umhlanga, Durban", city: "Durban", province: "KwaZulu-Natal",
+    category: ["Art & Design", "Home"],
+    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1578500494198-2461d8734339?w=1200&h=600&fit=crop",
+    productCount: 6, established: "2019",
+    deliveryNotes: "Ships from Durban.", featured: false
+  },
+  {
+    id: "8", slug: "cape-aura", name: "Cape Aura",
+    tagline: "Coastal skincare rituals.",
+    story: "Cape Aura formulates cold-pressed body oils and scrubs using kelp and fynbos from the Cape Peninsula.",
+    location: "Sea Point, Cape Town", city: "Cape Town", province: "Western Cape",
+    category: ["Beauty & Wellness"],
+    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?w=1200&h=600&fit=crop",
+    productCount: 6, established: "2020",
+    deliveryNotes: "Ships from Cape Town.", featured: false
+  },
+  {
+    id: "9", slug: "folk-coffee", name: "Folk & Co.",
+    tagline: "Pantry staples, done properly.",
+    story: "Folk & Co. produces small-batch granola, honey and pantry goods from their Pretoria kitchen.",
+    location: "Centurion, Pretoria", city: "Pretoria", province: "Gauteng",
+    category: ["Food & Specialty"],
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=600&fit=crop",
+    productCount: 5, established: "2018",
+    deliveryNotes: "Ships within 1–2 days.", featured: false
+  },
+  {
+    id: "10", slug: "studio-nomad", name: "Studio Nomad",
+    tagline: "Textiles that travel.",
+    story: "Studio Nomad creates lightweight linenwear and accessories dyed with natural pigments in Gqeberha.",
+    location: "Gqeberha, Eastern Cape", city: "Gqeberha", province: "Eastern Cape",
+    category: ["Fashion"],
+    image: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=600&fit=crop",
+    productCount: 7, established: "2017",
+    deliveryNotes: "Ships from Gqeberha.", featured: false
+  },
+  {
+    id: "11", slug: "bloomfield-press", name: "Bloomfield Press",
+    tagline: "Prints that hold memory.",
+    story: "Bloomfield Press is a Bloemfontein print studio creating limited-edition linocuts and risographs.",
+    location: "Bloemfontein, Free State", city: "Bloemfontein", province: "Free State",
+    category: ["Art & Design"],
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1200&h=600&fit=crop",
+    productCount: 6, established: "2019",
+    deliveryNotes: "Limited runs. Ships flat.", featured: false
+  },
+  {
+    id: "12", slug: "kaap-spice", name: "Kaap Spice Co.",
+    tagline: "Cape-inflected pantry.",
+    story: "Kaap Spice blends Cape Malay and coastal flavours into modern pantry essentials.",
+    location: "Stellenbosch, Western Cape", city: "Cape Town", province: "Western Cape",
+    category: ["Food & Specialty", "Gifts"],
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=1200&h=600&fit=crop",
+    productCount: 6, established: "2020",
+    deliveryNotes: "Ships from Stellenbosch.", featured: false
+  },
+  {
+    id: "13", slug: "form-found", name: "Form & Found",
+    tagline: "Desk objects considered.",
+    story: "Form & Found makes solid wood desk accessories in Midrand for focused workspaces.",
+    location: "Midrand, Gauteng", city: "Johannesburg", province: "Gauteng",
+    category: ["Tech & Accessories", "Home"],
+    image: "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?w=1200&h=600&fit=crop",
+    productCount: 7, established: "2021",
+    deliveryNotes: "Ships from Midrand.", featured: false
+  },
+  {
+    id: "14", slug: "veld-light", name: "Veld Light",
+    tagline: "Lighting shaped by place.",
+    story: "Veld Light creates hand-spun pendant lights and lamps using washi and raw linen in Sandton.",
+    location: "Sandton, Johannesburg", city: "Johannesburg", province: "Gauteng",
+    category: ["Home"],
+    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1200&h=600&fit=crop",
+    productCount: 5, established: "2018",
+    deliveryNotes: "Made to order 7–10 days.", featured: false
+  },
+  {
+    id: "15", slug: "soft-matter", name: "Soft Matter",
+    tagline: "Loungewear for real life.",
+    story: "Soft Matter produces brushed cotton loungewear dyed in muted, mineral tones in Pretoria.",
+    location: "Pretoria, Gauteng", city: "Pretoria", province: "Gauteng",
+    category: ["Fashion"],
+    image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=600&fit=crop",
+    productCount: 6, established: "2020",
+    deliveryNotes: "Ships from Pretoria.", featured: false
+  },
+  {
+    id: "16", slug: "hinterland", name: "Hinterland",
+    tagline: "Ceramics for daily ritual.",
+    story: "Hinterland produces wheel-thrown tableware in the Magaliesberg, each piece unique.",
+    location: "Magaliesberg, Gauteng", city: "Johannesburg", province: "Gauteng",
+    category: ["Home", "Art & Design"],
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
+    coverImage: "https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?w=1200&h=600&fit=crop",
+    productCount: 5, established: "2019",
+    deliveryNotes: "Ships from Gauteng.", featured: false
+  },
+];
