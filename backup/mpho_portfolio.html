@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mpho Dlamini - Software Developer</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding-top: 64px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,23,42,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1e293b;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 32px; height: 56px;
+  }
+  .nav-brand { font-weight: 700; font-size: 0.95rem; color: #f8fafc; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #f8fafc; }
+
+  /* MAIN CONTAINER */
+  .container { max-width: 900px; margin: 0 auto; padding: 32px 24px 48px; }
+
+  /* HERO */
+  .hero {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 36px 28px;
+    margin-bottom: 24px;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 13px; border-radius: 9999px;
+    font-size: 0.78rem; font-weight: 600;
+  }
+  .badge-green { background: rgba(16,185,129,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+  .badge-amber { background: rgba(245,158,11,0.1); color: #fbbf24; border: 1px solid rgba(245,158,11,0.2); }
+  .badge-blue  { background: rgba(56,189,248,0.1); color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); }
+  .status-dot { width: 7px; height: 7px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  .hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.025em; color: #fff; margin-bottom: 6px; }
+  .hero .subtitle { font-size: 1rem; color: #38bdf8; font-weight: 600; margin-bottom: 16px; }
+  .hero p { color: #94a3b8; font-size: 0.95rem; line-height: 1.7; max-width: 680px; margin-bottom: 24px; }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease; }
+  .btn-primary { background: #38bdf8; color: #0f172a; }
+  .btn-primary:hover { background: #7dd3fc; }
+  .btn-secondary { background: #334155; color: #f8fafc; border: 1px solid #475569; }
+  .btn-secondary:hover { background: #475569; }
+
+  /* SECTION */
+  .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #475569; margin-bottom: 14px; }
+  .box { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 22px; margin-bottom: 24px; }
+  .box p { color: #94a3b8; font-size: 0.93rem; line-height: 1.75; }
+
+  /* SERVICES */
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; }
+  .card-icon { font-size: 1.5rem; margin-bottom: 10px; }
+  .card h3 { font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin-bottom: 7px; }
+  .card p { color: #94a3b8; font-size: 0.83rem; line-height: 1.55; margin-bottom: 12px; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { background: #0f172a; color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); font-size: 0.7rem; padding: 3px 8px; border-radius: 6px; font-weight: 600; }
+
+  /* PROJECTS */
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .project-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+  .project-card h3 { font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin-bottom: 6px; }
+  .project-card p { color: #94a3b8; font-size: 0.83rem; line-height: 1.5; margin-bottom: 14px; flex: 1; }
+  .project-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .project-link { font-size: 0.8rem; font-weight: 600; color: #38bdf8; text-decoration: none; }
+  .project-link:hover { color: #7dd3fc; }
+
+  /* SKILLS */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-pill { background: #0f172a; border: 1px solid #334155; color: #cbd5e1; font-size: 0.82rem; padding: 6px 12px; border-radius: 8px; }
+
+  /* EXPERIENCE */
+  .exp-item { padding: 16px 0; border-bottom: 1px solid #334155; }
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+  .exp-title { font-weight: 700; color: #f8fafc; font-size: 0.95rem; }
+  .exp-company { color: #38bdf8; font-size: 0.83rem; margin-top: 2px; }
+  .exp-date { color: #475569; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .exp-item ul { margin-top: 8px; padding-left: 18px; }
+  .exp-item li { color: #94a3b8; font-size: 0.83rem; line-height: 1.6; margin-bottom: 2px; }
+
+  /* CERTS */
+  .cert-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cert-badge { background: #0f172a; border: 1px solid #475569; padding: 7px 13px; border-radius: 8px; font-size: 0.8rem; color: #e2e8f0; display: flex; align-items: center; gap: 8px; }
+  .cert-brand { color: #818cf8; font-weight: 700; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid #1e293b;
+    padding: 28px 24px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 14px; }
+  .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .footer-links a:hover { color: #38bdf8; }
+  .footer-copy { color: #334155; font-size: 0.78rem; }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-brand">Mpho Dlamini</span>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-badges">
+        <span class="badge badge-green"><span class="status-dot"></span> Available for Contract Work</span>
+        <span class="badge badge-amber">🏆 Amazon Bursary Recipient</span>
+        <span class="badge badge-blue">🎓 Final Year, DUT Software Development</span>
+      </div>
+      <h1>Mpho Dlamini</h1>
+      <div class="subtitle">Software Developer &nbsp;·&nbsp; C# &nbsp;·&nbsp; ASP.NET MVC &nbsp;·&nbsp; SQL</div>
+      <p>
+        Final year Software Development student at Durban University of Technology and Amazon Bursary recipient,
+        with hands-on experience building full-stack applications in C# and ASP.NET MVC, designing relational databases,
+        and applying AI fundamentals to real-world workflows.
+        Open to freelance contracts, short-term project work, and junior developer roles.
+      </p>
+      <div class="actions">
+        <a href="https://github.com/Just4Skii" target="_blank" class="btn btn-primary">GitHub ↗</a>
+        <a href="https://tinyurl.com/Mpho-dlamini" target="_blank" class="btn btn-secondary">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div id="services">
+      <div class="section-label">Services offered</div>
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Full-Stack Development</h3>
+          <p>Web application architecture, API integrations, and backend logic.</p>
+          <div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET MVC</span><span class="tag">REST APIs</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🗄️</div>
+          <h3>Database Design & SQL</h3>
+          <p>Relational database architecture, query writing, and performance tuning.</p>
+          <div class="tags"><span class="tag">SQL Server</span><span class="tag">Data Modelling</span><span class="tag">Optimization</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Applied AI Tools</h3>
+          <p>Integrating AI-assisted workflows and automation into software projects.</p>
+          <div class="tags"><span class="tag">NLP Basics</span><span class="tag">AI Workflows</span><span class="tag">IBM Certified</span></div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛠️</div>
+          <h3>IT Support & Ops</h3>
+          <p>Technical troubleshooting, platform administration, and user support.</p>
+          <div class="tags"><span class="tag">Tech Support</span><span class="tag">Git</span><span class="tag">Microsoft Office</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div id="projects">
+      <div class="section-label">Featured projects</div>
+      <div class="grid-3">
+        <div class="project-card" style="border-color: #38bdf8;">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+              <h3 style="margin:0;">CiCi Panda</h3>
+              <span style="background:rgba(56,189,248,0.1); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:9999px;">🏆 Top 20 in Africa</span>
+            </div>
+            <p>AI-powered virtual Mandarin teaching assistant combining robotics simulation, expressive gesture control, and interactive lesson sequencing. Recognised as a Top 20 Finalist in the Africa Division of the China International College Students' Innovation Competition 2026.</p>
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">Python</span><span class="tag">AI</span><span class="tag">Robotics</span><span class="tag">EdTech</span></div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div>
+            <h3>Digital Payroll System</h3>
+            <p>Employee management system with payroll processing, role-based authentication, and admin dashboard built in ASP.NET MVC and SQL Server.</p>
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET MVC</span><span class="tag">SQL Server</span></div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div>
+            <h3>RePurpose</h3>
+            <p>Hackathon project: a community-driven waste exchange platform that connects donors and recipients for responsible recycling.</p>
+          </div>
+          <div class="project-footer">
+            <div class="tags"><span class="tag">Hackathon</span><span class="tag">Web</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="section-label">About</div>
+    <div class="box">
+      <p>
+        I am an independent software developer and ICT professional based in Durban, KwaZulu-Natal,
+        currently completing a Diploma in ICT: Software Development at DUT (expected December 2026).
+        I am an Amazon Bursary recipient and AWS Academic Partner, with certifications from IBM and NVIDIA
+        covering AI, NLP, and GPU computing. Outside of tech, I have a background in customer-facing roles
+        across promotions, sales, and hospitality, which means I communicate well, work under pressure, and
+        understand what clients actually need. I am available for freelance work, consulting, and junior dev roles.
+      </p>
+    </div>
+
+    <!-- SKILLS -->
+    <div id="skills">
+      <div class="two-col">
+        <div>
+          <div class="section-label">Technical skills</div>
+          <div class="box" style="margin-bottom:0">
+            <div class="skill-list">
+              <span class="skill-pill">C# / ASP.NET MVC</span>
+              <span class="skill-pill">SQL</span>
+              <span class="skill-pill">Full-Stack Dev</span>
+              <span class="skill-pill">React Native</span>
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">Microsoft Office</span>
+              <span class="skill-pill">NLP Fundamentals</span>
+              <span class="skill-pill">CUDA Basics</span>
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">WordPress</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">Languages & strengths</div>
+          <div class="box" style="margin-bottom:0">
+            <div class="skill-list">
+              <span class="skill-pill">English — C2</span>
+              <span class="skill-pill">Zulu — C2</span>
+              <span class="skill-pill">Mandarin — HSK1</span>
+              <span class="skill-pill">Public Speaking</span>
+              <span class="skill-pill">Customer Service</span>
+              <span class="skill-pill">Fast Learner</span>
+              <span class="skill-pill">Teamwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div id="experience">
+      <div class="section-label">Work experience</div>
+      <div class="box">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Field Promoter</div><div class="exp-company">Triple 8 / Connexit Promotions, Durban</div></div>
+            <div class="exp-date">Nov 2024 – May 2026</div>
+          </div>
+          <ul>
+            <li>Set up promotional booths and created engaging displays to attract customers.</li>
+            <li>Ran live product demos and activations, developing public speaking confidence.</li>
+            <li>Coordinated campaign logistics and consistently met sales targets.</li>
+            <li>Built customer relationships to support brand awareness and loyalty.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Barista</div><div class="exp-company">Xpresso, Durban</div></div>
+            <div class="exp-date">Jan 2024 – Aug 2024</div>
+          </div>
+          <ul>
+            <li>Prepared beverages and maintained workspace standards during busy service periods.</li>
+            <li>Handled transactions and delivered friendly, efficient customer service.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Independent Sales Agent</div><div class="exp-company">Credico Financial Services, Durban</div></div>
+            <div class="exp-date">Dec 2023 – Jan 2024</div>
+          </div>
+          <ul>
+            <li>Advised customers on financial products through direct marketing.</li>
+            <li>Processed sensitive customer data accurately and securely.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Shop Cashier</div><div class="exp-company">Kloof High School, Durban</div></div>
+            <div class="exp-date">Jan 2023 – Dec 2023</div>
+          </div>
+          <ul>
+            <li>Operated POS system, managed stock takes, orders, and deliveries.</li>
+            <li>Delivered consistent customer service over 12 months.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section-label">Education</div>
+      <div class="box">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Diploma in ICT: Software Development</div><div class="exp-company">Durban University of Technology</div></div>
+            <div class="exp-date">Expected Dec 2026</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">Certificate in Computer Programming</div><div class="exp-company">FNB App Academy: Full-Stack (32 credits)</div></div>
+            <div class="exp-date">Oct 2025</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div><div class="exp-title">National Senior Certificate, Bachelor's Pass</div><div class="exp-company">Kloof High School</div></div>
+            <div class="exp-date">Dec 2023</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section-label">Certifications & courses</div>
+      <div class="box">
+        <div class="cert-list">
+          <div class="cert-badge"><span class="cert-brand">IBM</span> NLP &amp; Computer Vision, Apr 2026</div>
+          <div class="cert-badge"><span class="cert-brand">IBM</span> Introduction to AI, Apr 2026</div>
+          <div class="cert-badge"><span class="cert-brand">NVIDIA</span> Introduction to CUDA, Apr 2026</div>
+          <div class="cert-badge"><span class="cert-brand">NVIDIA</span> Multi-Modal Data Curation, Apr 2026</div>
+          <div class="cert-badge"><span class="cert-brand">FNB</span> App Academy Full-Stack, 2025</div>
+          <div class="cert-badge"><span class="cert-brand">AWS</span> Academic Partner</div>
+          <div class="cert-badge"><span class="cert-brand">LinkedIn</span> Programming Foundations, 2025</div>
+          <div class="cert-badge"><span class="cert-brand">LinkedIn</span> Retail Sales, WordPress, Docker, 2025</div>
+          <div class="cert-badge"><span class="cert-brand">IT Varsity</span> Game Dev Boot Camp, 2021</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div id="contact">
+      <div class="section-label">Contact</div>
+      <div class="box" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <div>
+          <div style="font-weight:700; color:#f8fafc; margin-bottom:4px;">Open to new projects</div>
+          <div style="color:#94a3b8; font-size:0.85rem;">Durban, KwaZulu-Natal &nbsp;·&nbsp; 067 602 9081 &nbsp;·&nbsp; Mphojunior6@gmail.com</div>
+        </div>
+        <div class="actions">
+          <a href="mailto:Mphojunior6@gmail.com" class="btn btn-primary">Email me</a>
+          <a href="https://github.com/Just4Skii" target="_blank" class="btn btn-secondary">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="mailto:Mphojunior6@gmail.com">Email</a>
+      <a href="https://github.com/Just4Skii" target="_blank">GitHub</a>
+      <a href="https://tinyurl.com/Mpho-dlamini" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-copy">© 2026 Mpho Dlamini · All rights reserved</div>
+  </footer>
+
+</body>
+</html>
