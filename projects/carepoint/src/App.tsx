@@ -5,7 +5,15 @@ import { Layout } from "./components/layout";
 import { Skel } from "./components/ui";
 import Home from "./pages/Home";
 
-const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
+function getAppBasename(): string {
+  if (typeof window === 'undefined') return '/work/carepoint';
+  const pathname = window.location.pathname;
+  const match = pathname.match(/^(.*\/work\/carepoint)/i);
+  if (match && match[1]) {
+    return match[1];
+  }
+  return '/work/carepoint';
+}
 
 const SearchPage = lazy(() => import("./pages/Search"));
 const ProviderProfile = lazy(() => import("./pages/ProviderProfile"));
@@ -53,7 +61,7 @@ function PageFallback() {
 export default function App() {
   return (
     <AppProvider>
-      <BrowserRouter basename={basename}>
+      <BrowserRouter basename={getAppBasename()}>
         <ScrollToTop />
         <Routes>
           <Route element={<Layout />}>

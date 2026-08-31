@@ -1,25 +1,20 @@
 import React from 'react';
 import { Link as RouterLink, useLocation, useNavigate, useSearchParams as useRouterSearchParams } from 'react-router-dom';
 
-const APEX_BASE = '/work/apex';
-
 export type Metadata = Record<string, any>;
 
 export const normalizeApexHref = (href: string): string => {
-  if (!href) return APEX_BASE;
+  if (!href || href === '/') return '/';
   if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:')) {
     return href;
   }
-  if (href.startsWith('/work/apex')) {
-    return href;
+  if (href.startsWith('/work/apex/')) {
+    return href.slice('/work/apex'.length) || '/';
   }
-  if (href === '/') {
-    return APEX_BASE;
+  if (href === '/work/apex') {
+    return '/';
   }
-  if (href.startsWith('/')) {
-    return `${APEX_BASE}${href}`;
-  }
-  return `${APEX_BASE}/${href}`;
+  return href.startsWith('/') ? href : `/${href}`;
 };
 
 export const Link: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement> & { href?: string; to?: string }> = ({
@@ -46,36 +41,30 @@ export const Link: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement> & { hr
   );
 };
 
-export default Link;
-
-export const usePathname = () => {
-  const location = useLocation();
-  const path = location.pathname.replace(/^\/work\/apex/, '') || '/';
-  return path;
-};
-
-export const useRouter = () => {
+export function useRouter() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   return {
-    push: (href: string) => navigate(normalizeApexHref(href)),
-    replace: (href: string) => navigate(normalizeApexHref(href), { replace: true }),
+    push: (url: string) => navigate(normalizeApexHref(url)),
+    replace: (url: string) => navigate(normalizeApexHref(url), { replace: true }),
     back: () => navigate(-1),
-    forward: () => navigate(1),
+    pathname: location.pathname,
   };
-};
+}
 
-export const useSearchParams = () => useRouterSearchParams()[0];
+export function usePathname() {
+  const location = useLocation();
+  return location.pathname;
+}
 
-export const notFound = () => {
+export function useSearchParams() {
+  const [searchParams] = useRouterSearchParams();
+  return searchParams;
+}
+
+export function notFound() {
   return null;
-};
+}
 
-export const Image: React.FC<React.ImgHTMLAttributes<HTMLImageElement> & { fill?: boolean; priority?: boolean }> = ({
-  src,
-  alt = '',
-  fill,
-  priority,
-  ...props
-}) => {
-  return <img src={src} alt={alt} {...props} />;
-};
+export default Link;
