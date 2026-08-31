@@ -1,3 +1,29 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-kasi-black: #11110F;
+  --color-kasi-charcoal: #1C1C19;
+  --color-kasi-cream: #FFFBF5;
+  --color-kasi-warm: #F5EEE6;
+  --color-kasi-stone: #E8E2D8;
+  --color-kasi-stone-dark: #D6CFC2;
+  --color-kasi-terracotta: #C45D3C;
+  --color-kasi-terracotta-hover: #A84E32;
+  --color-kasi-green: #1E3A2E;
+  --color-kasi-green-light: #E6EDE8;
+  --font-display: var(--font-instrument);
+  --font-sans: var(--font-dm-sans);
+}
+
 /* KasiCart Scoped Styling */
 .kasicart-root {
   --background: #FFFBF5;
