@@ -4,6 +4,16 @@ interface ReturnToPortfolioProps {
   projectName?: string;
 }
 
+function getPortfolioReturnUrl(): string {
+  if (typeof window === 'undefined') return '/work';
+  const pathname = window.location.pathname;
+  const match = pathname.match(/^(\/[^\/]+)\/work/i);
+  if (match && match[1]) {
+    return `${match[1]}/work`;
+  }
+  return '/work';
+}
+
 export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectName = 'Apex Facilities Group' }) => {
   return (
     <aside
@@ -28,7 +38,7 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
       }}
     >
       <a
-        href="/work"
+        href={getPortfolioReturnUrl()}
         style={{
           background: 'none',
           border: 'none',

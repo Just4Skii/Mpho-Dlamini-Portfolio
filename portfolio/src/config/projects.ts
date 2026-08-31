@@ -92,3 +92,20 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
 export const getPublicProjects = () => PROJECTS_REGISTRY.filter(p => p.id !== 'project-four');
 export const getFeaturedProjects = () => PROJECTS_REGISTRY.filter(p => p.featured && p.id !== 'project-four');
 export const getProjectBySlug = (slug: string) => PROJECTS_REGISTRY.find(p => p.slug === slug || p.id === slug);
+
+export function getAppUrl(path: string): string {
+  if (typeof window === 'undefined') return path;
+  const pathname = window.location.pathname;
+  
+  // Detect if running under a GitHub Pages repo prefix (e.g. /Mpho-Dlamini-Portfolio/)
+  let prefix = '';
+  const match = pathname.match(/^(\/[^\/]+)/);
+  if (match && match[1] && !match[1].startsWith('/work')) {
+    prefix = match[1];
+  }
+
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const target = `${prefix}${cleanPath}`.replace(/\/+/g, '/');
+  return target.endsWith('/') ? target : `${target}/`;
+}
+

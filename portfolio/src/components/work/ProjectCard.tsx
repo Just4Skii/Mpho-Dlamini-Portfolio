@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProjectRegistryItem } from '../../types/project';
+import { getAppUrl } from '../../config/projects';
 import styles from '../../styles/work.module.css';
 
 interface ProjectCardProps {
@@ -60,7 +61,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
         {/* Card Footer */}
         <div className={styles.cardFooter}>
           {isLive ? (
-            <a href={project.path} className={styles.btnLaunch}>
+            <a href={getAppUrl(project.path)} className={styles.btnLaunch}>
               <span>Launch Experience</span>
               <span>→</span>
             </a>

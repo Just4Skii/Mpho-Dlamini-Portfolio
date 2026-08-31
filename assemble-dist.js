@@ -52,7 +52,7 @@ copyDir(carepointDist, carepointDest);
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
 
-// 7. Master 404.html for GitHub Pages multi-app SPA deep linking
+// 7. Master 404.html for GitHub Pages multi-app SPA deep linking (supports custom domain and repo subpaths)
 const master404Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,35 +63,43 @@ const master404Html = `<!DOCTYPE html>
       var l = window.location;
       var path = l.pathname;
       
-      // Determine app prefix
+      // Match repo prefix if any (e.g. /Mpho-Dlamini-Portfolio)
+      var repoPrefix = '';
+      var prefixMatch = path.match(/^(\\/[^\\/]+)(\\/work.*)?/i);
+      if (prefixMatch && prefixMatch[1] && !prefixMatch[1].startsWith('/work')) {
+        repoPrefix = prefixMatch[1];
+        path = path.slice(repoPrefix.length);
+      }
+      
       if (path.indexOf('/work/apex') === 0) {
-        var base = '/work/apex';
-        var rest = path.slice(base.length);
+        var base = repoPrefix + '/work/apex';
+        var rest = path.slice('/work/apex'.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
       } else if (path.indexOf('/work/kasicart') === 0) {
-        var base = '/work/kasicart';
-        var rest = path.slice(base.length);
+        var base = repoPrefix + '/work/kasicart';
+        var rest = path.slice('/work/kasicart'.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
       } else if (path.indexOf('/work/carepoint') === 0) {
-        var base = '/work/carepoint';
-        var rest = path.slice(base.length);
+        var base = repoPrefix + '/work/carepoint';
+        var rest = path.slice('/work/carepoint'.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
       } else {
+        var base = repoPrefix;
         l.replace(
-          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?/' +
-          l.pathname.slice(1).replace(/&/g, '~and~') +
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' +
+          path.slice(1).replace(/&/g, '~and~') +
           (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash
         );
