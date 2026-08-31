@@ -1,11 +1,22 @@
 {
   "name": "graffgrid-platform",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "portfolio",
+    "projects/apex",
+    "projects/kasicart"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "npm --workspace=portfolio run dev",
+    "dev:portfolio": "npm --workspace=portfolio run dev",
+    "dev:apex": "npm --workspace=apex-facilities-group run dev",
+    "dev:kasicart": "npm --workspace=kasicart run dev",
+    "build:portfolio": "npm --workspace=portfolio run build",
+    "build:apex": "npm --workspace=apex-facilities-group run build",
+    "build:kasicart": "npm --workspace=kasicart run build",
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && node assemble-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {

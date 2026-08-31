@@ -1,161 +1,164 @@
-# GraffGrid — Developer Portfolio Platform
+# GraffGrid — Independent Developer Portfolio & Project Platform
 
-A modern, high-performance **React + TypeScript + Vite** portfolio platform for **Mpho Dlamini** ([graffgrid.co.za](https://graffgrid.co.za)).
+A modern, high-performance **independent multi-application platform** for **Mpho Dlamini** ([graffgrid.co.za](https://graffgrid.co.za)).
 
-This platform serves as both a **personal developer portfolio** and an **isolated frontend project host** capable of running independently engineered commercial and consumer applications under dedicated URL paths with zero style or state leakage.
+Rather than a monolithic single-page app, GraffGrid is engineered as a **collection of truly independent React applications** developed, built, tested, and updated independently under the same domain.
 
 ---
 
-## 🏛️ Platform Architecture
+## 🏛️ Directory & Application Architecture
 
 ```
 graffgrid/ (Workspace Root)
 │
 ├── backup/
-│   └── mpho_portfolio.html            # Original preserved HTML portfolio (Safe rollback checkpoint)
+│   └── mpho_portfolio.html            # Original preserved single-file HTML portfolio
 │
-├── public/
-│   ├── CNAME                          # graffgrid.co.za
-│   ├── 404.html                       # GitHub Pages SPA redirect engine for deep URL routing
-│   └── favicon.svg                    # SVG Brand Favicon
+├── portfolio/                         # Independent React App: GraffGrid Portfolio (/)
+│   ├── src/
+│   │   ├── components/                # Scoped portfolio & showcase components
+│   │   ├── config/projects.ts         # Metadata registry ONLY (Zero project code imports)
+│   │   ├── pages/                     # HomePage (/), WorkPage (/work), 404
+│   │   └── styles/                    # Scoped CSS modules
+│   ├── public/                        # CNAME, favicon.svg
+│   ├── index.html                     # Title: Mpho Dlamini — GraffGrid Portfolio
+│   ├── vite.config.ts                 # base: '/' -> builds to portfolio/dist
+│   ├── tsconfig.json
+│   └── package.json
 │
-├── src/
-│   ├── main.tsx                       # React root entry point
-│   ├── App.tsx                        # Master Router with lazy-loaded project routes
+├── projects/
 │   │
-│   ├── config/
-│   │   └── projects.ts                # Centralized Project Registry & Honest Disclosures
+│   ├── apex/                          # Independent React App: Apex Facilities Group
+│   │   ├── src/                       # Complete standalone source (components, pages, lib)
+│   │   ├── public/                    # Dedicated favicon.svg, assets
+│   │   ├── index.html                 # Title: Apex Facilities Group
+│   │   ├── vite.config.ts             # base: '/work/apex/' -> builds to projects/apex/dist
+│   │   ├── tsconfig.json
+│   │   ├── package.json
+│   │   └── README.md
 │   │
-│   ├── types/
-│   │   └── project.ts                 # TypeScript project data interfaces
+│   ├── kasicart/                      # Independent React App: KasiCart
+│   │   ├── src/                       # Complete standalone source (components, store, data)
+│   │   ├── public/                    # Dedicated favicon.ico, assets
+│   │   ├── index.html                 # Title: KasiCart — Good things, close to home
+│   │   ├── vite.config.ts             # base: '/work/kasicart/' -> builds to projects/kasicart/dist
+│   │   ├── tsconfig.json
+│   │   ├── package.json
+│   │   └── README.md
 │   │
-│   ├── components/
-│   │   ├── portfolio/                 # Scoped GraffGrid portfolio components (Hero, Services, etc.)
-│   │   ├── work/                      # Dedicated Work Page & Filterable Showcase
-│   │   └── common/                    # ReturnToPortfolio escape bar, Modals, Loaders
+│   ├── carepoint/                     # Reserved CarePoint Application Slot
+│   │   └── README.md                  # Integration guide & contract
 │   │
-│   ├── pages/
-│   │   ├── HomePage.tsx               # Portfolio landing page (/)
-│   │   ├── WorkPage.tsx               # Dedicated Work page (/work)
-│   │   └── NotFoundPage.tsx           # 404 handler with return links
-│   │
-│   ├── styles/
-│   │   ├── portfolio.module.css       # Scoped CSS modules (No global tag pollution)
-│   │   └── base.css                   # Scoped container reset
-│   │
-│   └── projects/                      # Standalone Project Sub-Apps (Code-Split / Lazy-Loaded)
-│       ├── apex/                      # Apex Facilities Group (/work/apex/*)
-│       ├── kasicart/                  # KasiCart South African Commerce (/work/kasicart/*)
-│       ├── carepoint/                 # CarePoint Healthcare Discovery (Integration slot)
-│       └── project-four/              # Reserved future slot
+│   └── project-four/                  # Reserved Future Application Slot
+│       └── README.md
 │
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml                 # Automated CI/CD GitHub Pages deployment workflow
+│       └── deploy.yml                 # Multi-app CI/CD build & GitHub Pages deployment
 │
-├── index.html                         # Vite HTML template with SEO tags & SPA loader script
-├── vite.config.ts                     # Optimized bundler config with chunk code-splitting
-├── tsconfig.json                      # Strict TypeScript configuration
-└── package.json
+├── assemble-dist.js                   # Assembles independent dist outputs into GitHub Pages tree
+├── package.json                       # Root workspace orchestrator
+└── README.md
 ```
 
 ---
 
-## 🔒 Strict Project Isolation
+## 🔒 Complete Architectural & Runtime Isolation
 
-Each project hosted on GraffGrid is treated as an independent product:
-
-| Dimension | Isolation Strategy |
+| Dimension | Isolation Implementation |
 |---|---|
-| **CSS / Design System** | Portfolio styling uses scoped CSS modules. Project applications mount inside dedicated container elements with isolated CSS scopes. No global style pollution between projects. |
-| **State Management** | Context stores, cart state, and UI state remain entirely inside each project's React subtree. |
-| **Navigation & Escape** | Each project retains its own internal navigation. An unobtrusive floating bar (`← GraffGrid`) allows instant return to `/work` with scroll memory. |
-| **Asset & Code Loading** | Standalone project chunks are lazy-loaded on demand via `React.lazy()`—the portfolio homepage remains lightweight and fast. |
+| **Independent Codebases** | The portfolio contains **zero** project application imports. It knows only metadata (title, summary, tags, URL). |
+| **Independent Routing** | Portfolio, Apex, and KasiCart have their own `BrowserRouter` with dedicated base paths (`/`, `/work/apex/`, `/work/kasicart/`). |
+| **Independent State** | KasiCart cart/wishlist context, Apex CRM forms, and Portfolio state never overlap. |
+| **CSS & Design Systems** | Each app owns its own CSS environment. Apex uses warm stone/ink styles; KasiCart uses cream/terracotta; Portfolio uses dark slate. |
+| **Asset & Metadata Isolation** | Each app has its own document title, meta tags, and favicons. |
+| **Unobtrusive Exit** | Standalone apps include a native `<a href="/work">` escape button (`← GraffGrid`) to return to the portfolio. |
 
 ---
 
-## 🧭 URL Architecture
+## 🌐 Public URL Architecture
 
-- `https://graffgrid.co.za/` — Personal portfolio overview & highlights
-- `https://graffgrid.co.za/work` — Filterable Work showcase with honest concept disclosures
-- `https://graffgrid.co.za/work/apex` — Apex Facilities Group interactive application
-- `https://graffgrid.co.za/work/kasicart` — KasiCart South African commerce platform
-- `https://graffgrid.co.za/work/carepoint` — CarePoint healthcare concept (Reserved integration slot)
-- `https://graffgrid.co.za/work/project-four` — Future reserved slot
+- `https://graffgrid.co.za/` — GraffGrid Portfolio Overview
+- `https://graffgrid.co.za/work` — Filterable Work Showcase
+- `https://graffgrid.co.za/work/apex` — Apex Facilities Group Standalone Application
+- `https://graffgrid.co.za/work/kasicart` — KasiCart South African Commerce Standalone Application
+- `https://graffgrid.co.za/work/carepoint` — CarePoint Healthcare Platform (Reserved Slot)
 
 ---
 
-## 📦 How to Import CarePoint (or Any New Project)
+## 🛠️ Independent Development Commands
 
-When the completed CarePoint project (or any new React project from an external AI environment) is ready, integrate it in 5 simple steps:
+### Run Any Application Independently:
+```bash
+# Run Portfolio App on http://localhost:5173/
+npm run dev:portfolio
 
-### Step 1: Place Project Files
-Copy your project components, pages, styles, and data into:
-```
-src/projects/carepoint/
-```
+# Run Apex App on http://localhost:5174/
+npm run dev:apex
 
-### Step 2: Ensure Routing Compatibility
-Wrap your routes or internal navigation with the base prefix `/work/carepoint` (or use the included `src/projects/carepoint/compat/next.tsx` helper).
-
-### Step 3: Mount in `src/App.tsx`
-Uncomment or add the lazy route:
-```tsx
-const CarePointApp = lazy(() => import('./projects/carepoint/CarePointApp'));
-
-<Route path="/work/carepoint/*" element={<CarePointApp />} />
+# Run KasiCart App on http://localhost:5175/
+npm run dev:kasicart
 ```
 
-### Step 4: Update the Project Registry
-In `src/config/projects.ts`, update the CarePoint entry:
-```ts
-{
-  id: 'carepoint',
-  title: 'CarePoint',
-  status: 'live', // Change from 'coming-soon' to 'live'
-  ...
-}
+### Build Any Application Independently:
+```bash
+# Build Portfolio
+npm run build:portfolio
+
+# Build Apex
+npm run build:apex
+
+# Build KasiCart
+npm run build:kasicart
 ```
 
-### Step 5: Test & Deploy
+### Build & Assemble Entire Platform for Deployment:
 ```bash
 npm run build
-npm run preview
 ```
 
 ---
 
-## 🛠️ Local Development Commands
+## 🚀 GitHub Pages Multi-App Deployment Assembly
 
-```bash
-# Install dependencies
-npm install
+The build script compiles each application independently and `assemble-dist.js` structures the static files:
 
-# Start local development server
-npm run dev
-
-# Build production bundle with TypeScript type-checking
-npm run build
-
-# Preview production build locally
-npm run preview
+```
+dist/
+├── CNAME                              # graffgrid.co.za
+├── 404.html                           # Multi-app SPA redirector
+├── favicon.svg
+├── index.html                         # GraffGrid entry
+├── assets/                            # Portfolio JS/CSS assets
+│
+└── work/
+    ├── apex/
+    │   ├── index.html                 # Apex entry point
+    │   └── assets/                    # Apex JS/CSS assets
+    │
+    └── kasicart/
+        ├── index.html                 # KasiCart entry point
+        └── assets/                    # KasiCart JS/CSS assets
 ```
 
----
-
-## 🚀 Deployment to GitHub Pages
-
-The repository includes:
-1. `public/CNAME`: Pre-configured for `graffgrid.co.za`.
-2. `public/404.html`: Single Page Application (SPA) redirect script that prevents 404 errors on direct deep URL access (e.g., `https://graffgrid.co.za/work/apex`).
-3. `.github/workflows/deploy.yml`: GitHub Actions automated build and deployment to GitHub Pages upon pushing to `main` or `master`.
+Deep-linking directly to nested routes (e.g. `https://graffgrid.co.za/work/apex/services/reactive-repairs` or `https://graffgrid.co.za/work/kasicart/shop`) will redirect through `404.html` and restore the sub-application route cleanly without 404 errors.
 
 ---
 
-## 👤 Identity & Honest Positioning
+## 📦 How to Add CarePoint (or Future Projects)
 
-- **Developer**: Mpho Dlamini (GraffGrid)
+1. Place completed standalone React app into `projects/carepoint/`.
+2. Configure `base: mode === 'production' ? '/work/carepoint/' : '/'` in `vite.config.ts`.
+3. Add `"projects/carepoint"` to `workspaces` in root `package.json`.
+4. In `assemble-dist.js`, add copy step to `dist/work/carepoint/`.
+5. Update `status: 'live'` in `portfolio/src/config/projects.ts`.
+6. Run `npm run build` and deploy.
+
+---
+
+## 👤 Developer & Contact
+
+- **Mpho Dlamini** (GraffGrid)
 - **Contact**: `Mphojunior6@gmail.com` · `067 602 9081` · Durban, KwaZulu-Natal
 - **GitHub**: [github.com/Just4Skii](https://github.com/Just4Skii)
 - **LinkedIn**: [tinyurl.com/Mpho-dlamini](https://tinyurl.com/Mpho-dlamini)
-- **Positioning**: All exploratory projects (Apex, KasiCart, CarePoint) are clearly disclosed as independent concepts designed and engineered from scratch.
