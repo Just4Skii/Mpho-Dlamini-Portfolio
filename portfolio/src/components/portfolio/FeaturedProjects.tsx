@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../styles/portfolio.module.css';
-import { getFeaturedProjects } from '../../config/projects';
+import { getFeaturedProjects, getAppUrl } from '../../config/projects';
 
 export const FeaturedProjects: React.FC = () => {
   const platformProjects = getFeaturedProjects();
@@ -89,7 +89,7 @@ export const FeaturedProjects: React.FC = () => {
             };
 
             return isLive ? (
-              <a key={p.id} href={p.path} style={cardStyle}>
+              <a key={p.id} href={getAppUrl(p.path)} style={cardStyle}>
                 {cardContent}
               </a>
             ) : (
