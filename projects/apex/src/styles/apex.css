@@ -30,16 +30,16 @@
   --font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
-  /* Compatibility aliases for ported Vite components (bg-ink, bg-stone etc) */
-  --color-ink: #0F0F0F;
-  --color-ink-2: #1A1A1A;
-  --color-stone: #F7F5F1;
-  --color-stone-2: #EDE9E3;
-  --color-concrete: #8A8D93;
-  --color-concrete-light: #D9D9D2;
-  --color-amber: #C98A2E;
-  --color-amber-hover: #B47A28;
-  --color-amber-light: #FFF4E0;
+  /* Compatibility aliases for ported Vite components (bg-ink, bg-stone etc) — matched to original palette */
+  --color-ink: #16181c;
+  --color-ink-2: #2b3037;
+  --color-stone: #faf9f6;
+  --color-stone-2: #f6f4ef;
+  --color-concrete: #78807f;
+  --color-concrete-light: #eceeed;
+  --color-amber: #c08a3e;
+  --color-amber-hover: #a97431;
+  --color-amber-light: #efece5;
 }
 
 @theme inline {
@@ -91,15 +91,15 @@
 
 /* Apex Scoped Design System */
 .apex-root {
-  --apex-ink: #0F0F0F;
-  --apex-ink-2: #1A1A1A;
-  --apex-stone: #F7F5F1;
-  --apex-stone-2: #EDE9E3;
-  --apex-concrete: #8A8D93;
-  --apex-concrete-light: #D9D9D2;
-  --apex-amber: #C98A2E;
-  --apex-amber-hover: #B47A28;
-  --apex-amber-light: #FFF4E0;
+  --apex-ink: #16181c;
+  --apex-ink-2: #2b3037;
+  --apex-stone: #faf9f6;
+  --apex-stone-2: #f6f4ef;
+  --apex-concrete: #78807f;
+  --apex-concrete-light: #eceeed;
+  --apex-amber: #c08a3e;
+  --apex-amber-hover: #a97431;
+  --apex-amber-light: #efece5;
   
   background-color: var(--apex-stone);
   color: var(--apex-ink);
@@ -113,7 +113,6 @@
 }
 
 .apex-root a {
-  color: inherit;
   text-decoration: none;
 }
 
