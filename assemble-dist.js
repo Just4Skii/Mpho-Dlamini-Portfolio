@@ -22,6 +22,7 @@ const rootDist = path.resolve('dist');
 const portfolioDist = path.resolve('portfolio/dist');
 const apexDist = path.resolve('projects/apex/dist');
 const kasiDist = path.resolve('projects/kasicart/dist');
+const carepointDist = path.resolve('projects/carepoint/dist');
 
 // 1. Clean root dist
 if (fs.existsSync(rootDist)) {
@@ -43,10 +44,15 @@ console.log('Copying KasiCart output to dist/work/kasicart/...');
 const kasiDest = path.join(rootDist, 'work', 'kasicart');
 copyDir(kasiDist, kasiDest);
 
-// 5. Ensure CNAME
+// 5. Copy CarePoint output to dist/work/carepoint/
+console.log('Copying CarePoint output to dist/work/carepoint/...');
+const carepointDest = path.join(rootDist, 'work', 'carepoint');
+copyDir(carepointDist, carepointDest);
+
+// 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
 
-// 6. Master 404.html for GitHub Pages multi-app SPA deep linking
+// 7. Master 404.html for GitHub Pages multi-app SPA deep linking
 const master404Html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,6 +74,14 @@ const master404Html = `<!DOCTYPE html>
         }
       } else if (path.indexOf('/work/kasicart') === 0) {
         var base = '/work/kasicart';
+        var rest = path.slice(base.length);
+        if (rest === '' || rest === '/') {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
+        } else {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+        }
+      } else if (path.indexOf('/work/carepoint') === 0) {
+        var base = '/work/carepoint';
         var rest = path.slice(base.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');

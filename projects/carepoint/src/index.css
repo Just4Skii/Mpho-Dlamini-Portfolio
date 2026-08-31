@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --color-paper: #f4f2ea;
+  --color-cream: #fbfaf5;
+  --color-card: #fefdfa;
+  --color-ink: #1f2d28;
+  --color-ink-2: #4c5b54;
+  --color-ink-3: #7e8b84;
+  --color-line: #e2ddd0;
+  --color-line-2: #cfc9b8;
+
+  --color-pine: #14584b;
+  --color-pine-2: #0d4237;
+  --color-pine-3: #e4ede7;
+  --color-pine-4: #c3d8cd;
+
+  --color-night: #16211d;
+  --color-night-2: #1f2e28;
+
+  --color-gold: #8f6410;
+  --color-gold-bg: #f5ecd8;
+
+  --color-danger: #a63a2b;
+  --color-danger-bg: #f6e7e2;
+
+  --color-info: #33566b;
+  --color-info-bg: #e6edf1;
+
+  --shadow-card: 0 1px 2px rgb(31 45 40 / 0.05), 0 4px 14px rgb(31 45 40 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(31 45 40 / 0.07), 0 14px 34px rgb(31 45 40 / 0.12);
+  --shadow-sheet: 0 -10px 40px rgb(22 33 29 / 0.22);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  font-feature-settings: "ss01" on;
+}
+
+::selection {
+  background: var(--color-pine-4);
+  color: var(--color-pine-2);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pine);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .kicker {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-pine;
+  }
+  .card {
+    @apply rounded-xl border border-line bg-card;
+    box-shadow: var(--shadow-card);
+  }
+  .hairline-t {
+    @apply border-t border-line;
+  }
+  .dotgrid {
+    background-image: radial-gradient(var(--color-line-2) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .plusgrid {
+    background-image:
+      linear-gradient(var(--color-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-line) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+}
+
+/* ---------- motion ---------- */
+
+@keyframes cp-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cp-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes cp-sheet-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+@keyframes cp-pop {
+  0% { transform: scale(0.6); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+@keyframes cp-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+@keyframes cp-ecg {
+  from { stroke-dashoffset: 1200; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes cp-toast-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.anim-fade-up { animation: cp-fade-up 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-fade { animation: cp-fade 0.4s ease both; }
+.anim-sheetagger > * { animation: cp-fade-up 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.anim-stagger > *:nth-child(2) { animation-delay: 0.07s; }
+.anim-stagger > *:nth-child(3) { animation-delay: 0.12s; }
+.anim-stagger > *:nth-child(4) { animation-delay: 0.17s; }
+.anim-stagger > *:nth-child(5) { animation-delay: 0.22s; }
+.anim-stagger > *:nth-child(6) { animation-delay: 0.27s; }
+.anim-stagger > *:nth-child(7) { animation-delay: 0.32s; }
+.anim-stagger > *:nth-child(8) { animation-delay: 0.37s; }
+
+.anim-pop { animation: cp-pop 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.anim-pulse-dot { animation: cp-pulse 1.8s ease-in-out infinite; }
+.anim-toast { animation: cp-toast-in 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-ecg {
+  stroke-dasharray: 1200;
+  animation: cp-ecg 7s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.slim-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+.slim-scroll::-webkit-scrollbar-thumb { background: var(--color-line-2); border-radius: 99px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

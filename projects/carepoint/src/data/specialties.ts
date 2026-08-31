@@ -1,0 +1,248 @@
+import type { Specialty } from "../types";
+
+export const SPECIALTIES: Specialty[] = [
+  {
+    slug: "general-practitioner",
+    name: "General Practitioner",
+    plural: "General Practitioners",
+    icon: "stethoscope",
+    short: "GP",
+    tagline: "Whole-person, first-point-of-care medicine for the whole family.",
+    whatTheyDo:
+      "General Practitioners (GPs) diagnose and treat a wide range of common illnesses, manage ongoing conditions such as hypertension and diabetes, and coordinate referrals to specialists when needed. They are usually the first port of call for everyday health concerns.",
+    commonReasons: [
+      "Flu, infections and general illness",
+      "Ongoing condition management (blood pressure, diabetes, thyroid)",
+      "Health screenings and executive check-ups",
+      "Travel advice and vaccinations",
+      "Repeat prescriptions and referrals",
+      "Minor procedures such as sutures and skin lesions",
+    ],
+    whatToExpect: [
+      "A conversation about your symptoms and medical history",
+      "Basic examinations such as blood pressure, pulse and temperature",
+      "A clear plan: treatment, medication, tests or referral",
+      "A follow-up plan if your condition needs monitoring",
+    ],
+  },
+  {
+    slug: "dentist",
+    name: "Dentist",
+    plural: "Dentists",
+    icon: "tooth",
+    short: "Dentist",
+    tagline: "Preventive and restorative care for teeth, gums and oral health.",
+    whatTheyDo:
+      "Dentists look after the health of your teeth, gums and mouth — from routine check-ups and cleans to fillings, root canal treatment and extractions. Regular dental visits help catch problems early, when they are simplest to treat.",
+    commonReasons: [
+      "Routine check-up and professional clean",
+      "Tooth pain or sensitivity",
+      "Fillings and restorations",
+      "Gum bleeding or inflammation",
+      "Wisdom tooth concerns",
+      "Whitening and cosmetic consultations",
+    ],
+    whatToExpect: [
+      "A review of your dental history and any concerns",
+      "An examination of teeth and gums, sometimes with X-rays",
+      "A hygiene clean where appropriate",
+      "A written treatment plan and transparent cost estimate",
+    ],
+  },
+  {
+    slug: "physiotherapist",
+    name: "Physiotherapist",
+    plural: "Physiotherapists",
+    icon: "activity",
+    short: "Physio",
+    tagline: "Movement, rehabilitation and pain management through physical therapy.",
+    whatTheyDo:
+      "Physiotherapists assess and treat problems with muscles, joints, ligaments and nerves. They use manual therapy, exercise programmes and education to reduce pain and restore movement — from sports injuries to post-surgical rehabilitation.",
+    commonReasons: [
+      "Back, neck and shoulder pain",
+      "Sports injuries and sprains",
+      "Rehabilitation after surgery or injury",
+      "Headaches linked to posture or tension",
+      "Joint stiffness and mobility problems",
+      "Workstation and posture assessments",
+    ],
+    whatToExpect: [
+      "A movement and posture assessment",
+      "Hands-on treatment where appropriate",
+      "A tailored home exercise programme",
+      "Guidance on recovery timelines and prevention",
+    ],
+  },
+  {
+    slug: "psychologist",
+    name: "Psychologist",
+    plural: "Psychologists",
+    icon: "brain",
+    short: "Psychologist",
+    tagline: "Evidence-based support for stress, mood, relationships and wellbeing.",
+    whatTheyDo:
+      "Psychologists offer structured, evidence-based therapy for anxiety, low mood, stress, grief, relationship difficulties and more. Sessions are confidential and focused on practical tools you can use between appointments.",
+    commonReasons: [
+      "Anxiety, panic or persistent worry",
+      "Low mood or loss of motivation",
+      "Stress, burnout and sleep difficulties",
+      "Grief and life transitions",
+      "Relationship and family concerns",
+      "Support alongside medical treatment",
+    ],
+    whatToExpect: [
+      "An initial session to understand what brings you in",
+      "Agreement on goals and a rough plan for therapy",
+      "Regular confidential sessions, usually 50 minutes",
+      "Practical strategies to practise between sessions",
+    ],
+  },
+  {
+    slug: "dermatologist",
+    name: "Dermatologist",
+    plural: "Dermatologists",
+    icon: "spark",
+    short: "Dermatology",
+    tagline: "Medical and surgical care for skin, hair and nails.",
+    whatTheyDo:
+      "Dermatologists diagnose and treat conditions of the skin, hair and nails — from acne and eczema to suspicious moles and skin surgery. They can also advise on medically necessary treatments versus cosmetic options.",
+    commonReasons: [
+      "Persistent acne or rosacea",
+      "Eczema, psoriasis or rashes",
+      "Mole checks and skin cancer screening",
+      "Hair loss concerns",
+      "Nail disorders",
+      "Removal of skin growths",
+    ],
+    whatToExpect: [
+      "A full history of the skin concern and treatments tried",
+      "A visual examination, sometimes with dermatoscopy",
+      "A diagnosis discussion with treatment options",
+      "Biopsy or minor procedures where clinically indicated",
+    ],
+  },
+  {
+    slug: "optometrist",
+    name: "Optometrist",
+    plural: "Optometrists",
+    icon: "eye",
+    short: "Optometrist",
+    tagline: "Eye examinations, vision correction and ongoing eye health.",
+    whatTheyDo:
+      "Optometrists examine your eyes and vision, prescribe glasses and contact lenses, and screen for eye disease. They refer to ophthalmologists when medical or surgical eye care is needed.",
+    commonReasons: [
+      "Blurred vision or eye strain",
+      "New or updated glasses prescription",
+      "Contact lens fitting",
+      "Routine eye health screening",
+      "Dry or irritated eyes",
+      "Children's vision checks",
+    ],
+    whatToExpect: [
+      "Questions about your vision and daily tasks",
+      "Tests for visual acuity and eye pressure",
+      "An internal eye examination",
+      "A prescription or referral where needed",
+    ],
+  },
+  {
+    slug: "dietitian",
+    name: "Dietitian",
+    plural: "Dietitians",
+    icon: "leaf",
+    short: "Dietitian",
+    tagline: "Personalised, evidence-based nutrition for health and medical conditions.",
+    whatTheyDo:
+      "Registered dietitians translate nutrition science into practical eating plans — for medical conditions like diabetes and hypertension, digestive complaints, sports performance, or simply building a healthier relationship with food.",
+    commonReasons: [
+      "Nutrition support for diabetes or hypertension",
+      "Weight management",
+      "Digestive issues such as IBS",
+      "Sports and performance nutrition",
+      "Pregnancy and family nutrition",
+      "Vegetarian or allergen-aware meal planning",
+    ],
+    whatToExpect: [
+      "A detailed dietary and medical history",
+      "Realistic goals agreed with you, not imposed",
+      "A practical, culturally familiar meal approach",
+      "Follow-ups to adjust the plan as you progress",
+    ],
+  },
+  {
+    slug: "occupational-therapist",
+    name: "Occupational Therapist",
+    plural: "Occupational Therapists",
+    icon: "hand",
+    short: "OT",
+    tagline: "Helping people return to daily life after injury, illness or disability.",
+    whatTheyDo:
+      "Occupational therapists (OTs) help people regain independence in daily activities after injury, surgery, stroke or developmental challenges — at home, at school and at work. They also perform functional capacity assessments.",
+    commonReasons: [
+      "Rehabilitation after stroke or injury",
+      "Hand therapy and splinting",
+      "Home and workplace adaptation advice",
+      "Children's development and school readiness",
+      "Return-to-work assessments",
+      "Aids and adaptations for daily living",
+    ],
+    whatToExpect: [
+      "An assessment of the activities you find difficult",
+      "Practical strategies and exercises",
+      "Recommendations for aids or adaptations if needed",
+      "Reports for employers, insurers or schools where requested",
+    ],
+  },
+  {
+    slug: "paediatrician",
+    name: "Paediatrician",
+    plural: "Paediatricians",
+    icon: "baby",
+    short: "Paediatrics",
+    tagline: "Specialist medical care for babies, children and adolescents.",
+    whatTheyDo:
+      "Paediatricians specialise in the physical, behavioural and developmental health of children — from newborn checks to adolescent medicine. They work closely with parents and GPs to support healthy development.",
+    commonReasons: [
+      "Newborn and well-baby checks",
+      "Recurrent infections or allergies",
+      "Growth and developmental concerns",
+      "Asthma, eczema and other chronic childhood conditions",
+      "Behavioural and sleep concerns",
+      "Second opinions on childhood illness",
+    ],
+    whatToExpect: [
+      "Time to discuss your child's history and your concerns",
+      "A gentle, age-appropriate examination",
+      "Clear guidance on treatment and what to watch for",
+      "A follow-up plan and open channel for questions",
+    ],
+  },
+  {
+    slug: "psychiatrist",
+    name: "Psychiatrist",
+    plural: "Psychiatrists",
+    icon: "moon",
+    short: "Psychiatry",
+    tagline: "Medical assessment and treatment of mental health conditions.",
+    whatTheyDo:
+      "Psychiatrists are medical doctors who diagnose and treat mental health conditions, including prescribing medication where appropriate. They often work alongside psychologists and GPs for comprehensive care.",
+    commonReasons: [
+      "Assessment for anxiety or depressive disorders",
+      "Medication review and management",
+      "ADHD assessment and treatment",
+      "Sleep disorders with a medical component",
+      "Bipolar and psychotic disorders",
+      "Support during difficult life events",
+    ],
+    whatToExpect: [
+      "A thorough medical and psychiatric assessment",
+      "Discussion of treatment options, including non-medication routes",
+      "Prescription and monitoring plans where medication is used",
+      "Coordination with your GP or psychologist",
+    ],
+  },
+];
+
+export function getSpecialty(slug: string | undefined | null): Specialty | undefined {
+  return SPECIALTIES.find((s) => s.slug === slug);
+}

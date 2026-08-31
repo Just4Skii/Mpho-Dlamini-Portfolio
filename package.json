@@ -6,33 +6,50 @@
   "workspaces": [
     "portfolio",
     "projects/apex",
-    "projects/kasicart"
+    "projects/kasicart",
+    "projects/carepoint"
   ],
   "scripts": {
     "dev": "npm --workspace=portfolio run dev",
     "dev:portfolio": "npm --workspace=portfolio run dev",
     "dev:apex": "npm --workspace=apex-facilities-group run dev",
     "dev:kasicart": "npm --workspace=kasicart run dev",
+    "dev:carepoint": "npm --workspace=carepoint run dev",
     "build:portfolio": "npm --workspace=portfolio run build",
     "build:apex": "npm --workspace=apex-facilities-group run build",
     "build:kasicart": "npm --workspace=kasicart run build",
-    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && node assemble-dist.js",
+    "build:carepoint": "npm --workspace=carepoint run build",
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && node assemble-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
+    "@dnd-kit/sortable": "^8.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@supabase/supabase-js": "^2.98.0",
+    "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
+    "date-fns": "^2.30.0",
     "framer-motion": "^12.4.7",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.2.0",
-    "tailwind-merge": "^3.0.1"
+    "recharts": "^2.10.0",
+    "tailwind-merge": "^3.0.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "@types/canvas-confetti": "^1.6.4",
+    "@types/leaflet": "^1.9.16",
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "@types/uuid": "^9.0.7",
     "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.7",
     "typescript": "^5.7.3",
     "vite": "^6.1.0"
   }

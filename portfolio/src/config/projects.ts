@@ -57,7 +57,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     summary: 'Modern South African healthcare discovery and appointment platform with interactive search, scheduling, accessibility, and frontend UX.',
     detailedDescription: 'A comprehensive healthcare platform exploring provider directory search, clinic location maps, accessible appointment scheduling, and patient journey flows tailored for South African healthcare access.',
     honestDisclosure: 'Independent healthcare product concept exploring provider discovery, scheduling, location-aware search and accessible digital care experiences.',
-    status: 'coming-soon',
+    status: 'live',
     path: '/work/carepoint',
     githubUrl: 'https://github.com/Just4Skii',
     capabilities: [
