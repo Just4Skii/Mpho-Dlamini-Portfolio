@@ -4,15 +4,15 @@ import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: mode === 'production' ? '/work/carepoint/' : '/',
+  base: './',
   build: {
     outDir: 'dist',
   },
-}));
+});

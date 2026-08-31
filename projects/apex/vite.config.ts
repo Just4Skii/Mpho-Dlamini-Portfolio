@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
@@ -11,8 +11,8 @@ export default defineConfig(({ mode }) => ({
       { find: '@', replacement: path.resolve(__dirname, './src') },
     ],
   },
-  base: mode === 'production' ? '/work/apex/' : '/',
+  base: './',
   build: {
     outDir: 'dist',
   },
-}));
+});
