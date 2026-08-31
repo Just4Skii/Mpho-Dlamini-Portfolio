@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default function SectorDetail() {
   const { slug } = useParams<{ slug: string }>();
   const sector = sectors.find((s) => s.slug === slug);
-  if (!sector) notFound();
+  if (!sector) return notFound();
 
   // find relevant project
   const relatedProject = projects.find((p) => p.sector.toLowerCase().includes(sector.name.toLowerCase().split(" ")[0])) || projects[0];

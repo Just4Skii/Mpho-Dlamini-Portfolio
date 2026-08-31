@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const service = services.find((s) => s.slug === slug);
-  if (!service) notFound();
+  if (!service) return notFound();
 
   const faqs: Record<string, { q: string; a: string }[]> = {
     "reactive-repairs": [
