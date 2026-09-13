@@ -1,164 +1,182 @@
-# GraffGrid — Independent Developer Portfolio & Project Platform
+# GraffGrid — Mpho Dlamini's Developer Portfolio Platform
 
-A modern, high-performance **independent multi-application platform** for **Mpho Dlamini** ([graffgrid.co.za](https://graffgrid.co.za)).
+> **Software Developer | Full Stack & AI**  
+> C# / .NET • ASP.NET Core/MVC • React/TypeScript • SQL • Azure/OpenAI • AI/NLP/Computer Vision
 
-Rather than a monolithic single-page app, GraffGrid is engineered as a **collection of truly independent React applications** developed, built, tested, and updated independently under the same domain.
+[Live portfolio](https://graffgrid.co.za) · [GitHub](https://github.com/Just4Skii) · [LinkedIn](https://tinyurl.com/Mpho-dlamini)
 
----
+GraffGrid is Mpho Dlamini's independent developer portfolio and project platform. Instead of presenting work as screenshots and disconnected links, the platform treats each showcased application as an independently buildable web product while maintaining one coherent public portfolio.
 
-## 🏛️ Directory & Application Architecture
+## Why this repository is interesting
 
+This repository demonstrates **software architecture and delivery**, not just UI work:
+
+- Independent React applications living under one public domain
+- TypeScript-based frontend development with React and Vite
+- Shared platform orchestration without coupling project source code together
+- Route and state isolation between separate applications
+- Per-application assets, document metadata and styling
+- A multi-app build pipeline that assembles independent build outputs into one deployable site
+- GitHub Actions deployment automation
+- Production-oriented deep-link handling for nested application routes
+
+## Platform architecture
+
+```text
+                        GraffGrid Platform
+                               │
+              ┌────────────────┴────────────────┐
+              │                                 │
+        Portfolio App                     Project Apps
+          `/` + `/work`                  `/work/*`
+              │                                 │
+       projects.ts metadata        ┌────────────┼────────────┐
+              │                    │            │            │
+              ▼                    ▼            ▼            ▼
+        Showcase UI              Apex       KasiCart     CarePoint*
+                              standalone   standalone   reserved slot
+
+                         Root workspace
+                              │
+                              ▼
+                     npm build orchestration
+                              │
+                              ▼
+                    assemble-dist.js
+                              │
+                              ▼
+                   Single production tree
+                              │
+                              ▼
+                       GitHub Pages
+                              │
+                              ▼
+                     graffgrid.co.za
 ```
-graffgrid/ (Workspace Root)
-│
-├── backup/
-│   └── mpho_portfolio.html            # Original preserved single-file HTML portfolio
-│
-├── portfolio/                         # Independent React App: GraffGrid Portfolio (/)
-│   ├── src/
-│   │   ├── components/                # Scoped portfolio & showcase components
-│   │   ├── config/projects.ts         # Metadata registry ONLY (Zero project code imports)
-│   │   ├── pages/                     # HomePage (/), WorkPage (/work), 404
-│   │   └── styles/                    # Scoped CSS modules
-│   ├── public/                        # CNAME, favicon.svg
-│   ├── index.html                     # Title: Mpho Dlamini — GraffGrid Portfolio
-│   ├── vite.config.ts                 # base: '/' -> builds to portfolio/dist
-│   ├── tsconfig.json
-│   └── package.json
-│
+
+`projects.ts` contains project metadata for the portfolio; the portfolio does not import the application implementations themselves. This keeps the showcase layer decoupled from the applications it presents.
+
+## Application isolation
+
+| Concern | Approach |
+|---|---|
+| Code | Each React application has its own source tree and build configuration |
+| Routing | Each application owns its router and production base path |
+| State | Application state is local to the application that owns it |
+| Styling | Each app owns its own styling environment |
+| Assets | Each app ships its own public assets and metadata |
+| Deployment | Independent builds are assembled into a single deployable tree |
+
+## Public applications
+
+- **GraffGrid Portfolio** — `https://graffgrid.co.za/`
+- **Work Showcase** — `https://graffgrid.co.za/work`
+- **Apex Facilities Group** — `https://graffgrid.co.za/work/apex`
+- **KasiCart** — `https://graffgrid.co.za/work/kasicart`
+- **CarePoint** — reserved integration slot
+
+## Technology
+
+**Frontend:** React 19, TypeScript, Vite, React Router 7, Tailwind CSS, Framer Motion, Recharts, Leaflet
+
+**Application services:** Supabase client integration where required by individual applications
+
+**Delivery:** npm workspaces, Node.js build orchestration, custom `assemble-dist.js`, GitHub Actions, GitHub Pages
+
+## Repository structure
+
+```text
+graffgrid/
+├── portfolio/                  # Main portfolio React application
 ├── projects/
-│   │
-│   ├── apex/                          # Independent React App: Apex Facilities Group
-│   │   ├── src/                       # Complete standalone source (components, pages, lib)
-│   │   ├── public/                    # Dedicated favicon.svg, assets
-│   │   ├── index.html                 # Title: Apex Facilities Group
-│   │   ├── vite.config.ts             # base: '/work/apex/' -> builds to projects/apex/dist
-│   │   ├── tsconfig.json
-│   │   ├── package.json
-│   │   └── README.md
-│   │
-│   ├── kasicart/                      # Independent React App: KasiCart
-│   │   ├── src/                       # Complete standalone source (components, store, data)
-│   │   ├── public/                    # Dedicated favicon.ico, assets
-│   │   ├── index.html                 # Title: KasiCart — Good things, close to home
-│   │   ├── vite.config.ts             # base: '/work/kasicart/' -> builds to projects/kasicart/dist
-│   │   ├── tsconfig.json
-│   │   ├── package.json
-│   │   └── README.md
-│   │
-│   ├── carepoint/                     # Reserved CarePoint Application Slot
-│   │   └── README.md                  # Integration guide & contract
-│   │
-│   └── project-four/                  # Reserved Future Application Slot
-│       └── README.md
-│
-├── .github/
-│   └── workflows/
-│       └── deploy.yml                 # Multi-app CI/CD build & GitHub Pages deployment
-│
-├── assemble-dist.js                   # Assembles independent dist outputs into GitHub Pages tree
-├── package.json                       # Root workspace orchestrator
+│   ├── apex/                   # Independent Apex application
+│   ├── kasicart/               # Independent KasiCart application
+│   ├── carepoint/              # Reserved application slot
+│   └── project-four/           # Reserved future slot
+├── .github/workflows/          # CI/CD workflow(s)
+├── assemble-dist.js            # Production output assembly
+├── package.json                # Root workspace + orchestration scripts
 └── README.md
 ```
 
----
+## Development
 
-## 🔒 Complete Architectural & Runtime Isolation
+Install dependencies from the workspace root:
 
-| Dimension | Isolation Implementation |
-|---|---|
-| **Independent Codebases** | The portfolio contains **zero** project application imports. It knows only metadata (title, summary, tags, URL). |
-| **Independent Routing** | Portfolio, Apex, and KasiCart have their own `BrowserRouter` with dedicated base paths (`/`, `/work/apex/`, `/work/kasicart/`). |
-| **Independent State** | KasiCart cart/wishlist context, Apex CRM forms, and Portfolio state never overlap. |
-| **CSS & Design Systems** | Each app owns its own CSS environment. Apex uses warm stone/ink styles; KasiCart uses cream/terracotta; Portfolio uses dark slate. |
-| **Asset & Metadata Isolation** | Each app has its own document title, meta tags, and favicons. |
-| **Unobtrusive Exit** | Standalone apps include a native `<a href="/work">` escape button (`← GraffGrid`) to return to the portfolio. |
-
----
-
-## 🌐 Public URL Architecture
-
-- `https://graffgrid.co.za/` — GraffGrid Portfolio Overview
-- `https://graffgrid.co.za/work` — Filterable Work Showcase
-- `https://graffgrid.co.za/work/apex` — Apex Facilities Group Standalone Application
-- `https://graffgrid.co.za/work/kasicart` — KasiCart South African Commerce Standalone Application
-- `https://graffgrid.co.za/work/carepoint` — CarePoint Healthcare Platform (Reserved Slot)
-
----
-
-## 🛠️ Independent Development Commands
-
-### Run Any Application Independently:
 ```bash
-# Run Portfolio App on http://localhost:5173/
+npm install
+```
+
+Run individual applications:
+
+```bash
 npm run dev:portfolio
-
-# Run Apex App on http://localhost:5174/
 npm run dev:apex
-
-# Run KasiCart App on http://localhost:5175/
 npm run dev:kasicart
 ```
 
-### Build Any Application Independently:
+Build individual applications:
+
 ```bash
-# Build Portfolio
 npm run build:portfolio
-
-# Build Apex
 npm run build:apex
-
-# Build KasiCart
 npm run build:kasicart
 ```
 
-### Build & Assemble Entire Platform for Deployment:
+Build the complete production platform:
+
 ```bash
 npm run build
 ```
 
----
+The root build compiles the applications independently and then runs `assemble-dist.js` to construct the final deployable tree.
 
-## 🚀 GitHub Pages Multi-App Deployment Assembly
+## Deployment model
 
-The build script compiles each application independently and `assemble-dist.js` structures the static files:
+The production site is assembled from independently built applications:
 
-```
+```text
 dist/
-├── CNAME                              # graffgrid.co.za
-├── 404.html                           # Multi-app SPA redirector
-├── favicon.svg
-├── index.html                         # GraffGrid entry
-├── assets/                            # Portfolio JS/CSS assets
-│
+├── CNAME
+├── index.html
+├── assets/
 └── work/
     ├── apex/
-    │   ├── index.html                 # Apex entry point
-    │   └── assets/                    # Apex JS/CSS assets
-    │
     └── kasicart/
-        ├── index.html                 # KasiCart entry point
-        └── assets/                    # KasiCart JS/CSS assets
 ```
 
-Deep-linking directly to nested routes (e.g. `https://graffgrid.co.za/work/apex/services/reactive-repairs` or `https://graffgrid.co.za/work/kasicart/shop`) will redirect through `404.html` and restore the sub-application route cleanly without 404 errors.
+The repository also includes a `404.html` route-recovery mechanism so direct navigation into nested SPA routes can be restored after static hosting redirects.
 
----
+## Engineering decisions
 
-## 📦 How to Add CarePoint (or Future Projects)
+### Why separate applications?
 
-1. Place completed standalone React app into `projects/carepoint/`.
-2. Configure `base: mode === 'production' ? '/work/carepoint/' : '/'` in `vite.config.ts`.
-3. Add `"projects/carepoint"` to `workspaces` in root `package.json`.
-4. In `assemble-dist.js`, add copy step to `dist/work/carepoint/`.
-5. Update `status: 'live'` in `portfolio/src/config/projects.ts`.
-6. Run `npm run build` and deploy.
+A monolithic portfolio would tightly couple showcase code with demonstration projects. GraffGrid instead treats each showcased experience as a small product that can evolve independently while the portfolio acts as the discovery and presentation layer.
 
----
+### Why a metadata registry?
 
-## 👤 Developer & Contact
+The portfolio only needs project identity, descriptions, tags and destination paths. Keeping that information in a registry avoids importing project implementations into the portfolio and reduces coupling.
 
-- **Mpho Dlamini** (GraffGrid)
-- **Contact**: `Mphojunior6@gmail.com` · `067 602 9081` · Durban, KwaZulu-Natal
-- **GitHub**: [github.com/Just4Skii](https://github.com/Just4Skii)
-- **LinkedIn**: [tinyurl.com/Mpho-dlamini](https://tinyurl.com/Mpho-dlamini)
+### Why a custom assembly step?
+
+GitHub Pages serves a static directory tree. `assemble-dist.js` gives the workspace a deterministic way to combine independent Vite outputs while preserving each application's route boundary.
+
+## Portfolio positioning
+
+This repository is the **presentation layer** for a wider engineering portfolio. The most relevant companion projects include:
+
+- [CognitiveVision.AI](https://github.com/Just4Skii/Ai-vision) — ASP.NET Core, Azure Computer Vision, Azure Blob Storage, caching and automated tests
+- [Student Management](https://github.com/Just4Skii/Student-management) — ASP.NET Core, Azure services and dedicated tests
+- [FixedFunding](https://github.com/Just4Skii/FixedFunding) — React/TypeScript product focused on funding and allowance workflows
+- [Solo Soul](https://github.com/Just4Skii/Solo-soul) — booking/product experience with Supabase-backed persistence
+
+The portfolio is intentionally positioned around **building and shipping software**, with student status as background rather than the central identity.
+
+## Developer
+
+**Mpho Dlamini** — Durban, South Africa  
+Software Developer focused on full-stack web development, C#/.NET and applied AI.
+
+GitHub: https://github.com/Just4Skii  
+Portfolio: https://graffgrid.co.za  
+LinkedIn: https://tinyurl.com/Mpho-dlamini
