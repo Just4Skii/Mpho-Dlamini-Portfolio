@@ -34,7 +34,7 @@ export const FeaturedProjects: React.FC = () => {
       <div className={styles.platformBanner}>
         <div className={styles.platformBannerHeader}>
           <div>
-            <div className={styles.sectionLabel} style={{ marginBottom: '6px', color: '#38bdf8' }}>
+            <div className={styles.sectionLabel} style={{ marginBottom: '6px' }}>
               ✦ Interactive Project Platform
             </div>
             <h2 className={styles.platformBannerTitle}>Engineered Web &amp; Product Experiences</h2>
@@ -48,57 +48,39 @@ export const FeaturedProjects: React.FC = () => {
         </div>
 
         {/* Mini project preview chips */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '12px', marginTop: '8px' }}>
+        <div className={styles.chipGrid}>
           {platformProjects.map((p) => {
             const isLive = p.status === 'live';
             const cardContent = (
               <>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                <div className={styles.chipTop}>
+                  <span className={styles.chipCat}>
                     {p.category.replace(' Experience', '')}
                   </span>
-                  <span style={{
-                    fontSize: '0.65rem',
-                    fontWeight: 700,
-                    padding: '2px 6px',
-                    borderRadius: '9999px',
-                    background: isLive ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)',
-                    color: isLive ? '#34d399' : '#fbbf24',
-                    border: `1px solid ${isLive ? 'rgba(52, 211, 153, 0.3)' : 'rgba(245, 158, 11, 0.3)'}`
-                  }}>
+                  <span className={`${styles.chipStatus} ${isLive ? styles.chipLive : styles.chipSoon}`}>
                     {isLive ? '● Live Project' : 'Coming Soon'}
                   </span>
                 </div>
-                <div style={{ fontWeight: 700, color: '#f8fafc', fontSize: '0.9rem', marginBottom: '4px' }}>
+                <div className={styles.chipTitle}>
                   {p.title}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.4 }}>
+                <div className={styles.chipCaps}>
                   {p.capabilities.slice(0, 3).join(' · ')}
                 </div>
               </>
             );
-
-            const cardStyle = {
-              background: 'rgba(15, 23, 42, 0.7)',
-              border: '1px solid rgba(51, 65, 85, 0.8)',
-              borderRadius: '10px',
-              padding: '14px',
-              textDecoration: 'none',
-              display: 'block',
-              transition: 'all 0.2s ease'
-            };
 
             return isLive ? (
               <a
                 key={p.id}
                 href={p.externalUrl ?? getAppUrl(p.path)}
                 {...(p.externalUrl ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                style={cardStyle}
+                className={styles.chip}
               >
                 {cardContent}
               </a>
             ) : (
-              <Link key={p.id} to="/work" style={cardStyle}>
+              <Link key={p.id} to="/work" className={styles.chip}>
                 {cardContent}
               </Link>
             );
@@ -110,24 +92,15 @@ export const FeaturedProjects: React.FC = () => {
       <div className={styles.sectionLabel}>Academic &amp; Hackathon Projects</div>
       <div className={styles.grid3}>
         {originalProjects.map((project, index) => (
-          <div 
-            key={index} 
-            className={styles.projectCard}
-            style={project.highlight ? { borderColor: '#38bdf8' } : undefined}
+          <div
+            key={index}
+            className={`${styles.projectCard} ${project.highlight ? styles.projectCardHighlight : ''}`}
           >
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                <h3 style={{ margin: 0 }}>{project.title}</h3>
+              <div className={styles.projectTitleRow}>
+                <h3>{project.title}</h3>
                 {project.badge && (
-                  <span style={{
-                    background: 'rgba(56, 189, 248, 0.1)',
-                    color: '#38bdf8',
-                    border: '1px solid rgba(56, 189, 248, 0.3)',
-                    fontSize: '0.7rem',
-                    fontWeight: 700,
-                    padding: '2px 8px',
-                    borderRadius: '9999px'
-                  }}>
+                  <span className={styles.projectBadge}>
                     {project.badge}
                   </span>
                 )}

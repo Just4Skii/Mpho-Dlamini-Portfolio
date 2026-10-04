@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
           <div className={styles.statusOverlay}>
             {isLive ? (
               <span className={styles.badgeLive}>
-                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#34d399' }} />
+                <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
                 Live Application
               </span>
             ) : (
@@ -46,7 +46,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
 
         {/* Honest Disclosure Box */}
         <div className={styles.disclosureNotice}>
-          <span style={{ color: '#38bdf8', fontWeight: 700 }}>✦</span>
+          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>✦</span>
           <span>{project.honestDisclosure}</span>
         </div>
 
