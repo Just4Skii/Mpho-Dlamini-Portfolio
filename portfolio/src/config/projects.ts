@@ -82,9 +82,9 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     honestDisclosure: 'Independent native Android product concept designed and developed from scratch. Direct-install open-source APK, not distributed via app stores.',
     status: 'live',
     path: '/work/stickerbridge',
-    externalUrl: 'https://skinny1ne.github.io/StickerBridge/',
-    downloadUrl: 'https://github.com/Skinny1ne/StickerBridge/raw/main/stickerbridge.apk',
-    githubUrl: 'https://github.com/Skinny1ne/StickerBridge',
+    externalUrl: 'https://just4skii.github.io/StickerBridge/',
+    downloadUrl: 'https://github.com/Just4Skii/StickerBridge/raw/main/stickerbridge.apk',
+    githubUrl: 'https://github.com/Just4Skii/StickerBridge',
     capabilities: [
       'Animated WebP Engine',
       'Cache Discovery',
