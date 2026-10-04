@@ -44,7 +44,7 @@ export default function SectorInteractive() {
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <div className="inline-flex items-center gap-2 bg-white px-3 py-1.5 text-[11px] font-mono tracking-wide">
                 <span className="w-2 h-2 bg-amber rounded-full" />
-                SECTOR SPOTLIGHT - {current.name.toUpperCase()}
+                SECTOR SPOTLIGHT · {current.name.toUpperCase()}
               </div>
               <h3 className="font-display text-[22px] lg:text-[26px] font-semibold text-white leading-tight mt-3 max-w-xl">{current.headline}</h3>
             </div>

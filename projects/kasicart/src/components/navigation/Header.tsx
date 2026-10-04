@@ -26,11 +26,11 @@ export function Header() {
 
   return (
     <>
-      {/* SA accent bar - landscape gradient: Karoo terracotta → Savanna ochre → Fynbos sage → Kalahari sand → Atlantic slate */}
+      {/* SA accent bar · landscape gradient: Karoo terracotta → Savanna ochre → Fynbos sage → Kalahari sand → Atlantic slate */}
       <div className="sa-accent-bar" aria-hidden />
       <div className="bg-[var(--accent-slate)] text-[var(--accent-sand)] text-[11px] sm:text-[12px] text-center py-2 tracking-wide px-4 flex items-center justify-center gap-2">
         <span className="hidden sm:inline w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" aria-hidden />
-        <span>Free delivery over R750 - Delivery across South Africa.</span>
+        <span>Free delivery over R750 · Delivery across South Africa.</span>
         <Link href="/help" className="underline underline-offset-4 decoration-[var(--accent-sand)]/50 hover:decoration-[var(--accent-sand)] whitespace-nowrap">Learn more</Link>
         <span className="hidden sm:inline-flex items-center gap-1 ml-2 text-[10px] tracking-widest uppercase opacity-60">
           <span className="w-2 h-0.5 bg-[var(--accent)]" /> <span className="w-2 h-0.5 bg-[var(--accent-ochre)]" /> <span className="w-2 h-0.5 bg-[var(--accent-sage)]" />
@@ -44,7 +44,7 @@ export function Header() {
             <span className="text-[18px] leading-none">{mobileMenu ? "✕" : "≡"}</span>
           </button>
 
-          {/* Brand - fixed: no truncate, premium serif+sans lockup */}
+          {/* Brand · fixed: no truncate, premium serif+sans lockup */}
           <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
             <span className="relative w-9 h-9 rounded-xl bg-[#11110F] dark:bg-white text-white dark:text-[#11110F] flex items-center justify-center text-[13px] font-bold tracking-tight shrink-0 shadow-sm group-hover:scale-[1.02] transition">
               KC
@@ -64,7 +64,7 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop nav - editorial, SA-aware */}
+          {/* Desktop nav · editorial, SA-aware */}
           <nav className="hidden lg:flex items-center gap-1 text-[14px] font-medium ml-2">
             <Link href="/discover" className="px-3.5 py-1.5 rounded-full bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition">Discover</Link>
             <Link href="/shop" className="px-3 py-1.5 rounded-full hover:bg-[var(--muted)] transition">Shop</Link>
@@ -93,10 +93,10 @@ export function Header() {
           </button>
           <button onClick={() => setSearchOpen(true)} aria-label="Search" className="md:hidden w-10 h-10 rounded-full bg-[var(--muted)] border border-[var(--border)] flex items-center justify-center shrink-0 active:scale-95 transition text-[var(--foreground)]">⌕</button>
 
-          {/* Data saver - desktop */}
+          {/* Data saver · desktop */}
           <button
             onClick={toggleSaver}
-            title={dataSaver ? "Data Saver on - click to disable" : "Enable Data Saver"}
+            title={dataSaver ? "Data Saver on · click to disable" : "Enable Data Saver"}
             className={`hidden lg:inline-flex items-center gap-1.5 h-9 px-3 rounded-full border text-xs font-medium shrink-0 transition ${dataSaver ? "bg-[var(--accent-slate)] text-white border-[var(--accent-slate)]" : "bg-[var(--card)] border-[var(--border)] hover:border-[var(--accent)]"}`}
           >
             <span className={`w-2 h-2 rounded-full ${dataSaver ? "bg-[var(--accent)] animate-pulse" : online ? "bg-emerald-500" : "bg-amber-500"}`} />
@@ -118,7 +118,7 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile menu - theme-aware */}
+        {/* Mobile menu · theme-aware */}
         {mobileMenu && (
           <div className="md:hidden border-t border-[var(--border)] bg-[var(--card)] px-4 py-5 space-y-4 max-h-[70dvh] overflow-auto">
             <div className="flex items-center justify-between">
@@ -144,7 +144,7 @@ export function Header() {
             </div>
             <Link href="/account" className="block text-center text-sm underline underline-offset-4 decoration-[var(--border)]">Account & orders</Link>
             <div className="flex items-center justify-center gap-2 pt-2 border-t border-[var(--border)] text-xs">
-              <button onClick={toggleSaver} className="underline">{dataSaver ? "Data Saver on - tap to disable" : "Enable Data Saver"}</button>
+              <button onClick={toggleSaver} className="underline">{dataSaver ? "Data Saver on · tap to disable" : "Enable Data Saver"}</button>
               <span className="text-[var(--border)]">·</span>
               <span className={online ? "text-emerald-600" : "text-amber-600"}>{online ? "Online" : "Offline"}</span>
             </div>

@@ -8,7 +8,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    // Force light theme for now - dark needs proper design pass
+    // Force light theme for now · dark needs proper design pass
     try {
       const stored = localStorage.getItem("kasicart_theme") as Theme | null;
       // Ignore system preference, default to light unless explicitly stored as light
@@ -32,7 +32,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.style.colorScheme = forced;
   };
   const toggle = () => {
-    // Disabled - keep light
+    // Disabled · keep light
     setTheme("light");
   };
 

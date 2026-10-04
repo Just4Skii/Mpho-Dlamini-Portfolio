@@ -55,7 +55,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
             <div className="relative text-white max-w-[520px]">
               <p className="text-[11px] tracking-[0.18em] uppercase text-white/80 mb-2 sm:mb-3">Independent South African brands</p>
               <h1 className="text-[34px] sm:text-[40px] md:text-[56px] font-semibold leading-[0.9] tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Good things,<br/>close to home.</h1>
-              <p className="text-[14px] sm:text-[15px] leading-relaxed text-white/90 mt-3 sm:mt-4 max-w-[42ch]">Discover products from independent South African brands, makers and specialty retailers - from ceramics in Rosebank to textiles in Morningside and leather in Stellenbosch.</p>
+              <p className="text-[14px] sm:text-[15px] leading-relaxed text-white/90 mt-3 sm:mt-4 max-w-[42ch]">Discover products from independent South African brands, makers and specialty retailers · from ceramics in Rosebank to textiles in Morningside and leather in Stellenbosch.</p>
               <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 mt-5 sm:mt-6">
                 <Link href="/shop" className="h-11 px-6 rounded-full bg-white text-[#11110F] font-medium flex items-center justify-center text-[14px] hover:bg-[#FFFBF5] active:scale-[0.98] transition">Shop the collection</Link>
                 <Link href="/brands" className="h-11 px-6 rounded-full bg-white/10 backdrop-blur border border-white text-white font-medium flex items-center justify-center text-[14px] hover:bg-white hover:text-[#11110F] active:scale-[0.98] transition">Explore local brands</Link>
@@ -86,7 +86,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
                 <div className="absolute inset-0 bg-black/10" />
                 <div className="relative p-5 h-full flex flex-col justify-end">
                   <span className="bg-white text-[#11110F] text-[11px] tracking-widest uppercase px-2 py-1 rounded-full w-fit">Editor&apos;s pick</span>
-                  <p className="text-white font-medium mt-2 drop-shadow">Everyday Canvas Tote - R449</p>
+                  <p className="text-white font-medium mt-2 drop-shadow">Everyday Canvas Tote · R449</p>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
       <section className="max-w-[1440px] mx-auto px-4 md:px-6 mt-6">
         <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 text-sm">
           {[
-            ["Delivery across SA", "2–4 business days, tracked"],
+            ["Delivery across SA", "2 · 4 business days, tracked"],
             ["Free delivery R750+", "Standard delivery, no code needed"],
             ["Independent brands", "15+ makers from 6 cities"],
             ["Secure checkout", "Card, Instant EFT-style (UI only)"],
@@ -111,7 +111,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
         </div>
       </section>
 
-      {/* EDITORIAL FEATURE - asymmetric */}
+      {/* EDITORIAL FEATURE · asymmetric */}
       <section className="max-w-[1440px] mx-auto px-4 md:px-6 mt-10 sm:mt-12 md:mt-16">
         <div className="flex items-baseline justify-between gap-3 mb-4 sm:mb-6">
           <h2 className="text-[24px] sm:text-[30px] md:text-[38px] font-semibold tracking-tight leading-none" style={{fontFamily:"var(--font-instrument)"}}>Made here. Chosen for you.</h2>
@@ -125,7 +125,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
               <p className="text-xs tracking-widest uppercase text-white/80">{featured[0]?.brand} · {featured[0]?.sellerLocation}</p>
               <h3 className="text-[24px] font-semibold mt-1">{featured[0]?.name}</h3>
               <p className="text-sm text-white/90 mt-1 line-clamp-2 max-w-[40ch]">{featured[0]?.shortDescription}</p>
-              <span className="inline-flex mt-3 h-9 px-5 rounded-full bg-white text-[#11110F] text-sm font-medium items-center">Shop - R{featured[0]?.price.toLocaleString("en-ZA")}</span>
+              <span className="inline-flex mt-3 h-9 px-5 rounded-full bg-white text-[#11110F] text-sm font-medium items-center">Shop · R{featured[0]?.price.toLocaleString("en-ZA")}</span>
             </div>
           </Link>
           <div className="md:col-span-5 grid grid-rows-2 gap-4 md:gap-6">
@@ -172,7 +172,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
             <div>
               <p className="text-[11px] tracking-[0.18em] uppercase text-white/60 mb-2">Location</p>
               <h2 className="text-[30px] md:text-[38px] font-semibold leading-none" style={{fontFamily:"var(--font-instrument)"}}>From our cities to your door.</h2>
-              <p className="text-sm text-white/70 mt-3 max-w-[55ch]">Explore brands by city - Johannesburg, Durban, Cape Town and Pretoria. Same delivery promise, closer story.</p>
+              <p className="text-sm text-white/70 mt-3 max-w-[55ch]">Explore brands by city · Johannesburg, Durban, Cape Town and Pretoria. Same delivery promise, closer story.</p>
             </div>
             <Link href="/local" className="h-10 px-6 rounded-full bg-white text-[#11110F] text-sm font-medium inline-flex items-center w-fit">Explore all cities</Link>
           </div>
@@ -212,7 +212,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
           <div>
             <p className="text-[11px] tracking-widest uppercase text-stone-500">Editorial</p>
             <h3 className="text-[26px] font-semibold leading-tight mt-2" style={{fontFamily:"var(--font-instrument)"}}>Objects worth<br/>keeping.</h3>
-            <p className="text-sm text-stone-600 mt-3 max-w-[38ch]">A slow selection of ceramics, linen and oak - made to be used daily and held onto for years.</p>
+            <p className="text-sm text-stone-600 mt-3 max-w-[38ch]">A slow selection of ceramics, linen and oak · made to be used daily and held onto for years.</p>
           </div>
           <div className="flex gap-2 mt-6 flex-wrap">
             {products.filter(p=>["home","design"].includes(p.category)).slice(0,3).map(p=>(
@@ -228,7 +228,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
           <div>
             <p className="text-[11px] tracking-widest uppercase text-white/60">Gifting</p>
             <h3 className="text-[26px] font-semibold leading-tight mt-2" style={{fontFamily:"var(--font-instrument)"}}>Your next<br/>housewarming gift.</h3>
-            <p className="text-sm text-white/70 mt-3 max-w-[38ch]">Under R500, under R750, under R1,500 - curated by budget, occasion and recipient.</p>
+            <p className="text-sm text-white/70 mt-3 max-w-[38ch]">Under R500, under R750, under R1,500 · curated by budget, occasion and recipient.</p>
           </div>
           <div className="flex gap-3 mt-6">
             <Link href="/gifts?budget=500" className="h-10 px-5 rounded-full bg-white text-[#1E3A2E] text-sm font-medium inline-flex items-center">Under R500</Link>
@@ -265,7 +265,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
           <div className="relative">
             <p className="text-[11px] tracking-[0.18em] uppercase text-white/60">Discovery-first</p>
             <h3 className="text-[24px] font-semibold leading-tight" style={{fontFamily:"var(--font-instrument)"}}>Shopping as a visual canvas</h3>
-            <p className="text-sm text-white/60 mt-1 max-w-[52ch]">Shop by feeling, explore the product universe, build a room, moodboard your collection - all frontend, no backend.</p>
+            <p className="text-sm text-white/60 mt-1 max-w-[52ch]">Shop by feeling, explore the product universe, build a room, moodboard your collection · all frontend, no backend.</p>
             <div className="flex flex-wrap gap-2 mt-4">
               <Link href="/discover" className="h-9 px-5 rounded-full bg-white text-[#11110F] text-sm font-medium inline-flex items-center">Enter Discover →</Link>
               <Link href="/moodboard" className="h-9 px-5 rounded-full border border-white/20 text-white text-sm inline-flex items-center">Moodboard</Link>
@@ -285,7 +285,7 @@ export function HomeClient({ featured, newArrivals, best, trending, brands, cate
         <div className="rounded-[24px] bg-[#E8E2D8] p-6 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-[24px] font-semibold" style={{fontFamily:"var(--font-instrument)"}}>Sell on KasiCart</h3>
-            <p className="text-sm text-stone-600 mt-1 max-w-[50ch]">Reach new customers, build your storefront and grow your brand. Applications reviewed within 3–5 days.</p>
+            <p className="text-sm text-stone-600 mt-1 max-w-[50ch]">Reach new customers, build your storefront and grow your brand. Applications reviewed within 3 · 5 days.</p>
           </div>
           <Link href="/sell" className="h-11 px-7 rounded-full bg-[#11110F] text-white font-medium inline-flex items-center shrink-0">Apply to sell</Link>
         </div>

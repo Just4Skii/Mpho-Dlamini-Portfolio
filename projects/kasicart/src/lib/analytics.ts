@@ -1,4 +1,4 @@
-// Analytics-ready event names - no data is sent in this frontend demo.
+// Analytics-ready event names · no data is sent in this frontend demo.
 // When a backend/analytics provider is added, call track(event, props).
 
 export type AnalyticsEvent =

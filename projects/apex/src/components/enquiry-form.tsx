@@ -45,12 +45,12 @@ export default function EnquiryForm() {
     return (
       <div className="bg-white border border-neutral-200 p-8 lg:p-10 text-center">
         <div className="w-12 h-12 bg-amber rounded-full flex items-center justify-center mx-auto">✓</div>
-        <h3 className="font-display text-[22px] font-semibold mt-4">Thank you - we’ve received your enquiry.</h3>
+        <h3 className="font-display text-[22px] font-semibold mt-4">Thank you · we’ve received your enquiry.</h3>
         <p className="text-sm text-neutral-600 leading-relaxed mt-3 max-w-xl mx-auto">
           Our coordination team will review your requirements and respond within one working day. For urgent faults, please call <a href="tel:+27112345678" className="underline">+27 (0)11 234 5678</a> - demonstration.
         </p>
         <div className="mt-6 inline-flex items-center gap-2 text-xs font-mono text-concrete bg-stone px-4 py-2 border border-neutral-200">
-          Frontend-only demo - no data stored. CRM integration via <code>submitEnquiry()</code> in lib/crm.ts
+          Frontend-only demo · no data stored. CRM integration via <code>submitEnquiry()</code> in lib/crm.ts
         </div>
         <button onClick={() => { setSubmitted(false); setStep(1); setHelp([]); setProperty(""); setForm({ name: "", company: "", email: "", phone: "", message: "" }); }} className="mt-6 text-sm font-medium underline underline-offset-4">
           Send another enquiry
@@ -64,13 +64,13 @@ export default function EnquiryForm() {
       {/* progress */}
       <div className="border-b border-neutral-200">
         <div className="flex items-center justify-between px-6 lg:px-8 py-4">
-          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete">ENQUIRY - STEP {step} OF 4</div>
+          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete">ENQUIRY · STEP {step} OF 4</div>
           <div className="hidden sm:flex items-center gap-2">
             {[1, 2, 3, 4].map((s) => (
               <div key={s} className={`h-1.5 rounded-full transition-all ${s === step ? "w-8 bg-ink" : s < step ? "w-6 bg-amber" : "w-6 bg-neutral-200"}`} />
             ))}
           </div>
-          <div className="text-xs font-mono text-concrete">{Math.round((step / 4) * 100)}% - {["Requirements","Property","Contact","Details"][step-1]}</div>
+          <div className="text-xs font-mono text-concrete">{Math.round((step / 4) * 100)}% · {["Requirements","Property","Contact","Details"][step-1]}</div>
         </div>
         <div className="h-px bg-neutral-200">
           <div className="h-px bg-ink transition-all duration-500" style={{ width: `${(step / 4) * 100}%` }} />
@@ -162,7 +162,7 @@ export default function EnquiryForm() {
         {step === 4 && (
           <div>
             <h3 className="font-display text-[20px] font-semibold">Additional information</h3>
-            <p className="text-sm text-concrete mt-1">Share any useful detail - locations, timescales or specific requirements.</p>
+            <p className="text-sm text-concrete mt-1">Share any useful detail · locations, timescales or specific requirements.</p>
             <label className="block mt-6 space-y-1.5">
               <span className="text-xs font-mono tracking-wide">Message (optional)</span>
               <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} placeholder="Tell us about the property, number of sites, access constraints, compliance needs..." className="w-full px-3.5 py-3 border border-neutral-200 bg-white text-sm outline-none focus:border-ink resize-none" />
@@ -177,7 +177,7 @@ export default function EnquiryForm() {
               <button onClick={() => setStep(3)} className="text-sm font-medium px-4 py-3 border border-neutral-200 hover:border-ink transition-colors">Back</button>
               <button onClick={submit} className="bg-amber text-ink px-8 py-3 text-sm font-semibold hover:bg-amber-hover transition-colors">Submit enquiry</button>
             </div>
-            <p className="text-[11px] font-mono text-concrete mt-4">By submitting, you agree we may contact you regarding your enquiry. Demo form - no data is stored. Integration point: <code>submitEnquiry()</code>.</p>
+            <p className="text-[11px] font-mono text-concrete mt-4">By submitting, you agree we may contact you regarding your enquiry. Demo form · no data is stored. Integration point: <code>submitEnquiry()</code>.</p>
           </div>
         )}
       </div>

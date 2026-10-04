@@ -43,8 +43,8 @@ function GiftsInner() {
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-6 sm:py-8">
       <div className="flex flex-wrap gap-2 items-start justify-between">
         <div>
-          <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Gifting - curated</h1>
-          <p className="text-sm text-stone-600 mt-1">Let&apos;s find a good gift - beautiful front-end decision tree with reveal animation.</p>
+          <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Gifting · curated</h1>
+          <p className="text-sm text-stone-600 mt-1">Let&apos;s find a good gift · beautiful front-end decision tree with reveal animation.</p>
         </div>
         <span className="hidden sm:inline text-xs px-3 py-1.5 rounded-full bg-[#F5EEE6] border border-[#E8E2D8]">No backend · Deterministic</span>
       </div>
@@ -100,11 +100,11 @@ function GiftsInner() {
         {filtered.map(p=> <ProductCard key={p.id} product={p} />)}
       </div>
 
-      {filtered.length===0 && <p className="text-center py-10 text-stone-500">No gifts match that combination - try relaxing a filter.</p>}
+      {filtered.length===0 && <p className="text-center py-10 text-stone-500">No gifts match that combination · try relaxing a filter.</p>}
 
       <section className="mt-10 p-6 rounded-[20px] bg-[#1E3A2E] text-[#FFFBF5]">
         <h3 className="font-semibold">Housewarming favourites</h3>
-        <p className="text-sm text-white/70">Curated from local makers - thoughtful, not generic.</p>
+        <p className="text-sm text-white/70">Curated from local makers · thoughtful, not generic.</p>
       </section>
     </div>
   );

@@ -24,7 +24,7 @@ const STEPS = [
 
 const TYPE_INFO: Record<ConsultationType, { icon: IconName; title: string; body: string }> = {
   "in-person": { icon: "home", title: "In-person consultation", body: "Visit the practice for a face-to-face consultation." },
-  video: { icon: "video", title: "Video consultation", body: "Meet from home - the practice sends a secure video link." },
+  video: { icon: "video", title: "Video consultation", body: "Meet from home · the practice sends a secure video link." },
   "follow-up": { icon: "clock", title: "Follow-up visit", body: "A shorter visit to review progress or results." },
 };
 
@@ -151,7 +151,7 @@ export default function BookingPage() {
                 ["Time", confirmed.time],
                 ["Type", TYPE_INFO[confirmed.type].title],
                 ["Reason", confirmed.reason],
-                ["Location", confirmed.type === "video" ? "Video consultation - link to follow" : `${provider.address}, ${city?.name}`],
+                ["Location", confirmed.type === "video" ? "Video consultation · link to follow" : `${provider.address}, ${city?.name}`],
                 ["Fee", zar(confirmed.fee)],
               ].map(([k, v]) => (
                 <div key={k}>
@@ -163,7 +163,7 @@ export default function BookingPage() {
           </div>
 
           <div className="mt-6 grid gap-2.5 sm:grid-cols-2">
-            <Button variant="outline" icon="download" onClick={() => { downloadFile(`carepoint-${confirmed.id}.ics`, makeICS(confirmed, provider), "text/calendar"); toast("info", "Calendar file downloaded - import it into your calendar app."); }}>
+            <Button variant="outline" icon="download" onClick={() => { downloadFile(`carepoint-${confirmed.id}.ics`, makeICS(confirmed, provider), "text/calendar"); toast("info", "Calendar file downloaded · import it into your calendar app."); }}>
               Add to calendar (.ics)
             </Button>
             <Button to={`/account/appointments/${confirmed.id}`} icon="calendar">View appointment</Button>
@@ -177,7 +177,7 @@ export default function BookingPage() {
             <Button variant="ghost" to="/">Return home</Button>
           </div>
           <p className="mt-6 rounded-lg border border-line bg-cream px-4 py-3 text-center text-[12.5px] leading-relaxed text-ink-3">
-            This is a concept preview: the appointment is saved on this device only. In a live product, the practice would confirm your request and a notification service would follow up. Calendar files are generated locally - no external calendar was updated.
+            This is a concept preview: the appointment is saved on this device only. In a live product, the practice would confirm your request and a notification service would follow up. Calendar files are generated locally · no external calendar was updated.
           </p>
         </div>
       </div>
@@ -227,7 +227,7 @@ export default function BookingPage() {
               <Icon name="alert" className="mt-0.5 h-5 w-5 shrink-0 text-danger" />
               <div>
                 <p className="text-[14.5px] font-bold text-danger">{slotError}</p>
-                <p className="mt-0.5 text-[13px] text-ink-2">We've returned you to the calendar - nearby times are still open.</p>
+                <p className="mt-0.5 text-[13px] text-ink-2">We've returned you to the calendar · nearby times are still open.</p>
               </div>
             </div>
           )}
@@ -262,7 +262,7 @@ export default function BookingPage() {
             )}
 
             {step === 2 && (
-              <StepShell title="What's the reason for this visit?" body="This helps the practice prepare - it isn't a diagnosis and stays on your device.">
+              <StepShell title="What's the reason for this visit?" body="This helps the practice prepare · it isn't a diagnosis and stays on your device.">
                 <div className="space-y-2">
                   {provider.services.map((s) => (
                     <label
@@ -301,7 +301,7 @@ export default function BookingPage() {
             )}
 
             {step === 4 && (
-              <StepShell title="Your details" body="Only what's needed to confirm the booking - no ID numbers or medical history.">
+              <StepShell title="Your details" body="Only what's needed to confirm the booking · no ID numbers or medical history.">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="First name" required error={errors.firstName}>
                     <Input value={draft.patient?.firstName ?? ""} onChange={(e) => setDraft({ patient: { ...(draft.patient as PatientDetails), firstName: e.target.value, lastName: draft.patient?.lastName ?? "", email: draft.patient?.email ?? "", phone: draft.patient?.phone ?? "" } })} error={!!errors.firstName} autoComplete="given-name" />
@@ -315,7 +315,7 @@ export default function BookingPage() {
                   <Field label="Phone" required error={errors.phone} hint="South African format, e.g. 082 555 0123">
                     <Input type="tel" value={draft.patient?.phone ?? ""} onChange={(e) => setDraft({ patient: { ...(draft.patient as PatientDetails), phone: e.target.value, firstName: draft.patient?.firstName ?? "", lastName: draft.patient?.lastName ?? "", email: draft.patient?.email ?? "" } })} error={!!errors.phone} autoComplete="tel" />
                   </Field>
-                  <Field label="Preferred communication language" hint="Optional - the practice will try to match it.">
+                  <Field label="Preferred communication language" hint="Optional · the practice will try to match it.">
                     <Select value={draft.patient?.language ?? ""} onChange={(e) => setDraft({ patient: { ...(draft.patient as PatientDetails), language: e.target.value || undefined, firstName: draft.patient?.firstName ?? "", lastName: draft.patient?.lastName ?? "", email: draft.patient?.email ?? "", phone: draft.patient?.phone ?? "" } })}>
                       <option value="">No preference</option>
                       {["English", "isiZulu", "isiXhosa", "Afrikaans", "Sesotho", "Setswana"].map((l) => (
@@ -341,10 +341,10 @@ export default function BookingPage() {
             )}
 
             {step === 5 && (
-              <StepShell title="Please check these details before confirming." body="Nothing is charged - the practice confirms fees at the visit.">
+              <StepShell title="Please check these details before confirming." body="Nothing is charged · the practice confirms fees at the visit.">
                 <div className="overflow-hidden rounded-xl border border-line bg-card">
                   {[
-                    { k: "Provider", v: `${provider.name} - ${spec?.name}`, edit: 1 },
+                    { k: "Provider", v: `${provider.name} · ${spec?.name}`, edit: 1 },
                     { k: "Appointment type", v: draft.type ? TYPE_INFO[draft.type].title : "-", edit: 1 },
                     { k: "Reason", v: draft.reason ?? "-", edit: 2 },
                     { k: "Date", v: draft.date ? fmtFull(draft.date) : "-", edit: 3 },

@@ -34,7 +34,7 @@ export function ClinicsList() {
       <p className="kicker">Browse</p>
       <h1 className="mt-2 font-display text-4xl font-semibold tracking-tight sm:text-5xl">Clinics & facilities</h1>
       <p className="mt-4 max-w-2xl text-[15.5px] leading-relaxed text-ink-2">
-        Sometimes the right starting point is a place, not a person - a medical centre near work, a day clinic with rehab facilities, or an urgent care centre that's open late.
+        Sometimes the right starting point is a place, not a person · a medical centre near work, a day clinic with rehab facilities, or an urgent care centre that's open late.
       </p>
 
       <div className="mt-7 flex flex-wrap items-center gap-2">
@@ -97,7 +97,7 @@ export function ClinicsList() {
 export function ClinicDetail() {
   const { slug } = useParams();
   const clinic = getClinicBySlug(slug);
-  usePageMeta(clinic ? `${clinic.name} - ${clinic.area} | CarePoint` : "Clinic | CarePoint");
+  usePageMeta(clinic ? `${clinic.name} · ${clinic.area} | CarePoint` : "Clinic | CarePoint");
 
   if (!clinic) {
     return (
@@ -133,7 +133,7 @@ export function ClinicDetail() {
             <div className="card p-5">
               <p className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wide text-ink-2"><Icon name="phone" className="h-4 w-4 text-pine" /> Contact</p>
               <p className="mt-2 text-[14.5px] font-semibold tabular-nums">{clinic.phone}</p>
-              <p className="text-[12px] text-ink-3">Fictional number - concept preview</p>
+              <p className="text-[12px] text-ink-3">Fictional number · concept preview</p>
             </div>
           </div>
 
@@ -160,7 +160,7 @@ export function ClinicDetail() {
         </div>
         {providers.length === 0 ? (
           <p className="mt-4 rounded-xl border border-dashed border-line-2 bg-cream px-5 py-6 text-[14px] text-ink-2">
-            No individual provider profiles are linked to this facility yet - try the wider city search.
+            No individual provider profiles are linked to this facility yet · try the wider city search.
           </p>
         ) : (
           <div className="anim-stagger mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

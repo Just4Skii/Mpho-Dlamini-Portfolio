@@ -10,7 +10,7 @@ export const brands: Brand[] = [
     image: "https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=600&fit=crop",
     productCount: 12, established: "2019",
-    deliveryNotes: "Made to order in 3–5 days. Ships from Johannesburg.",
+    deliveryNotes: "Made to order in 3 · 5 days. Ships from Johannesburg.",
     social: { instagram: "@moyastudio", website: "moyastudio.co.za" }, featured: true
   },
   {
@@ -34,7 +34,7 @@ export const brands: Brand[] = [
     image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=600&fit=crop",
     productCount: 8, established: "2018",
-    deliveryNotes: "Lead time 10–14 days. Delivery across SA.",
+    deliveryNotes: "Lead time 10 · 14 days. Delivery across SA.",
     social: { website: "indigoform.co.za" }, featured: true
   },
   {
@@ -58,19 +58,19 @@ export const brands: Brand[] = [
     image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1200&h=600&fit=crop",
     productCount: 11, established: "2021",
-    deliveryNotes: "Vegan, cruelty-free. Ships from Pretoria in 1–2 days.",
+    deliveryNotes: "Vegan, cruelty-free. Ships from Pretoria in 1 · 2 days.",
     social: { instagram: "@nalabotanics" }, featured: true
   },
   {
     id: "6", slug: "umoya-leather", name: "Umoya Leather",
     tagline: "Carry what matters.",
-    story: "Umoya handcrafts leather goods in Stellenbosch from ethically sourced hides. Each bag is made by a single craftsperson start to finish - no assembly lines.",
+    story: "Umoya handcrafts leather goods in Stellenbosch from ethically sourced hides. Each bag is made by a single craftsperson start to finish · no assembly lines.",
     location: "Stellenbosch, Western Cape", city: "Cape Town", province: "Western Cape",
     category: ["Fashion", "Gifts"],
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&h=600&fit=crop",
     productCount: 7, established: "2016",
-    deliveryNotes: "Handmade to order. 5–7 days lead time.",
+    deliveryNotes: "Handmade to order. 5 · 7 days lead time.",
     social: { website: "umoyaleather.co.za" }, featured: true
   },
   {
@@ -104,7 +104,7 @@ export const brands: Brand[] = [
     image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=600&fit=crop",
     productCount: 5, established: "2018",
-    deliveryNotes: "Ships within 1–2 days.", featured: false
+    deliveryNotes: "Ships within 1 · 2 days.", featured: false
   },
   {
     id: "10", slug: "studio-nomad", name: "Studio Nomad",
@@ -159,7 +159,7 @@ export const brands: Brand[] = [
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=400&fit=crop",
     coverImage: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=1200&h=600&fit=crop",
     productCount: 5, established: "2018",
-    deliveryNotes: "Made to order 7–10 days.", featured: false
+    deliveryNotes: "Made to order 7 · 10 days.", featured: false
   },
   {
     id: "15", slug: "soft-matter", name: "Soft Matter",

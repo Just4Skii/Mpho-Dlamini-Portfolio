@@ -6,7 +6,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "johannesburg", area: "Sandton", address: "14 Katherine Lane, Sandton",
     facilityType: "Medical centre",
     services: ["General practice", "Paediatrics", "On-site pharmacy desk", "Travel clinic"],
-    hours: "Mon–Fri 07:30–18:00 · Sat 08:00–13:00", phone: "011 555 0142",
+    hours: "Mon · Fri 07:30 · 18:00 · Sat 08:00 · 13:00", phone: "011 555 0142",
     description: "A busy multi-disciplinary medical centre in the heart of Sandton with same-day GP slots most mornings.",
   },
   {
@@ -14,7 +14,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "johannesburg", area: "Rosebank", address: "27 Jellicoe Avenue, Rosebank",
     facilityType: "Private practice",
     services: ["General practice", "Minor procedures", "Chronic care"],
-    hours: "Mon–Fri 08:00–17:00", phone: "011 555 0177",
+    hours: "Mon · Fri 08:00 · 17:00", phone: "011 555 0177",
     description: "Boutique GP rooms near the Rosebank node with a calm, unhurried consultation style.",
   },
   {
@@ -22,7 +22,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "johannesburg", area: "Morningside", address: "3 Rivonia Road, Morningside",
     facilityType: "Specialist rooms",
     services: ["Dermatology", "Psychiatry", "Psychology"],
-    hours: "Mon–Fri 08:30–16:30", phone: "011 555 0119",
+    hours: "Mon · Fri 08:30 · 16:30", phone: "011 555 0119",
     description: "Specialist consulting suites with shared reception and easy access from the M1.",
   },
   {
@@ -30,7 +30,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "johannesburg", area: "Randburg", address: "88 Hendrik Verwoerd Drive, Randburg",
     facilityType: "Day clinic",
     services: ["General practice", "Occupational therapy", "Physiotherapy", "Dietetics"],
-    hours: "Mon–Fri 07:00–19:00 · Sat 08:00–14:00", phone: "011 555 0163",
+    hours: "Mon · Fri 07:00 · 19:00 · Sat 08:00 · 14:00", phone: "011 555 0163",
     description: "A family-friendly day clinic with rehabilitation facilities and extended weekday hours.",
   },
   {
@@ -38,7 +38,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "johannesburg", area: "Bryanston", address: "5 Culross Road, Bryanston",
     facilityType: "Medical centre",
     services: ["General practice", "Dietetics", "Psychology", "Optometry"],
-    hours: "Mon–Fri 08:00–17:30", phone: "011 555 0128",
+    hours: "Mon · Fri 08:00 · 17:30", phone: "011 555 0128",
     description: "A wellness-focused centre blending primary care with allied health under one roof.",
   },
   {
@@ -46,7 +46,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "pretoria", area: "Centurion", address: "210 Lenchen Avenue, Centurion",
     facilityType: "Medical centre",
     services: ["General practice", "Paediatrics", "Dentistry", "Phlebotomy desk"],
-    hours: "Mon–Fri 07:00–18:00 · Sat 08:00–12:00", phone: "012 555 0151",
+    hours: "Mon · Fri 07:00 · 18:00 · Sat 08:00 · 12:00", phone: "012 555 0151",
     description: "Centurion's practical one-stop centre for family healthcare, with on-site blood draws.",
   },
   {
@@ -54,7 +54,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "pretoria", area: "Menlyn", address: "12 Atterbury Road, Menlyn",
     facilityType: "Specialist rooms",
     services: ["Dermatology", "Paediatrics", "Psychiatry"],
-    hours: "Mon–Fri 08:00–16:00", phone: "012 555 0104",
+    hours: "Mon · Fri 08:00 · 16:00", phone: "012 555 0104",
     description: "Modern specialist consulting rooms opposite the Menlyn precinct with secure parking.",
   },
   {
@@ -62,7 +62,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "pretoria", area: "Hatfield", address: "77 Burnett Street, Hatfield",
     facilityType: "Private practice",
     services: ["General practice", "Student health", "Travel clinic"],
-    hours: "Mon–Fri 08:00–17:00 · Sat 08:30–12:00", phone: "012 555 0186",
+    hours: "Mon · Fri 08:00 · 17:00 · Sat 08:30 · 12:00", phone: "012 555 0186",
     description: "A long-standing Hatfield practice popular with students and young families.",
   },
   {
@@ -70,7 +70,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "durban", area: "Umhlanga", address: "9 Lighthouse Road, Umhlanga",
     facilityType: "Medical centre",
     services: ["General practice", "Physiotherapy", "Dietetics", "Optometry"],
-    hours: "Mon–Fri 07:30–18:00 · Sat 08:00–13:00", phone: "031 555 0139",
+    hours: "Mon · Fri 07:30 · 18:00 · Sat 08:00 · 13:00", phone: "031 555 0139",
     description: "A coastal multi-disciplinary collective with sea-view consulting rooms and short waiting times.",
   },
   {
@@ -78,7 +78,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "durban", area: "Berea", address: "140 Problem Mkhize Road, Berea",
     facilityType: "Public facility",
     services: ["Primary care", "Child health", "Chronic medication collection"],
-    hours: "Mon–Fri 07:30–16:00", phone: "031 555 0112",
+    hours: "Mon · Fri 07:30 · 16:00", phone: "031 555 0112",
     description: "A public primary care facility serving the Berea community with walk-in mornings.",
   },
   {
@@ -86,7 +86,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "durban", area: "Westville", address: "33 Spine Road, Westville",
     facilityType: "Day clinic",
     services: ["Physiotherapy", "Occupational therapy", "Sports medicine"],
-    hours: "Mon–Fri 06:30–18:30 · Sat 07:00–12:00", phone: "031 555 0158",
+    hours: "Mon · Fri 06:30 · 18:30 · Sat 07:00 · 12:00", phone: "031 555 0158",
     description: "A rehabilitation-focused day clinic with a full gym floor and early-morning physio slots.",
   },
   {
@@ -94,15 +94,15 @@ export const CLINICS: Clinic[] = [
     citySlug: "durban", area: "Ballito", address: "2 Butterworth Drive, Ballito",
     facilityType: "Urgent care centre",
     services: ["Urgent care", "General practice", "Minor injury unit"],
-    hours: "Daily 08:00–20:00", phone: "032 555 0171",
-    description: "The north coast's urgent care option for cuts, sprains and same-day illness - no appointment needed for urgent cases.",
+    hours: "Daily 08:00 · 20:00", phone: "032 555 0171",
+    description: "The north coast's urgent care option for cuts, sprains and same-day illness · no appointment needed for urgent cases.",
   },
   {
     id: "cl-13", slug: "sea-point-care-rooms", name: "Sea Point Care Rooms",
     citySlug: "cape-town", area: "Sea Point", address: "101 Main Road, Sea Point",
     facilityType: "Private practice",
     services: ["General practice", "Psychology", "Sexual health"],
-    hours: "Mon–Fri 08:00–18:00 · Sat 09:00–12:00", phone: "021 555 0147",
+    hours: "Mon · Fri 08:00 · 18:00 · Sat 09:00 · 12:00", phone: "021 555 0147",
     description: "Warm, unhurried consulting rooms a block from the promenade, with Saturday morning GPs.",
   },
   {
@@ -110,7 +110,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "cape-town", area: "Claremont", address: "22 Keurboom Road, Claremont",
     facilityType: "Specialist rooms",
     services: ["Paediatrics", "Dermatology", "Dietetics"],
-    hours: "Mon–Fri 08:00–16:30", phone: "021 555 0123",
+    hours: "Mon · Fri 08:00 · 16:30", phone: "021 555 0123",
     description: "Southern Suburbs specialist suites with a garden waiting area and easy Claremont access.",
   },
   {
@@ -118,7 +118,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "cape-town", area: "Bellville", address: "45 Voortrekker Road, Bellville",
     facilityType: "Urgent care centre",
     services: ["Urgent care", "Minor injury unit", "General practice"],
-    hours: "Daily 07:00–22:00", phone: "021 555 0190",
+    hours: "Daily 07:00 · 22:00", phone: "021 555 0190",
     description: "Northern Suburbs urgent care open every day of the year, including public holidays.",
   },
   {
@@ -126,7 +126,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "gqeberha", area: "Summerstrand", address: "18 Marine Drive, Summerstrand",
     facilityType: "Medical centre",
     services: ["General practice", "Physiotherapy", "Optometry"],
-    hours: "Mon–Fri 08:00–17:00 · Sat 08:00–12:00", phone: "041 555 0135",
+    hours: "Mon · Fri 08:00 · 17:00 · Sat 08:00 · 12:00", phone: "041 555 0135",
     description: "A relaxed Bay medical centre near the beachfront, serving Summerstrand and Walmer families.",
   },
   {
@@ -134,7 +134,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "gqeberha", area: "Newton Park", address: "60 Heugh Road, Newton Park",
     facilityType: "Day clinic",
     services: ["General practice", "Dentistry", "Child health"],
-    hours: "Mon–Fri 07:30–17:30", phone: "041 555 0168",
+    hours: "Mon · Fri 07:30 · 17:30", phone: "041 555 0168",
     description: "A practical day clinic for Newton Park and surrounds, with a dental suite on site.",
   },
   {
@@ -142,7 +142,7 @@ export const CLINICS: Clinic[] = [
     citySlug: "bloemfontein", area: "Westdene", address: "9 Kellner Street, Westdene",
     facilityType: "Medical centre",
     services: ["General practice", "Paediatrics", "Dietetics"],
-    hours: "Mon–Fri 07:30–17:30 · Sat 08:00–11:00", phone: "051 555 0121",
+    hours: "Mon · Fri 07:30 · 17:30 · Sat 08:00 · 11:00", phone: "051 555 0121",
     description: "Bloemfontein's central family medical centre, close to the hospital precinct.",
   },
 ];

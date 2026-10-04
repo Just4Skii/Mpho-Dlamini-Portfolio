@@ -1,4 +1,4 @@
-# Project Four - Future Application Slot
+# Project Four · Future Application Slot
 
 This slot is reserved for future independent React frontend applications.
 

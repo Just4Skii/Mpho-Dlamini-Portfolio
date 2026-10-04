@@ -10,7 +10,7 @@ export default function NotFound() {
         <EmptyState
           icon="heartPulse"
           title="We couldn't find that page"
-          body="The page may have moved, or the link is out of date. The care you're looking for is still close by - try one of these instead."
+          body="The page may have moved, or the link is out of date. The care you're looking for is still close by · try one of these instead."
           action={
             <div className="flex flex-wrap justify-center gap-3">
               <Button to="/search" icon="search">

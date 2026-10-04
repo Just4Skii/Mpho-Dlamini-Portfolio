@@ -25,7 +25,7 @@
 }
 
 :root {
-  --background: #FFFBF5; /* Highveld morning – warm white */
+  --background: #FFFBF5; /* Highveld morning · warm white */
   --foreground: #11110F; /* Witwatersrand slate */
   --card: #FFFFFF;
   --card-foreground: #11110F;
@@ -103,11 +103,11 @@ button, a { touch-action: manipulation; -webkit-tap-highlight-color: transparent
 /* safe-area helper for iOS notch */
 .safe-area-pb { padding-bottom: max(0.5rem, env(safe-area-inset-bottom)); }
 
-/* Dark theme - restrained, premium */
+/* Dark theme · restrained, premium */
 [data-theme="dark"] {
   color-scheme: dark;
 }
-/* Keep product cards light on dark background for readability - no dark-on-dark */
+/* Keep product cards light on dark background for readability · no dark-on-dark */
 /* Only adapt subtle muted surfaces */
 [data-theme="dark"] .bg-\[\#F5EEE6\] { background-color: #1E1E1B !important; }
 [data-theme="dark"] .border-\[\#E8E2D8\] { border-color: #2A2A28 !important; }

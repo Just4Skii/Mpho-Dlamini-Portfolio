@@ -39,7 +39,7 @@ export function Button({
   variant?: ButtonVariant;
   size?: ButtonSize;
   to?: string;
-  /** External URL - renders a real anchor that opens in a new tab. */
+  /** External URL · renders a real anchor that opens in a new tab. */
   href?: string;
   icon?: IconName;
   iconRight?: IconName;

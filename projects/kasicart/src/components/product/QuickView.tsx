@@ -29,7 +29,7 @@ export function QuickView({ product, onClose }: { product: Product; onClose: ()=
           <Price price={product.price} compareAt={product.compareAtPrice} size="lg" />
           {product.colors && (
             <div>
-              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Colour - {color}</p>
+              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Colour · {color}</p>
               <div className="flex gap-2">
                 {product.colors.map(c=>(
                   <button key={c.name} onClick={()=>setColor(c.name)} className={`w-8 h-8 rounded-full border-2 ${color===c.name?"border-[#11110F]":"border-white"} ring-1 ring-black/10`} style={{background:c.hex}} aria-label={c.name} />
@@ -39,7 +39,7 @@ export function QuickView({ product, onClose }: { product: Product; onClose: ()=
           )}
           {product.sizes && (
             <div>
-              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Size - {size}</p>
+              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Size · {size}</p>
               <div className="flex gap-2 flex-wrap">
                 {product.sizes.map(s=>(
                   <button key={s} onClick={()=>setSize(s)} className={`px-4 h-9 rounded-full text-sm border ${size===s?"bg-[#11110F] text-white border-[#11110F]":"bg-white border-[#D6CFC2] hover:border-[#11110F]"}`}>{s}</button>

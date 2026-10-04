@@ -29,13 +29,13 @@
     <path d="M61 63 h14 l-14 14 z" fill="#28283E" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"/>
   </g>
 
-  <!-- TikTok Note - Cyan Chromatic Offset -->
+  <!-- TikTok Note · Cyan Chromatic Offset -->
   <path d="M48 42 c2.5 0 4.5 -1 6 -2.8 v14 c0 4.4 -3.6 8 -8 8 c-4.4 0 -8 -3.6 -8 -8 c0 -4.4 3.6 -8 8 -8 c1.2 0 2.3 0.3 3.3 0.8 v-4 z" fill="#22E4FF"/>
 
-  <!-- TikTok Note - Pink Chromatic Offset -->
+  <!-- TikTok Note · Pink Chromatic Offset -->
   <path d="M51 44 c2.5 0 4.5 -1 6 -2.8 v14 c0 4.4 -3.6 8 -8 8 c-4.4 0 -8 -3.6 -8 -8 c0 -4.4 3.6 -8 8 -8 c1.2 0 2.3 0.3 3.3 0.8 v-4 z" fill="#FF3D9A"/>
 
-  <!-- TikTok Note - Blended Core (White) -->
+  <!-- TikTok Note · Blended Core (White) -->
   <path d="M49.5 43 c2.2 0 4 -0.8 5.2 -2.3 v14 c0 3.8 -3.1 7 -7 7 c-3.8 0 -7 -3.1 -7 -7 c0 -3.8 3.1 -7 7 -7 c1 0 2 0.3 2.8 0.7 v-5.4 z" fill="#FFFFFF"/>
 
   <!-- WhatsApp Green Floating Badge -->

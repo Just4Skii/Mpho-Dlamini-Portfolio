@@ -20,7 +20,7 @@ export const categories: Category[] = [
     description: "Skincare, haircare and bodycare from local botanics.",
     image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop",
     subcategories: ["Skincare", "Haircare", "Bodycare", "Wellness"],
-    heroCopy: "Made with what's here. Plant-based skincare rooted in indigenous botanicals - marula, rooibos, baobab and fynbos."
+    heroCopy: "Made with what's here. Plant-based skincare rooted in indigenous botanicals · marula, rooibos, baobab and fynbos."
   },
   {
     slug: "food", name: "Food & Specialty",
@@ -45,7 +45,7 @@ export const categories: Category[] = [
   },
   {
     slug: "gifts", name: "Gifts",
-    description: "Curated gifting - birthday, housewarming, corporate.",
+    description: "Curated gifting · birthday, housewarming, corporate.",
     image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&h=600&fit=crop",
     subcategories: ["Birthday", "Housewarming", "Corporate Gifts", "Local Favourites"],
     heroCopy: "Give something with story. Curated gifts from local makers, sorted by budget, occasion and recipient."
@@ -53,7 +53,7 @@ export const categories: Category[] = [
 ];
 
 export const cities = [
-  { slug: "johannesburg", name: "Johannesburg", image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=600&fit=crop", blurb: "From Braamfontein to Rosebank - ceramics, coffee and furniture." },
+  { slug: "johannesburg", name: "Johannesburg", image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=600&h=600&fit=crop", blurb: "From Braamfontein to Rosebank · ceramics, coffee and furniture." },
   { slug: "durban", name: "Durban", image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=600&h=600&fit=crop", blurb: "Coastal textiles, earth pigments and pantry goods." },
   { slug: "cape-town", name: "Cape Town", image: "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600&h=600&fit=crop", blurb: "Wood, leather and botanical skincare from the Cape." },
   { slug: "pretoria", name: "Pretoria", image: "https://images.unsplash.com/photo-1484318571209-661cf29a69c3?w=600&h=600&fit=crop", blurb: "Botanics, linenwear and pantry staples." },

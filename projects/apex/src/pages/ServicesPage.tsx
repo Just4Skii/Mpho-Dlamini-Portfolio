@@ -4,7 +4,7 @@ import type { Metadata } from "@/projects/apex/compat/next";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Integrated repairs, planned maintenance and specialist building services - from a single repair to a multi-site programme.",
+  description: "Integrated repairs, planned maintenance and specialist building services · from a single repair to a multi-site programme.",
 };
 
 const categories = ["Property Services", "Building Services", "Compliance & Safety", "Project Works"];
@@ -19,7 +19,7 @@ export default function ServicesPage() {
               <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">SERVICES</div>
               <h1 className="font-display text-[36px] lg:text-[48px] font-semibold leading-[0.9] tracking-tight mt-3">Services built around the property lifecycle.</h1>
               <p className="text-[16px] leading-relaxed text-neutral-600 mt-6 max-w-2xl">
-                From urgent faults to planned programmes - one operational partner. We structure delivery around how property teams actually procure, schedule and report.
+                From urgent faults to planned programmes · one operational partner. We structure delivery around how property teams actually procure, schedule and report.
               </p>
             </div>
             <div className="lg:col-span-5 lg:text-right">
@@ -64,7 +64,7 @@ export default function ServicesPage() {
         <div className="bg-ink text-white p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div>
             <h3 className="font-display text-[22px] font-semibold">Not sure which service fits?</h3>
-            <p className="text-sm text-white/60 mt-2 max-w-xl">Tell us the property, the issue and the timescales - we’ll recommend the right route and next step.</p>
+            <p className="text-sm text-white/60 mt-2 max-w-xl">Tell us the property, the issue and the timescales · we’ll recommend the right route and next step.</p>
           </div>
           <Link href="/contact" className="bg-amber text-ink px-6 py-3 text-sm font-semibold hover:bg-amber-hover transition-colors inline-flex items-center gap-2 shrink-0">
             Speak to our team →

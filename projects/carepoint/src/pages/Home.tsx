@@ -15,7 +15,7 @@ import { cx, dayLabel, todayISO, track, usePageMeta } from "../lib/utils";
 
 export default function Home() {
   usePageMeta(
-    "CarePoint - Find care near you | Healthcare discovery & booking, South Africa",
+    "CarePoint · Find care near you | Healthcare discovery & booking, South Africa",
     "Discover healthcare providers, clinics and appointment options across South Africa. Finding the right care should feel simpler.",
   );
   const [what, setWhat] = useState("");
@@ -67,7 +67,7 @@ function Hero(props: {
             Finding the right care should feel <em className="font-display italic text-pine">simpler.</em>
           </h1>
           <p className="mt-5 max-w-lg text-[16.5px] leading-relaxed text-ink-2">
-            Discover healthcare providers, clinics and appointment options across South Africa - search by specialty, area or availability, compare options and book in minutes.
+            Discover healthcare providers, clinics and appointment options across South Africa · search by specialty, area or availability, compare options and book in minutes.
           </p>
 
           {/* universal search */}
@@ -169,7 +169,7 @@ function HeroRight() {
         <NextUpToday />
       </div>
       <p className="mt-14 hidden text-right text-[11.5px] text-ink-3 sm:block sm:mt-2">
-        Concept preview - provider listings are sample data.
+        Concept preview · provider listings are sample data.
       </p>
     </div>
   );
@@ -216,7 +216,7 @@ function NextUpToday() {
           <NextUpRow key={id} id={id} date={date} time={time} />
         ))}
         {entries.length === 0 && (
-          <li className="px-4 py-3 text-[13px] text-ink-3">No more slots today - check tomorrow's availability.</li>
+          <li className="px-4 py-3 text-[13px] text-ink-3">No more slots today · check tomorrow's availability.</li>
         )}
       </ul>
     </div>
@@ -319,7 +319,7 @@ function HowItWorks() {
     {
       n: "01",
       title: "Search with context",
-      body: "Filter by specialty, area, availability, fees and medical aid - so the shortlist fits your life, not the other way around.",
+      body: "Filter by specialty, area, availability, fees and medical aid · so the shortlist fits your life, not the other way around.",
       to: "/search",
       link: "Try a search",
     },
@@ -362,7 +362,7 @@ function HowItWorks() {
         </div>
         <Reveal delay={120}>
           <p className="mt-8 max-w-2xl text-[13.5px] leading-relaxed text-cream/50">
-            CarePoint is a discovery and booking interface - not a diagnostic tool. It never diagnoses conditions or replaces the judgement of a medical professional. If you believe you are experiencing a medical emergency, seek immediate emergency assistance.
+            CarePoint is a discovery and booking interface · not a diagnostic tool. It never diagnoses conditions or replaces the judgement of a medical professional. If you believe you are experiencing a medical emergency, seek immediate emergency assistance.
           </p>
         </Reveal>
       </div>
@@ -430,7 +430,7 @@ function AidBand() {
             <p className="kicker">Costs, clearly</p>
             <h2 className="mt-2.5 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Know the fee before you book</h2>
             <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink-2">
-              Every listing shows its consultation fee, follow-up fee and medical aid status up front. Where a fee isn't published, we say so - “contact provider” - instead of guessing.
+              Every listing shows its consultation fee, follow-up fee and medical aid status up front. Where a fee isn't published, we say so · “contact provider” · instead of guessing.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {MEDICAL_AIDS.map((aid) => (
@@ -472,11 +472,11 @@ function UrgentBand() {
             </Badge>
             <h2 className="mt-4 font-display text-2xl font-semibold tracking-tight sm:text-3xl">Not sure how urgent it is?</h2>
             <p className="mt-3 max-w-lg text-[14.5px] leading-relaxed text-ink-2">
-              Our urgent care guide explains the difference between emergencies, after-hours care and urgent clinics - with responsible guidance on what to do next. It does not diagnose; it helps you navigate.
+              Our urgent care guide explains the difference between emergencies, after-hours care and urgent clinics · with responsible guidance on what to do next. It does not diagnose; it helps you navigate.
             </p>
             <p className="mt-4 flex items-start gap-2 rounded-lg bg-danger-bg px-4 py-3 text-[13.5px] font-semibold text-danger">
               <Icon name="alert" className="mt-0.5 h-4 w-4 shrink-0" />
-              If you believe you are experiencing a medical emergency, seek immediate emergency assistance - call 112 from any cellphone.
+              If you believe you are experiencing a medical emergency, seek immediate emergency assistance · call 112 from any cellphone.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button to="/urgent-care" iconRight="arrowRight">
@@ -542,7 +542,7 @@ function ProvidersBand() {
             <p className="kicker !text-pine-4">For practices</p>
             <h2 className="mt-2.5 max-w-md font-display text-3xl font-semibold tracking-tight">Put your practice on the map patients actually use</h2>
             <p className="mt-3.5 max-w-md text-[14.5px] leading-relaxed text-cream/65">
-              Claim your profile, keep availability current, publish transparent fees and receive booking requests - all from one calm dashboard. A concept preview of the provider side of CarePoint.
+              Claim your profile, keep availability current, publish transparent fees and receive booking requests · all from one calm dashboard. A concept preview of the provider side of CarePoint.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button to="/for-providers" variant="primary" iconRight="arrowRight">

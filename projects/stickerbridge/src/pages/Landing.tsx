@@ -590,7 +590,7 @@ export const Landing: React.FC = () => {
               <div><b>The problem</b><p>Stickers you find in one app can&apos;t be used where you actually chat.</p></div>
               <div><b>The approach</b><p>An Android app that moves a sticker from where you found it into a WhatsApp-ready pack.</p></div>
               <div><b>What I built</b><p>The app, its interface, and this page, including the StickerBridge identity icon, device mockup, and every sticker drawn as SVG.</p></div>
-              <div><b>This page</b><p>A faithful React port of the original standalone page - same design, same interactions.</p></div>
+              <div><b>This page</b><p>A faithful React port of the original standalone page · same design, same interactions.</p></div>
               <div><b>Built by</b><p>Mpho · GraffGrid</p></div>
             </div>
           </div>

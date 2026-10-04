@@ -13,7 +13,7 @@ export default function WishlistPage() {
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-8">
       <div className="flex items-end justify-between mb-6">
         <div>
-          <h1 className="text-[28px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Wishlist - {items.length} {items.length===1?"item":"items"}</h1>
+          <h1 className="text-[28px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Wishlist · {items.length} {items.length===1?"item":"items"}</h1>
           <p className="text-sm text-stone-500">Saved locally in this browser. No account required. Share your wishlist with a link (demo).</p>
         </div>
         {items.length>0 && <button onClick={clear} className="text-sm underline">Clear all</button>}
@@ -43,7 +43,7 @@ export default function WishlistPage() {
             <button onClick={()=>{
               const url = window.location.href;
               navigator.clipboard.writeText(url);
-              alert("Wishlist link copied (demo) - " + url);
+              alert("Wishlist link copied (demo) · " + url);
             }} className="h-10 px-5 rounded-full border border-[#E8E2D8] bg-white text-sm">Share wishlist</button>
           </div>
         </>

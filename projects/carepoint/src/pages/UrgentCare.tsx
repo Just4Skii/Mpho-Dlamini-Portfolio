@@ -8,7 +8,7 @@ import type { IconName } from "../components/icons";
 import { usePageMeta } from "../lib/utils";
 
 export default function UrgentCare() {
-  usePageMeta("Urgent care guidance | CarePoint", "Understand the difference between emergencies, after-hours care and urgent clinics - general navigation guidance, not diagnosis.");
+  usePageMeta("Urgent care guidance | CarePoint", "Understand the difference between emergencies, after-hours care and urgent clinics · general navigation guidance, not diagnosis.");
   const urgentClinics = CLINICS.filter((c) => c.facilityType === "Urgent care centre");
 
   const categories: Array<{ icon: IconName; title: string; tone: "danger" | "gold" | "pine" | "info"; body: string; bullets?: string[]; cta: { to: string; label: string } }> = [
@@ -18,10 +18,10 @@ export default function UrgentCare() {
       tone: "danger",
       body: "Emergencies are situations where life or limb may be at risk and every minute matters. Emergency services and hospital emergency units exist for exactly this.",
       bullets: [
-        "Call 112 from any cellphone - it routes to the appropriate emergency service",
+        "Call 112 from any cellphone · it routes to the appropriate emergency service",
         "For ambulance services you can also try 10177 (public) or your private provider's emergency line",
         "If safe to do so, have someone stay with the person and keep them calm",
-        "Don't wait for an online booking - emergencies bypass all queues",
+        "Don't wait for an online booking · emergencies bypass all queues",
       ],
       cta: { to: "/search", label: "Not an emergency? Find care" },
     },
@@ -29,7 +29,7 @@ export default function UrgentCare() {
       icon: "moon",
       title: "After-hours care",
       tone: "gold",
-      body: "For problems that can't wait until Monday but aren't life-threatening - many GPs and urgent centres hold evening and weekend slots.",
+      body: "For problems that can't wait until Monday but aren't life-threatening · many GPs and urgent centres hold evening and weekend slots.",
       bullets: [
         "Filter the directory by availability: today or tomorrow",
         "Some practices offer telephone triage for existing patients",
@@ -41,7 +41,7 @@ export default function UrgentCare() {
       icon: "building",
       title: "Urgent clinic",
       tone: "pine",
-      body: "Urgent care centres handle cuts that need stitches, sprains, minor burns, fevers and similar problems - usually without an appointment.",
+      body: "Urgent care centres handle cuts that need stitches, sprains, minor burns, fevers and similar problems · usually without an appointment.",
       cta: { to: "/clinics", label: "Browse urgent care centres" },
     },
     {
@@ -69,7 +69,7 @@ export default function UrgentCare() {
           <p className="kicker !text-pine-4">Urgent care navigation</p>
           <h1 className="mt-3 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">When care can't wait, know where to go</h1>
           <p className="mt-4 max-w-xl text-[15.5px] leading-relaxed text-cream/75">
-            This page helps you understand your options - it does not diagnose conditions or tell you what you have. When in doubt, err on the side of getting seen.
+            This page helps you understand your options · it does not diagnose conditions or tell you what you have. When in doubt, err on the side of getting seen.
           </p>
           <div className="mt-7 flex max-w-2xl items-start gap-3 rounded-xl border border-danger/40 bg-danger/20 px-5 py-4">
             <Icon name="alert" className="mt-0.5 h-5 w-5 shrink-0 text-danger-bg" />
@@ -143,7 +143,7 @@ export default function UrgentCare() {
         </section>
 
         <div className="mt-14 rounded-xl border border-line bg-cream p-7 sm:p-8">
-          <h2 className="font-display text-xl font-semibold">A note on what CarePoint does - and doesn't - do</h2>
+          <h2 className="font-display text-xl font-semibold">A note on what CarePoint does · and doesn't · do</h2>
           <p className="mt-3 max-w-3xl text-[14.5px] leading-relaxed text-ink-2">
             CarePoint is a discovery and appointment interface. It never diagnoses conditions, never tells you what a symptom "proves", and never implies that emergency treatment can be booked or guaranteed. For anything urgent, a phone call or a visit will always beat a search box.
           </p>

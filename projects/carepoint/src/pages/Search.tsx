@@ -43,7 +43,7 @@ export default function SearchPage() {
   const paramsKey = params.toString();
 
   usePageMeta(
-    `Find care${filters.city ? ` in ${getCity(filters.city)?.name ?? ""}` : " in South Africa"} - CarePoint`,
+    `Find care${filters.city ? ` in ${getCity(filters.city)?.name ?? ""}` : " in South Africa"} · CarePoint`,
     "Search and filter healthcare providers across South Africa by specialty, location, availability, fees and medical aid.",
   );
 
@@ -382,7 +382,7 @@ function FilterPanel({ filters, setFilter }: { filters: SearchFilters; setFilter
             <option key={c.slug} value={c.slug}>{c.name}</option>
           ))}
         </Select>
-        <p className="mt-2 text-[12px] text-ink-3">Areas within a city are matched by search - try “Umhlanga” or “Sandton” in the search box.</p>
+        <p className="mt-2 text-[12px] text-ink-3">Areas within a city are matched by search · try “Umhlanga” or “Sandton” in the search box.</p>
       </FilterSection>
 
       <FilterSection title="Availability">

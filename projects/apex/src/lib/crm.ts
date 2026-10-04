@@ -1,5 +1,5 @@
 // CRM-ready abstraction for enquiry submission.
-// Frontend-only for portfolio - swap implementation to integrate HubSpot, Salesforce, Zoho or Dynamics.
+// Frontend-only for portfolio · swap implementation to integrate HubSpot, Salesforce, Zoho or Dynamics.
 
 export type EnquiryPayload = {
   help: string[];
@@ -28,7 +28,7 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<{ ok: true
   return { ok: true };
 }
 
-// Analytics-ready helper - attach where needed
+// Analytics-ready helper · attach where needed
 export function track(event: string, props?: Record<string, unknown>) {
   // Replace with gtag, Segment, PostHog, etc.
   // gtag('event', event, props)

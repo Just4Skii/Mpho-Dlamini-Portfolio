@@ -35,7 +35,7 @@ export function AccountHome() {
             {profile ? `Hello, ${profile.firstName}` : "Welcome back"}
           </h1>
           <p className="mt-2 text-[14px] text-ink-2">
-            You're browsing as a guest - appointments and saved providers are stored on this device.
+            You're browsing as a guest · appointments and saved providers are stored on this device.
           </p>
         </div>
         <Button to="/search" icon="search">Find care</Button>
@@ -143,10 +143,10 @@ export function AccountHome() {
             <div className="border-t border-line pt-4">
               <p className="text-[13px] font-bold uppercase tracking-wide text-ink-2">Privacy</p>
               <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-3">
-                CarePoint collects only what a booking needs - no ID numbers, diagnoses or medical records. Everything in this preview stays in your browser.
+                CarePoint collects only what a booking needs · no ID numbers, diagnoses or medical records. Everything in this preview stays in your browser.
               </p>
             </div>
-            <Button variant="outline" size="sm" icon="trash" onClick={() => { localStorage.clear(); toast("info", "Local data cleared - refreshing…"); window.setTimeout(() => window.location.reload(), 600); }}>
+            <Button variant="outline" size="sm" icon="trash" onClick={() => { localStorage.clear(); toast("info", "Local data cleared · refreshing…"); window.setTimeout(() => window.location.reload(), 600); }}>
               Clear local data
             </Button>
           </div>
@@ -281,7 +281,7 @@ export function AppointmentDetail() {
                 ["Time", appt.time],
                 ["Type", appt.type === "video" ? "Video consultation" : appt.type === "follow-up" ? "Follow-up visit" : "In-person consultation"],
                 ["Reason", appt.reason],
-                ["Location", appt.type === "video" ? "Video - link to follow from the practice" : `${provider.address}, ${city?.name}`],
+                ["Location", appt.type === "video" ? "Video · link to follow from the practice" : `${provider.address}, ${city?.name}`],
                 ["Fee", zar(appt.fee)],
                 ["Patient", `${appt.patient.firstName} ${appt.patient.lastName}`],
                 ["Booked", fmtMed(appt.createdAt.slice(0, 10))],

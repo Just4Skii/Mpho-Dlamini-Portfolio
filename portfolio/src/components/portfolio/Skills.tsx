@@ -16,9 +16,9 @@ export const Skills: React.FC = () => {
   ];
 
   const languagesAndStrengths = [
-    'English - C2',
-    'Zulu - C2',
-    'Mandarin - HSK1',
+    'English · C2',
+    'Zulu · C2',
+    'Mandarin · HSK1',
     'Public Speaking',
     'Customer Service',
     'Fast Learner',

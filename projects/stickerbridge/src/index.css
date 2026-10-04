@@ -1,4 +1,4 @@
-/* StickerBridge original site styles - 1:1 port of the standalone landing page.
+/* StickerBridge original site styles · 1:1 port of the standalone landing page.
    Tailwind is intentionally NOT used here (no preflight) to preserve the design exactly. */
 :root{--ink:#07070B;--void:#0E0E16;--gr:#1A1A26;--paper:#F5F1E8;--smoke:#9A98A8;--char:#2A2A35;--volt:#22E4FF;--pink:#FF3D9A;--acid:#C6FF3D;--uv:#7B4DFF;--ember:#FF8A2B;--mint:#25D366;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box;margin:0}
