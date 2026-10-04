@@ -1,7 +1,7 @@
 import { brands } from "@/projects/kasicart/data/brands";
 import Link from "@/projects/kasicart/compat/next";
 
-export const metadata = { title: "Brands — KasiCart" };
+export const metadata = { title: "Brands - KasiCart" };
 
 export default function BrandsPage() {
   return (
@@ -10,7 +10,7 @@ export default function BrandsPage() {
         <div>
           <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Directory</p>
           <h1 className="text-[32px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Meet the makers</h1>
-          <p className="text-sm text-stone-600 mt-2 max-w-[60ch]">Independent South African brands — fictional concept brands for portfolio demonstration. Browse by category, city or product type. Every brand has a story, a place, and a collection.</p>
+          <p className="text-sm text-stone-600 mt-2 max-w-[60ch]">Independent South African brands - fictional concept brands for portfolio demonstration. Browse by category, city or product type. Every brand has a story, a place, and a collection.</p>
         </div>
         <div className="flex gap-2">
           <Link href="/local" className="h-9 px-4 rounded-full border border-[#E8E2D8] bg-white text-sm flex items-center">Browse by city</Link>

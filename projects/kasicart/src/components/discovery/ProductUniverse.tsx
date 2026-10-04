@@ -21,7 +21,7 @@ export function ProductUniverse({ onSelect }: { onSelect?: (id: string) => void 
           <h3 className="text-[22px] sm:text-[26px] font-semibold text-white leading-tight" style={{ fontFamily: "var(--font-instrument)" }}>
             Categories orbit around you
           </h3>
-          <p className="text-sm text-white/60 mt-1 max-w-[40ch]">Move between worlds — products transition spatially. No reload, just motion.</p>
+          <p className="text-sm text-white/60 mt-1 max-w-[40ch]">Move between worlds - products transition spatially. No reload, just motion.</p>
         </div>
         <span className="hidden sm:inline text-xs px-3 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/70">Drag or hover • Tap to explore</span>
       </div>
@@ -72,7 +72,7 @@ export function ProductUniverse({ onSelect }: { onSelect?: (id: string) => void 
           })}
         </div>
 
-        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide text-white/40 whitespace-nowrap">Spatial exploration • No AI — curated</p>
+        <p className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[11px] tracking-wide text-white/40 whitespace-nowrap">Spatial exploration • No AI - curated</p>
       </div>
     </div>
   );

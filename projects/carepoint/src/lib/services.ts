@@ -7,7 +7,7 @@ import { scoreProvider } from "./search";
 import { dayLabel, dayNum, hashString, isPastSlot, monthShort, plusDaysISO, seeded, todayISO, weekdayShort } from "./utils";
 
 /**
- * Service layer — the future integration boundary.
+ * Service layer - the future integration boundary.
  * Every function here currently runs against local data; a backend,
  * availability API or booking API can be swapped in behind these signatures.
  */
@@ -30,7 +30,7 @@ export function getDays(p: Provider, booked: BookedSlots, days = 14): DayAvailab
     const date = plusDaysISO(i);
     const weekday = getDay(parseISO(date));
     const slots = p.availability[weekday] ?? [];
-    // "held" slots are presented as bookable but are contended —
+    // "held" slots are presented as bookable but are contended -
     // confirmBooking will fail on them, exercising the recovery path.
     const freeSlots = slots.filter((t) => {
       const s = slotState(p, date, t, booked);
@@ -172,7 +172,7 @@ export function makeICS(a: Appointment, p: Provider | undefined): string {
     `DTSTAMP:${format(new Date(), "yyyyMMdd'T'HHmmss")}`,
     `DTSTART:${start}`,
     `DTEND:${end}`,
-    `SUMMARY:${a.type === "video" ? "Video consultation" : "Appointment"} — ${p?.name ?? "CarePoint provider"} (${a.id})`,
+    `SUMMARY:${a.type === "video" ? "Video consultation" : "Appointment"} - ${p?.name ?? "CarePoint provider"} (${a.id})`,
     `LOCATION:${location}`,
     `DESCRIPTION:Reason: ${a.reason}. Fee: ${a.fee ? `R ${a.fee}` : "Contact provider"}. This file was generated locally by the CarePoint concept preview.`,
     "END:VEVENT",
@@ -189,7 +189,7 @@ const REVIEW_TEXTS: Record<"high" | "mid", string[]> = {
     "Listened properly before jumping to conclusions. The plan was clear and the fee matched the quote exactly.",
     "Booked online the night before and was seen on time. Refreshingly organised practice.",
     "Took the time to explain everything in plain language. No rush, no jargon.",
-    "Honest about what I did and didn't need — didn't try to sell me extra treatment.",
+    "Honest about what I did and didn't need - didn't try to sell me extra treatment.",
     "The booking process was simple and the reception team was warm and efficient.",
     "Clear pricing up front and a thorough consultation. Exactly what you want from a first visit.",
   ],
@@ -223,18 +223,18 @@ export function getReviews(p: Provider): Review[] {
 const FAQS: Record<string, Array<{ q: string; a: string }>> = {
   "general-practitioner": [
     { q: "Do I need a referral to book?", a: "No. You can book a GP consultation directly. GPs are usually the best first point of contact for new or unclear symptoms." },
-    { q: "Can I get a repeat prescription without a full consultation?", a: "Many practices offer short prescription slots or renewals for stable chronic medication — ask when booking." },
+    { q: "Can I get a repeat prescription without a full consultation?", a: "Many practices offer short prescription slots or renewals for stable chronic medication - ask when booking." },
     { q: "What does the consultation fee cover?", a: "The standard consultation fee covers the assessment and plan. Procedures, vaccinations and certain tests may carry additional costs, which should be explained before they happen." },
     { q: "Do you see children?", a: "Most GPs see children for everyday illness. For specialist paediatric concerns, a paediatrician may be more appropriate." },
   ],
   dentist: [
     { q: "How often should I have a check-up?", a: "For most people, every six to twelve months is sensible. Your dentist may suggest more frequent visits if you have gum disease or a high cavity risk." },
-    { q: "Will I get a cost estimate before treatment?", a: "Yes — itemised treatment plans with fees should be agreed before non-urgent work begins." },
+    { q: "Will I get a cost estimate before treatment?", a: "Yes - itemised treatment plans with fees should be agreed before non-urgent work begins." },
     { q: "Do you treat anxious patients?", a: "Many dentists offer longer first visits, sedation options or simply a gentler pace. Mention anxiety when booking." },
   ],
   physiotherapist: [
     { q: "Do I need a doctor's referral?", a: "No, you can book a physiotherapist directly. Some medical aids reimburse better with a referral, so check your plan." },
-    { q: "What should I wear?", a: "Comfortable clothing that allows movement around the area being treated — shorts for knee or ankle work, for example." },
+    { q: "What should I wear?", a: "Comfortable clothing that allows movement around the area being treated - shorts for knee or ankle work, for example." },
     { q: "How many sessions will I need?", a: "After the first assessment you should get a realistic estimate with clear milestones, not an open-ended course of treatment." },
   ],
   psychologist: [

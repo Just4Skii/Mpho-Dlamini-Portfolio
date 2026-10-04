@@ -17,9 +17,9 @@ const display = Instrument_Serif({ subsets: ["latin"], weight: "400", variable: 
 const sans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 
 export const metadata: Metadata = {
-  title: { default: "KasiCart — Good things, close to home.", template: "%s — KasiCart" },
-  description: "Discover products from independent South African brands, makers and specialty retailers. Independent concept — frontend showcase.",
-  openGraph: { title: "KasiCart — Good things, close to home.", description: "Independent South African brands, makers and specialty retailers.", type: "website" },
+  title: { default: "KasiCart - Good things, close to home.", template: "%s - KasiCart" },
+  description: "Discover products from independent South African brands, makers and specialty retailers. Independent concept - frontend showcase.",
+  openGraph: { title: "KasiCart - Good things, close to home.", description: "Independent South African brands, makers and specialty retailers.", type: "website" },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },

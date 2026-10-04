@@ -20,7 +20,7 @@ export default function ProviderProfile() {
   const { days } = useAvailability(provider?.id);
 
   usePageMeta(
-    provider ? `${provider.name} — ${getSpecialty(provider.specialty)?.name} in ${provider.suburb} | CarePoint` : "Provider not found | CarePoint",
+    provider ? `${provider.name} - ${getSpecialty(provider.specialty)?.name} in ${provider.suburb} | CarePoint` : "Provider not found | CarePoint",
     provider ? `${provider.name}, ${getSpecialty(provider.specialty)?.name} at ${provider.practice}, ${provider.suburb}. Fees, availability and booking on CarePoint.` : undefined,
   );
 
@@ -136,7 +136,7 @@ export default function ProviderProfile() {
               ))}
             </div>
             <p className="mt-3 text-[12.5px] leading-relaxed text-ink-3">
-              Fees are sample concept figures. Additional procedures or tests may carry separate costs — the practice should confirm these before treatment.
+              Fees are sample concept figures. Additional procedures or tests may carry separate costs - the practice should confirm these before treatment.
             </p>
           </section>
 
@@ -172,7 +172,7 @@ export default function ProviderProfile() {
           </section>
 
           <section aria-labelledby="avail-h">
-            <h2 id="avail-h" className="font-display text-2xl font-semibold">Availability — next 7 days</h2>
+            <h2 id="avail-h" className="font-display text-2xl font-semibold">Availability - next 7 days</h2>
             <div className="mt-4 rounded-xl border border-line bg-card p-5">
               <div className="no-scrollbar flex gap-2 overflow-x-auto pb-1">
                 {days.slice(0, 7).map((d) => (
@@ -200,7 +200,7 @@ export default function ProviderProfile() {
           <section id="profile-map" aria-labelledby="map-h" className="scroll-mt-24">
             <h2 id="map-h" className="font-display text-2xl font-semibold">Location & directions</h2>
             <p className="mt-2 text-[14.5px] text-ink-2">
-              {provider.practice} — {provider.address}, {city?.name}. {clinic ? `Part of ${clinic.name} (${clinic.facilityType.toLowerCase()}).` : ""} Open: {clinic?.hours ?? "Contact the practice for hours."}
+              {provider.practice} - {provider.address}, {city?.name}. {clinic ? `Part of ${clinic.name} (${clinic.facilityType.toLowerCase()}).` : ""} Open: {clinic?.hours ?? "Contact the practice for hours."}
             </p>
             <MapPanel providers={[provider, ...nearby]} selectedId={provider.id} citySlug={provider.citySlug} className="mt-4 h-[380px]" />
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
@@ -218,7 +218,7 @@ export default function ProviderProfile() {
               <h2 id="rev-h" className="font-display text-2xl font-semibold">Patient feedback</h2>
               <Rating value={provider.rating} count={provider.reviewCount} />
             </div>
-            <p className="mt-1.5 text-[12.5px] text-ink-3">Sample reviews — illustrative content for this concept preview, not real patient feedback.</p>
+            <p className="mt-1.5 text-[12.5px] text-ink-3">Sample reviews - illustrative content for this concept preview, not real patient feedback.</p>
             {reviews.length === 0 ? (
               <p className="mt-4 rounded-xl border border-dashed border-line-2 bg-cream px-5 py-6 text-[14px] text-ink-2">No reviews have been published for this profile yet.</p>
             ) : (
@@ -285,12 +285,12 @@ export default function ProviderProfile() {
                         <Badge key={a} tone="pine">{a}</Badge>
                       ))}
                       {MEDICAL_AIDS.filter((m) => !provider.aids.includes(m)).map((m) => (
-                        <Badge key={m}>{m} — not listed</Badge>
+                        <Badge key={m}>{m} - not listed</Badge>
                       ))}
                     </div>
                   </>
                 ) : provider.aidStatus === "not-listed" ? (
-                  <p className="mt-1.5 text-[13.5px] text-ink-2">Medical aid participation is not listed. You may be able to claim reimbursement — ask the practice.</p>
+                  <p className="mt-1.5 text-[13.5px] text-ink-2">Medical aid participation is not listed. You may be able to claim reimbursement - ask the practice.</p>
                 ) : (
                   <p className="mt-1.5 flex items-center gap-1.5 text-[13.5px] font-semibold text-gold">
                     <Icon name="wallet" className="h-4 w-4" /> Self-pay only
@@ -300,7 +300,7 @@ export default function ProviderProfile() {
               <Button className="w-full" size="lg" icon="calendar" onClick={() => { track("booking_started", { providerId: provider.id }); navigate(`/book/${provider.slug}`); }}>
                 Book appointment
               </Button>
-              <p className="text-center text-[12px] text-ink-3">No payment is taken — you confirm details at the practice.</p>
+              <p className="text-center text-[12px] text-ink-3">No payment is taken - you confirm details at the practice.</p>
             </div>
           </div>
 

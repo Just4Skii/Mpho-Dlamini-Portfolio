@@ -16,7 +16,7 @@ export const WorkPage: React.FC = () => {
 
   const softwareProjects = [
     {
-      title: 'CiCi Panda — Virtual Mandarin Teaching Assistant',
+      title: 'CiCi Panda - Virtual Mandarin Teaching Assistant',
       badge: '🏆 Top 20 in Africa',
       awardInfo: "China International College Students' Innovation Competition 2026",
       description: 'AI-powered virtual Mandarin teaching assistant combining robotics simulation, expressive gesture control, and interactive lesson sequencing.',
@@ -30,7 +30,7 @@ export const WorkPage: React.FC = () => {
       type: 'Enterprise Backend System'
     },
     {
-      title: 'RePurpose — Community Waste Exchange',
+      title: 'RePurpose - Community Waste Exchange',
       description: 'Hackathon platform connecting local material donors and recycling recipients for community-driven ecological and material upcycling.',
       stack: ['Full-Stack Web', 'REST APIs', 'Relational DB'],
       type: 'Community Hackathon Project'
@@ -61,7 +61,7 @@ export const WorkPage: React.FC = () => {
           <h1 className={styles.workTitle}>Selected Work &amp; Products</h1>
           <p className={styles.workSubtitle}>
             I design and build digital products, commercial architectures, native mobile utilities, and full-stack software systems.
-            Explore interactive frontend applications running live on the GraffGrid platform — plus externally distributed native apps.
+            Explore interactive frontend applications running live on the GraffGrid platform - plus externally distributed native apps.
           </p>
 
           {/* Filter Bar */}
@@ -117,7 +117,7 @@ export const WorkPage: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>Selected Commercial &amp; Product Experiences</h2>
               <p className={styles.sectionSubtitle}>
-                Independent applications engineered from scratch — Vite SPAs hosted on GraffGrid, plus externally distributed native builds. Click to launch the live experience.
+                Independent applications engineered from scratch - Vite SPAs hosted on GraffGrid, plus externally distributed native builds. Click to launch the live experience.
               </p>
             </div>
 

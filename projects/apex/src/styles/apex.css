@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Original Apex Facilities Group — design tokens (full) */
+  /* Original Apex Facilities Group - design tokens (full) */
   --color-ink-950: #101215;
   --color-ink-900: #16181c;
   --color-ink-850: #1b1e23;
@@ -30,7 +30,7 @@
   --font-display: var(--font-archivo), "Archivo", "Helvetica Neue", Arial, sans-serif;
   --font-sans: var(--font-inter), "Inter", "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-plex-mono), "IBM Plex Mono", ui-monospace, monospace;
-  /* Compatibility aliases for ported Vite components (bg-ink, bg-stone etc) — matched to original palette */
+  /* Compatibility aliases for ported Vite components (bg-ink, bg-stone etc) - matched to original palette */
   --color-ink: #16181c;
   --color-ink-2: #2b3037;
   --color-stone: #faf9f6;

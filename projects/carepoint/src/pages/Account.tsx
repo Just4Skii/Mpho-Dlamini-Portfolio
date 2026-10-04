@@ -35,7 +35,7 @@ export function AccountHome() {
             {profile ? `Hello, ${profile.firstName}` : "Welcome back"}
           </h1>
           <p className="mt-2 text-[14px] text-ink-2">
-            You're browsing as a guest — appointments and saved providers are stored on this device.
+            You're browsing as a guest - appointments and saved providers are stored on this device.
           </p>
         </div>
         <Button to="/search" icon="search">Find care</Button>
@@ -48,7 +48,7 @@ export function AccountHome() {
             <p className="text-[12px] font-bold uppercase tracking-[0.14em] text-cream/55">Next appointment</p>
             {next && nextProvider ? (
               <p className="mt-1 font-display text-xl font-semibold">
-                {dayLabel(next.date)} · {next.time} — {nextProvider.name}
+                {dayLabel(next.date)} · {next.time} - {nextProvider.name}
               </p>
             ) : (
               <p className="mt-1 font-display text-xl font-semibold text-cream/70">Nothing scheduled yet</p>
@@ -143,10 +143,10 @@ export function AccountHome() {
             <div className="border-t border-line pt-4">
               <p className="text-[13px] font-bold uppercase tracking-wide text-ink-2">Privacy</p>
               <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-3">
-                CarePoint collects only what a booking needs — no ID numbers, diagnoses or medical records. Everything in this preview stays in your browser.
+                CarePoint collects only what a booking needs - no ID numbers, diagnoses or medical records. Everything in this preview stays in your browser.
               </p>
             </div>
-            <Button variant="outline" size="sm" icon="trash" onClick={() => { localStorage.clear(); toast("info", "Local data cleared — refreshing…"); window.setTimeout(() => window.location.reload(), 600); }}>
+            <Button variant="outline" size="sm" icon="trash" onClick={() => { localStorage.clear(); toast("info", "Local data cleared - refreshing…"); window.setTimeout(() => window.location.reload(), 600); }}>
               Clear local data
             </Button>
           </div>
@@ -207,7 +207,7 @@ export function AppointmentsList() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="flex flex-wrap items-center gap-2 text-[15.5px] font-bold">
-                    {a.time} — {p.name}
+                    {a.time} - {p.name}
                     <StatusPill status={status} />
                   </p>
                   <p className="mt-0.5 truncate text-[13px] text-ink-2">
@@ -281,7 +281,7 @@ export function AppointmentDetail() {
                 ["Time", appt.time],
                 ["Type", appt.type === "video" ? "Video consultation" : appt.type === "follow-up" ? "Follow-up visit" : "In-person consultation"],
                 ["Reason", appt.reason],
-                ["Location", appt.type === "video" ? "Video — link to follow from the practice" : `${provider.address}, ${city?.name}`],
+                ["Location", appt.type === "video" ? "Video - link to follow from the practice" : `${provider.address}, ${city?.name}`],
                 ["Fee", zar(appt.fee)],
                 ["Patient", `${appt.patient.firstName} ${appt.patient.lastName}`],
                 ["Booked", fmtMed(appt.createdAt.slice(0, 10))],
@@ -372,7 +372,7 @@ export function AppointmentDetail() {
       {/* reschedule dialog */}
       <Dialog open={reschedOpen} onClose={() => setReschedOpen(false)} title="Reschedule appointment" wide>
         <p className="text-[14px] text-ink-2">
-          Currently: <strong>{fmtMed(appt.date)} at {appt.time}</strong>. Choose a new time with {provider.name} — the same reason and details carry over.
+          Currently: <strong>{fmtMed(appt.date)} at {appt.time}</strong>. Choose a new time with {provider.name} - the same reason and details carry over.
         </p>
         <div className="mt-5">
           <AvailabilityCalendar

@@ -28,7 +28,7 @@ export default async function SectorDetail({ params }: { params: Promise<{ slug:
         <div className="mx-auto max-w-[88rem] px-6 lg:px-8 py-10 lg:py-14">
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6">
-              <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">SECTORS — {sector.name.toUpperCase()}</div>
+              <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">SECTORS - {sector.name.toUpperCase()}</div>
               <h1 className="font-display text-[34px] lg:text-[44px] font-semibold leading-[0.9] tracking-tight mt-3">{sector.headline}</h1>
               <p className="text-[16px] leading-relaxed text-neutral-600 mt-5">{sector.desc}</p>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -56,7 +56,7 @@ export default async function SectorDetail({ params }: { params: Promise<{ slug:
                 <div key={c} className="bg-white border border-neutral-200 p-5">
                   <div className="w-2 h-2 bg-amber rounded-full mb-3" />
                   <div className="text-sm font-medium">{c}</div>
-                  <div className="text-xs text-neutral-600 leading-relaxed mt-1">Operational reality — not marketing copy. We plan around it.</div>
+                  <div className="text-xs text-neutral-600 leading-relaxed mt-1">Operational reality - not marketing copy. We plan around it.</div>
                 </div>
               ))}
             </div>
@@ -65,10 +65,10 @@ export default async function SectorDetail({ params }: { params: Promise<{ slug:
               <h3 className="font-display text-[18px] font-semibold">How we work in this sector.</h3>
               <ol className="mt-4 space-y-3">
                 {[
-                  `Understand — ${sector.considerations.toLowerCase()} and access constraints mapped.`,
-                  "Plan — programme built around occupancy, safeguarding or commercial windows.",
-                  "Deliver — vetted engineers, clear comms and site control.",
-                  "Report — auditable documentation ready for compliance or recharge.",
+                  `Understand - ${sector.considerations.toLowerCase()} and access constraints mapped.`,
+                  "Plan - programme built around occupancy, safeguarding or commercial windows.",
+                  "Deliver - vetted engineers, clear comms and site control.",
+                  "Report - auditable documentation ready for compliance or recharge.",
                 ].map((s, i) => (
                   <li key={i} className="flex gap-3 text-sm">
                     <span className="w-6 h-6 rounded-full bg-ink text-white flex items-center justify-center text-xs font-mono shrink-0">{i + 1}</span>
@@ -103,7 +103,7 @@ export default async function SectorDetail({ params }: { params: Promise<{ slug:
                 <img src={relatedProject.image} alt="" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <div className="font-mono text-[11px] tracking-wide text-concrete">REPRESENTATIVE SCENARIO — ILLUSTRATIVE</div>
+                <div className="font-mono text-[11px] tracking-wide text-concrete">REPRESENTATIVE SCENARIO - ILLUSTRATIVE</div>
                 <h3 className="font-display font-semibold mt-1">{relatedProject.title}</h3>
                 <p className="text-sm text-neutral-600 mt-2 leading-relaxed">{relatedProject.desc}</p>
                 <Link href={`/projects/${relatedProject.slug}`} className="inline-flex mt-4 bg-ink text-white px-5 py-2.5 text-sm font-medium">View Scenario →</Link>

@@ -63,12 +63,12 @@ export default function DiscoverPage() {
           </div>
 
           <div className="mt-6">
-            <p className="text-xs tracking-widest uppercase text-white/50 mb-2">Shop by feeling — KasiCart signature</p>
+            <p className="text-xs tracking-widest uppercase text-white/50 mb-2">Shop by feeling - KasiCart signature</p>
             <FeelingBar active={feeling} onSelect={setFeeling} />
             {feeling && (
               <p className="text-xs text-white/60 mt-2">
                 <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-full" style={{ background: feelings.find(f=>f.id===feeling)?.color }} />{feelings.find(f=>f.id===feeling)?.blurb}</span>
-                <span className="mx-2">·</span>Curated metadata — not AI. Transparent rules.
+                <span className="mx-2">·</span>Curated metadata - not AI. Transparent rules.
               </p>
             )}
           </div>
@@ -86,7 +86,7 @@ export default function DiscoverPage() {
         )}
       </div>
 
-      {/* visual canvas grid — products drift */}
+      {/* visual canvas grid - products drift */}
       <div className="mt-6">
         <div className="flex items-center justify-between mb-3">
           <h2 className="font-semibold">{feeling ? feelings.find(f=>f.id===feeling)?.label : "All feelings"} · {filtered.length} pieces</h2>

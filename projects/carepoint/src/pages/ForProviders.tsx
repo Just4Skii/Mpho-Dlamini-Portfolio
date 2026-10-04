@@ -28,7 +28,7 @@ interface RegData {
 const EMPTY_REG: RegData = { practiceName: "", practiceType: "", phone: "", email: "", providerName: "", role: "", specialty: "", services: [], city: "", suburb: "", address: "", days: [], notes: "" };
 
 export default function ForProviders() {
-  usePageMeta("For providers — list your practice | CarePoint", "A concept preview of the provider side of CarePoint: claim your practice, manage availability and receive booking requests.");
+  usePageMeta("For providers - list your practice | CarePoint", "A concept preview of the provider side of CarePoint: claim your practice, manage availability and receive booking requests.");
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const [data, setData] = useState<RegData>(EMPTY_REG);
@@ -77,9 +77,9 @@ export default function ForProviders() {
           <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pine text-cream">
             <Icon name="check" className="h-8 w-8" strokeWidth={2.4} />
           </span>
-          <h1 className="mt-5 font-display text-3xl font-semibold tracking-tight">Request logged — thank you</h1>
+          <h1 className="mt-5 font-display text-3xl font-semibold tracking-tight">Request logged - thank you</h1>
           <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
-            In a live product, our onboarding team would verify your practice details and reach out within two working days. This concept preview stores nothing — your submission stayed on this device.
+            In a live product, our onboarding team would verify your practice details and reach out within two working days. This concept preview stores nothing - your submission stayed on this device.
           </p>
           <div className="mx-auto mt-7 max-w-sm rounded-xl border border-line bg-card p-5 text-left text-[13.5px]">
             <p className="font-bold">{data.practiceName}</p>
@@ -95,11 +95,11 @@ export default function ForProviders() {
 
   if (!started) {
     const benefits = [
-      { n: "01", title: "Claim your practice", body: "One verified profile with your services, fees, languages and location — kept accurate by you, not scraped from directories." },
+      { n: "01", title: "Claim your practice", body: "One verified profile with your services, fees, languages and location - kept accurate by you, not scraped from directories." },
       { n: "02", title: "Manage availability", body: "Publish real opening slots per day. When a slot is taken, it disappears from search automatically." },
-      { n: "03", title: "Improve discoverability", body: "Show up in specialty, area and availability searches — the ways patients actually look for care." },
+      { n: "03", title: "Improve discoverability", body: "Show up in specialty, area and availability searches - the ways patients actually look for care." },
       { n: "04", title: "Receive booking requests", body: "Requests arrive with the patient's details and reason for visit, ready to confirm from your dashboard." },
-      { n: "05", title: "Maintain service information", body: "Update fees, services and medical aid status whenever they change — patients always see the current picture." },
+      { n: "05", title: "Maintain service information", body: "Update fees, services and medical aid status whenever they change - patients always see the current picture." },
     ];
     return (
       <div>
@@ -109,7 +109,7 @@ export default function ForProviders() {
               <p className="kicker">For providers · concept preview</p>
               <h1 className="mt-3 max-w-lg font-display text-4xl font-semibold tracking-tight sm:text-5xl">Your practice, found by the patients who need it</h1>
               <p className="mt-4 max-w-lg text-[15.5px] leading-relaxed text-ink-2">
-                CarePoint connects patients with clear information: what you offer, what it costs, where you are and when you're free. The provider side is a concept preview — registration below is a demonstration, not a live service.
+                CarePoint connects patients with clear information: what you offer, what it costs, where you are and when you're free. The provider side is a concept preview - registration below is a demonstration, not a live service.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Button size="lg" iconRight="arrowRight" onClick={() => setStarted(true)}>
@@ -209,7 +209,7 @@ export default function ForProviders() {
             <Field label="Role / title" required error={errors.role}>
               <Input value={data.role} onChange={(e) => set({ role: e.target.value })} error={!!errors.role} placeholder="e.g. General Practitioner" />
             </Field>
-            <p className="rounded-lg bg-paper px-4 py-3 text-[12.5px] text-ink-3">Verification of professional registration would happen in a live product — never enter registration numbers into a concept form.</p>
+            <p className="rounded-lg bg-paper px-4 py-3 text-[12.5px] text-ink-3">Verification of professional registration would happen in a live product - never enter registration numbers into a concept form.</p>
           </div>
         )}
 
@@ -273,7 +273,7 @@ export default function ForProviders() {
                 })}
               </div>
             </Field>
-            <Field label="Anything else patients should know?" hint="Optional — hours, parking, accessibility.">
+            <Field label="Anything else patients should know?" hint="Optional - hours, parking, accessibility.">
               <Input value={data.notes} onChange={(e) => set({ notes: e.target.value })} placeholder="e.g. Open Saturdays 08:00–12:00" />
             </Field>
           </div>
@@ -284,8 +284,8 @@ export default function ForProviders() {
             <h2 className="font-display text-xl font-semibold">Review your details</h2>
             {[
               ["Practice", `${data.practiceName} (${data.practiceType})`],
-              ["Provider", `${data.providerName} — ${data.role}`],
-              ["Specialty", spec?.name ?? "—"],
+              ["Provider", `${data.providerName} - ${data.role}`],
+              ["Specialty", spec?.name ?? "-"],
               ["Services", `${data.services.length} selected`],
               ["Location", `${data.address}, ${data.suburb}, ${CITIES.find((c) => c.slug === data.city)?.name ?? ""}`],
               ["Consulting days", data.days.join(", ")],

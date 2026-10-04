@@ -111,7 +111,7 @@ export function SearchOverlay({ onClose }: { onClose: ()=>void }) {
                   )}
                   {results.length>0 && (
                     <div>
-                      <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500 mb-2">Products — {results.length} results</p>
+                      <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500 mb-2">Products - {results.length} results</p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {results.map(p=>(
                           <Link key={p.id} href={`/product/${p.slug}`} onClick={()=>{ pushRecent(q); onClose(); }} className="flex gap-3 p-2.5 rounded-xl bg-white border border-[#E8E2D8] hover:border-[#11110F] hover:shadow-sm transition">

@@ -1,7 +1,7 @@
 import { ShopClient } from "./ShopClient";
 import { Suspense } from "react";
 
-export const metadata = { title: "Shop — KasiCart" };
+export const metadata = { title: "Shop - KasiCart" };
 
 export default function ShopPage() {
   return (

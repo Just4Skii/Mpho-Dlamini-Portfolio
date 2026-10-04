@@ -30,8 +30,8 @@ export default function CheckoutPage() {
 
   const applyCoupon = () => {
     const c = coupon.trim().toUpperCase();
-    if (c==="LOCAL10") { setDiscount(Math.round(subtotal*0.10)); setCouponMsg("LOCAL10 — 10% off"); }
-    else if (c==="WELCOME15") { setDiscount(Math.round(subtotal*0.15)); setCouponMsg("WELCOME15 — 15% off"); }
+    if (c==="LOCAL10") { setDiscount(Math.round(subtotal*0.10)); setCouponMsg("LOCAL10 - 10% off"); }
+    else if (c==="WELCOME15") { setDiscount(Math.round(subtotal*0.15)); setCouponMsg("WELCOME15 - 15% off"); }
     else { setDiscount(0); setCouponMsg("Invalid code. Try LOCAL10 or WELCOME15"); }
   };
 
@@ -95,7 +95,7 @@ export default function CheckoutPage() {
         <div className="bg-white border border-[#E8E2D8] rounded-[20px] p-8">
           <p className="w-12 h-12 rounded-full bg-[#1E3A2E] text-white flex items-center justify-center mx-auto text-xl">✓</p>
           <h1 className="text-[28px] font-semibold mt-4" style={{fontFamily:"var(--font-instrument)"}}>Order confirmed.</h1>
-          <p className="text-sm text-stone-500 mt-1">Thank you — your order has been placed (frontend demo).</p>
+          <p className="text-sm text-stone-500 mt-1">Thank you - your order has been placed (frontend demo).</p>
           <p className="mt-4 font-mono text-sm bg-[#F5EEE6] inline-block px-3 py-1 rounded-full">Order number: {id}</p>
           <div className="text-left mt-6 p-4 rounded-xl bg-[#F5EEE6] text-sm space-y-1">
             <p><strong>Delivery:</strong> {delivery==="standard"?"Standard (2–4 business days)":delivery==="express"?"Express (1–2 business days)":"Collection"}</p>
@@ -108,7 +108,7 @@ export default function CheckoutPage() {
             <Link href="/shop" className="h-10 px-6 rounded-full border border-[#E8E2D8] flex items-center text-sm bg-white">Continue shopping</Link>
           </div>
         </div>
-        <p className="text-xs text-stone-400 mt-4">Independent concept — designed and developed from scratch. No real transactions.</p>
+        <p className="text-xs text-stone-400 mt-4">Independent concept - designed and developed from scratch. No real transactions.</p>
       </div>
     );
   }
@@ -123,7 +123,7 @@ export default function CheckoutPage() {
         <Link href="/" className="hover:underline">Home</Link> <span>/</span> <Link href="/shop" className="hover:underline">Shop</Link> <span>/</span> <span className="text-[#11110F] font-medium">Checkout</span>
       </div>
 
-      {/* progress — scroll on mobile */}
+      {/* progress - scroll on mobile */}
       <div className="flex items-center gap-2 mb-6 overflow-auto scrollbar-none pb-2 -mx-4 px-4 md:mx-0 md:px-0 snap-x">
         {[
           [1,"Contact"],
@@ -158,7 +158,7 @@ export default function CheckoutPage() {
                 <label className="text-sm font-medium">Phone (SA)</label>
                 <input value={contact.phone} onChange={e=>setContact({...contact, phone:e.target.value})} placeholder="0821234567" className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-4 text-sm focus:border-[#11110F] outline-none" />
                 {errors.phone && <p className="text-xs text-[#C45D3C] mt-1">{errors.phone}</p>}
-                <p className="text-xs text-stone-500 mt-1">For delivery updates (demo — no SMS sent).</p>
+                <p className="text-xs text-stone-500 mt-1">For delivery updates (demo - no SMS sent).</p>
               </div>
               <div className="flex justify-end pt-2">
                 <button onClick={next} className="h-11 px-7 rounded-full bg-[#11110F] text-white font-medium">Continue to delivery</button>
@@ -203,9 +203,9 @@ export default function CheckoutPage() {
               <div className="space-y-2 pt-2">
                 <p className="text-sm font-medium">Delivery method</p>
                 {[
-                  ["standard", "Standard — R95 (free over R750) · 2–4 business days"],
-                  ["express", "Express — R195 · 1–2 business days"],
-                  ["collection", "Collection — Free · Selected areas only"],
+                  ["standard", "Standard - R95 (free over R750) · 2–4 business days"],
+                  ["express", "Express - R195 · 1–2 business days"],
+                  ["collection", "Collection - Free · Selected areas only"],
                 ].map(([v,label])=>(
                   <label key={v} className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer ${delivery===v?"border-[#11110F] bg-[#F5EEE6]":"border-[#E8E2D8] bg-white"}`}>
                     <input type="radio" name="delivery" checked={delivery===v} onChange={()=>setDelivery(v as any)} />
@@ -224,7 +224,7 @@ export default function CheckoutPage() {
           {step===3 && (
             <div className="space-y-4">
               <h2 className="text-[20px] font-semibold">Payment</h2>
-              <p className="text-xs bg-[#F5EEE6] p-3 rounded-xl">Demo checkout — no real payment is processed. Use placeholder card 4242 4242 4242 4242. No card data is stored or sent.</p>
+              <p className="text-xs bg-[#F5EEE6] p-3 rounded-xl">Demo checkout - no real payment is processed. Use placeholder card 4242 4242 4242 4242. No card data is stored or sent.</p>
 
               <div className="flex gap-2">
                 {[
@@ -238,14 +238,14 @@ export default function CheckoutPage() {
 
               {payment==="card" && (
                 <div className="space-y-3 p-4 rounded-xl bg-[#F5EEE6] border border-[#E8E2D8]">
-                  <p className="text-xs tracking-widest uppercase text-stone-500">Card — simulated</p>
+                  <p className="text-xs tracking-widest uppercase text-stone-500">Card - simulated</p>
                   <div>
                     <label className="text-sm">Name on card</label>
                     <input value={card.name} onChange={e=>setCard({...card, name:e.target.value})} placeholder="N Dlamini" className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-4 text-sm bg-white outline-none" />
                     {errors.cardName && <p className="text-xs text-[#C45D3C] mt-1">{errors.cardName}</p>}
                   </div>
                   <div>
-                    <label className="text-sm">Card number — placeholder 4242 4242 4242 4242</label>
+                    <label className="text-sm">Card number - placeholder 4242 4242 4242 4242</label>
                     <input value={card.number} onChange={e=>setCard({...card, number:e.target.value})} className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-4 text-sm bg-white outline-none font-mono" />
                     {errors.cardNumber && <p className="text-xs text-[#C45D3C] mt-1">{errors.cardNumber}</p>}
                   </div>
@@ -264,13 +264,13 @@ export default function CheckoutPage() {
               )}
               {payment==="eft" && (
                 <div className="p-4 rounded-xl bg-white border border-[#E8E2D8] text-sm">
-                  <p>Instant EFT-style option — you would be redirected to your bank to approve the payment. (UI only, no redirect in demo.)</p>
+                  <p>Instant EFT-style option - you would be redirected to your bank to approve the payment. (UI only, no redirect in demo.)</p>
                   <button className="mt-3 h-9 px-4 rounded-full bg-[#1E3A2E] text-white text-sm">Continue with bank (demo)</button>
                 </div>
               )}
               {payment==="other" && (
                 <div className="p-4 rounded-xl bg-white border border-[#E8E2D8] text-sm">
-                  <p>Other method — wallet / store credit (UI placeholder).</p>
+                  <p>Other method - wallet / store credit (UI placeholder).</p>
                 </div>
               )}
 
@@ -288,13 +288,13 @@ export default function CheckoutPage() {
               <div className="p-4 rounded-xl bg-[#F5EEE6] space-y-2 text-sm">
                 <p><strong>Contact:</strong> {contact.name} · {contact.email} · {contact.phone}</p>
                 <p><strong>Ship to:</strong> {address.line1}, {address.suburb}, {address.city}, {address.province}, {address.postal}</p>
-                <p><strong>Delivery:</strong> {delivery} — {deliveryCost===0?"Free":formatPrice(deliveryCost)}</p>
+                <p><strong>Delivery:</strong> {delivery} - {deliveryCost===0?"Free":formatPrice(deliveryCost)}</p>
                 <p><strong>Payment:</strong> {payment==="card"?`Card ending in •••• ${card.number.slice(-4)}` : payment}</p>
               </div>
 
               {items.length===0 ? (
                 <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-sm">
-                  Cart is empty — <Link href="/shop" className="underline">add items</Link> to place an order (demo).
+                  Cart is empty - <Link href="/shop" className="underline">add items</Link> to place an order (demo).
                 </div>
               ) : (
                 <div className="space-y-2">
@@ -314,7 +314,7 @@ export default function CheckoutPage() {
 
               <label className="flex items-start gap-2 text-sm">
                 <input type="checkbox" checked={terms} onChange={e=>setTerms(e.target.checked)} className="mt-1" />
-                <span>I agree to the Terms and understand this is a frontend demo — no real payment or order will be created. <Link href="/help" className="underline">Learn more</Link>.</span>
+                <span>I agree to the Terms and understand this is a frontend demo - no real payment or order will be created. <Link href="/help" className="underline">Learn more</Link>.</span>
               </label>
               {errors.terms && <p className="text-xs text-[#C45D3C]">{errors.terms}</p>}
               {errors.cart && <p className="text-xs text-[#C45D3C]">{errors.cart}</p>}
@@ -322,7 +322,7 @@ export default function CheckoutPage() {
               <div className="flex justify-between pt-2">
                 <button onClick={back} className="h-11 px-6 rounded-full border border-[#E8E2D8] bg-white text-sm">Back</button>
                 <button onClick={placeOrder} disabled={placing || items.length===0} className="h-11 px-7 rounded-full bg-[#C45D3C] text-white font-medium hover:bg-[#A84E32] disabled:opacity-50">
-                  {placing?"Placing order…":`Place order — ${formatPrice(total)}`}
+                  {placing?"Placing order…":`Place order - ${formatPrice(total)}`}
                 </button>
               </div>
               <p className="text-xs text-stone-500">Secure checkout (UI simulation). No card data is collected or transmitted.</p>

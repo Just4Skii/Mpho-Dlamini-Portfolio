@@ -1,4 +1,4 @@
-# KasiCart — Project Documentation
+# KasiCart - Project Documentation
 
 **Independent product concept** exploring a modern discovery-first South African commerce experience.
 

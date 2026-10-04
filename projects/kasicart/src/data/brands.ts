@@ -64,7 +64,7 @@ export const brands: Brand[] = [
   {
     id: "6", slug: "umoya-leather", name: "Umoya Leather",
     tagline: "Carry what matters.",
-    story: "Umoya handcrafts leather goods in Stellenbosch from ethically sourced hides. Each bag is made by a single craftsperson start to finish — no assembly lines.",
+    story: "Umoya handcrafts leather goods in Stellenbosch from ethically sourced hides. Each bag is made by a single craftsperson start to finish - no assembly lines.",
     location: "Stellenbosch, Western Cape", city: "Cape Town", province: "Western Cape",
     category: ["Fashion", "Gifts"],
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=400&fit=crop",

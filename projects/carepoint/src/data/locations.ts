@@ -44,7 +44,7 @@ export const CITIES: CityInfo[] = [
     slug: "durban",
     name: "Durban",
     province: "KwaZulu-Natal",
-    blurb: "KZN's coastal hub — strong primary care along the Umhlanga node, with family practices in Berea, Westville and Ballito.",
+    blurb: "KZN's coastal hub - strong primary care along the Umhlanga node, with family practices in Berea, Westville and Ballito.",
     coastal: true,
     center: { lat: -29.8587, lng: 31.0218 },
     zoom: 11,

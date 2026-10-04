@@ -50,7 +50,7 @@ export function GiftFinder() {
       <div className="p-5 sm:p-6">
         {step === 1 && (
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 1 of 3 — Who?</p>
+            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 1 of 3 - Who?</p>
             <h3 className="text-[22px] font-semibold" style={{ fontFamily: "var(--font-instrument)" }}>Who are we finding a gift for?</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
               {["Partner", "Friend", "Parent", "Colleague", "Child"].map(v => (
@@ -63,7 +63,7 @@ export function GiftFinder() {
         )}
         {step === 2 && (
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 2 of 3 — Occasion</p>
+            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 2 of 3 - Occasion</p>
             <h3 className="text-[22px] font-semibold" style={{ fontFamily: "var(--font-instrument)" }}>What&apos;s the occasion?</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
               {["Birthday", "Housewarming", "Wedding", "Corporate", "Just because"].map(v => (
@@ -76,7 +76,7 @@ export function GiftFinder() {
         )}
         {step === 3 && (
           <div className="space-y-4">
-            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 3 of 3 — Budget</p>
+            <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Step 3 of 3 - Budget</p>
             <h3 className="text-[22px] font-semibold" style={{ fontFamily: "var(--font-instrument)" }}>What&apos;s the budget?</h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {[
@@ -99,7 +99,7 @@ export function GiftFinder() {
               <h3 className="text-[22px] font-semibold" style={{ fontFamily: "var(--font-instrument)" }}>
                 We found {filtered.length} things they might love.
               </h3>
-              <p className="text-sm text-stone-500">Curated from local makers — not random. Deterministic mapping, no fake AI.</p>
+              <p className="text-sm text-stone-500">Curated from local makers - not random. Deterministic mapping, no fake AI.</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
               {filtered.map((p, i) => (

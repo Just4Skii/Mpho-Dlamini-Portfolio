@@ -10,7 +10,7 @@ export function generateStaticParams() { return brands.map(b=> ({ slug: b.slug }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const b = brands.find(x=>x.slug===slug);
-  return { title: b ? `${b.name} — KasiCart` : "Brand not found" };
+  return { title: b ? `${b.name} - KasiCart` : "Brand not found" };
 }
 
 export default function BrandPage() {
@@ -76,7 +76,7 @@ export default function BrandPage() {
       </div>
 
       <section className="max-w-[1440px] mx-auto px-4 md:px-6 pb-10">
-        <h2 className="text-[18px] font-semibold mb-4">All products — {brand.name}</h2>
+        <h2 className="text-[18px] font-semibold mb-4">All products - {brand.name}</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {brandProducts.map(p=> <ProductCard key={p.id} product={p} />)}
         </div>

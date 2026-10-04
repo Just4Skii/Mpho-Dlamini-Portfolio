@@ -20,7 +20,7 @@ export default function SundayAtHomePage() {
       <h1 className="text-[28px] sm:text-[36px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-instrument)" }}>
         A slow morning, built from local pieces
       </h1>
-      <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Editorial composition — hover each product overlay to see name + price, click to view. Commerce embedded in story, not a banner.</p>
+      <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Editorial composition - hover each product overlay to see name + price, click to view. Commerce embedded in story, not a banner.</p>
 
       <div className="mt-6 grid lg:grid-cols-[1.4fr_0.6fr] gap-6">
         <div className="relative bg-[#F5EEE6] rounded-[24px] overflow-hidden aspect-[4/3] group">

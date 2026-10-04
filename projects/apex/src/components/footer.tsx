@@ -42,10 +42,10 @@ export default function Footer() {
               Integrated property maintenance, facilities management and building services for organisations that cannot afford operational disruption.
             </p>
             <div className="mt-6 space-y-1 font-mono text-xs text-white/50">
-              <p>Independent concept project — portfolio demonstration.</p>
+              <p>Independent concept project - portfolio demonstration.</p>
               <p>Apex Facilities Group, Johannesburg, South Africa</p>
               <p>
-                <a href="mailto:hello@apexfacilities.example" className="hover:text-white transition-colors">hello@apexfacilities.example</a> · <a href="tel:+27112345678" className="hover:text-white transition-colors">+27 (0)11 234 5678 — demonstration</a>
+                <a href="mailto:hello@apexfacilities.example" className="hover:text-white transition-colors">hello@apexfacilities.example</a> · <a href="tel:+27112345678" className="hover:text-white transition-colors">+27 (0)11 234 5678 - demonstration</a>
               </p>
             </div>
           </div>
@@ -85,15 +85,15 @@ export default function Footer() {
               <li><Link href="/services" className="hover:text-white">All Services</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
-            <div className="mt-6 font-mono text-[11px] tracking-[0.18em] text-white/40">ACCREDITATIONS — ILLUSTRATIVE</div>
-            <p className="text-xs text-white/50 leading-relaxed mt-2">Representative accreditation framework — illustrative only.</p>
+            <div className="mt-6 font-mono text-[11px] tracking-[0.18em] text-white/40">ACCREDITATIONS - ILLUSTRATIVE</div>
+            <p className="text-xs text-white/50 leading-relaxed mt-2">Representative accreditation framework - illustrative only.</p>
           </div>
 
           <div className="col-span-2 lg:col-span-2">
             <div className="font-mono text-[11px] tracking-[0.18em] text-white/40 mb-4">CONTACT</div>
             <div className="space-y-3 text-sm text-white/70">
-              <p>Johannesburg · South Africa<br />Nationwide — JHB · CPT · DBN · PTA · Gqeberha · Bloemfontein</p>
-              <p>Mon–Fri 08:00–18:00<br />Emergency response 24/7 — illustrative</p>
+              <p>Johannesburg · South Africa<br />Nationwide - JHB · CPT · DBN · PTA · Gqeberha · Bloemfontein</p>
+              <p>Mon–Fri 08:00–18:00<br />Emergency response 24/7 - illustrative</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-white border-b border-white/20 pb-1 text-sm hover:border-amber hover:text-amber transition-colors">
                 Request a quote →
               </Link>
@@ -102,10 +102,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-xs font-mono text-white/40">
-          <p>© 2026 Apex Facilities Group — Independent concept project. Illustrative scenario — all contact details are demonstration content.</p>
+          <p>© 2026 Apex Facilities Group - Independent concept project. Illustrative scenario - all contact details are demonstration content.</p>
           <div className="flex gap-6">
-            <span>Privacy — demo</span>
-            <span>Terms — demo</span>
+            <span>Privacy - demo</span>
+            <span>Terms - demo</span>
             <span>Cookies</span>
           </div>
         </div>

@@ -10,13 +10,13 @@ export function Footer() {
               <span className="w-8 h-8 rounded-full bg-white text-[#11110F] flex items-center justify-center text-xs font-bold">KC</span>
               <span className="text-lg font-semibold">KasiCart</span>
             </div>
-            <p className="text-[#D6CFC2] leading-relaxed max-w-sm">Discovery-driven marketplace for independent South African brands. Independent product concept — designed and developed from scratch.</p>
+            <p className="text-[#D6CFC2] leading-relaxed max-w-sm">Discovery-driven marketplace for independent South African brands. Independent product concept - designed and developed from scratch.</p>
             <p className="text-xs text-stone-400">Good things, close to home. · Discover independent South African brands.</p>
             <form onSubmit={e=>e.preventDefault()} className="flex gap-2 max-w-sm">
               <input placeholder="Email for new arrivals" className="flex-1 h-10 rounded-full bg-white/10 border border-white/10 px-4 placeholder:text-stone-400 focus:outline-none focus:border-white text-white text-sm" />
               <button className="h-10 px-5 rounded-full bg-white text-[#11110F] text-sm font-medium hover:bg-[#F5EEE6]">Join</button>
             </form>
-            <p className="text-[11px] text-stone-500">Frontend only — no emails are sent. For portfolio demonstration.</p>
+            <p className="text-[11px] text-stone-500">Frontend only - no emails are sent. For portfolio demonstration.</p>
           </div>
           <div>
             <h4 className="font-medium mb-3">Shop</h4>
@@ -40,7 +40,7 @@ export function Footer() {
               <li><Link href="/build-look" className="hover:text-white">Build a Look</Link></li>
               <li><Link href="/stories" className="hover:text-white">Stories</Link></li>
               <li><Link href="/brands" className="hover:text-white">Brands</Link></li>
-              <li><Link href="/local" className="hover:text-white">Local — Made near you</Link></li>
+              <li><Link href="/local" className="hover:text-white">Local - Made near you</Link></li>
               <li><Link href="/guides" className="hover:text-white">Guides</Link></li>
               <li><Link href="/compare" className="hover:text-white">Compare</Link></li>
             </ul>
@@ -57,7 +57,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row gap-4 justify-between text-xs text-stone-400">
-          <span>© 2026 KasiCart — Independent concept. No real transactions.</span>
+          <span>© 2026 KasiCart - Independent concept. No real transactions.</span>
           <span>Pay securely with card · Instant EFT-style option (UI only)</span>
         </div>
       </div>

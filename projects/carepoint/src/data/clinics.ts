@@ -95,7 +95,7 @@ export const CLINICS: Clinic[] = [
     facilityType: "Urgent care centre",
     services: ["Urgent care", "General practice", "Minor injury unit"],
     hours: "Daily 08:00–20:00", phone: "032 555 0171",
-    description: "The north coast's urgent care option for cuts, sprains and same-day illness — no appointment needed for urgent cases.",
+    description: "The north coast's urgent care option for cuts, sprains and same-day illness - no appointment needed for urgent cases.",
   },
   {
     id: "cl-13", slug: "sea-point-care-rooms", name: "Sea Point Care Rooms",

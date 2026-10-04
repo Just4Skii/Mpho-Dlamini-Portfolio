@@ -35,7 +35,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Bring the right information",
-        body: "If you have recent test results, a referral letter or a list of current medication, bring them along — photos on your phone are usually fine for a first consultation.",
+        body: "If you have recent test results, a referral letter or a list of current medication, bring them along - photos on your phone are usually fine for a first consultation.",
       },
       {
         heading: "Arrive a few minutes early",
@@ -43,7 +43,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Agree on the next step before you leave",
-        body: "A good consultation ends with a clear plan. If you are unsure about anything — medication timing, when to come back, what to watch for — ask before you leave the room.",
+        body: "A good consultation ends with a clear plan. If you are unsure about anything - medication timing, when to come back, what to watch for - ask before you leave the room.",
       },
     ],
   },
@@ -77,7 +77,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "Trust your comfort level",
-        body: "You should leave feeling heard. If a consultation feels rushed or dismissive, it is reasonable to try another provider — continuity matters, but so does confidence in the person caring for you.",
+        body: "You should leave feeling heard. If a consultation feels rushed or dismissive, it is reasonable to try another provider - continuity matters, but so does confidence in the person caring for you.",
       },
     ],
   },
@@ -102,23 +102,23 @@ export const GUIDES: Guide[] = [
         heading: "Allied health professionals",
         body: "Physiotherapists, occupational therapists, dietitians, psychologists and optometrists are registered professionals who work independently of doctors for many conditions.",
         list: [
-          "Physiotherapist — movement, pain and rehabilitation",
-          "Occupational therapist — daily function, home and work adaptations",
-          "Dietitian — medical and practical nutrition",
-          "Psychologist — talk-based therapy and assessment",
-          "Optometrist — vision and eye health screening",
+          "Physiotherapist - movement, pain and rehabilitation",
+          "Occupational therapist - daily function, home and work adaptations",
+          "Dietitian - medical and practical nutrition",
+          "Psychologist - talk-based therapy and assessment",
+          "Optometrist - vision and eye health screening",
         ],
       },
       {
         heading: "When to skip the queue",
-        body: "Some problems need urgent attention rather than the right specialist — chest pain, difficulty breathing, severe bleeding or any situation that feels life-threatening should go straight to emergency services.",
+        body: "Some problems need urgent attention rather than the right specialist - chest pain, difficulty breathing, severe bleeding or any situation that feels life-threatening should go straight to emergency services.",
       },
     ],
   },
   {
     slug: "what-to-bring",
     title: "What to bring to an appointment",
-    intro: "A short checklist that makes first consultations smoother — for you and for the provider.",
+    intro: "A short checklist that makes first consultations smoother - for you and for the provider.",
     minutes: 2,
     tag: "Appointments",
     image: "reception",
@@ -135,7 +135,7 @@ export const GUIDES: Guide[] = [
       },
       {
         heading: "For children's appointments",
-        body: "Bring the Road to Health booklet for babies and young children — it holds vaccination and growth records that are genuinely useful to the provider.",
+        body: "Bring the Road to Health booklet for babies and young children - it holds vaccination and growth records that are genuinely useful to the provider.",
       },
       {
         heading: "What you do not need to bring",
@@ -153,15 +153,15 @@ export const GUIDES: Guide[] = [
     sections: [
       {
         heading: "Filter by the right specialty first",
-        body: "Start with what you need — a GP for general concerns, or a specific professional if you already know the type of care. Specialty pages on CarePoint explain what each profession handles.",
+        body: "Start with what you need - a GP for general concerns, or a specific professional if you already know the type of care. Specialty pages on CarePoint explain what each profession handles.",
       },
       {
         heading: "Then narrow by area and availability",
-        body: "Care you can actually reach and actually get into beats the perfect provider on paper. Use the location and availability filters together — 'tomorrow' often opens up nearby options you would otherwise miss.",
+        body: "Care you can actually reach and actually get into beats the perfect provider on paper. Use the location and availability filters together - 'tomorrow' often opens up nearby options you would otherwise miss.",
       },
       {
         heading: "Compare the shortlist calmly",
-        body: "Two or three options is enough. Compare consultation fees, medical aid status, languages spoken and the next available slot — then book the one that fits. You can always build a longer relationship from a first appointment.",
+        body: "Two or three options is enough. Compare consultation fees, medical aid status, languages spoken and the next available slot - then book the one that fits. You can always build a longer relationship from a first appointment.",
       },
     ],
   },

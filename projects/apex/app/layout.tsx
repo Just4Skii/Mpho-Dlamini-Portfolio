@@ -24,14 +24,14 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Apex Facilities Group — Integrated Property Maintenance & Facilities Management | Independent Concept Project",
-    template: "%s — Apex Facilities Group",
+    default: "Apex Facilities Group - Integrated Property Maintenance & Facilities Management | Independent Concept Project",
+    template: "%s - Apex Facilities Group",
   },
   description:
-    "Independent concept project exploring integrated repairs, planned maintenance and specialist building services for property teams across South Africa. One partner for the entire property lifecycle — portfolio demonstration.",
+    "Independent concept project exploring integrated repairs, planned maintenance and specialist building services for property teams across South Africa. One partner for the entire property lifecycle - portfolio demonstration.",
   metadataBase: new URL("https://apexfacilities.example"),
   openGraph: {
-    title: "Apex Facilities Group — Independent Concept Project",
+    title: "Apex Facilities Group - Independent Concept Project",
     description: "Property maintenance without the operational headaches. Independent concept for South African portfolios.",
     type: "website",
   },

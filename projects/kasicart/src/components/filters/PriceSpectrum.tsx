@@ -83,7 +83,7 @@ export function PriceSpectrum({
 
       <div className="flex items-center gap-2 mt-2">
         <span className="flex-1 h-9 inline-flex items-center justify-center rounded-full bg-white border border-[#E8E2D8] text-sm tabular-nums">R{value[0].toLocaleString("en-ZA")}</span>
-        <span className="text-stone-400">—</span>
+        <span className="text-stone-400">-</span>
         <span className="flex-1 h-9 inline-flex items-center justify-center rounded-full bg-white border border-[#E8E2D8] text-sm tabular-nums">R{value[1].toLocaleString("en-ZA")}</span>
       </div>
       <p className="text-[11px] text-stone-400 mt-2 text-center">Drag to rearrange • Products morph as you slide</p>

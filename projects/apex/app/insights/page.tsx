@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Insights",
-  description: "Practical guidance for property managers, facilities teams and procurement — from planned maintenance to damp & mould strategy.",
+  description: "Practical guidance for property managers, facilities teams and procurement - from planned maintenance to damp & mould strategy.",
 };
 
 export default function InsightsPage() {
@@ -15,15 +15,15 @@ export default function InsightsPage() {
           <div className="grid lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7">
               <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">INSIGHTS</div>
-              <h1 className="font-display text-[36px] lg:text-[48px] font-semibold leading-[0.9] tracking-tight mt-3">Practical guidance — not thought-leadership theatre.</h1>
+              <h1 className="font-display text-[36px] lg:text-[48px] font-semibold leading-[0.9] tracking-tight mt-3">Practical guidance - not thought-leadership theatre.</h1>
               <p className="text-[16px] leading-relaxed text-neutral-600 mt-6 max-w-2xl">
-                Short, useful reads for property teams — how to procure maintenance, reduce reactive load and move from damp response to prevention.
+                Short, useful reads for property teams - how to procure maintenance, reduce reactive load and move from damp response to prevention.
               </p>
             </div>
             <div className="lg:col-span-5 lg:text-right">
               <div className="inline-block text-left bg-stone border border-neutral-200 p-6">
                 <div className="font-mono text-[11px] tracking-wide text-concrete">EDITORIAL STANDARD</div>
-                <p className="text-sm text-neutral-600 mt-2 max-w-sm leading-relaxed">Every article is written as a real facilities team would write it — clear, operational, without hype. Concept content for portfolio demonstration.</p>
+                <p className="text-sm text-neutral-600 mt-2 max-w-sm leading-relaxed">Every article is written as a real facilities team would write it - clear, operational, without hype. Concept content for portfolio demonstration.</p>
               </div>
             </div>
           </div>
