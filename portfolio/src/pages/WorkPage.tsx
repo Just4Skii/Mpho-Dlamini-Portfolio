@@ -42,6 +42,7 @@ export const WorkPage: React.FC = () => {
     if (activeFilter === 'commercial') return p.category === 'Commercial Web Experience';
     if (activeFilter === 'commerce') return p.category === 'Commerce Experience';
     if (activeFilter === 'healthcare') return p.category === 'Healthcare Experience';
+    if (activeFilter === 'mobile') return p.category === 'Native Mobile Experience';
     return true;
   });
 
@@ -59,8 +60,8 @@ export const WorkPage: React.FC = () => {
           </Link>
           <h1 className={styles.workTitle}>Selected Work &amp; Products</h1>
           <p className={styles.workSubtitle}>
-            I design and build digital products, commercial architectures, and full-stack software systems.
-            Explore interactive frontend applications running live on the GraffGrid platform.
+            I design and build digital products, commercial architectures, native mobile utilities, and full-stack software systems.
+            Explore interactive frontend applications running live on the GraffGrid platform — plus externally distributed native apps.
           </p>
 
           {/* Filter Bar */}
@@ -95,6 +96,13 @@ export const WorkPage: React.FC = () => {
             </button>
             <button
               type="button"
+              className={`${styles.filterBtn} ${activeFilter === 'mobile' ? styles.filterBtnActive : ''}`}
+              onClick={() => setActiveFilter('mobile')}
+            >
+              Native Mobile
+            </button>
+            <button
+              type="button"
               className={`${styles.filterBtn} ${activeFilter === 'software' ? styles.filterBtnActive : ''}`}
               onClick={() => setActiveFilter('software')}
             >
@@ -109,7 +117,7 @@ export const WorkPage: React.FC = () => {
             <div className={styles.sectionHeader}>
               <h2 className={styles.sectionTitle}>Selected Commercial &amp; Product Experiences</h2>
               <p className={styles.sectionSubtitle}>
-                Independent frontend applications engineered from scratch. Click to launch the live product experience.
+                Independent applications engineered from scratch — Vite SPAs hosted on GraffGrid, plus externally distributed native builds. Click to launch the live experience.
               </p>
             </div>
 

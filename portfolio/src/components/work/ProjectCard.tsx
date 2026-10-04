@@ -11,6 +11,8 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComingSoon }) => {
   const isLive = project.status === 'live';
+  const launchHref = project.externalUrl ?? getAppUrl(project.path);
+  const isExternal = Boolean(project.externalUrl);
 
   return (
     <div className={styles.card}>
@@ -61,9 +63,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
         {/* Card Footer */}
         <div className={styles.cardFooter}>
           {isLive ? (
-            <a href={getAppUrl(project.path)} className={styles.btnLaunch}>
+            <a
+              href={launchHref}
+              {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className={styles.btnLaunch}
+            >
               <span>Launch Experience</span>
-              <span>→</span>
+              <span>{isExternal ? "↗" : "→"}</span>
             </a>
           ) : (
             <button 
@@ -84,6 +90,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
               className={styles.btnGhost}
             >
               GitHub ↗
+            </a>
+          )}
+
+          {project.downloadUrl && (
+            <a
+              href={project.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.btnGhost}
+            >
+              Download APK ⤓
             </a>
           )}
         </div>

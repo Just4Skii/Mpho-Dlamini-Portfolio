@@ -73,6 +73,31 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     previewImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&q=80'
   },
   {
+    id: 'stickerbridge',
+    title: 'StickerBridge',
+    slug: 'stickerbridge',
+    category: 'Native Mobile Experience',
+    summary: 'Open-source Android utility bridging TikTok stickers into WhatsApp. Custom WebP RIFF/VP8X parsing, 1-tap cache discovery across Scoped Storage, and native ContentProvider integration.',
+    detailedDescription: 'A native Android application engineered to extract, normalize, and export static and animated stickers from TikTok into WhatsApp sticker packs. Features a lossless Animated WebP engine (VP8X/ANMF, 512×512, sub-500KB), 1-tap automated TikTok cache scanning, smart link/carousel ingestion with automatic 3-sticker padding, and an official WhatsApp ContentProvider plus a zero-dependency mobile-adaptive landing page with direct APK distribution.',
+    honestDisclosure: 'Independent native Android product concept designed and developed from scratch. Direct-install open-source APK, not distributed via app stores.',
+    status: 'live',
+    path: '/work/stickerbridge',
+    externalUrl: 'https://skinny1ne.github.io/StickerBridge/',
+    downloadUrl: 'https://github.com/Skinny1ne/StickerBridge/raw/main/stickerbridge.apk',
+    githubUrl: 'https://github.com/Skinny1ne/StickerBridge',
+    capabilities: [
+      'Animated WebP Engine',
+      'Cache Discovery',
+      'ContentProvider API',
+      'Direct APK Distribution'
+    ],
+    technologies: ['Kotlin', 'Jetpack Compose', 'Material 3', 'Coroutines & Flow', 'HTML5/CSS/JS'],
+    featured: true,
+    order: 4,
+    accentColor: '#3DDC84',
+    previewImage: 'https://raw.githubusercontent.com/Skinny1ne/StickerBridge/main/docs/mockup_main.png'
+  },
+  {
     id: 'project-four',
     title: 'Project Four',
     slug: 'project-four',
@@ -84,7 +109,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     capabilities: ['Frontend Engineering', 'Interactive Design'],
     technologies: ['React', 'TypeScript'],
     featured: false,
-    order: 4,
+    order: 5,
     accentColor: '#818cf8'
   }
 ];

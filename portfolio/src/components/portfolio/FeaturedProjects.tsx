@@ -39,7 +39,7 @@ export const FeaturedProjects: React.FC = () => {
             </div>
             <h2 className={styles.platformBannerTitle}>Engineered Web &amp; Product Experiences</h2>
             <p className={styles.platformBannerText}>
-              Explore independently developed frontend applications running live on the GraffGrid platform — including commercial architectures, e-commerce stores, and healthcare platforms.
+              Explore independently developed applications running live on — or alongside — the GraffGrid platform — including commercial architectures, e-commerce stores, healthcare platforms, and native mobile utilities.
             </p>
           </div>
           <Link to="/work" className={`${styles.btn} ${styles.btnPrimary}`}>
@@ -89,7 +89,12 @@ export const FeaturedProjects: React.FC = () => {
             };
 
             return isLive ? (
-              <a key={p.id} href={getAppUrl(p.path)} style={cardStyle}>
+              <a
+                key={p.id}
+                href={p.externalUrl ?? getAppUrl(p.path)}
+                {...(p.externalUrl ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                style={cardStyle}
+              >
                 {cardContent}
               </a>
             ) : (
