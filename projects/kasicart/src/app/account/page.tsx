@@ -20,7 +20,7 @@ export default function AccountPage() {
         const demo: Order[] = [
           { id:"KC-2025-4821", date:"2026-02-10", status:"delivered", items:[{ slug:"umhlanga-stoneware-mug", name:"Umhlanga Stoneware Mug", price:249, qty:2, image:"https://images.unsplash.com/photo-1610701596061-2ecf227e85b2?w=400&h=400&fit=crop"}], total:593, deliveryMethod:"standard", address:"12 Rosebank Rd, Johannesburg, 2196" },
           { id:"KC-2026-1033", date:"2026-02-18", status:"shipped", items:[{ slug:"handwoven-reversible-throw", name:"Handwoven Reversible Throw", price:1299, qty:1, image:"https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop"}], total:1299, deliveryMethod:"express", address:"8 Umhlanga Rocks Dr, Durban, 4319" },
-          { id:"KC-2026-2041", date:"2026-02-20", status:"processing", items:[{ slug:"durban-coast-coffee-house-roast", name:"Durban Coast Coffee - House Roast", price:195, qty:2, image:"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop"}], total:485, deliveryMethod:"standard", address:"45 Long St, Cape Town, 8001" },
+          { id:"KC-2026-2041", date:"2026-02-20", status:"processing", items:[{ slug:"durban-coast-coffee-house-roast", name:"Durban Coast Coffee · House Roast", price:195, qty:2, image:"https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&h=400&fit=crop"}], total:485, deliveryMethod:"standard", address:"45 Long St, Cape Town, 8001" },
         ];
         setOrders(demo);
       }
@@ -105,7 +105,7 @@ export default function AccountPage() {
           <div>
             <h2 className="text-[18px] font-semibold mb-3">Addresses</h2>
             <div className="p-4 rounded-xl border border-[#E8E2D8] bg-[#F5EEE6] text-sm">
-              <p className="font-medium">Home - 12 Rosebank Rd, Rosebank, Johannesburg, 2196</p>
+              <p className="font-medium">Home · 12 Rosebank Rd, Rosebank, Johannesburg, 2196</p>
               <p className="text-stone-600">Default delivery address (demo, stored locally).</p>
             </div>
             <button className="mt-4 h-9 px-4 rounded-full border border-[#E8E2D8] bg-white text-sm">Add address (demo)</button>

@@ -17,7 +17,7 @@ export default function BeforeAfter() {
     <div className="bg-white border border-neutral-200">
       <div className="grid lg:grid-cols-[1.1fr_0.9fr]">
         <div className="p-8 lg:p-10">
-          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete mb-3">REPRESENTATIVE SCENARIO · DAMP & MOULD REMEDIATION - ILLUSTRATIVE</div>
+          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete mb-3">REPRESENTATIVE SCENARIO · DAMP & MOULD REMEDIATION · ILLUSTRATIVE</div>
           <h3 className="font-display text-[26px] lg:text-[30px] font-semibold leading-tight">From persistent damp to a healthy internal environment.</h3>
           <p className="text-[15px] leading-relaxed text-neutral-600 mt-4">
             Drag to compare. The remediation included moisture mapping, removal of affected finishes, anti-fungal treatment, ventilation improvements and resident guidance.
@@ -42,7 +42,7 @@ export default function BeforeAfter() {
           </div>
           <div className="mt-8 flex items-center gap-3 text-xs font-mono text-concrete">
             <span className="w-2 h-2 bg-amber rounded-full animate-pulse" />
-            Illustrative scenario - 86-home programme - representative example
+            Illustrative scenario · 86-home programme · representative example
           </div>
         </div>
 
@@ -57,15 +57,15 @@ export default function BeforeAfter() {
             {/* After image */}
             <img
               src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
-              alt="After remediation - clean, bright interior"
+              alt="After remediation · clean, bright interior"
               className="absolute inset-0 w-full h-full object-cover"
               draggable={false}
             />
-            {/* Before image - clipped */}
+            {/* Before image · clipped */}
             <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
               <img
                 src="https://images.unsplash.com/photo-1560184611-6a68fd9edcb5?w=800&h=600&fit=crop&sat=-100"
-                alt="Before remediation - damp affected interior"
+                alt="Before remediation · damp affected interior"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ width: `${100 * (100 / pos)}%`, maxWidth: "none" }}
                 draggable={false}
@@ -92,7 +92,7 @@ export default function BeforeAfter() {
               aria-label="Before and after slider"
             />
           </div>
-          <p className="text-xs text-concrete font-mono mt-3 text-center">Drag the divider or use the slider - works on touch and mouse</p>
+          <p className="text-xs text-concrete font-mono mt-3 text-center">Drag the divider or use the slider · works on touch and mouse</p>
         </div>
       </div>
     </div>

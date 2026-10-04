@@ -85,7 +85,7 @@ export function AvailabilityCalendar({
         {selectedDay && selectedDay.slots.length > 0 ? (
           <>
             <p className="mb-2.5 text-[13px] font-semibold text-ink-2">
-              Choose a time - <span className="text-ink">{selectedDay.label}</span>
+              Choose a time · <span className="text-ink">{selectedDay.label}</span>
             </p>
             <div className={cx("grid gap-2", compact ? "grid-cols-3 sm:grid-cols-4" : "grid-cols-3 sm:grid-cols-5 md:grid-cols-6")}>
               {selectedDay.slots.map((t) => {

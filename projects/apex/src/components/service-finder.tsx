@@ -18,7 +18,7 @@ function recommend(p: string, i: string, u: string): Rec {
   if (i === "Plumbing") return { service: "Plumbing", href: "/services/plumbing", next: "Report for reactive attendance", note: "Rapid response for leaks, drainage and void preparation." };
   if (i === "Planned maintenance") return { service: "Planned Maintenance", href: "/services/planned-maintenance", next: "Discuss a maintenance programme", note: "Programmed works with reporting and lifecycle planning." };
   if (i === "Refurbishment") return { service: "Refurbishment & Improvement Works", href: "/services/refurbishment", next: "Scope the project with our team", note: "Multi-trade delivery with programme control and quality assurance." };
-  if (i === "Reactive repair") return { service: "Reactive Repairs", href: "/services/reactive-repairs", next: u.includes("Emergency") ? "Request emergency coordination" : "Report the repair", note: u.includes("Emergency") ? "24/7 coordination - we prioritise diagnosis and clear communication." : "We handle diagnosis, attendance and completion documentation." };
+  if (i === "Reactive repair") return { service: "Reactive Repairs", href: "/services/reactive-repairs", next: u.includes("Emergency") ? "Request emergency coordination" : "Report the repair", note: u.includes("Emergency") ? "24/7 coordination · we prioritise diagnosis and clear communication." : "We handle diagnosis, attendance and completion documentation." };
   return { service: "Integrated Property Services", href: "/services", next: "Discuss your requirements", note: "Tell us more and we’ll recommend the right trade and timescales." };
 }
 
@@ -38,13 +38,13 @@ export default function ServiceFinder() {
     <div className="bg-white border border-neutral-200">
       <div className="grid lg:grid-cols-12">
         <div className="lg:col-span-7 p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-neutral-200">
-          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete mb-2">SERVICE FINDER - RULES-BASED</div>
+          <div className="font-mono text-[11px] tracking-[0.18em] text-concrete mb-2">SERVICE FINDER · RULES-BASED</div>
           <h3 className="font-display text-[22px] font-semibold leading-tight">What do you need help with?</h3>
-          <p className="text-sm text-neutral-600 mt-2">Select the options that best describe your situation. We’ll recommend the relevant service and next step - no AI, just clear routing.</p>
+          <p className="text-sm text-neutral-600 mt-2">Select the options that best describe your situation. We’ll recommend the relevant service and next step · no AI, just clear routing.</p>
 
           <div className="mt-8 space-y-6">
             <div>
-              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">01 - PROPERTY TYPE</div>
+              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">01 · PROPERTY TYPE</div>
               <div className="flex flex-wrap gap-2">
                 {options.property.map((o) => (
                   <button key={o} onClick={() => setProperty(o)} className={pill(property === o)}>
@@ -54,7 +54,7 @@ export default function ServiceFinder() {
               </div>
             </div>
             <div>
-              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">02 - ISSUE</div>
+              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">02 · ISSUE</div>
               <div className="flex flex-wrap gap-2">
                 {options.issue.map((o) => (
                   <button key={o} onClick={() => setIssue(o)} className={pill(issue === o)}>
@@ -64,7 +64,7 @@ export default function ServiceFinder() {
               </div>
             </div>
             <div>
-              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">03 - URGENCY</div>
+              <div className="font-mono text-[11px] tracking-[0.18em] text-ink mb-3">03 · URGENCY</div>
               <div className="flex flex-wrap gap-2">
                 {options.urgency.map((o) => (
                   <button key={o} onClick={() => setUrgency(o)} className={pill(urgency === o)}>
@@ -106,7 +106,7 @@ export default function ServiceFinder() {
                   Discuss requirements
                 </Link>
               </div>
-              <p className="text-[11px] font-mono text-concrete mt-4">Concept routing - final scope confirmed after assessment.</p>
+              <p className="text-[11px] font-mono text-concrete mt-4">Concept routing · final scope confirmed after assessment.</p>
             </div>
           )}
           <button

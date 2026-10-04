@@ -26,7 +26,7 @@ export default function BuildRoomPage() {
         <div>
           <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Build your room · Frontend composition</p>
           <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-instrument)" }}>
-            Build a space - no AR, just frontal
+            Build a space · no AR, just frontal
           </h1>
           <p className="text-sm text-stone-600 mt-1">Choose a room, add pieces, watch the scene update. 2D composition engine, entirely frontend.</p>
         </div>
@@ -55,7 +55,7 @@ export default function BuildRoomPage() {
             <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-[#E8E2D8]/40" style={{ clipPath: "polygon(0 30%, 100% 0, 100% 100%, 0 100%)" }} />
 
             {scene.length === 0 ? (
-              <p className="relative text-sm text-stone-500 text-center p-6">Tap products on the right to place them in the scene.<br />Pure frontend - positions are deterministic, not random.</p>
+              <p className="relative text-sm text-stone-500 text-center p-6">Tap products on the right to place them in the scene.<br />Pure frontend · positions are deterministic, not random.</p>
             ) : (
               <div className="relative w-full h-full p-4 grid grid-cols-2 gap-3 content-center">
                 {scene.map(p => (
@@ -98,7 +98,7 @@ export default function BuildRoomPage() {
               );
             })}
           </div>
-          <p className="text-xs text-stone-400 mt-3">Deterministic 2D composition - no AR required. Prices in ZAR.</p>
+          <p className="text-xs text-stone-400 mt-3">Deterministic 2D composition · no AR required. Prices in ZAR.</p>
         </div>
       </div>
     </div>

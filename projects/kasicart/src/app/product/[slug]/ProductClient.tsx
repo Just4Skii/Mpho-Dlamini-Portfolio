@@ -67,9 +67,9 @@ export function ProductClient({ product }: { product: Product }) {
     // simple deterministic rule
     const code = Number(postal.replace(/\D/g,"").slice(0,4));
     if (!code) { setEstimate("Enter a valid South African postal code (e.g. 2196)."); return; }
-    if (code < 2000) setEstimate("Estimated delivery: 2–3 business days to Gauteng & surrounds.");
-    else if (code < 4000) setEstimate("Estimated delivery: 2–4 business days to KwaZulu-Natal / Free State.");
-    else setEstimate("Estimated delivery: 3–5 business days to Western Cape & coastal areas.");
+    if (code < 2000) setEstimate("Estimated delivery: 2 · 3 business days to Gauteng & surrounds.");
+    else if (code < 4000) setEstimate("Estimated delivery: 2 · 4 business days to KwaZulu-Natal / Free State.");
+    else setEstimate("Estimated delivery: 3 · 5 business days to Western Cape & coastal areas.");
   };
 
   return (
@@ -150,7 +150,7 @@ export function ProductClient({ product }: { product: Product }) {
 
           {product.colors && (
             <div>
-              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Colour - <span className="text-[#11110F] font-medium">{color}</span></p>
+              <p className="text-xs tracking-widest uppercase text-stone-500 mb-2">Colour · <span className="text-[#11110F] font-medium">{color}</span></p>
               <div className="flex gap-2">
                 {product.colors.map(c=>{
                   const disabled = !product.variants.some(v=> v.color===c.name && v.stock>0);
@@ -165,7 +165,7 @@ export function ProductClient({ product }: { product: Product }) {
           {product.sizes && (
             <div>
               <div className="flex items-center justify-between mb-2">
-                <p className="text-xs tracking-widest uppercase text-stone-500">Size - <span className="text-[#11110F] font-medium">{size}</span></p>
+                <p className="text-xs tracking-widest uppercase text-stone-500">Size · <span className="text-[#11110F] font-medium">{size}</span></p>
                 <button className="text-xs underline">Size guide</button>
               </div>
               <div className="flex gap-2 flex-wrap">
@@ -188,7 +188,7 @@ export function ProductClient({ product }: { product: Product }) {
               <button onClick={()=>setQty(q=> Math.min(10,q+1))} className="w-10 h-11 text-lg hover:bg-[#F5EEE6]">+</button>
             </div>
             <Button onClick={handleAdd} disabled={outOfStock} className="flex-1 h-11">
-              {outOfStock ? "Out of stock" : added ? "Added ✓ - View cart" : "Add to cart"}
+              {outOfStock ? "Out of stock" : added ? "Added ✓ · View cart" : "Add to cart"}
             </Button>
             <button onClick={()=>toggle(product.id)} aria-label="Wishlist" className={`w-11 h-11 rounded-full border flex items-center justify-center shrink-0 ${has(product.id)?"bg-[#C45D3C] text-white border-[#C45D3C]":"bg-white border-[#E8E2D8] hover:border-[#11110F]"}`}>
               <span className="text-lg">{has(product.id)?"♥":"♡"}</span>
@@ -197,20 +197,20 @@ export function ProductClient({ product }: { product: Product }) {
 
           {added && (
             <div className="p-3 rounded-xl bg-[#E6EDE8] border border-[#1E3A2E]/10 flex items-center justify-between">
-              <p className="text-sm font-medium">Added to cart - {qty} × {product.name}</p>
+              <p className="text-sm font-medium">Added to cart · {qty} × {product.name}</p>
               <Link href="/shop" className="text-xs underline">Continue shopping</Link>
             </div>
           )}
 
-          {lowStock && !outOfStock && <p className="text-xs font-medium text-[#C45D3C]">Low stock - only {selectedVariant?.stock ?? product.stockCount} left</p>}
+          {lowStock && !outOfStock && <p className="text-xs font-medium text-[#C45D3C]">Low stock · only {selectedVariant?.stock ?? product.stockCount} left</p>}
 
           {outOfStock && (
             <div className="p-4 rounded-xl bg-[#F5EEE6] border border-[#E8E2D8]">
-              <p className="text-sm font-medium">Out of stock - get notified when available</p>
+              <p className="text-sm font-medium">Out of stock · get notified when available</p>
               {!notify ? (
                 <button onClick={()=>setNotify(true)} className="mt-2 h-9 px-4 rounded-full bg-[#11110F] text-white text-sm">Notify me when available</button>
               ) : (
-                <p className="text-sm text-green-700 mt-2">✓ We’ll notify you - (demo) notification saved locally.</p>
+                <p className="text-sm text-green-700 mt-2">✓ We’ll notify you · (demo) notification saved locally.</p>
               )}
             </div>
           )}
@@ -270,15 +270,15 @@ export function ProductClient({ product }: { product: Product }) {
               {activeTab==="shipping" && (
                 <div className="space-y-2">
                   <p><strong>Delivery:</strong> Standard R95, free over R750. Estimated {product.deliveryEstimate}. Delivery available across South Africa.</p>
-                  <p><strong>Returns:</strong> 14-day returns for undamaged items. Seller handles fulfilment - see <Link href="/help" className="underline">Help</Link>.</p>
-                  <p><strong>Collection:</strong> Available in selected areas - checkout will show options where applicable.</p>
+                  <p><strong>Returns:</strong> 14-day returns for undamaged items. Seller handles fulfilment · see <Link href="/help" className="underline">Help</Link>.</p>
+                  <p><strong>Collection:</strong> Available in selected areas · checkout will show options where applicable.</p>
                   <p className="text-xs text-stone-500">This is a frontend concept. No real courier integration. Estimates illustrative.</p>
                 </div>
               )}
               {activeTab==="reviews" && (
                 <div className="space-y-4">
                   {productReviews.length===0 ? (
-                    <p className="text-stone-500">No reviews yet - be the first to share your experience.</p>
+                    <p className="text-stone-500">No reviews yet · be the first to share your experience.</p>
                   ) : (
                     <>
                       <div className="flex items-center gap-4 p-4 rounded-xl bg-[#F5EEE6]">
@@ -321,7 +321,7 @@ export function ProductClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      {/* sticky mobile add to cart - offset above bottom nav */}
+      {/* sticky mobile add to cart · offset above bottom nav */}
       <div className="lg:hidden fixed bottom-[64px] sm:bottom-[64px] inset-x-0 bg-white/95 backdrop-blur border-t border-[#E8E2D8] p-3 flex gap-3 items-center z-30 supports-[padding:max(0px)]:pb-[max(0.75rem,env(safe-area-inset-bottom))]">
         <div className="flex-1 min-w-0">
           <p className="text-xs text-stone-500 truncate">{product.name}</p>

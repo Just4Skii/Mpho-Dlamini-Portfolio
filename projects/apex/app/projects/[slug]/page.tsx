@@ -27,7 +27,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           <div className="mt-6 flex flex-wrap gap-2">
             <span className="text-xs font-mono bg-ink text-white px-3 py-1">{project.sector}</span>
             <span className="text-xs font-mono bg-stone border border-neutral-200 px-3 py-1">{project.service}</span>
-            <span className="text-xs font-mono bg-amber text-ink px-3 py-1 font-medium">ILLUSTRATIVE SCENARIO - PORTFOLIO DEMONSTRATION</span>
+            <span className="text-xs font-mono bg-amber text-ink px-3 py-1 font-medium">ILLUSTRATIVE SCENARIO · PORTFOLIO DEMONSTRATION</span>
           </div>
           <h1 className="font-display text-[32px] lg:text-[42px] font-semibold leading-[0.9] tracking-tight mt-4 max-w-3xl">{project.title}</h1>
           <p className="text-[16px] leading-relaxed text-neutral-600 mt-4 max-w-2xl">{project.desc}</p>
@@ -85,7 +85,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
               <div className="p-8 border-t border-neutral-200">
                 <h2 className="font-display text-[20px] font-semibold">Illustrative outcome</h2>
                 <p className="text-[15px] leading-relaxed text-neutral-600 mt-3">{project.outcome}</p>
-                <p className="text-xs font-mono text-concrete mt-4">Illustrative scenario data - representative example, not a real client claim.</p>
+                <p className="text-xs font-mono text-concrete mt-4">Illustrative scenario data · representative example, not a real client claim.</p>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-ink text-white p-8">
               <h3 className="font-display font-semibold text-[18px]">Have a similar requirement?</h3>
-              <p className="text-sm text-white/60 leading-relaxed mt-2">We’ll outline scope, trades, timescales and reporting - within one working day.</p>
+              <p className="text-sm text-white/60 leading-relaxed mt-2">We’ll outline scope, trades, timescales and reporting · within one working day.</p>
               <Link href="/contact" className="inline-flex mt-6 bg-amber text-ink px-5 py-3 text-sm font-semibold hover:bg-amber-hover transition-colors">Discuss Your Requirements →</Link>
               <div className="mt-6 pt-6 border-t border-white/10 text-xs font-mono text-white/40">
                 Or call demonstration: +27 (0)11 234 5678

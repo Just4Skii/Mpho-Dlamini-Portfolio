@@ -15,7 +15,7 @@ export function SpecialtiesList() {
       <p className="kicker">Browse</p>
       <h1 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">Every specialty, explained plainly</h1>
       <p className="mt-4 max-w-2xl text-[15.5px] leading-relaxed text-ink-2">
-        Not sure whether you need a GP, a physio or a dietitian? Each page explains what the profession does, common reasons people seek care, and what a first visit looks like - followed by listed providers you can book.
+        Not sure whether you need a GP, a physio or a dietitian? Each page explains what the profession does, common reasons people seek care, and what a first visit looks like · followed by listed providers you can book.
       </p>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -46,7 +46,7 @@ export function SpecialtiesList() {
       <div className="mt-12 rounded-xl border border-line bg-cream p-6 sm:p-8">
         <h2 className="font-display text-xl font-semibold">Still not sure where to start?</h2>
         <p className="mt-2 max-w-2xl text-[14.5px] leading-relaxed text-ink-2">
-          A General Practitioner is the right first call for most new or unclear symptoms - they can treat you directly or refer you to the right specialist. Our guide on specialties walks through the differences.
+          A General Practitioner is the right first call for most new or unclear symptoms · they can treat you directly or refer you to the right specialist. Our guide on specialties walks through the differences.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Button to="/search?specialty=general-practitioner" icon="stethoscope">Find a GP</Button>
@@ -60,7 +60,7 @@ export function SpecialtiesList() {
 export function SpecialtyDetail() {
   const { slug } = useParams();
   const spec = getSpecialty(slug);
-  usePageMeta(spec ? `${spec.name} - find and book ${spec.plural.toLowerCase()} | CarePoint` : "Specialty | CarePoint", spec?.whatTheyDo);
+  usePageMeta(spec ? `${spec.name} · find and book ${spec.plural.toLowerCase()} | CarePoint` : "Specialty | CarePoint", spec?.whatTheyDo);
 
   if (!spec) {
     return (
@@ -146,7 +146,7 @@ export function SpecialtyDetail() {
             ))}
           </div>
           <p className={cx("mt-6 rounded-lg border border-line bg-cream px-4 py-3 text-[12.5px] text-ink-3")}>
-            This page offers general information only - it is not medical advice and does not diagnose any condition. If symptoms are severe or worsening, seek urgent care.
+            This page offers general information only · it is not medical advice and does not diagnose any condition. If symptoms are severe or worsening, seek urgent care.
           </p>
         </section>
       </div>

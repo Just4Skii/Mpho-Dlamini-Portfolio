@@ -24,9 +24,9 @@ export default function BuildLookPage() {
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-6 sm:py-8">
       <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Complete the look · Editorial styling</p>
       <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-instrument)" }}>
-        Build the look - shirt to bag, one composition
+        Build the look · shirt to bag, one composition
       </h1>
-      <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Select a product, generate a styled collection. Swap, remove, add all to cart. No hard jump - products animate into a single editorial composition.</p>
+      <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Select a product, generate a styled collection. Swap, remove, add all to cart. No hard jump · products animate into a single editorial composition.</p>
 
       <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-6 mt-6">
         <div className="bg-[#11110F] rounded-[24px] p-5 sm:p-6 text-[#FFFBF5] min-h-[420px] sm:min-h-[480px] flex flex-col">

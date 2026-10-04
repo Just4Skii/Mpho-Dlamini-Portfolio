@@ -3,8 +3,8 @@ import { projects } from "@/projects/apex/lib/data";
 import type { Metadata } from "@/projects/apex/compat/next";
 
 export const metadata: Metadata = {
-  title: "Projects - Illustrative Scenarios",
-  description: "Representative project scenarios - planned maintenance, HVAC, damp & mould and electrical compliance for South African portfolios. Illustrative scenarios, not real client work.",
+  title: "Projects · Illustrative Scenarios",
+  description: "Representative project scenarios · planned maintenance, HVAC, damp & mould and electrical compliance for South African portfolios. Illustrative scenarios, not real client work.",
 };
 
 export default function ProjectsPage() {
@@ -12,10 +12,10 @@ export default function ProjectsPage() {
     <div className="bg-stone">
       <section className="bg-white border-b border-neutral-200">
         <div className="mx-auto max-w-[88rem] px-6 lg:px-8 py-12 lg:py-16">
-          <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">PROJECTS - REPRESENTATIVE SCENARIOS - ILLUSTRATIVE</div>
+          <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">PROJECTS · REPRESENTATIVE SCENARIOS · ILLUSTRATIVE</div>
           <h1 className="font-display text-[36px] lg:text-[48px] font-semibold leading-[0.9] tracking-tight mt-3">How the website communicates complex programmes.</h1>
           <p className="text-[16px] leading-relaxed text-neutral-600 mt-6 max-w-2xl">
-            Representative project scenarios for a South African context - Gauteng, Western Cape, KwaZulu-Natal and Eastern Cape. Scenario, approach and illustrative outcome. Metrics are labelled as illustrative scenario data - credibility over inflation.
+            Representative project scenarios for a South African context · Gauteng, Western Cape, KwaZulu-Natal and Eastern Cape. Scenario, approach and illustrative outcome. Metrics are labelled as illustrative scenario data · credibility over inflation.
           </p>
         </div>
       </section>
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
 
       <section className="mx-auto max-w-[88rem] px-6 lg:px-8 pb-16">
           <div className="bg-white border border-neutral-200 p-6 text-xs font-mono text-concrete leading-relaxed">
-          Independent concept project - all scenarios are illustrative and hypothetical. Metrics are representative scenario data. No real client names or logos are used.
+          Independent concept project · all scenarios are illustrative and hypothetical. Metrics are representative scenario data. No real client names or logos are used.
         </div>
       </section>
     </div>

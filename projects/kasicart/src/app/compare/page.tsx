@@ -11,7 +11,7 @@ export default function ComparePage() {
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-8">
       <div className="flex items-end justify-between mb-6">
         <div>
-          <h1 className="text-[28px] font-semibold" style={{fontFamily:"var(--font-instrument)"}}>Compare - {items.length}/4</h1>
+          <h1 className="text-[28px] font-semibold" style={{fontFamily:"var(--font-instrument)"}}>Compare · {items.length}/4</h1>
           <p className="text-sm text-stone-500">Compare up to 4 products side-by-side. Select from product cards or pages.</p>
         </div>
         {items.length>0 && <button onClick={clear} className="text-sm underline">Clear</button>}
@@ -68,7 +68,7 @@ export default function ComparePage() {
           </table>
         </div>
           <CompareVisual items={items} />
-          <p className="text-xs text-stone-400 mt-3 text-center">Visual race - strongest values animate into emphasis. Shareable via URL query (frontend state encoded where practical).</p>
+          <p className="text-xs text-stone-400 mt-3 text-center">Visual race · strongest values animate into emphasis. Shareable via URL query (frontend state encoded where practical).</p>
         </>
       )}
     </div>

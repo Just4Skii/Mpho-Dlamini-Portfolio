@@ -1,4 +1,4 @@
-/* Sticker SVG system - 1:1 port of the original landing page generator. */
+/* Sticker SVG system · 1:1 port of the original landing page generator. */
 
 const E: Record<string, string> = {
   dot: '<circle cx="36" cy="44" r="5"/><circle cx="64" cy="44" r="5"/>',

@@ -1,4 +1,4 @@
-# GraffGrid - Independent Developer Portfolio & Project Platform
+# GraffGrid · Independent Developer Portfolio & Project Platform
 
 A modern, high-performance **independent multi-application platform** for **Mpho Dlamini** ([graffgrid.co.za](https://graffgrid.co.za)).
 
@@ -21,7 +21,7 @@ graffgrid/ (Workspace Root)
 │   │   ├── pages/                     # HomePage (/), WorkPage (/work), 404
 │   │   └── styles/                    # Scoped CSS modules
 │   ├── public/                        # CNAME, favicon.svg
-│   ├── index.html                     # Title: Mpho Dlamini - GraffGrid Portfolio
+│   ├── index.html                     # Title: Mpho Dlamini · GraffGrid Portfolio
 │   ├── vite.config.ts                 # base: '/' -> builds to portfolio/dist
 │   ├── tsconfig.json
 │   └── package.json
@@ -40,7 +40,7 @@ graffgrid/ (Workspace Root)
 │   ├── kasicart/                      # Independent React App: KasiCart
 │   │   ├── src/                       # Complete standalone source (components, store, data)
 │   │   ├── public/                    # Dedicated favicon.ico, assets
-│   │   ├── index.html                 # Title: KasiCart - Good things, close to home
+│   │   ├── index.html                 # Title: KasiCart · Good things, close to home
 │   │   ├── vite.config.ts             # base: '/work/kasicart/' -> builds to projects/kasicart/dist
 │   │   ├── tsconfig.json
 │   │   ├── package.json
@@ -78,11 +78,11 @@ graffgrid/ (Workspace Root)
 
 ## 🌐 Public URL Architecture
 
-- `https://graffgrid.co.za/` - GraffGrid Portfolio Overview
-- `https://graffgrid.co.za/work` - Filterable Work Showcase
-- `https://graffgrid.co.za/work/apex` - Apex Facilities Group Standalone Application
-- `https://graffgrid.co.za/work/kasicart` - KasiCart South African Commerce Standalone Application
-- `https://graffgrid.co.za/work/carepoint` - CarePoint Healthcare Platform (Reserved Slot)
+- `https://graffgrid.co.za/` · GraffGrid Portfolio Overview
+- `https://graffgrid.co.za/work` · Filterable Work Showcase
+- `https://graffgrid.co.za/work/apex` · Apex Facilities Group Standalone Application
+- `https://graffgrid.co.za/work/kasicart` · KasiCart South African Commerce Standalone Application
+- `https://graffgrid.co.za/work/carepoint` · CarePoint Healthcare Platform (Reserved Slot)
 
 ---
 

@@ -6,7 +6,7 @@ export const Experience: React.FC = () => {
     {
       title: 'Field Promoter',
       company: 'Triple 8 / Connexit Promotions, Durban',
-      date: 'Nov 2024 – May 2026',
+      date: 'Nov 2024 · May 2026',
       bullets: [
         'Set up promotional booths and created engaging displays to attract customers.',
         'Ran live product demos and activations, developing public speaking confidence.',
@@ -17,7 +17,7 @@ export const Experience: React.FC = () => {
     {
       title: 'Barista',
       company: 'Xpresso, Durban',
-      date: 'Jan 2024 – Aug 2024',
+      date: 'Jan 2024 · Aug 2024',
       bullets: [
         'Prepared beverages and maintained workspace standards during busy service periods.',
         'Handled transactions and delivered friendly, efficient customer service.'
@@ -26,7 +26,7 @@ export const Experience: React.FC = () => {
     {
       title: 'Independent Sales Agent',
       company: 'Credico Financial Services, Durban',
-      date: 'Dec 2023 – Jan 2024',
+      date: 'Dec 2023 · Jan 2024',
       bullets: [
         'Advised customers on financial products through direct marketing.',
         'Processed sensitive customer data accurately and securely.'
@@ -35,7 +35,7 @@ export const Experience: React.FC = () => {
     {
       title: 'Shop Cashier',
       company: 'Kloof High School, Durban',
-      date: 'Jan 2023 – Dec 2023',
+      date: 'Jan 2023 · Dec 2023',
       bullets: [
         'Operated POS system, managed stock takes, orders, and deliveries.',
         'Delivered consistent customer service over 12 months.'

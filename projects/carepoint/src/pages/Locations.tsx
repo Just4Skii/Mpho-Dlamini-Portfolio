@@ -152,7 +152,7 @@ export function LocationDetail() {
             <div className="card overflow-hidden">
               <div className="bg-night px-5 py-4 text-cream">
                 <p className="font-display text-lg font-semibold">New to {city.name}?</p>
-                <p className="mt-1 text-[13px] text-cream/65">Start with a local GP - they'll anchor your care and refer you into the network when needed.</p>
+                <p className="mt-1 text-[13px] text-cream/65">Start with a local GP · they'll anchor your care and refer you into the network when needed.</p>
               </div>
               <div className="p-5">
                 <Button to={`/search?specialty=general-practitioner&city=${city.slug}`} className="w-full" icon="stethoscope">

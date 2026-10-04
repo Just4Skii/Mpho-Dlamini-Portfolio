@@ -64,7 +64,7 @@ export function MapPanel({
   const city = citySlug ? getCity(citySlug) : undefined;
   const selected = providers.find((p) => p.id === selectedId) ?? null;
 
-  /** per-provider "has slots today / later this week" - pure, no hooks in loops */
+  /** per-provider "has slots today / later this week" · pure, no hooks in loops */
   const availMap = useMemo(() => {
     const m = new Map<string, { today: boolean; later: boolean }>();
     const todayISO = new Date().toISOString().slice(0, 10);
@@ -135,7 +135,7 @@ export function MapPanel({
       const avail = availMap.get(p.id) ?? { today: false, later: false };
       const marker = L.marker([p.lat, p.lng], {
         icon: makeIcon(p.id === selectedId, avail.today, avail.later),
-        title: `${p.name} - ${getSpecialty(p.specialty)?.name ?? p.specialty}, ${p.suburb}`,
+        title: `${p.name} · ${getSpecialty(p.specialty)?.name ?? p.specialty}, ${p.suburb}`,
         alt: p.name,
         keyboard: true,
         zIndexOffset: p.id === selectedId ? 1000 : avail.today ? 100 : 0,
@@ -185,7 +185,7 @@ export function MapPanel({
       {/* location chip */}
       <div className="pointer-events-none absolute left-3 top-3 z-[500] flex items-center gap-2 rounded-lg border border-line bg-card/95 px-3 py-1.5 shadow-sm backdrop-blur-sm">
         <Icon name="mapPin" className="h-4 w-4 text-pine" />
-        <span className="text-[12.5px] font-bold text-ink">{city ? city.name : "South Africa - all results"}</span>
+        <span className="text-[12.5px] font-bold text-ink">{city ? city.name : "South Africa · all results"}</span>
       </div>
 
       {/* Google Maps link */}

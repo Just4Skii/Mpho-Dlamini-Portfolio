@@ -39,7 +39,7 @@ export const FeaturedProjects: React.FC = () => {
             </div>
             <h2 className={styles.platformBannerTitle}>Engineered Web &amp; Product Experiences</h2>
             <p className={styles.platformBannerText}>
-              Explore independently developed applications running live on - or alongside - the GraffGrid platform - including commercial architectures, e-commerce stores, healthcare platforms, and native mobile utilities.
+              Explore independently developed applications running live on · or alongside · the GraffGrid platform · including commercial architectures, e-commerce stores, healthcare platforms, and native mobile utilities.
             </p>
           </div>
           <Link to="/work" className={`${styles.btn} ${styles.btnPrimary}`}>

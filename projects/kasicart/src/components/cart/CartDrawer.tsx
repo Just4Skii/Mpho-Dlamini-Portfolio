@@ -13,8 +13,8 @@ export function CartDrawer({ onClose }: { onClose: ()=>void }) {
 
   const applyCoupon = () => {
     const code = coupon.trim().toUpperCase();
-    if (code==="LOCAL10") { setDiscount(Math.round(subtotal*0.10)); setCouponMsg("LOCAL10 applied - 10% off"); }
-    else if (code==="WELCOME15") { setDiscount(Math.round(subtotal*0.15)); setCouponMsg("WELCOME15 applied - 15% off"); }
+    if (code==="LOCAL10") { setDiscount(Math.round(subtotal*0.10)); setCouponMsg("LOCAL10 applied · 10% off"); }
+    else if (code==="WELCOME15") { setDiscount(Math.round(subtotal*0.15)); setCouponMsg("WELCOME15 applied · 15% off"); }
     else { setDiscount(0); setCouponMsg("Invalid code. Try LOCAL10 or WELCOME15."); }
   };
 
@@ -27,7 +27,7 @@ export function CartDrawer({ onClose }: { onClose: ()=>void }) {
       <button aria-label="Close cart" onClick={onClose} className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
       <div className="relative bg-[#FFFBF5] w-full md:max-w-[440px] h-[100dvh] md:h-full flex flex-col shadow-2xl">
         <div className="h-[56px] sm:h-[64px] px-4 sm:px-6 flex items-center justify-between border-b border-[#E8E2D8] shrink-0">
-          <h2 className="font-semibold">Cart - {items.length} {items.length===1?"item":"items"}</h2>
+          <h2 className="font-semibold">Cart · {items.length} {items.length===1?"item":"items"}</h2>
           <button onClick={onClose} className="w-10 h-10 md:w-8 md:h-8 rounded-full bg-[#11110F] text-white flex items-center justify-center shrink-0 active:scale-95 transition">✕</button>
         </div>
 
@@ -36,7 +36,7 @@ export function CartDrawer({ onClose }: { onClose: ()=>void }) {
             <div className="p-8 text-center">
               <p className="text-4xl mb-3">👜</p>
               <p className="font-medium">Your cart is empty</p>
-              <p className="text-sm text-stone-500 mt-1">Add something good - free delivery over R750.</p>
+              <p className="text-sm text-stone-500 mt-1">Add something good · free delivery over R750.</p>
               <Link href="/shop" onClick={onClose} className="inline-flex mt-4 h-10 px-6 rounded-full bg-[#11110F] text-white items-center text-sm font-medium">Start shopping</Link>
             </div>
           ) : (
@@ -81,7 +81,7 @@ export function CartDrawer({ onClose }: { onClose: ()=>void }) {
               {/* saved */}
               {saved.length>0 && (
                 <div className="pt-4 border-t border-[#E8E2D8]">
-                  <p className="text-sm font-medium mb-2">Saved for later - {saved.length}</p>
+                  <p className="text-sm font-medium mb-2">Saved for later · {saved.length}</p>
                   <div className="space-y-2">
                     {saved.map((it,idx)=>(
                       <div key={idx} className="flex gap-3 p-3 rounded-xl bg-[#F5EEE6] border border-[#E8E2D8]">
@@ -111,14 +111,14 @@ export function CartDrawer({ onClose }: { onClose: ()=>void }) {
               <button onClick={applyCoupon} className="h-10 px-5 rounded-full bg-white border border-[#11110F] text-sm font-medium hover:bg-[#11110F] hover:text-white">Apply</button>
             </div>
             {couponMsg && <p className={`text-xs ${discount>0?"text-green-700":"text-[#C45D3C]"}`}>{couponMsg}</p>}
-            <p className="text-[11px] tracking-widest uppercase text-stone-500">Try LOCAL10 or WELCOME15 - demo codes, not real promotions.</p>
+            <p className="text-[11px] tracking-widest uppercase text-stone-500">Try LOCAL10 or WELCOME15 · demo codes, not real promotions.</p>
 
             <div className="space-y-1.5 text-sm pt-2">
               <div className="flex justify-between"><span className="text-stone-600">Subtotal</span><span className="font-medium">{formatPrice(subtotal)}</span></div>
               {discount>0 && <div className="flex justify-between text-green-700"><span>Discount</span><span>-{formatPrice(discount)}</span></div>}
               <div className="flex justify-between"><span className="text-stone-600">Estimated delivery</span><span>{delivery===0 ? "Free" : formatPrice(delivery)}</span></div>
               <div className="flex justify-between text-[16px] font-semibold pt-2 border-t border-[#E8E2D8]"><span>Total</span><span>{formatPrice(total)}</span></div>
-              <p className="text-xs text-stone-500">Delivery available across South Africa. 2–4 business days.</p>
+              <p className="text-xs text-stone-500">Delivery available across South Africa. 2 · 4 business days.</p>
             </div>
 
             <Link href="/checkout" onClick={onClose} className="flex h-12 rounded-full bg-[#11110F] text-white items-center justify-center font-medium hover:bg-black">Continue to checkout</Link>

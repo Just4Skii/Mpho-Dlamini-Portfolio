@@ -234,12 +234,12 @@ function Footer() {
           </Link>
           <p className="mt-4 max-w-xs font-display text-[17px] italic leading-snug text-cream/85">“Finding the right care should feel simpler.”</p>
           <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-cream/55">
-            Discover healthcare providers, clinics and appointment options across South Africa. CarePoint is an independent product concept - every provider, clinic, review and availability listing shown here is fictional sample data.
+            Discover healthcare providers, clinics and appointment options across South Africa. CarePoint is an independent product concept · every provider, clinic, review and availability listing shown here is fictional sample data.
           </p>
           <div className="mt-5 flex items-start gap-2.5 rounded-lg border border-cream/15 bg-night-2 px-3.5 py-3">
             <Icon name="heartPulse" className="mt-0.5 h-4.5 w-4.5 shrink-0 text-danger-bg" />
             <p className="text-[12.5px] leading-relaxed text-cream/70">
-              If you believe you are experiencing a medical emergency, seek immediate emergency assistance - call 112 from any cellphone.
+              If you believe you are experiencing a medical emergency, seek immediate emergency assistance · call 112 from any cellphone.
             </p>
           </div>
         </div>
@@ -273,7 +273,7 @@ function Footer() {
       </div>
       <div className="border-t border-cream/10">
         <div className="container-x flex flex-col gap-2 py-5 text-[12.5px] text-cream/45 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 CarePoint - product concept, frontend demonstration only.</span>
+          <span>© 2026 CarePoint · product concept, frontend demonstration only.</span>
           <span>No real bookings, medical advice or provider verification is provided.</span>
         </div>
       </div>

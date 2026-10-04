@@ -6,14 +6,14 @@ import { Icon } from "../components/icons";
 import { track, usePageMeta } from "../lib/utils";
 
 export function GuidesList() {
-  usePageMeta("Healthcare guides | CarePoint", "Practical, general guides to getting the most from South African healthcare - preparation, questions to ask and finding care near you.");
+  usePageMeta("Healthcare guides | CarePoint", "Practical, general guides to getting the most from South African healthcare · preparation, questions to ask and finding care near you.");
   const [featured, ...rest] = GUIDES;
   return (
     <div className="container-x py-8">
       <p className="kicker">Guides</p>
       <h1 className="mt-2 max-w-2xl font-display text-4xl font-semibold tracking-tight sm:text-5xl">Small reads that make visits better</h1>
       <p className="mt-4 max-w-2xl text-[15.5px] leading-relaxed text-ink-2">
-        General, practical guidance - never diagnosis. Written to help you prepare, ask better questions and navigate care with confidence.
+        General, practical guidance · never diagnosis. Written to help you prepare, ask better questions and navigate care with confidence.
       </p>
 
       <Reveal>
@@ -48,7 +48,7 @@ export function GuidesList() {
       </div>
 
       <p className="mt-8 rounded-lg border border-line bg-cream px-4 py-3 text-[12.5px] text-ink-3">
-        Guides are general information only and are not medical advice. If you're worried about a symptom, book a consultation - a GP is the right place to start.
+        Guides are general information only and are not medical advice. If you're worried about a symptom, book a consultation · a GP is the right place to start.
       </p>
     </div>
   );

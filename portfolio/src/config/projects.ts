@@ -78,7 +78,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     slug: 'stickerbridge',
     category: 'Native Mobile Experience',
     summary: 'Open-source Android utility bridging TikTok stickers into WhatsApp. Custom WebP RIFF/VP8X parsing, 1-tap cache discovery across Scoped Storage, and native ContentProvider integration.',
-    detailedDescription: 'A native Android application engineered to extract, normalize, and export static and animated stickers from TikTok into WhatsApp sticker packs. Features a lossless Animated WebP engine (VP8X/ANMF, 512×512, sub-500KB), 1-tap automated TikTok cache scanning, smart link/carousel ingestion with automatic 3-sticker padding, and an official WhatsApp ContentProvider - presented through an independently hosted React product site with direct APK distribution.',
+    detailedDescription: 'A native Android application engineered to extract, normalize, and export static and animated stickers from TikTok into WhatsApp sticker packs. Features a lossless Animated WebP engine (VP8X/ANMF, 512×512, sub-500KB), 1-tap automated TikTok cache scanning, smart link/carousel ingestion with automatic 3-sticker padding, and an official WhatsApp ContentProvider · presented through an independently hosted React product site with direct APK distribution.',
     honestDisclosure: 'Independent native Android product concept designed and developed from scratch. Direct-install open-source APK, not distributed via app stores.',
     status: 'live',
     path: '/work/stickerbridge',
