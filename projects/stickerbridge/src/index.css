@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-night: #0b100d;
+  --color-night-2: #101713;
+  --color-card: #131b15;
+  --color-line: #223028;
+  --color-line-2: #31473a;
+
+  --color-cream: #e8f0ea;
+  --color-muted: #9db3a4;
+  --color-faint: #64766b;
+
+  --color-bridge: #3ddc84;
+  --color-bridge-deep: #1faa5c;
+  --color-bridge-soft: rgba(61, 220, 132, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-night);
+}
+
+::selection {
+  background: rgba(61, 220, 132, 0.3);
+}
+
+@keyframes bridge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bridge-transfer {
+  0% { transform: translateX(0) scale(1); opacity: 0; }
+  15% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: translateX(120px) scale(0.6); opacity: 0; }
+}
+
+@keyframes bridge-pulse-dot {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+@keyframes bridge-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-bridge-float {
+  animation: bridge-float 5s ease-in-out infinite;
+}
+
+.animate-bridge-transfer {
+  animation: bridge-transfer 2.6s ease-in-out infinite;
+}
+
+.animate-bridge-pulse-dot {
+  animation: bridge-pulse-dot 1.6s ease-in-out infinite;
+}
+
+.animate-bridge-marquee {
+  animation: bridge-marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bridge-float,
+  .animate-bridge-transfer,
+  .animate-bridge-pulse-dot,
+  .animate-bridge-marquee {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}

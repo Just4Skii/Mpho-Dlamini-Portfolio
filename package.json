@@ -7,7 +7,8 @@
     "portfolio",
     "projects/apex",
     "projects/kasicart",
-    "projects/carepoint"
+    "projects/carepoint",
+    "projects/stickerbridge"
   ],
   "scripts": {
     "dev": "npm --workspace=portfolio run dev",
@@ -15,11 +16,13 @@
     "dev:apex": "npm --workspace=apex-facilities-group run dev",
     "dev:kasicart": "npm --workspace=kasicart run dev",
     "dev:carepoint": "npm --workspace=carepoint run dev",
+    "dev:stickerbridge": "npm --workspace=stickerbridge run dev",
     "build:portfolio": "npm --workspace=portfolio run build",
     "build:apex": "npm --workspace=apex-facilities-group run build",
     "build:kasicart": "npm --workspace=kasicart run build",
     "build:carepoint": "npm --workspace=carepoint run build",
-    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && node assemble-dist.js",
+    "build:stickerbridge": "npm --workspace=stickerbridge run build",
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && node assemble-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {
