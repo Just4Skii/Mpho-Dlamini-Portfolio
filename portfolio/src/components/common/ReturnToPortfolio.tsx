@@ -23,14 +23,14 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
         display: 'flex',
         alignItems: 'center',
         gap: '8px',
-        background: 'rgba(15, 23, 42, 0.9)',
+        background: 'rgba(11, 12, 10, 0.9)',
         backdropFilter: 'blur(12px)',
-        border: '1px solid rgba(56, 189, 248, 0.3)',
+        border: '1px solid rgba(198, 255, 61, 0.3)',
         borderRadius: '9999px',
         padding: '6px 14px',
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)',
         fontSize: '0.8rem',
-        color: '#f8fafc',
+        color: 'var(--text)',
         fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
       }}
     >
@@ -40,7 +40,7 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
         style={{
           background: 'none',
           border: 'none',
-          color: '#38bdf8',
+          color: 'var(--accent)',
           fontWeight: 700,
           cursor: 'pointer',
           display: 'flex',
@@ -56,8 +56,8 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
 
       {projectName && (
         <>
-          <span style={{ color: '#475569' }}>|</span>
-          <span style={{ color: '#94a3b8', fontSize: '0.75rem', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          <span style={{ color: 'var(--line-strong)' }}>|</span>
+          <span style={{ color: 'var(--muted)', fontSize: '0.75rem', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
             {projectName}
           </span>
         </>

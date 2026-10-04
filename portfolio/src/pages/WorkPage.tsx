@@ -50,7 +50,7 @@ export const WorkPage: React.FC = () => {
   const showCommercial = activeFilter !== 'software';
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#0f172a' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg)' }}>
       <Navigation />
 
       <main className={styles.workContainer}>
@@ -148,14 +148,14 @@ export const WorkPage: React.FC = () => {
                 <div key={idx} className={styles.softwareCard}>
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 600, textTransform: 'uppercase' }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--accent)', fontWeight: 600, textTransform: 'uppercase' }}>
                         {proj.type}
                       </span>
                       {proj.badge && (
                         <span style={{
-                          background: 'rgba(56, 189, 248, 0.12)',
-                          color: '#38bdf8',
-                          border: '1px solid rgba(56, 189, 248, 0.3)',
+                          background: 'rgba(198, 255, 61, 0.12)',
+                          color: 'var(--accent)',
+                          border: '1px solid rgba(198, 255, 61, 0.3)',
                           fontSize: '0.7rem',
                           fontWeight: 700,
                           padding: '2px 8px',
@@ -168,7 +168,7 @@ export const WorkPage: React.FC = () => {
                     <h4>{proj.title}</h4>
                     <p>{proj.description}</p>
                   </div>
-                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', paddingTop: '12px', borderTop: '1px solid #334155' }}>
+                  <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', paddingTop: '12px', borderTop: '1px solid var(--line-strong)' }}>
                     {proj.stack.map((st, sIdx) => (
                       <span key={sIdx} className={styles.capPill} style={{ fontSize: '0.7rem' }}>
                         {st}
