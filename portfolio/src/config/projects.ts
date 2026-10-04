@@ -95,7 +95,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 4,
     accentColor: '#3DDC84',
-    previewImage: 'https://raw.githubusercontent.com/Skinny1ne/StickerBridge/main/docs/mockup_main.png'
+    previewImage: '/stickerbridge-preview.webp'
   },
   {
     id: 'project-four',

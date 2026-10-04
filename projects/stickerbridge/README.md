@@ -61,4 +61,17 @@ WhatsApp; `WhatsAppIntentManager` add-pack intent). Full mermaid diagram in the 
 - Registry: `portfolio/src/config/projects.ts` → `id: 'stickerbridge'`, `category: 'Native Mobile Experience'`, `status: 'live'`, `path: '/work/stickerbridge'`, `externalUrl` (Pages landing), `downloadUrl` (raw APK), `githubUrl` (repo).
 - Cards (`ProjectCard`, `FeaturedProjects`) branch on `externalUrl`: open in a new tab with `↗`, plus a `Download APK ⤓` ghost link.
 - `WorkPage` adds a `Native Mobile` filter; `App.tsx` reserves `/work/stickerbridge` → `WorkPage` so the reserved path never blanks.
+- Preview image is vendored locally at `portfolio/public/stickerbridge-preview.webp` (copied from StickerBridge `docs/mockup_main.webp`) and referenced as `/stickerbridge-preview.webp`, so the card art works even before — or independently of — the StickerBridge repo being public.
 - No build, workspace, or `dist/work/stickerbridge` changes required by design.
+
+## Go-Live Checklist (GitHub side — required for Launch / APK links)
+
+The portfolio links assume the StickerBridge repo exists at `github.com/Skinny1ne/StickerBridge`.
+Until it is created and pushed, Launch Experience / GitHub / APK links will 404. Steps:
+
+1. On GitHub, create a **public** repository named `StickerBridge` under `Skinny1ne` (no README/license — the local repo already has them).
+2. In `D:\Projects\tiktok-whatsapp-stickers\`:
+   `git remote add origin https://github.com/Skinny1ne/StickerBridge.git`
+   `git push -u origin main`
+3. Enable Pages: repo **Settings → Pages → Deploy from a branch → `main` → `/docs` → Save**.
+   The landing page then goes live at `https://skinny1ne.github.io/StickerBridge/`, the APK at `/stickerbridge.apk` beneath it, and the raw download URL starts resolving.
