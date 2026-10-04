@@ -14,7 +14,7 @@ import styles from '../styles/portfolio.module.css';
 
 export const HomePage: React.FC = () => {
   return (
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg)' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'transparent' }}>
       <Navigation />
       <main className={styles.container}>
         <Hero />

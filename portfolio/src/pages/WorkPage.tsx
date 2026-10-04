@@ -50,7 +50,7 @@ export const WorkPage: React.FC = () => {
   const showCommercial = activeFilter !== 'software';
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'transparent' }}>
       <Navigation />
 
       <main className={styles.workContainer}>

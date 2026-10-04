@@ -22,7 +22,7 @@ body { position: relative; }
 body::before { /* signature grid */
   content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 64px 64px; opacity: .55;
+  background-size: 64px 64px; opacity: .9;
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 100%);
 }
