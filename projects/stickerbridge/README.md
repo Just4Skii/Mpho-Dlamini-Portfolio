@@ -13,10 +13,10 @@
 | **Project Name** | **StickerBridge** ⚡ |
 | **Subtitle** | TikTok to WhatsApp Sticker Importer & Animated Engine |
 | **Author / Creator** | **Mpho** (`Mphojunior6@gmail.com`) |
-| **GitHub Handle** | `Skinny1ne` |
-| **GitHub Repository** | `https://github.com/Skinny1ne/StickerBridge` |
-| **Live Landing Page** | `https://skinny1ne.github.io/StickerBridge/` |
-| **Direct APK Download** | `https://github.com/Skinny1ne/StickerBridge/raw/main/stickerbridge.apk` |
+| **GitHub Handle** | `Just4Skii` |
+| **GitHub Repository** | `https://github.com/Just4Skii/StickerBridge` |
+| **Live Landing Page** | `https://just4skii.github.io/StickerBridge/` (requires Pages → `main` → `/docs`) |
+| **Direct APK Download** | `https://github.com/Just4Skii/StickerBridge/raw/main/stickerbridge.apk` |
 | **Target Platforms** | Android (API 26 / Android 8.0 Oreo through API 35 / Android 15+) |
 | **Tech Stack** | **Kotlin**, **Jetpack Compose (Material 3)**, **Coroutines & Flow**, **Android ContentProvider API**, **WebP RIFF/VP8X/ANMF Engine**, **HTML5/Modern CSS/Vanilla JS** |
 | **Distribution** | Direct Universal APK (Independent, zero app store fees) |
@@ -64,14 +64,9 @@ WhatsApp; `WhatsAppIntentManager` add-pack intent). Full mermaid diagram in the 
 - Preview image is vendored locally at `portfolio/public/stickerbridge-preview.webp` (copied from StickerBridge `docs/mockup_main.webp`) and referenced as `/stickerbridge-preview.webp`, so the card art works even before — or independently of — the StickerBridge repo being public.
 - No build, workspace, or `dist/work/stickerbridge` changes required by design.
 
-## Go-Live Checklist (GitHub side — required for Launch / APK links)
+## Go-Live Checklist (GitHub side)
 
-The portfolio links assume the StickerBridge repo exists at `github.com/Skinny1ne/StickerBridge`.
-Until it is created and pushed, Launch Experience / GitHub / APK links will 404. Steps:
-
-1. On GitHub, create a **public** repository named `StickerBridge` under `Skinny1ne` (no README/license — the local repo already has them).
-2. In `D:\Projects\tiktok-whatsapp-stickers\`:
-   `git remote add origin https://github.com/Skinny1ne/StickerBridge.git`
-   `git push -u origin main`
-3. Enable Pages: repo **Settings → Pages → Deploy from a branch → `main` → `/docs` → Save**.
-   The landing page then goes live at `https://skinny1ne.github.io/StickerBridge/`, the APK at `/stickerbridge.apk` beneath it, and the raw download URL starts resolving.
+The repo is pushed to `github.com/Just4Skii/StickerBridge`, so GitHub and raw-APK links already resolve.
+One step remains for the landing page: repo **Settings → Pages → Deploy from a branch → `main` → `/docs` → Save**.
+Until then `https://just4skii.github.io/StickerBridge/` returns GitHub's "There isn't a GitHub Pages site here" 404.
+After enabling, the landing page goes live, with the APK at `/stickerbridge.apk` beneath it.
