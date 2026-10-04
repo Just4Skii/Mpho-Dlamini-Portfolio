@@ -3,12 +3,12 @@ import Link from "@/projects/kasicart/compat/next";
 
 const faqs = [
   { q:"How long is delivery?", a:"Standard delivery is 2–4 business days across South Africa. Express is 1–2 days where available. Free standard over R750. Estimates are illustrative in this frontend demo.", cat:"Delivery" },
-  { q:"Do you offer collection?", a:"Collection is available in selected areas — shown at checkout when applicable. This is a UI feature in the demo.", cat:"Delivery" },
-  { q:"What is the returns policy?", a:"14-day returns for undamaged items. Seller handles fulfilment. In production this would connect to an orders API — here it is a frontend flow.", cat:"Returns" },
+  { q:"Do you offer collection?", a:"Collection is available in selected areas - shown at checkout when applicable. This is a UI feature in the demo.", cat:"Delivery" },
+  { q:"What is the returns policy?", a:"14-day returns for undamaged items. Seller handles fulfilment. In production this would connect to an orders API - here it is a frontend flow.", cat:"Returns" },
   { q:"How do payments work?", a:"Demo checkout only. Card UI uses placeholder 4242 4242 4242 4242, Instant EFT-style is UI-only. No real payment is processed, no data stored or sent.", cat:"Payments" },
   { q:"Do I need an account?", a:"No. Wishlist, cart and recently viewed persist locally. Guest and signed-in UI states are demonstrated with local frontend state.", cat:"Account" },
   { q:"Are brands real?", a:"All brands (Moya Studio, Khumalo Home, etc.) are fictional concept brands for portfolio purposes. Clearly marked as such.", cat:"Selling" },
-  { q:"How do I sell on KasiCart?", a:"Via /sell — multi-step application, validated locally, no real submission. Reviewed in 3–5 days in the concept story.", cat:"Selling" },
+  { q:"How do I sell on KasiCart?", a:"Via /sell - multi-step application, validated locally, no real submission. Reviewed in 3–5 days in the concept story.", cat:"Selling" },
   { q:"Is my data sent anywhere?", a:"No backend. All state stays in localStorage of this browser. No analytics data is actually sent.", cat:"Account" },
 ];
 
@@ -23,12 +23,12 @@ export default function HelpPage() {
   return (
     <div className="max-w-[900px] mx-auto px-4 md:px-6 py-8">
       <h1 className="text-[32px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Help</h1>
-      <p className="text-sm text-stone-600 mt-2">Searchable FAQ — frontend filtering, no backend.</p>
+      <p className="text-sm text-stone-600 mt-2">Searchable FAQ - frontend filtering, no backend.</p>
 
       <div className="mt-6 flex gap-2">
         <div className="flex-1 flex items-center gap-2 h-11 px-4 rounded-full bg-white border border-[#E8E2D8]">
           <span className="text-stone-400">⌕</span>
-          <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search help — e.g. delivery, returns, payments" className="flex-1 outline-none text-sm" />
+          <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search help - e.g. delivery, returns, payments" className="flex-1 outline-none text-sm" />
         </div>
       </div>
       <div className="flex gap-2 mt-3 overflow-auto scrollbar-none pb-2">

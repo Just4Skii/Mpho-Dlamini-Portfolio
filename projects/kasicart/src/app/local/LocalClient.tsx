@@ -19,7 +19,7 @@ export function LocalClient() {
         <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-instrument)" }}>
           Find great products from your city.
         </h1>
-        <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Choose a city — products and brands animate into view. No reload, just transition. Local identity integrated into functionality.</p>
+        <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Choose a city - products and brands animate into view. No reload, just transition. Local identity integrated into functionality.</p>
 
         <div className="flex gap-2 overflow-auto scrollbar-none snap-x pb-2 mt-5 -mx-4 px-4 md:mx-0 md:px-0">
           {cities.map(c => (
@@ -52,7 +52,7 @@ export function LocalClient() {
 
             <div>
               <div className="flex items-end justify-between">
-                <h3 className="font-semibold">Local brands — {city.name}</h3>
+                <h3 className="font-semibold">Local brands - {city.name}</h3>
                 <Link href={`/shop?city=${encodeURIComponent(city.name)}`} className="text-xs underline">Shop {city.name} →</Link>
               </div>
               <div className="flex gap-3 overflow-auto scrollbar-none pb-2 mt-3 snap-x">
@@ -67,7 +67,7 @@ export function LocalClient() {
                     </Link>
                   ))
                 ) : (
-                  <p className="text-sm text-stone-500">No dedicated brand page yet — but products ship from here.</p>
+                  <p className="text-sm text-stone-500">No dedicated brand page yet - but products ship from here.</p>
                 )}
               </div>
 
@@ -80,7 +80,7 @@ export function LocalClient() {
 
               <div className="mt-4 p-4 rounded-xl bg-[#F5EEE6] border border-[#E8E2D8] text-sm">
                 <p className="font-medium">Made in {city.name}</p>
-                <p className="text-stone-600">Large image, brand story, featured collection — editorial modules celebrate local making without stereotypes. City transition animates title, shelf, and imagery.</p>
+                <p className="text-stone-600">Large image, brand story, featured collection - editorial modules celebrate local making without stereotypes. City transition animates title, shelf, and imagery.</p>
                 <Link href={`/shop?city=${encodeURIComponent(city.name)}`} className="inline-flex mt-3 h-9 px-5 rounded-full bg-[#11110F] text-white text-xs items-center">Explore the collection</Link>
               </div>
             </div>

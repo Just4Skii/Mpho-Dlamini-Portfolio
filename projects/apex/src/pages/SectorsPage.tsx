@@ -4,7 +4,7 @@ import type { Metadata } from "@/projects/apex/compat/next";
 
 export const metadata: Metadata = {
   title: "Sectors",
-  description: "Facilities and property services adapted to the operational reality of different estates — from social housing to commercial portfolios.",
+  description: "Facilities and property services adapted to the operational reality of different estates - from social housing to commercial portfolios.",
 };
 
 export default function SectorsPage() {
@@ -15,7 +15,7 @@ export default function SectorsPage() {
           <div className="font-mono text-[11px] tracking-[0.2em] text-concrete">SECTORS</div>
           <h1 className="font-display text-[36px] lg:text-[48px] font-semibold leading-[0.9] tracking-tight mt-3">Built for the way different properties operate.</h1>
           <p className="text-[16px] leading-relaxed text-neutral-600 mt-6 max-w-2xl">
-            The same compliance, different operational constraints. We adapt delivery to access, occupancy, safeguarding and commercial realities — with reporting that satisfies procurement.
+            The same compliance, different operational constraints. We adapt delivery to access, occupancy, safeguarding and commercial realities - with reporting that satisfies procurement.
           </p>
         </div>
       </section>

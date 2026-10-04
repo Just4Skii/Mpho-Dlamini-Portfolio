@@ -36,7 +36,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     qualifications: ["MBChB, Faculty of Medicine", "Diploma in Family Medicine", "Advanced Life Support certified", "Member, primary care education programme (concept)"],
     about: [
       "believes good medicine starts with listening. Consultations are unhurried, with time set aside to explain findings and agree on a plan together.",
-      "takes a practical, whole-family approach to primary care — from school-going children to grandparents — and coordinates closely with specialists when referrals are needed.",
+      "takes a practical, whole-family approach to primary care - from school-going children to grandparents - and coordinates closely with specialists when referrals are needed.",
       "focuses on preventive care and honest communication, preferring simple plans that fit real life over complicated ones that don't.",
     ],
     practiceNames: ["{area} Family Practice", "{surname} Medical Rooms", "{area} Primary Care"],
@@ -49,7 +49,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Check-ups and cleans", "Fillings and restorations", "Root canal treatment", "Extractions", "Wisdom tooth assessments", "Whitening consultations", "Children's dentistry"],
     qualifications: ["BChD, Faculty of Dentistry", "Certificate in Oral Medicine", "Continuing education in minimally invasive dentistry"],
     about: [
-      "is known for calm, judgement-free dentistry — including for anxious patients — and always explains costs before treatment begins.",
+      "is known for calm, judgement-free dentistry - including for anxious patients - and always explains costs before treatment begins.",
       "combines careful preventive care with modern restorative techniques, and will always discuss the least invasive option first.",
       "runs a family-friendly practice where treatment plans are written down and fees are agreed up front.",
     ],
@@ -65,7 +65,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     about: [
       "works with runners, desk workers and weekend athletes alike, with a rehab style built around clear milestones and honest timelines.",
       "believes movement is medicine. Sessions combine hands-on treatment with an exercise programme you will actually stick to.",
-      "specialises in getting people back to the activities they miss — sport, gardening, or simply sleeping without pain.",
+      "specialises in getting people back to the activities they miss - sport, gardening, or simply sleeping without pain.",
     ],
     practiceNames: ["{surname} Physiotherapy", "{area} Physio & Sport", "Motion Rooms {area}"],
     days: [1, 2, 3, 4, 5],
@@ -77,7 +77,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Individual therapy", "Anxiety and stress", "Depression support", "Grief counselling", "Relationship therapy", "Workplace burnout", "Clinical assessments"],
     qualifications: ["MA Clinical Psychology", "Registered counselling psychologist (concept listing)", "Training in CBT and ACT modalities"],
     about: [
-      "offers a steady, confidential space to work through what feels heavy — with practical tools between sessions, not just conversation in them.",
+      "offers a steady, confidential space to work through what feels heavy - with practical tools between sessions, not just conversation in them.",
       "works collaboratively: you set the pace and the goals, with evidence-based methods adapted to your life and context.",
       "has a special interest in burnout and high-pressure careers, and sees evenings by arrangement.",
     ],
@@ -92,7 +92,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     qualifications: ["MBChB, Faculty of Medicine", "Specialist registration in Dermatology (concept listing)", "Fellowship training in dermatoscopic screening"],
     about: [
       "practises evidence-based dermatology with a particular focus on skin of colour and realistic, affordable treatment plans.",
-      "balances medical dermatology with careful skin cancer screening, and explains every option — including doing nothing — clearly.",
+      "balances medical dermatology with careful skin cancer screening, and explains every option - including doing nothing - clearly.",
       "runs structured acne and eczema programmes with scheduled reviews, so progress is measured rather than guessed.",
     ],
     practiceNames: ["{surname} Skin Health", "{area} Dermatology Rooms", "Skinwell {area}"],
@@ -105,7 +105,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Comprehensive eye exams", "Glasses prescriptions", "Contact lens fitting", "Children's vision screening", "Dry eye management", "Retinal photography"],
     qualifications: ["BOptom, Optometry programme", "Contact lens specialty certificate", "Registered optometrist (concept listing)"],
     about: [
-      "takes time with every eye exam — no conveyor-belt testing — and explains results in plain language.",
+      "takes time with every eye exam - no conveyor-belt testing - and explains results in plain language.",
       "has a gentle approach with children and first-time contact lens wearers, with unhurried fitting sessions.",
       "combines thorough clinical testing with honest advice about what you actually need, frames included.",
     ],
@@ -119,7 +119,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Medical nutrition therapy", "Diabetes and hypertension support", "Weight management", "Sports nutrition", "IBS and gut health", "Pregnancy nutrition"],
     qualifications: ["BSc Dietetics", "Registered dietitian (concept listing)", "Postgraduate certificate in Sport Nutrition"],
     about: [
-      "builds eating plans around the food you already know and love — no imported superfoods required.",
+      "builds eating plans around the food you already know and love - no imported superfoods required.",
       "specialises in diabetes and blood pressure management, working closely with GPs to keep plans realistic.",
       "rejects one-size-fits-all meal plans. Every consult starts with your routine, budget and culture.",
     ],
@@ -133,7 +133,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Stroke rehabilitation", "Hand therapy and splinting", "Home adaptation assessments", "School readiness programmes", "Return-to-work assessments", "Assistive device advice"],
     qualifications: ["BSc Occupational Therapy", "Hand therapy advanced certificate", "Registered occupational therapist (concept listing)"],
     about: [
-      "helps people rebuild the everyday — dressing, cooking, typing, driving — after injury or illness, one small win at a time.",
+      "helps people rebuild the everyday - dressing, cooking, typing, driving - after injury or illness, one small win at a time.",
       "works across the lifespan, from school-readiness programmes to home adaptations for older adults.",
       "is known for practical, no-nonsense rehab plans that involve the whole family.",
     ],
@@ -147,7 +147,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Well-baby checks", "Growth and development reviews", "Childhood asthma and allergies", "Recurrent infections", "Adolescent medicine", "Vaccination schedules"],
     qualifications: ["MBChB, Faculty of Medicine", "Specialist registration in Paediatrics (concept listing)", "Neonatal resuscitation certified"],
     about: [
-      "is famously patient with anxious first-time parents — and with toddlers who would rather be anywhere else.",
+      "is famously patient with anxious first-time parents - and with toddlers who would rather be anywhere else.",
       "practises gentle, evidence-based paediatrics and will always explain when antibiotics are (and aren't) the answer.",
       "believes in long relationships with families, from newborn checks through the teenage years.",
     ],
@@ -161,7 +161,7 @@ const SPEC_META: Record<string, SpecMeta> = {
     services: ["Diagnostic assessments", "Medication management", "ADHD assessment", "Anxiety and mood disorders", "Sleep disorders", "Second opinions"],
     qualifications: ["MBChB, Faculty of Medicine", "Specialist registration in Psychiatry (concept listing)", "Psychopharmacology continuing education"],
     about: [
-      "approaches medication thoughtfully — prescribing when it helps, deprescribing when it doesn't, and always alongside therapy.",
+      "approaches medication thoughtfully - prescribing when it helps, deprescribing when it doesn't, and always alongside therapy.",
       "offers careful diagnostic assessments with time for the full story, and coordinates closely with GPs and psychologists.",
       "combines medical expertise with a warm, stigma-free consulting style.",
     ],
@@ -234,7 +234,7 @@ const CURATED: CuratedSpec[] = [
   },
   {
     first: "Anika", last: "van der Merwe", gender: "female", spec: "dermatologist", city: "cape-town", suburb: "Sea Point",
-    about: "Dr. van der Merwe is a dermatologist with a special interest in skin of colour and dermatoscopic mole screening. Her Sea Point rooms see a mix of medical dermatology — acne, eczema, psoriasis — and structured skin-check programmes for patients with sun exposure histories.",
+    about: "Dr. van der Merwe is a dermatologist with a special interest in skin of colour and dermatoscopic mole screening. Her Sea Point rooms see a mix of medical dermatology - acne, eczema, psoriasis - and structured skin-check programmes for patients with sun exposure histories.",
     qualifications: ["MBChB, Faculty of Medicine (2009)", "Specialist registration in Dermatology (concept listing)", "Dermatoscopy advanced course (2017)"],
     areasOfPractice: ["Skin cancer screening", "Acne and rosacea", "Eczema programmes", "Skin of colour dermatology"],
     years: 15,
@@ -255,7 +255,7 @@ const CURATED: CuratedSpec[] = [
   },
   {
     first: "Zanele", last: "Khumalo", gender: "female", spec: "psychologist", city: "johannesburg", suburb: "Sandton",
-    about: "Zanele is a counselling psychologist working with adults navigating anxiety, burnout and life transitions. Sessions in her Sandton rooms — or by video — are structured and collaborative, with practical strategies to carry into the week ahead.",
+    about: "Zanele is a counselling psychologist working with adults navigating anxiety, burnout and life transitions. Sessions in her Sandton rooms - or by video - are structured and collaborative, with practical strategies to carry into the week ahead.",
     qualifications: ["MA Counselling Psychology (2013)", "Registered counselling psychologist (concept listing)", "CBT and ACT postgraduate training"],
     areasOfPractice: ["Anxiety disorders", "Burnout and workplace stress", "Grief and loss", "Life transitions"],
     years: 12,
@@ -269,21 +269,21 @@ const CURATED: CuratedSpec[] = [
   },
   {
     first: "Ayesha", last: "Pillay", gender: "female", spec: "dietitian", city: "cape-town", suburb: "Claremont",
-    about: "Ayesha is a registered dietitian specialising in diabetes, hypertension and gut health. Her plans are built around South African food and real budgets — she will never prescribe ingredients you cannot pronounce, let alone find.",
+    about: "Ayesha is a registered dietitian specialising in diabetes, hypertension and gut health. Her plans are built around South African food and real budgets - she will never prescribe ingredients you cannot pronounce, let alone find.",
     qualifications: ["BSc Dietetics (2014)", "Registered dietitian (concept listing)", "Gastroenterology nutrition certificate (2019)"],
     areasOfPractice: ["Diabetes nutrition", "IBS and low-FODMAP", "Hypertension", "Family meal planning"],
     years: 11,
   },
   {
     first: "Lerato", last: "Molefe", gender: "male", spec: "psychiatrist", city: "johannesburg", suburb: "Morningside",
-    about: "Dr. Molefe is a psychiatrist practising in Morningside with an emphasis on careful diagnosis and conservative, well-monitored prescribing. He works closely with patients' GPs and psychologists, and takes time at first consultations — 60 minutes minimum.",
+    about: "Dr. Molefe is a psychiatrist practising in Morningside with an emphasis on careful diagnosis and conservative, well-monitored prescribing. He works closely with patients' GPs and psychologists, and takes time at first consultations - 60 minutes minimum.",
     qualifications: ["MBChB, Faculty of Medicine (2006)", "Specialist registration in Psychiatry (concept listing)", "ADHD assessment training (2018)"],
     areasOfPractice: ["Mood and anxiety disorders", "ADHD in adults", "Medication reviews", "Sleep disorders"],
     years: 16,
   },
   {
     first: "Elmarie", last: "Botha", gender: "female", spec: "occupational-therapist", city: "gqeberha", suburb: "Newton Park",
-    about: "Elmarie is an occupational therapist in Newton Park helping patients rebuild independence after stroke, surgery or injury — and advising families on home adaptations that make daily life safer and simpler.",
+    about: "Elmarie is an occupational therapist in Newton Park helping patients rebuild independence after stroke, surgery or injury - and advising families on home adaptations that make daily life safer and simpler.",
     qualifications: ["BSc Occupational Therapy (2010)", "Hand therapy advanced certificate (2015)", "Home assessment certified"],
     areasOfPractice: ["Stroke rehabilitation", "Home adaptations", "Hand therapy", "Return-to-work assessments"],
     years: 14,

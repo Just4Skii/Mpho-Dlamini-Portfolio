@@ -305,7 +305,7 @@ export function ShopClient() {
         </div>
       </div>
 
-      {/* mobile filter drawer — full-screen on mobile */}
+      {/* mobile filter drawer - full-screen on mobile */}
       {mobileFilters && (
         <div className="fixed inset-0 z-50 flex">
           <button className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={()=>setMobileFilters(false)} aria-label="Close filters" />

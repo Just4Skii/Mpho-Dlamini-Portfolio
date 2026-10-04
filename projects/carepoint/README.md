@@ -1,4 +1,4 @@
-# CarePoint — Healthcare Discovery & Appointment Platform (Application Slot)
+# CarePoint - Healthcare Discovery & Appointment Platform (Application Slot)
 
 ## Overview & Concept
 

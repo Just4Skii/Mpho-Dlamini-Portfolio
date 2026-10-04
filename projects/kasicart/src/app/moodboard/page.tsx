@@ -61,7 +61,7 @@ export default function MoodboardPage() {
         <div>
           <p className="text-[11px] tracking-[0.18em] uppercase text-stone-500">Moodboard · Collections</p>
           <h1 className="text-[28px] sm:text-[32px] font-semibold tracking-tight" style={{ fontFamily: "var(--font-instrument)" }}>
-            Drag, resize, curate — your space
+            Drag, resize, curate - your space
           </h1>
           <p className="text-sm text-stone-600 mt-1 max-w-[60ch]">Movable visual tiles. Recruiter-grade demo: drag product photographs around a canvas. Persists locally. No backend.</p>
         </div>
@@ -79,7 +79,7 @@ export default function MoodboardPage() {
         className="relative mt-6 bg-[#FFFBF5] border-2 border-dashed border-[#E8E2D8] rounded-[24px] overflow-hidden min-h-[520px] sm:min-h-[600px] select-none touch-none"
         style={{ backgroundImage: "radial-gradient(circle at 1px 1px, #E8E2D8 1px, transparent 0)", backgroundSize: "20px 20px" }}
       >
-        {tiles.length === 0 && <p className="absolute inset-0 flex items-center justify-center text-sm text-stone-500">Your board is empty — add products to start curating.</p>}
+        {tiles.length === 0 && <p className="absolute inset-0 flex items-center justify-center text-sm text-stone-500">Your board is empty - add products to start curating.</p>}
         {tiles.map(t => {
           const p = products.find(x => x.slug === t.slug);
           if (!p) return null;

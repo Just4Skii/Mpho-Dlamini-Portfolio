@@ -35,7 +35,7 @@ export function CompareVisual({ items }: { items: Product[] }) {
           <div className="mt-3 space-y-1.5">
             {section.bar.map(({ p, pct }) => (
               <div key={p.id} className="flex items-center gap-2">
-                <span className="text-[11px] truncate w-20">{p.name.split("—")[0]}</span>
+                <span className="text-[11px] truncate w-20">{p.name.split("-")[0]}</span>
                 <div className="flex-1 h-1.5 bg-[#E8E2D8] rounded-full overflow-hidden">
                   <div className="h-full bg-[#11110F] transition-all duration-700" style={{ width: `${pct}%` }} />
                 </div>

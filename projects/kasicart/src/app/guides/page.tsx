@@ -4,7 +4,7 @@ const guides = [
   {
     slug:"housewarming-gift-guide",
     title:"How to choose a thoughtful housewarming gift",
-    excerpt:"From stoneware beakers to handwoven throws — what makes a gift feel considered, not generic.",
+    excerpt:"From stoneware beakers to handwoven throws - what makes a gift feel considered, not generic.",
     image:"https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&h=500&fit=crop",
     read:"4 min",
     products:["Clayline Serving Bowl","Handwoven Reversible Throw","Gift Box Housewarming"]
@@ -15,12 +15,12 @@ const guides = [
     excerpt:"Oak desk organisers, felt pads and lighting that actually helps you focus.",
     image:"https://images.unsplash.com/photo-1493934558415-9d19f0b2b4d2?w=800&h=500&fit=crop",
     read:"5 min",
-    products:["Oak Desk Organiser","Compact Oak Desk","Desk Lamp — Matt Black"]
+    products:["Oak Desk Organiser","Compact Oak Desk","Desk Lamp - Matt Black"]
   },
   {
     slug:"five-sa-brands-worth-knowing",
     title:"Five South African brands worth knowing",
-    excerpt:"Moya, Khumalo, Indigo Form and more — makers changing how we think about home.",
+    excerpt:"Moya, Khumalo, Indigo Form and more - makers changing how we think about home.",
     image:"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=500&fit=crop",
     read:"6 min",
     products:["Umhlanga Stoneware Mug","Heritage Leather Weekender","Marula Glow Serum"]
@@ -28,20 +28,20 @@ const guides = [
   {
     slug:"everyday-skincare",
     title:"Everyday skincare essentials",
-    excerpt:"Marula, rooibos and baobab — a simple routine from Nala Botanics and Cape Aura.",
+    excerpt:"Marula, rooibos and baobab - a simple routine from Nala Botanics and Cape Aura.",
     image:"https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=500&fit=crop",
     read:"3 min",
     products:["Marula Glow Serum","Rooibos Night Cream","Kelp Body Oil"]
   },
 ];
 
-export const metadata = { title: "Guides — KasiCart" };
+export const metadata = { title: "Guides - KasiCart" };
 
 export default function GuidesPage() {
   return (
     <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-8">
       <h1 className="text-[32px] font-semibold tracking-tight" style={{fontFamily:"var(--font-instrument)"}}>Buying guides</h1>
-      <p className="text-sm text-stone-600 mt-2 max-w-[60ch]">Editorial commerce — articles that lead directly into product collections. Written as a publication, shoppable as a store.</p>
+      <p className="text-sm text-stone-600 mt-2 max-w-[60ch]">Editorial commerce - articles that lead directly into product collections. Written as a publication, shoppable as a store.</p>
 
       <div className="grid md:grid-cols-2 gap-6 mt-8">
         {guides.map(g=>(
@@ -71,7 +71,7 @@ export default function GuidesPage() {
 
       <div className="mt-10 p-6 rounded-[20px] bg-[#F5EEE6] border border-[#E8E2D8]">
         <h3 className="font-semibold">Editorial / commerce hybrid</h3>
-        <p className="text-sm text-stone-600">Example: “Five South African makers changing the way we think about home.” — then links: Shop Moya · Shop Indigo Form · Shop Khumalo Home. This makes KasiCart feel like a magazine and store combined.</p>
+        <p className="text-sm text-stone-600">Example: “Five South African makers changing the way we think about home.” - then links: Shop Moya · Shop Indigo Form · Shop Khumalo Home. This makes KasiCart feel like a magazine and store combined.</p>
       </div>
     </div>
   );

@@ -88,7 +88,7 @@ export function Icon({
   );
 }
 
-/** CarePoint brand mark — a care point on the map: pin with a plus. */
+/** CarePoint brand mark - a care point on the map: pin with a plus. */
 export function LogoMark({ className = "h-8 w-8" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true">

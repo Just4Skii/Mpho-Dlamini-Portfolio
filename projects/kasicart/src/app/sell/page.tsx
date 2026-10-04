@@ -28,9 +28,9 @@ export default function SellPage() {
       <div className="max-w-[600px] mx-auto px-4 md:px-6 py-10 text-center">
         <div className="bg-white border border-[#E8E2D8] rounded-[20px] p-8">
           <p className="w-12 h-12 rounded-full bg-[#1E3A2E] text-white flex items-center justify-center mx-auto">✓</p>
-          <h1 className="text-[24px] font-semibold mt-4">Application received — thank you.</h1>
-          <p className="text-sm text-stone-500 mt-2">We review applications within 3–5 business days. (Demo — no data was sent.)</p>
-          <p className="text-sm mt-4">Submitted as <strong>{data.business}</strong> — {data.city} · {data.category}</p>
+          <h1 className="text-[24px] font-semibold mt-4">Application received - thank you.</h1>
+          <p className="text-sm text-stone-500 mt-2">We review applications within 3–5 business days. (Demo - no data was sent.)</p>
+          <p className="text-sm mt-4">Submitted as <strong>{data.business}</strong> - {data.city} · {data.category}</p>
           <Link href="/brands" className="inline-flex mt-6 h-10 px-6 rounded-full bg-[#11110F] text-white items-center text-sm">Explore brands</Link>
         </div>
       </div>
@@ -55,7 +55,7 @@ export default function SellPage() {
       <div className="bg-white border border-[#E8E2D8] rounded-[20px] p-6">
         {step===1 && (
           <div className="space-y-4">
-            <h2 className="font-semibold">01 — About the business</h2>
+            <h2 className="font-semibold">01 - About the business</h2>
             <div>
               <label className="text-sm font-medium">Business name</label>
               <input value={data.business} onChange={e=>setData({...data, business:e.target.value})} placeholder="Moya Studio" className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-4 text-sm" />
@@ -70,7 +70,7 @@ export default function SellPage() {
         )}
         {step===2 && (
           <div className="space-y-4">
-            <h2 className="font-semibold">02 — What do you sell?</h2>
+            <h2 className="font-semibold">02 - What do you sell?</h2>
             <div>
               <label className="text-sm font-medium">Primary category</label>
               <select value={data.category} onChange={e=>setData({...data, category:e.target.value})} className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-3 text-sm bg-white">
@@ -89,7 +89,7 @@ export default function SellPage() {
         )}
         {step===3 && (
           <div className="space-y-4">
-            <h2 className="font-semibold">03 — Where are you based?</h2>
+            <h2 className="font-semibold">03 - Where are you based?</h2>
             <div>
               <label className="text-sm font-medium">City</label>
               <select value={data.city} onChange={e=>setData({...data, city:e.target.value})} className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-3 text-sm bg-white">
@@ -101,7 +101,7 @@ export default function SellPage() {
         )}
         {step===4 && (
           <div className="space-y-4">
-            <h2 className="font-semibold">04 — Contact details</h2>
+            <h2 className="font-semibold">04 - Contact details</h2>
             <div>
               <label className="text-sm font-medium">Email</label>
               <input value={data.email} onChange={e=>setData({...data, email:e.target.value})} placeholder="hello@yourbrand.co.za" className="mt-1 w-full h-11 rounded-xl border border-[#E8E2D8] px-4 text-sm" />
@@ -116,16 +116,16 @@ export default function SellPage() {
         )}
         {step===5 && (
           <div className="space-y-3 text-sm">
-            <h2 className="font-semibold">05 — Review</h2>
+            <h2 className="font-semibold">05 - Review</h2>
             <div className="p-4 rounded-xl bg-[#F5EEE6] space-y-1">
-              <p><strong>Business:</strong> {data.business || "—"} — {data.owner || "—"}</p>
+              <p><strong>Business:</strong> {data.business || "-"} - {data.owner || "-"}</p>
               <p><strong>Sells:</strong> {data.category}</p>
               <p><strong>Based:</strong> {data.city}</p>
               <p><strong>Contact:</strong> {data.email} · {data.phone}</p>
-              <p><strong>Link:</strong> {data.website || "—"}</p>
-              <p><strong>About:</strong> {data.about || "—"}</p>
+              <p><strong>Link:</strong> {data.website || "-"}</p>
+              <p><strong>About:</strong> {data.about || "-"}</p>
             </div>
-            <p className="text-xs text-stone-500">No data will be sent — frontend validation only, for portfolio demonstration.</p>
+            <p className="text-xs text-stone-500">No data will be sent - frontend validation only, for portfolio demonstration.</p>
           </div>
         )}
 
@@ -141,7 +141,7 @@ export default function SellPage() {
 
       <div className="mt-6 grid md:grid-cols-3 gap-3 text-sm">
         <div className="p-4 rounded-xl bg-white border border-[#E8E2D8]">Reach new customers across South Africa</div>
-        <div className="p-4 rounded-xl bg-white border border-[#E8E2D8]">Build your storefront — editorial brand pages</div>
+        <div className="p-4 rounded-xl bg-white border border-[#E8E2D8]">Build your storefront - editorial brand pages</div>
         <div className="p-4 rounded-xl bg-white border border-[#E8E2D8]">Grow your brand with curated discovery</div>
       </div>
     </div>

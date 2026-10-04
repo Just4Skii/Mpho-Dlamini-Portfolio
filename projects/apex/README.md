@@ -1,4 +1,4 @@
-# Apex Facilities Group — Project Documentation
+# Apex Facilities Group - Project Documentation
 
 **Independent commercial website concept** for a hypothetical South African facilities-management and property-services business.
 

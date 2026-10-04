@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const p = products.find(x=> x.slug===slug);
   if (!p) return { title: "Product not found" };
-  return { title: `${p.name} — ${p.brand}`, description: p.shortDescription };
+  return { title: `${p.name} - ${p.brand}`, description: p.shortDescription };
 }
 
 export default function ProductPage() {

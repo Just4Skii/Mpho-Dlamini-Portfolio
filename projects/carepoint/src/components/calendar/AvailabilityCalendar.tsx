@@ -66,7 +66,7 @@ export function AvailabilityCalendar({
                 {d.status === "limited" && <Icon name="clock" className={cx("h-3.5 w-3.5", sel ? "text-cream" : "text-gold")} />}
                 {d.status === "unavailable" && <Icon name="minus" className={cx("h-3.5 w-3.5", sel ? "text-cream/60" : "text-line-2")} />}
               </span>
-              <span className="sr-only">{d.label} — {d.status === "available" ? "available" : d.status === "limited" ? "limited availability" : "fully booked"}</span>
+              <span className="sr-only">{d.label} - {d.status === "available" ? "available" : d.status === "limited" ? "limited availability" : "fully booked"}</span>
             </button>
           );
         })}
@@ -85,7 +85,7 @@ export function AvailabilityCalendar({
         {selectedDay && selectedDay.slots.length > 0 ? (
           <>
             <p className="mb-2.5 text-[13px] font-semibold text-ink-2">
-              Choose a time — <span className="text-ink">{selectedDay.label}</span>
+              Choose a time - <span className="text-ink">{selectedDay.label}</span>
             </p>
             <div className={cx("grid gap-2", compact ? "grid-cols-3 sm:grid-cols-4" : "grid-cols-3 sm:grid-cols-5 md:grid-cols-6")}>
               {selectedDay.slots.map((t) => {

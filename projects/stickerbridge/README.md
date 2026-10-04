@@ -1,6 +1,6 @@
-# StickerBridge — Independent React Product Site
+# StickerBridge - Independent React Product Site
 
-**TikTok to WhatsApp Sticker Importer** — product site for the native Android app,
+**TikTok to WhatsApp Sticker Importer** - product site for the native Android app,
 hosted on GraffGrid under `/work/stickerbridge` as a fully independent application
 (same contract as Apex, KasiCart, CarePoint: own router, state, styles, and build).
 

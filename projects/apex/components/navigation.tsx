@@ -79,7 +79,7 @@ export default function Navigation() {
               <span className="hidden xl:inline">Integrated maintenance for portfolios that cannot afford downtime.</span>
             </div>
             <div className="flex items-center gap-4 font-mono text-concrete">
-              <a href="tel:+27112345678" className="hover:text-ink transition-colors">+27 (0)11 234 5678 — demonstration</a>
+              <a href="tel:+27112345678" className="hover:text-ink transition-colors">+27 (0)11 234 5678 - demonstration</a>
               <span className="w-px h-3 bg-neutral-300" />
               <a href="mailto:hello@apexfacilities.example" className="hover:text-ink transition-colors">hello@apexfacilities.example</a>
             </div>
@@ -175,7 +175,7 @@ export default function Navigation() {
                   Services built around the property lifecycle.
                 </Link>
                 <p className="text-sm text-concrete leading-relaxed mt-3">
-                  From a single repair to a multi-site maintenance programme — one operational partner.
+                  From a single repair to a multi-site maintenance programme - one operational partner.
                 </p>
                 <Link href="/services" className="inline-flex items-center gap-2 mt-6 text-[13px] font-medium border-b border-ink pb-1 hover:border-amber hover:text-amber transition-colors">
                   View all services <span aria-hidden>→</span>
@@ -200,7 +200,7 @@ export default function Navigation() {
               </div>
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-100 flex items-center justify-between text-xs font-mono text-concrete">
-              <span>Need urgent assistance? Call our coordination team — 24/7 response for reactive faults.</span>
+              <span>Need urgent assistance? Call our coordination team - 24/7 response for reactive faults.</span>
               <Link href="/contact" className="text-ink font-medium hover:text-amber">Report a repair →</Link>
             </div>
           </div>
@@ -252,7 +252,7 @@ export default function Navigation() {
             </Link>
             <div className="mt-4 text-center font-mono text-xs text-concrete">
               <a href="tel:+27112345678">+27 (0)11 234 5678</a> · <a href="mailto:hello@apexfacilities.example">hello@apexfacilities.example</a><br />
-              <span className="text-[11px]">Independent concept project — South Africa</span>
+              <span className="text-[11px]">Independent concept project - South Africa</span>
             </div>
           </div>
         </div>

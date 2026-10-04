@@ -43,7 +43,7 @@ export default function SearchPage() {
   const paramsKey = params.toString();
 
   usePageMeta(
-    `Find care${filters.city ? ` in ${getCity(filters.city)?.name ?? ""}` : " in South Africa"} — CarePoint`,
+    `Find care${filters.city ? ` in ${getCity(filters.city)?.name ?? ""}` : " in South Africa"} - CarePoint`,
     "Search and filter healthcare providers across South Africa by specialty, location, availability, fees and medical aid.",
   );
 
@@ -340,7 +340,7 @@ function ResultsArea({
           )}
           <p className="mt-8 rounded-lg border border-line bg-cream px-4 py-3 text-[12.5px] leading-relaxed text-ink-3">
             <Icon name="info" className="mr-1.5 inline h-3.5 w-3.5" />
-            Listings, ratings and availability on CarePoint are sample concept data{city ? ` for ${getCity(city)?.name}` : ""} — reviews shown are illustrative, not real patient feedback.
+            Listings, ratings and availability on CarePoint are sample concept data{city ? ` for ${getCity(city)?.name}` : ""} - reviews shown are illustrative, not real patient feedback.
           </p>
         </>
       )}
@@ -382,7 +382,7 @@ function FilterPanel({ filters, setFilter }: { filters: SearchFilters; setFilter
             <option key={c.slug} value={c.slug}>{c.name}</option>
           ))}
         </Select>
-        <p className="mt-2 text-[12px] text-ink-3">Areas within a city are matched by search — try “Umhlanga” or “Sandton” in the search box.</p>
+        <p className="mt-2 text-[12px] text-ink-3">Areas within a city are matched by search - try “Umhlanga” or “Sandton” in the search box.</p>
       </FilterSection>
 
       <FilterSection title="Availability">

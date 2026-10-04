@@ -33,7 +33,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "Dentist",
     tagline: "Preventive and restorative care for teeth, gums and oral health.",
     whatTheyDo:
-      "Dentists look after the health of your teeth, gums and mouth — from routine check-ups and cleans to fillings, root canal treatment and extractions. Regular dental visits help catch problems early, when they are simplest to treat.",
+      "Dentists look after the health of your teeth, gums and mouth - from routine check-ups and cleans to fillings, root canal treatment and extractions. Regular dental visits help catch problems early, when they are simplest to treat.",
     commonReasons: [
       "Routine check-up and professional clean",
       "Tooth pain or sensitivity",
@@ -57,7 +57,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "Physio",
     tagline: "Movement, rehabilitation and pain management through physical therapy.",
     whatTheyDo:
-      "Physiotherapists assess and treat problems with muscles, joints, ligaments and nerves. They use manual therapy, exercise programmes and education to reduce pain and restore movement — from sports injuries to post-surgical rehabilitation.",
+      "Physiotherapists assess and treat problems with muscles, joints, ligaments and nerves. They use manual therapy, exercise programmes and education to reduce pain and restore movement - from sports injuries to post-surgical rehabilitation.",
     commonReasons: [
       "Back, neck and shoulder pain",
       "Sports injuries and sprains",
@@ -105,7 +105,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "Dermatology",
     tagline: "Medical and surgical care for skin, hair and nails.",
     whatTheyDo:
-      "Dermatologists diagnose and treat conditions of the skin, hair and nails — from acne and eczema to suspicious moles and skin surgery. They can also advise on medically necessary treatments versus cosmetic options.",
+      "Dermatologists diagnose and treat conditions of the skin, hair and nails - from acne and eczema to suspicious moles and skin surgery. They can also advise on medically necessary treatments versus cosmetic options.",
     commonReasons: [
       "Persistent acne or rosacea",
       "Eczema, psoriasis or rashes",
@@ -153,7 +153,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "Dietitian",
     tagline: "Personalised, evidence-based nutrition for health and medical conditions.",
     whatTheyDo:
-      "Registered dietitians translate nutrition science into practical eating plans — for medical conditions like diabetes and hypertension, digestive complaints, sports performance, or simply building a healthier relationship with food.",
+      "Registered dietitians translate nutrition science into practical eating plans - for medical conditions like diabetes and hypertension, digestive complaints, sports performance, or simply building a healthier relationship with food.",
     commonReasons: [
       "Nutrition support for diabetes or hypertension",
       "Weight management",
@@ -177,7 +177,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "OT",
     tagline: "Helping people return to daily life after injury, illness or disability.",
     whatTheyDo:
-      "Occupational therapists (OTs) help people regain independence in daily activities after injury, surgery, stroke or developmental challenges — at home, at school and at work. They also perform functional capacity assessments.",
+      "Occupational therapists (OTs) help people regain independence in daily activities after injury, surgery, stroke or developmental challenges - at home, at school and at work. They also perform functional capacity assessments.",
     commonReasons: [
       "Rehabilitation after stroke or injury",
       "Hand therapy and splinting",
@@ -201,7 +201,7 @@ export const SPECIALTIES: Specialty[] = [
     short: "Paediatrics",
     tagline: "Specialist medical care for babies, children and adolescents.",
     whatTheyDo:
-      "Paediatricians specialise in the physical, behavioural and developmental health of children — from newborn checks to adolescent medicine. They work closely with parents and GPs to support healthy development.",
+      "Paediatricians specialise in the physical, behavioural and developmental health of children - from newborn checks to adolescent medicine. They work closely with parents and GPs to support healthy development.",
     commonReasons: [
       "Newborn and well-baby checks",
       "Recurrent infections or allergies",
