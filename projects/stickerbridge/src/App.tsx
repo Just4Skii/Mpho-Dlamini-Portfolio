@@ -5,7 +5,7 @@ import { Landing } from './pages/Landing';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-night text-cream font-sans">
+    <div>
       <ReturnToPortfolio projectName="StickerBridge" />
       <Routes>
         <Route path="/" element={<Landing />} />
