@@ -5,6 +5,7 @@ export type ProjectCategory =
   | 'Commerce Experience'
   | 'Healthcare Experience'
   | 'Interactive Experience'
+  | 'Native Mobile Experience'
   | 'Operational Interface';
 
 export interface ProjectRegistryItem {
@@ -18,6 +19,7 @@ export interface ProjectRegistryItem {
   status: ProjectStatus;
   path: string;
   externalUrl?: string;
+  downloadUrl?: string;
   githubUrl?: string;
   capabilities: string[];
   technologies: string[];
