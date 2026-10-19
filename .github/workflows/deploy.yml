@@ -23,6 +23,9 @@ on:
       - "CNAME"
       - "favicon.svg"
       - ".nojekyll"
+      - "klarrow-k-*"
+      - "klarrow-preview.*"
+      - "stickerbridge-preview.*"
   workflow_dispatch:
 
 permissions:
@@ -61,7 +64,11 @@ jobs:
           cp -r dist/. .
           git config user.name "graffgrid-publisher"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A -- assets work index.html 404.html CNAME favicon.svg .nojekyll klarrow-k-64.png klarrow-k-180.png
+          # Stage the full working-tree delta: CI checked out a clean tree, so the only
+          # local changes are the copied dist content (root files + assets/ + work/).
+          # Enumerating paths previously MISSED non-enumerated portfolio public assets
+          # (e.g. klarrow-preview.svg, stickerbridge-preview.svg) -> broken card images.
+          git add -A
           if git diff --cached --quiet; then
             echo "No published-file changes"
             exit 0
