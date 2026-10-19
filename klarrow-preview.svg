@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-label="Klarrow preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141021"/>
+      <stop offset="1" stop-color="#0b0a12"/>
+    </linearGradient>
+    <linearGradient id="v" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.68" cy="0.22" r="0.75">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <rect width="600" height="400" fill="url(#glow)"/>
+  <!-- grid texture -->
+  <g stroke="#8b5cf6" stroke-opacity="0.08">
+    <path d="M0 100h600M0 200h600M0 300h600"/>
+    <path d="M100 0v400M200 0v400M300 0v400M400 0v400M500 0v400"/>
+  </g>
+  <!-- document stack left -->
+  <g transform="translate(96,84)">
+    <rect x="18" y="18" width="150" height="196" rx="12" fill="#1b1630" stroke="#2b2542"/>
+    <rect x="9"  y="9"  width="150" height="196" rx="12" fill="#231c3e" stroke="#382e5c"/>
+    <rect x="0"  y="0"  width="150" height="196" rx="12" fill="#2a214a" stroke="url(#v)" stroke-width="1.4"/>
+    <g stroke="#8b5cf6" stroke-opacity="0.65" stroke-width="3" stroke-linecap="round">
+      <path d="M24 30h60M24 46h102M24 62h84M24 78h96M24 94h48"/>
+    </g>
+    <g stroke="#4c4560" stroke-opacity="0.75" stroke-width="3" stroke-linecap="round">
+      <path d="M24 116h102M24 132h84M24 148h66"/>
+    </g>
+  </g>
+  <!-- trace graph right -->
+  <g stroke="url(#v)" stroke-width="1.6" fill="none">
+    <path d="M330 130 L412 92 L494 128 M412 92 L424 176 M494 128 L468 208 M424 176 L360 232 M424 176 L474 286 M360 232 L440 262">
+      <animate attributeName="stroke-opacity" values="0.35;0.9;0.35" dur="3.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M330 130 L360 232" stroke="#34d399" stroke-opacity="0.5" stroke-dasharray="5 6">
+      <animate attributeName="stroke-dashoffset" values="22;0" dur="1.4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M424 176 L368 306" stroke="#8b5cf6" stroke-opacity="0.4" stroke-dasharray="5 6">
+      <animate attributeName="stroke-dashoffset" values="0;22" dur="1.4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <g>
+    <circle cx="330" cy="130" r="10" fill="#0b0a12" stroke="url(#v)" stroke-width="2"/>
+    <circle cx="412" cy="92"  r="10" fill="#0b0a12" stroke="url(#v)" stroke-width="2"/>
+    <circle cx="494" cy="128" r="10" fill="#0b0a12" stroke="url(#v)" stroke-width="2"/>
+    <circle cx="424" cy="176" r="12" fill="#7c3aed" opacity="0.9"/>
+    <circle cx="360" cy="232" r="10" fill="#0b0a12" stroke="#34d399" stroke-width="2"/>
+    <circle cx="468" cy="208" r="9"  fill="#0b0a12" stroke="#8b5cf6" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="3 3"/>
+    <circle cx="440" cy="262" r="9"  fill="#0b0a12" stroke="#8b5cf6" stroke-opacity="0.7" stroke-width="2" stroke-dasharray="3 3"/>
+    <circle cx="474" cy="286" r="10" fill="#0b0a12" stroke="url(#v)" stroke-width="2"/>
+    <circle cx="368" cy="306" r="9"  fill="#0b0a12" stroke="#fbbf24" stroke-opacity="0.8" stroke-width="2"/>
+  </g>
+  <!-- caption chip -->
+  <g transform="translate(198,336)">
+    <rect width="204" height="34" rx="17" fill="#181527" stroke="#2b2542"/>
+    <circle cx="18" cy="17" r="4" fill="#8b5cf6"/>
+    <text x="34" y="21.5" fill="#a49dbd" font-family="monospace" font-size="10.5" letter-spacing="1.5">KLARROW TRACE · SYNTHETIC</text>
+  </g>
+</svg>
