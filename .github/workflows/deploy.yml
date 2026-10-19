@@ -61,7 +61,7 @@ jobs:
           cp -r dist/. .
           git config user.name "graffgrid-publisher"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A -- assets work index.html 404.html CNAME favicon.svg .nojekyll
+          git add -A -- assets work index.html 404.html CNAME favicon.svg .nojekyll klarrow-k-64.png klarrow-k-180.png
           if git diff --cached --quiet; then
             echo "No published-file changes"
             exit 0
