@@ -100,6 +100,9 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
   margin-bottom: 48px;
+  /* Cards keep natural heights: a stretched card leaves dead space between its
+     last content block and the footer pinned at the card bottom. */
+  align-items: start;
 }
 
 .card {
