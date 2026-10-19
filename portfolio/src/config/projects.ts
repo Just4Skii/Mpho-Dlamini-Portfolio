@@ -8,7 +8,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     category: 'Evidence & Traceability Tooling',
     summary: 'AI-assisted evidence-reconciliation workbench for food-traceability investigations · source-grounded facts, human-gated confirmation, and dual-path trace scope kept strictly apart.',
     detailedDescription: 'A full-stack prototype engineered for FSQA teams responding to contamination alerts, complaints and audits: PDF/CSV/XLSX/EML ingestion with SHA-256 dedupe, deterministic + local Llama 3.2 3B candidate-fact extraction, verbatim source grounding, a human review desk with invalidation cascades, dual-path BFS trace traversal, gap and mass-balance findings, append-only audit history, and provenance-carrying HTML/JSON/CSV/XLSX exports.',
-    honestDisclosure: 'Independent full-stack prototype (.NET 10 · React 19 · SQLite · local Llama 3.2 3B), evaluated only on authored synthetic scenarios. Case study, not a public food-safety tool. No-upload sandbox on pre-seeded synthetic data is in development.',
+    honestDisclosure: 'Independent full-stack prototype (.NET 10 · React 19 · SQLite · local Llama 3.2 3B), evaluated only on authored synthetic scenarios. Interactive synthetic-only demo of the seeded Savanna Bites workspace (uploads disabled server-side) — not a public food-safety tool.',
     status: 'live',
     path: '/work/klarrow',
     githubUrl: 'https://github.com/Just4Skii/Klarrow',

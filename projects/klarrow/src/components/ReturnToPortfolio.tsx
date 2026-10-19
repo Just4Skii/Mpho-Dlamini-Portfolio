@@ -2,6 +2,7 @@ import React from 'react';
 
 interface ReturnToPortfolioProps {
   projectName?: string;
+  onAbout?: () => void;
 }
 
 function getPortfolioReturnUrl(): string {
@@ -14,7 +15,7 @@ function getPortfolioReturnUrl(): string {
   return '/work';
 }
 
-export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectName = 'Klarrow' }) => {
+export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectName = 'Klarrow', onAbout }) => {
   return (
     <aside
       aria-label="GraffGrid Portfolio navigation"
@@ -34,7 +35,7 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.45)',
         fontSize: '0.8rem',
         color: '#f5f3ff',
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        fontFamily: "'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
       }}
     >
       <a
@@ -55,6 +56,28 @@ export const ReturnToPortfolio: React.FC<ReturnToPortfolioProps> = ({ projectNam
         <span style={{ fontSize: '1rem', lineHeight: 1 }}>←</span>
         <span>GraffGrid</span>
       </a>
+
+      {onAbout && (
+        <>
+          <span style={{ color: '#4c4560' }}>|</span>
+          <button
+            type="button"
+            onClick={onAbout}
+            style={{
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: '#c4b5fd',
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              cursor: 'pointer',
+              fontFamily: 'inherit'
+            }}
+          >
+            About
+          </button>
+        </>
+      )}
 
       {projectName && (
         <>

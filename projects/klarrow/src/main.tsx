@@ -1,23 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-import './index.css';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/bricolage-grotesque';
+import '@fontsource/ibm-plex-mono';
+import './App.css';
+import AppShell from './AppShell';
 
-function getAppBasename(): string {
-  if (typeof window === 'undefined') return '/work/klarrow';
-  const pathname = window.location.pathname;
-  const match = pathname.match(/^(.*\/work\/klarrow)/i);
-  if (match && match[1]) {
-    return match[1];
-  }
-  return '/work/klarrow';
-}
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <BrowserRouter basename={getAppBasename()}>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
+// The Klarrow workbench (canonical source: Just4Skii/Klarrow src/frontend) embedded in the
+// GraffGrid platform shell. No react-router: the platform 404 handler restores deep links
+// and any path under /work/klarrow/* renders this single-page workbench as-is.
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <AppShell />
+  </StrictMode>
 );

@@ -61,6 +61,11 @@ console.log('Copying Klarrow output to dist/work/klarrow/...');
 const klarrowDest = path.join(rootDist, 'work', 'klarrow');
 copyDir(klarrowDist, klarrowDest);
 
+// 5d. Klarrow brand icons also at dist root (browsers resolve site favicons against the
+// origin root when the document URL was restored through the 404.html deep-link chain).
+fs.copyFileSync(path.join(klarrowDist, 'klarrow-k-64.png'), path.join(rootDist, 'klarrow-k-64.png'));
+fs.copyFileSync(path.join(klarrowDist, 'klarrow-k-180.png'), path.join(rootDist, 'klarrow-k-180.png'));
+
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
 

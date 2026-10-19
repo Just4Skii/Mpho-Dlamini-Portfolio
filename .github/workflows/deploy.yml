@@ -1,30 +1,50 @@
-name: Deploy GraffGrid Portfolio Platform to GitHub Pages
+name: Build & Publish GraffGrid Platform (branch deployment)
+
+# Publishing model: GitHub Pages source is "Deploy from branch: main" (serves the repo
+# root), so this workflow builds the whole platform, copies the assembled dist/ CONTENT
+# into the repository root (source folders are untouched), commits and pushes. The push
+# triggers GitHub's own "pages build and deployment" job, which publishes the root tree.
+#
+# Every other project app (apex/kasicart/carepoint/stickerbridge/klarrow) is built into
+# work/<app>/ by scripts/assemble-dist.js together with the master 404.html deep-link
+# handler, CNAME and .nojekyll (disables Jekyll processing for branch publishing).
+#
+# Loop protection: publish commits only change the paths below (ignored by this trigger),
+# so this workflow does not re-trigger itself. Any source change re-triggers a full build.
 
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "assets/**"
+      - "work/**"
+      - "index.html"
+      - "404.html"
+      - "CNAME"
+      - "favicon.svg"
+      - ".nojekyll"
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: "pages"
+  group: "pages-branch-publish"
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
       - name: Install dependencies
@@ -33,21 +53,18 @@ jobs:
       - name: Build platform
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish built site into main (Pages branch model serves the repo root)
+        run: |
+          set -e
+          touch dist/.nojekyll
+          rm -f index.html CNAME 404.html favicon.svg
+          cp -r dist/. .
+          git config user.name "graffgrid-publisher"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A -- assets work index.html 404.html CNAME favicon.svg .nojekyll
+          if git diff --cached --quiet; then
+            echo "No published-file changes"
+            exit 0
+          fi
+          git commit -m "chore(publish): refresh site artifacts from source"
+          git push origin main
