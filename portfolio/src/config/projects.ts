@@ -2,6 +2,31 @@ import { ProjectRegistryItem } from '../types/project';
 
 export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
   {
+    id: 'klarrow',
+    title: 'Klarrow',
+    slug: 'klarrow',
+    category: 'Evidence & Traceability Tooling',
+    summary: 'AI-assisted evidence-reconciliation workbench for food-traceability investigations · ingests fragmented records, proposes source-grounded candidate facts, and traverses multi-tier supply chains with confirmed and possible scope kept strictly apart.',
+    detailedDescription: 'A full-stack prototype engineered for FSQA teams responding to contamination alerts, complaints and audits: PDF/CSV/XLSX/EML ingestion with SHA-256 dedupe, deterministic + local Llama 3.2 3B candidate-fact extraction, verbatim source grounding, a human review desk with invalidation cascades, dual-path BFS trace traversal, gap and mass-balance findings, append-only audit history, and provenance-carrying HTML/JSON/CSV/XLSX exports.',
+    honestDisclosure: 'Independent full-stack prototype (ASP.NET Core .NET 10 · React 19 · SQLite · local Llama 3.2 3B) designed and built from scratch, evaluated only on authored synthetic scenarios. Case study with synthetic-data disclaimers · not a public food-safety tool. Interactive no-upload sandbox on pre-seeded synthetic data is in development.',
+    status: 'live',
+    path: '/work/klarrow',
+    githubUrl: 'https://github.com/Just4Skii/Klarrow',
+    capabilities: [
+      'Evidence Ingestion + Dedupe',
+      'Deterministic + AI Parsing',
+      'Verbatim Source Grounding',
+      'Human Review + Invalidation',
+      'Dual-Path Trace Traversal',
+      'Auditable Exports'
+    ],
+    technologies: ['ASP.NET Core · .NET 10', 'EF Core + SQLite', 'React 19 + TypeScript + Vite', 'Ollama · Llama 3.2 3B', 'xUnit + Playwright'],
+    featured: true,
+    order: 1,
+    accentColor: '#8b5cf6',
+    previewImage: '/klarrow-preview.svg'
+  },
+  {
     id: 'apex',
     title: 'Apex Facilities Group',
     slug: 'apex',
@@ -21,7 +46,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
     featured: true,
-    order: 1,
+    order: 2,
     accentColor: '#f59e0b',
     previewImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=80'
   },
@@ -45,7 +70,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Modern Store State', 'Vite'],
     featured: true,
-    order: 2,
+    order: 3,
     accentColor: '#10b981',
     previewImage: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=800&fit=crop&q=80'
   },
@@ -68,7 +93,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
     featured: true,
-    order: 3,
+    order: 4,
     accentColor: '#38bdf8',
     previewImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&q=80'
   },
@@ -92,7 +117,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     ],
     technologies: ['Kotlin', 'Jetpack Compose', 'Material 3', 'Coroutines & Flow', 'HTML5/CSS/JS'],
     featured: true,
-    order: 4,
+    order: 5,
     accentColor: '#3DDC84',
     previewImage: '/stickerbridge-preview.svg'
   },
@@ -108,7 +133,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     capabilities: ['Frontend Engineering', 'Interactive Design'],
     technologies: ['React', 'TypeScript'],
     featured: false,
-    order: 5,
+    order: 6,
     accentColor: '#818cf8'
   }
 ];

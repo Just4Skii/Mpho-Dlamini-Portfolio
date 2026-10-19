@@ -24,6 +24,7 @@ const apexDist = path.resolve('projects/apex/dist');
 const kasiDist = path.resolve('projects/kasicart/dist');
 const carepointDist = path.resolve('projects/carepoint/dist');
 const stickerbridgeDist = path.resolve('projects/stickerbridge/dist');
+const klarrowDist = path.resolve('projects/klarrow/dist');
 
 // 1. Clean root dist
 if (fs.existsSync(rootDist)) {
@@ -54,6 +55,11 @@ copyDir(carepointDist, carepointDest);
 console.log('Copying StickerBridge output to dist/work/stickerbridge/...');
 const stickerbridgeDest = path.join(rootDist, 'work', 'stickerbridge');
 copyDir(stickerbridgeDist, stickerbridgeDest);
+
+// 5c. Copy Klarrow output to dist/work/klarrow/
+console.log('Copying Klarrow output to dist/work/klarrow/...');
+const klarrowDest = path.join(rootDist, 'work', 'klarrow');
+copyDir(klarrowDist, klarrowDest);
 
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
@@ -104,6 +110,14 @@ const master404Html = `<!DOCTYPE html>
       } else if (path.indexOf('/work/stickerbridge') === 0) {
         var base = repoPrefix + '/work/stickerbridge';
         var rest = path.slice('/work/stickerbridge'.length);
+        if (rest === '' || rest === '/') {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
+        } else {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+        }
+      } else if (path.indexOf('/work/klarrow') === 0) {
+        var base = repoPrefix + '/work/klarrow';
+        var rest = path.slice('/work/klarrow'.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
         } else {
