@@ -8,7 +8,8 @@
     "projects/apex",
     "projects/kasicart",
     "projects/carepoint",
-    "projects/stickerbridge"
+    "projects/stickerbridge",
+    "projects/klarrow"
   ],
   "scripts": {
     "dev": "npm --workspace=portfolio run dev",
@@ -22,7 +23,8 @@
     "build:kasicart": "npm --workspace=kasicart run build",
     "build:carepoint": "npm --workspace=carepoint run build",
     "build:stickerbridge": "npm --workspace=stickerbridge run build",
-    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && node assemble-dist.js",
+    "build:klarrow": "npm --workspace=klarrow run build",
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && npm --workspace=klarrow run build && node assemble-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {

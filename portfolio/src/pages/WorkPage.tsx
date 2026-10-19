@@ -42,6 +42,7 @@ export const WorkPage: React.FC = () => {
     if (activeFilter === 'commercial') return p.category === 'Commercial Web Experience';
     if (activeFilter === 'commerce') return p.category === 'Commerce Experience';
     if (activeFilter === 'healthcare') return p.category === 'Healthcare Experience';
+    if (activeFilter === 'ai-systems') return p.category === 'Evidence & Traceability Tooling';
     if (activeFilter === 'mobile') return p.category === 'Native Mobile Experience';
     return true;
   });
@@ -93,6 +94,13 @@ export const WorkPage: React.FC = () => {
               onClick={() => setActiveFilter('healthcare')}
             >
               Healthcare
+            </button>
+            <button
+              type="button"
+              className={`${styles.filterBtn} ${activeFilter === 'ai-systems' ? styles.filterBtnActive : ''}`}
+              onClick={() => setActiveFilter('ai-systems')}
+            >
+              AI &amp; Traceability
             </button>
             <button
               type="button"

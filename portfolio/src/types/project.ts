@@ -6,7 +6,8 @@ export type ProjectCategory =
   | 'Healthcare Experience'
   | 'Interactive Experience'
   | 'Native Mobile Experience'
-  | 'Operational Interface';
+  | 'Operational Interface'
+  | 'Evidence & Traceability Tooling';
 
 export interface ProjectRegistryItem {
   id: string;
