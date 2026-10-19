@@ -1,5 +1,6 @@
 import React from 'react';
 import heroMark from '../assets/hero.png';
+import '../index.css';
 
 const GITHUB_URL = 'https://github.com/Just4Skii/Klarrow';
 const MAILTO = 'mailto:Mphojunior6@gmail.com?subject=Klarrow%20-%20Request%20a%20controlled%20demo';
@@ -167,7 +168,7 @@ const NO = [
 
 export const CaseStudy: React.FC = () => {
   return (
-    <main>
+    <main className="cs">
       {/* ============ HERO ============ */}
       <section className="hero">
         <div className="w">
@@ -363,16 +364,17 @@ export const CaseStudy: React.FC = () => {
       <section id="sandbox">
         <div className="w">
           <div className="sandbox">
-            <div className="m kick">Interactive demo</div>
-            <h2>A synthetic sandbox is on the workbench.</h2>
+            <div className="m kick">Interactive demo · live</div>
+            <h2>The sandbox is this app.</h2>
             <p>
-              The next build exposes the seeded <b>Savanna Bites</b> demonstration investigation as a public sandbox:
-              pre-loaded fictional evidence only, no document uploads, a persistent synthetic-data banner, and a
-              resettable workspace. Until then, the full product lives in the repository, and demos happen by request.
+              The <b>Savanna Bites</b> demonstration investigation is live here: seeded synthetic documents, the review
+              desk, relationship matches, traces and exports run against the deployed engine. Uploads are disabled
+              server-side in public demo mode, and the workspace state is resettable. Pilot teams run the same build
+              against their own authorized records with uploads enabled.
             </p>
             <div className="sandboxChips">
-              <span><i />Pre-seeded synthetic workspace</span>
-              <span><i />No public uploads, by design</span>
+              <span><i />Live workbench on synthetic data</span>
+              <span><i />No public uploads (server-enforced)</span>
               <span><i />Resettable demo state</span>
               <span><i />Pilot installs disable demo seed via Seed:DemoEnabled</span>
             </div>
