@@ -7,7 +7,8 @@ export type ProjectCategory =
   | 'Interactive Experience'
   | 'Native Mobile Experience'
   | 'Operational Interface'
-  | 'Evidence & Traceability Tooling';
+  | 'Evidence & Traceability Tooling'
+  | 'Ambient Interface Engineering';
 
 export interface ProjectRegistryItem {
   id: string;

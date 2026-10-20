@@ -25,6 +25,7 @@ const kasiDist = path.resolve('projects/kasicart/dist');
 const carepointDist = path.resolve('projects/carepoint/dist');
 const stickerbridgeDist = path.resolve('projects/stickerbridge/dist');
 const klarrowDist = path.resolve('projects/klarrow/dist');
+const skiiDist = path.resolve('projects/skii-os/dist');
 
 // 1. Clean root dist
 if (fs.existsSync(rootDist)) {
@@ -65,6 +66,11 @@ copyDir(klarrowDist, klarrowDest);
 // origin root when the document URL was restored through the 404.html deep-link chain).
 fs.copyFileSync(path.join(klarrowDist, 'klarrow-k-64.png'), path.join(rootDist, 'klarrow-k-64.png'));
 fs.copyFileSync(path.join(klarrowDist, 'klarrow-k-180.png'), path.join(rootDist, 'klarrow-k-180.png'));
+
+// 5e. Skii OS output to dist/work/skii-os/
+console.log('Copying Skii OS output to dist/work/skii-os/...');
+const skiiDest = path.join(rootDist, 'work', 'skii-os');
+copyDir(skiiDist, skiiDest);
 
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
@@ -123,6 +129,14 @@ const master404Html = `<!DOCTYPE html>
       } else if (path.indexOf('/work/klarrow') === 0) {
         var base = repoPrefix + '/work/klarrow';
         var rest = path.slice('/work/klarrow'.length);
+        if (rest === '' || rest === '/') {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
+        } else {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+        }
+      } else if (path.indexOf('/work/skii-os') === 0) {
+        var base = repoPrefix + '/work/skii-os';
+        var rest = path.slice('/work/skii-os'.length);
         if (rest === '' || rest === '/') {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
         } else {

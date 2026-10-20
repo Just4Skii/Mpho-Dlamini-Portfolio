@@ -26,6 +26,7 @@ on:
       - "klarrow-k-*"
       - "klarrow-preview.*"
       - "stickerbridge-preview.*"
+      - "skii-os-preview.*"
   workflow_dispatch:
 
 permissions:
