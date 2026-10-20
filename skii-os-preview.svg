@@ -67,8 +67,8 @@
   <!-- top navigation -->
   <g font-family="Verdana, Geneva, sans-serif">
     <text x="26" y="40" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="1">SKII</text>
-    <rect x="58" y="27" width="42" height="15" rx="3" fill="url(#accent)"/>
-    <text x="79" y="38" font-size="7" font-weight="bold" fill="#10121a" text-anchor="middle" letter-spacing="0.6">TV / SKII</text>
+    <rect x="64" y="27" width="42" height="15" rx="3" fill="url(#accent)"/>
+    <text x="85" y="38" font-size="7" font-weight="bold" fill="#10121a" text-anchor="middle" letter-spacing="0.6">TV / SKII</text>
 
     <g font-size="8" font-weight="bold" letter-spacing="1" text-anchor="middle">
       <rect x="122" y="22" width="56" height="26" rx="5" fill="#0d0f18" fill-opacity="0.85" stroke="url(#accent)" stroke-width="1"/>
@@ -95,7 +95,7 @@
   <g font-family="Verdana, Geneva, sans-serif">
     <text x="26" y="82" font-size="8" fill="url(#accent)" letter-spacing="1.6">◆ COLOSSAL EDITION · SKYWORTH 32E5400H CINEMA DECK</text>
     <text x="26" y="118" font-size="31" font-weight="bold" fill="#ffffff" letter-spacing="-0.5">Colossal Titan</text>
-    <text x="26" y="136" font-size="9.5" fill="#cdd4e4">It lifts the whole world in both hands, and the world keeps burning.</text>
+    <text x="26" y="136" font-size="9.5" fill="#cdd4e4">It lifts the whole world in both hands.</text>
 
     <!-- the mini player, beside the realm name -->
     <g transform="translate(320,96)">
