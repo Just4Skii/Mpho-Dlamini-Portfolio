@@ -1,0 +1,681 @@
+/* ==========================================================================
+   Skii OS - a browser port of the Android TV launcher.
+   The stage is a fixed 1280x720 canvas (the panel's native UI resolution)
+   scaled to fit whatever window it is shown in, so the layout is pixel
+   identical to the television at every size.
+   ========================================================================== */
+
+:root {
+  --accent: #ffc65c;
+  --accent-2: #7fa6c9;
+  --ink: #f4f6fb;
+  --muted: #a8b0c4;
+  --panel: rgba(9, 11, 20, 0.78);
+  --panel-line: rgba(255, 255, 255, 0.12);
+  --display: 'Bricolage Grotesque', 'Inter Variable', Inter, system-ui, sans-serif;
+  --body: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #05060a;
+  color: var(--ink);
+  font-family: var(--body);
+  overflow: hidden;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1200px 700px at 50% -10%, #141a2e 0%, #05060a 62%),
+    #05060a;
+}
+
+/* ---- the stage ---------------------------------------------------------- */
+
+.skii-root {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.skii-stage {
+  position: relative;
+  width: 1280px;
+  height: 720px;
+  flex: none;
+  transform-origin: center center;
+  overflow: hidden;
+  background: #05060a;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
+}
+
+.skii-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ---- the chrome --------------------------------------------------------- */
+
+.skii-ui {
+  position: absolute;
+  inset: 0;
+  padding: 26px 46px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: opacity 700ms ease, transform 900ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.skii-ui--dissolved {
+  opacity: 0;
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+/* ---- top navigation ----------------------------------------------------- */
+
+.skii-topnav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: none;
+}
+
+.skii-brand { display: flex; align-items: center; gap: 9px; }
+
+.skii-wordmark {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: 0.04em;
+}
+
+.skii-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.09em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #10121a;
+  font-weight: 700;
+}
+
+.skii-tabs { display: flex; gap: 12px; margin-left: 6px; }
+
+.skii-tab {
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(10, 12, 22, 0.66);
+  backdrop-filter: blur(14px);
+  color: var(--ink);
+  border-radius: 9px;
+  padding: 8px 15px;
+  font-family: var(--body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.skii-tab:hover { border-color: color-mix(in srgb, var(--accent) 60%, transparent); transform: translateY(-1px); }
+
+.skii-tab.is-active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, rgba(10, 12, 22, 0.8));
+}
+
+.skii-tab-sub {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.skii-status { margin-left: auto; display: flex; align-items: center; gap: 9px; }
+
+.skii-chip {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(8, 10, 18, 0.8);
+  border: 1px solid var(--panel-line);
+  color: #dfe4f2;
+}
+
+.skii-chip--net { color: #7fd3ff; }
+
+.skii-clock { text-align: right; line-height: 1.1; }
+.skii-clock strong {
+  display: block;
+  font-family: var(--display);
+  font-size: 21px;
+  font-weight: 700;
+}
+.skii-clock span {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+/* ---- the realm header --------------------------------------------------- */
+
+.skii-realm { flex: none; }
+
+.skii-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.skii-kicker-diamond { font-size: 9px; }
+.skii-kicker-dot { color: var(--muted); }
+
+.skii-title-row { display: flex; align-items: center; gap: 20px; }
+
+.skii-title {
+  font-family: var(--display);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.02;
+  margin: 0;
+  letter-spacing: -0.015em;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.7);
+}
+
+.skii-lore {
+  margin: 6px 0 0;
+  font-size: 14.5px;
+  color: #cdd4e4;
+  max-width: 640px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+
+/* ---- the mini player ---------------------------------------------------- */
+
+.skii-miniplayer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px 8px 13px;
+  border-radius: 11px;
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  backdrop-filter: blur(16px);
+  max-width: 430px;
+}
+
+.skii-miniplayer-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+
+.skii-miniplayer-track {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skii-miniplayer-artist {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skii-miniplayer-bar {
+  margin-top: 5px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+}
+
+.skii-miniplayer-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 120ms linear;
+}
+
+.skii-mp-btn {
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 10px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.skii-mp-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.skii-mp-btn--close:hover { border-color: #ff6b6b; color: #ff6b6b; background: rgba(255, 107, 107, 0.12); }
+
+/* ---- the hero row ------------------------------------------------------- */
+
+.skii-herorow { display: flex; gap: 12px; flex: none; }
+
+.skii-hero {
+  appearance: none;
+  flex: 1;
+  text-align: left;
+  border: 1px solid var(--panel-line);
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  color: var(--ink);
+  border-radius: 13px;
+  padding: 11px 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.skii-hero:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 65%, transparent); }
+
+.skii-hero.is-primary {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, var(--panel));
+}
+
+.skii-hero-title { font-size: 14px; font-weight: 700; letter-spacing: 0.01em; }
+.skii-hero.is-primary .skii-hero-title { color: var(--accent); }
+
+.skii-hero-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  color: #6ea6ff;
+  text-transform: uppercase;
+}
+
+/* ---- the shelves -------------------------------------------------------- */
+
+.skii-shelf { flex: none; }
+
+.skii-section-head { margin-bottom: 9px; }
+.skii-section-head h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+.skii-section-head p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.skii-cards { display: flex; gap: 14px; }
+
+.skii-card {
+  appearance: none;
+  position: relative;
+  width: 192px;
+  flex: none;
+  text-align: left;
+  border: 1px solid var(--panel-line);
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  color: var(--ink);
+  border-radius: 13px;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.skii-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+
+.skii-card-art {
+  width: 52px;
+  height: 38px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 17px;
+  color: #0b0d14;
+  background: var(--card-accent);
+  margin-bottom: 8px;
+}
+
+.skii-card-name { font-size: 14px; font-weight: 700; }
+.skii-card-kind { font-size: 10.5px; color: var(--muted); }
+
+.skii-card-pin {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+/* ---- the ambient screensaver -------------------------------------------- */
+
+.skii-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: skii-ambient-in 1200ms ease both;
+}
+
+@keyframes skii-ambient-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.skii-ambient-corner {
+  position: absolute;
+  left: 64px;
+  bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skii-ambient-clock {
+  font-family: var(--display);
+  font-size: 118px;
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-shadow: 0 6px 40px rgba(0, 0, 0, 0.65);
+}
+
+.skii-ambient-date {
+  font-family: var(--mono);
+  font-size: 15px;
+  letter-spacing: 0.24em;
+  color: #dfe5f2;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8);
+}
+
+.skii-ambient-player {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+.skii-ambient-artist { color: var(--muted); font-weight: 500; font-size: 13px; }
+
+.skii-ambient-eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; }
+.skii-ambient-eq i {
+  width: 2.5px;
+  border-radius: 2px;
+  background: var(--accent);
+  animation: skii-eq 900ms ease-in-out infinite alternate;
+}
+.skii-ambient-eq i:nth-child(1) { height: 45%; animation-delay: 0ms; }
+.skii-ambient-eq i:nth-child(2) { height: 90%; animation-delay: 160ms; }
+.skii-ambient-eq i:nth-child(3) { height: 62%; animation-delay: 320ms; }
+
+@keyframes skii-eq {
+  from { transform: scaleY(0.4); }
+  to { transform: scaleY(1); }
+}
+
+.skii-ambient-realm {
+  margin-top: 16px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.skii-ambient-hint {
+  position: absolute;
+  right: 42px;
+  bottom: 42px;
+  display: flex;
+  gap: 9px;
+  pointer-events: auto;
+}
+
+.skii-ambient-hint button {
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: var(--panel);
+  backdrop-filter: blur(14px);
+  color: var(--ink);
+  border-radius: 9px;
+  padding: 8px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skii-ambient-hint button:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---- the control deck --------------------------------------------------- */
+
+.skii-deck-toggle {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 40;
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(9, 11, 20, 0.88);
+  backdrop-filter: blur(14px);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.skii-deck-toggle:hover,
+.skii-deck-toggle.is-open { color: var(--accent); border-color: var(--accent); }
+
+.skii-deck {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 41;
+  width: 296px;
+  border: 1px solid var(--panel-line);
+  background: rgba(8, 10, 18, 0.94);
+  backdrop-filter: blur(22px);
+  border-radius: 15px;
+  padding: 15px 16px 13px;
+  color: var(--ink);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+  animation: skii-deck-in 200ms ease both;
+}
+
+@keyframes skii-deck-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skii-deck header h3 { margin: 0; font-family: var(--display); font-size: 15px; font-weight: 800; }
+.skii-deck header p { margin: 3px 0 12px; font-size: 11px; color: var(--muted); line-height: 1.45; }
+
+.skii-deck-readout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.skii-deck-readout div {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-line);
+  border-radius: 8px;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.skii-deck-readout span {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.skii-deck-readout strong {
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skii-deck-field { display: block; margin-bottom: 11px; }
+.skii-deck-field > span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+
+.skii-deck-field select {
+  width: 100%;
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 7px 9px;
+  font-size: 12px;
+  font-family: var(--body);
+  cursor: pointer;
+}
+
+.skii-deck-segmented { display: flex; gap: 4px; }
+.skii-deck-segmented button {
+  flex: 1;
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  border-radius: 7px;
+  padding: 6px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skii-deck-segmented button.is-on {
+  border-color: var(--accent);
+  color: #0b0d14;
+  background: var(--accent);
+}
+
+.skii-deck-actions { display: flex; flex-direction: column; gap: 6px; margin-bottom: 11px; }
+.skii-deck-actions button {
+  appearance: none;
+  border: 1px solid var(--panel-line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.skii-deck-actions button:hover { border-color: var(--accent); color: var(--accent); }
+
+.skii-deck footer p { margin: 0; font-size: 10px; color: var(--muted); line-height: 1.6; }
+.skii-deck kbd {
+  font-family: var(--mono);
+  font-size: 9px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--panel-line);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-right: 2px;
+}
+
+/* ---- the platform pill -------------------------------------------------- */
+
+.skii-return {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(9, 10, 18, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 9999px;
+  padding: 5px 13px;
+  font-size: 0.78rem;
+  color: #f5f3ff;
+}
+
+.skii-return a {
+  color: #a78bfa;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skii-return-sep { color: #4c4560; }
+.skii-return-name { color: #b6b0cc; font-size: 0.74rem; }

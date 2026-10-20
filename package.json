@@ -9,7 +9,8 @@
     "projects/kasicart",
     "projects/carepoint",
     "projects/stickerbridge",
-    "projects/klarrow"
+    "projects/klarrow",
+    "projects/skii-os"
   ],
   "scripts": {
     "dev": "npm --workspace=portfolio run dev",
@@ -18,13 +19,16 @@
     "dev:kasicart": "npm --workspace=kasicart run dev",
     "dev:carepoint": "npm --workspace=carepoint run dev",
     "dev:stickerbridge": "npm --workspace=stickerbridge run dev",
+    "dev:klarrow": "npm --workspace=klarrow run dev",
+    "dev:skii-os": "npm --workspace=skii-os run dev",
     "build:portfolio": "npm --workspace=portfolio run build",
     "build:apex": "npm --workspace=apex-facilities-group run build",
     "build:kasicart": "npm --workspace=kasicart run build",
     "build:carepoint": "npm --workspace=carepoint run build",
     "build:stickerbridge": "npm --workspace=stickerbridge run build",
     "build:klarrow": "npm --workspace=klarrow run build",
-    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && npm --workspace=klarrow run build && node assemble-dist.js",
+    "build:skii-os": "npm --workspace=skii-os run build",
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && npm --workspace=klarrow run build && npm --workspace=skii-os run build && node assemble-dist.js",
     "preview": "vite preview"
   },
   "dependencies": {

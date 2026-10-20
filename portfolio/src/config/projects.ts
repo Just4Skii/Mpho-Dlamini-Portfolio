@@ -122,6 +122,31 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     previewImage: '/stickerbridge-preview.svg'
   },
   {
+    id: 'skii-os',
+    title: 'Skii OS',
+    slug: 'skii-os',
+    category: 'Ambient Interface Engineering',
+    summary: 'A custom Android TV launcher for the Skyworth 32E5400H — 58 anime realms, artwork-matched ambience drawn from real sprite atlases, a live now-playing surface, and a home screen that becomes the screensaver.',
+    detailedDescription: 'A native Android TV launcher (com.skii.os) with a 1 GB memory budget and no Play Services. Ships 58 anime realms, each with its own palette sampled from its artwork, and a 19-family ambience engine: stars, sakura, cyber rain, embers, floaties, hearts, snow, leaves, bubbles, fog, fireflies, rain, feathers, aurora, smoke, shooting stars, dandelion, butterflies and confetti — each family backed by a real sprite atlas and matched to what is actually visible in the frame. A volumetric fog layer sits between the art and the particles, a NotificationListenerService feeds a now-playing strip that sits beside the realm name, and the home screen registers as the system dream so the wallpaper becomes the screensaver with the clock grown into the corner. This page is a browser port of the same rendering engine, running the same manifest and the same atlases the television draws.',
+    honestDisclosure: 'Runs on real hardware (a Skyworth 32E5400H, Android 14). The boot animation and the bootloader logo are locked behind the read-only system partitions, so the television cannot replace them without a bootloader unlock — everything else ships and runs.',
+    status: 'live',
+    path: '/work/skii-os',
+    githubUrl: 'https://github.com/Just4Skii',
+    capabilities: [
+      '58 Artwork-Themed Realms',
+      '19-Family Ambience Engine',
+      'Sprite-Atlas Particle System',
+      'Live Now-Playing Surface',
+      'Home-Screen Screensaver',
+      '1 GB Memory Budget'
+    ],
+    technologies: ['Java · Android 14 · Leanback', 'Canvas Rendering', 'React 19 + TypeScript + Vite', 'NotificationListenerService', 'CC0 Sprite Atlases'],
+    featured: true,
+    order: 6,
+    accentColor: '#FFC65C',
+    previewImage: '/skii-os-preview.svg'
+  },
+  {
     id: 'project-four',
     title: 'Project Four',
     slug: 'project-four',
@@ -133,7 +158,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     capabilities: ['Frontend Engineering', 'Interactive Design'],
     technologies: ['React', 'TypeScript'],
     featured: false,
-    order: 6,
+    order: 7,
     accentColor: '#818cf8'
   }
 ];
