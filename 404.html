@@ -56,6 +56,14 @@
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
+      } else if (path.indexOf('/work/skii-os') === 0) {
+        var base = repoPrefix + '/work/skii-os';
+        var rest = path.slice('/work/skii-os'.length);
+        if (rest === '' || rest === '/') {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/');
+        } else {
+          l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
+        }
       } else {
         var base = repoPrefix;
         l.replace(

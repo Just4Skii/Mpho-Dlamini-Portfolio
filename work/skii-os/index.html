@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skii OS — Anime-Themed Android TV Launcher</title>
+    <meta name="description" content="Skii OS is a custom Android TV launcher for the Skyworth 32E5400H: 58 anime realms, artwork-matched ambience, a live now-playing surface and a home-screen screensaver. This is the browser port of the same rendering engine." />
+    <meta property="og:title" content="Skii OS — Anime-Themed Android TV Launcher" />
+    <meta property="og:description" content="58 anime realms, artwork-matched ambience and a now-playing surface — running the same engine as the television." />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- SPA deep-link routing restoration (platform contract: master 404.html + ?/ convention) -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" crossorigin src="./assets/index-B7GzPYez.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-EZjHNv19.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
