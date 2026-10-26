@@ -935,7 +935,7 @@ export default function App() {
           </p>
           <p className="footnote" style={{ marginTop: 10 }}>
             <a href="demo/TrustKhaya_Functional_Demo.mp4" target="_blank" rel="noreferrer">
-              Watch the 86-second system demo
+              Watch the 95-second system demo
             </a>
             {' · '}
             <a href="demo/TrustKhaya_Pitch_Deck.pdf" target="_blank" rel="noreferrer">
