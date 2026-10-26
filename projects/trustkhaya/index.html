@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-ZA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrustKhaya | Your informal financial life, made visible</title>
+    <meta name="description" content="TrustKhaya turns stokvel, wallet, spaza and guarantor signals into one explainable Community Trust Score a bank can underwrite. Interactive demo with simulated data." />
+    <meta property="og:title" content="TrustKhaya — your informal financial life, made visible" />
+    <meta property="og:description" content="One explainable score, a capped community guarantor, and a zero-fee FNB account. Interactive seeded demo." />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://graffgrid.co.za/work/trustkhaya/" />
+    <meta name="theme-color" content="#312E81" />
+    <script type="text/javascript">
+      (function(l){
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s){ return s.replace(/~and~/g,'&') }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0,-1) + decoded + l.hash);
+        }
+      }(window.location))
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -10,7 +10,8 @@
     "projects/carepoint",
     "projects/stickerbridge",
     "projects/klarrow",
-    "projects/skii-os"
+    "projects/skii-os",
+    "projects/trustkhaya"
   ],
   "scripts": {
     "dev": "npm --workspace=portfolio run dev",
@@ -28,8 +29,10 @@
     "build:stickerbridge": "npm --workspace=stickerbridge run build",
     "build:klarrow": "npm --workspace=klarrow run build",
     "build:skii-os": "npm --workspace=skii-os run build",
-    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && npm --workspace=klarrow run build && npm --workspace=skii-os run build && node assemble-dist.js",
-    "preview": "vite preview"
+    "build": "npm --workspace=portfolio run build && npm --workspace=apex-facilities-group run build && npm --workspace=kasicart run build && npm --workspace=carepoint run build && npm --workspace=stickerbridge run build && npm --workspace=klarrow run build && npm --workspace=skii-os run build && npm --workspace=trustkhaya run build && node assemble-dist.js",
+    "preview": "vite preview",
+    "dev:trustkhaya": "npm --workspace=trustkhaya run dev",
+    "build:trustkhaya": "npm --workspace=trustkhaya run build"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",

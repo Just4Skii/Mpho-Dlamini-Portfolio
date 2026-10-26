@@ -146,7 +146,32 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     accentColor: '#FFC65C',
     previewImage: '/skii-os-preview.svg'
   },
-  {
+    {
+    id: 'trustkhaya',
+    title: 'TrustKhaya',
+    slug: 'trustkhaya',
+    category: 'Financial Inclusion',
+    summary: 'A Community Trust Score that turns stokvel, wallet, spaza and guarantor signals into an explainable 0–100 score a bank can underwrite a zero-fee first account against.',
+    detailedDescription: 'A full-stack FNB hackathon prototype: a deterministic scoring engine (35/25/20/20 weights, a logistic good-standing probability, confidence bands and recommendation rules), a capped-liability guarantor flow with six fraud and collusion safeguards (self-vouch, duplicate vouches, a three-promise cap, a R5 000 exposure limit, and mutual-vouch flagging), granular withdrawable consent, an underwriter desk with a portfolio view, an append-only audit trail and an installable PWA. This embedded demo runs the same scoring engine and seeded rows entirely in the browser.',
+    honestDisclosure: 'Hackathon prototype on simulated South African data. Guarantor agreements are not legally binding; this embedded page is a static in-browser slice of the full Next.js product.',
+    status: 'live',
+    path: '/work/trustkhaya',
+    githubUrl: 'https://github.com/Just4Skii',
+    capabilities: [
+      'Explainable Trust Score',
+      'Capped Guarantor Liability',
+      'Vouch Safeguards',
+      'Withdrawable Consent',
+      'Underwriter Decision Desk',
+      'Installable PWA'
+    ],
+    technologies: ['Next.js 14 + TypeScript', 'Supabase (Postgres)', 'Pure scoring engine + Vitest', 'Tailwind CSS', 'React 19 demo build'],
+    featured: true,
+    order: 7,
+    accentColor: '#312E81',
+    previewImage: '/trustkhaya-preview.svg'
+  },
+{
     id: 'project-four',
     title: 'Project Four',
     slug: 'project-four',

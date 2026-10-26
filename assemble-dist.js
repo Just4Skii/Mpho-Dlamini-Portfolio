@@ -26,6 +26,7 @@ const carepointDist = path.resolve('projects/carepoint/dist');
 const stickerbridgeDist = path.resolve('projects/stickerbridge/dist');
 const klarrowDist = path.resolve('projects/klarrow/dist');
 const skiiDist = path.resolve('projects/skii-os/dist');
+const trustkhayaDist = path.resolve('projects/trustkhaya/dist');
 
 // 1. Clean root dist
 if (fs.existsSync(rootDist)) {
@@ -71,6 +72,11 @@ fs.copyFileSync(path.join(klarrowDist, 'klarrow-k-180.png'), path.join(rootDist,
 console.log('Copying Skii OS output to dist/work/skii-os/...');
 const skiiDest = path.join(rootDist, 'work', 'skii-os');
 copyDir(skiiDist, skiiDest);
+
+// 5f. TrustKhaya output to dist/work/trustkhaya/
+console.log('Copying TrustKhaya output to dist/work/trustkhaya/...');
+const trustkhayaDest = path.join(rootDist, 'work', 'trustkhaya');
+copyDir(trustkhayaDist, trustkhayaDest);
 
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
