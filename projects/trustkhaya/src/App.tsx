@@ -933,6 +933,15 @@ export default function App() {
             TrustKhaya · FNB hackathon prototype · demo data only. Guarantor agreements here are not legally binding.
             The full product adds Supabase persistence, consent per scope, audit history, a portfolio view and a PWA.
           </p>
+          <p className="footnote" style={{ marginTop: 10 }}>
+            <a href="demo/TrustKhaya_Functional_Demo.mp4" target="_blank" rel="noreferrer">
+              Watch the 86-second system demo
+            </a>
+            {' · '}
+            <a href="demo/TrustKhaya_Pitch_Deck.pdf" target="_blank" rel="noreferrer">
+              Pitch deck (PDF)
+            </a>
+          </p>
         </footer>
       </main>
 
