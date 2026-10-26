@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="TrustKhaya preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#25226B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#FBF7F0" stroke-width="2">
+    <path d="M0 120 H1200 M0 240 H1200 M0 360 H1200 M0 480 H1200 M0 600 H1200 M0 720 H1200"/>
+    <path d="M120 0 V800 M240 0 V800 M360 0 V800 M480 0 V800 M600 0 V800 M720 0 V800 M840 0 V800 M960 0 V800 M1080 0 V800"/>
+  </g>
+  <g transform="translate(120 150)">
+    <text x="0" y="0" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#FBF7F0">TrustKhaya</text>
+    <text x="0" y="58" font-family="Helvetica, Arial, sans-serif" font-size="24" fill="#C7C4E4">Your informal financial life, made visible.</text>
+    <g transform="translate(0 120)">
+      <rect x="0" y="210" width="420" height="26" rx="6" fill="#E6E3FA"/>
+      <rect x="0" y="184" width="420" height="26" rx="6" fill="#E6E3FA"/>
+      <rect x="0" y="158" width="396" height="26" rx="6" fill="#E6E3FA"/>
+      <rect x="60" y="34" width="300" height="24" rx="6" fill="#9D9BF0"/>
+      <rect x="88" y="62" width="244" height="24" rx="6" fill="#9D9BF0"/>
+      <rect x="60" y="90" width="300" height="24" rx="6" fill="#9D9BF0"/>
+      <rect x="60" y="10" width="300" height="24" rx="6" fill="#E3B04B"/>
+      <rect x="88" y="-18" width="244" height="24" rx="6" fill="#E3B04B"/>
+      <rect x="60" y="118" width="300" height="40" rx="6" fill="#E3B04B"/>
+      <rect x="170" y="158" width="80" height="104" rx="6" fill="#E4572E"/>
+      <rect x="138" y="158" width="24" height="104" rx="6" fill="#3C389A" stroke="#E4572E" stroke-dasharray="5 5"/>
+      <rect x="258" y="158" width="24" height="104" rx="6" fill="#3C389A" stroke="#E4572E" stroke-dasharray="5 5"/>
+    </g>
+  </g>
+  <g transform="translate(690 190)">
+    <rect x="0" y="0" width="390" height="470" rx="24" fill="#FBF7F0"/>
+    <text x="28" y="56" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#5E5A78">Community Trust Score</text>
+    <text x="28" y="112" font-family="Georgia, serif" font-size="54" font-weight="700" fill="#1A1736">91 / 100</text>
+    <rect x="28" y="140" width="334" height="10" rx="5" fill="#E7DFD2"/>
+    <rect x="28" y="140" width="304" height="10" rx="5" fill="#E4572E"/>
+    <text x="28" y="196" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#5E5A78">Foundation 34 · Walls 22 · Roof 19 · Door 16</text>
+    <rect x="28" y="230" width="334" height="1" fill="#E7DFD2"/>
+    <text x="28" y="274" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#15803D">Verified guarantor · R1 000 cap</text>
+    <text x="28" y="308" font-family="Helvetica, Arial, sans-serif" font-size="19" fill="#5E5A78">Gogo Ntombi Zulu stands behind Thandi</text>
+    <rect x="28" y="350" width="334" height="74" rx="16" fill="#312E81"/>
+    <text x="52" y="396" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FBF7F0">Apply for a zero-fee account →</text>
+  </g>
+</svg>
