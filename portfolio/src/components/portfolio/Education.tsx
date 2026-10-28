@@ -6,7 +6,7 @@ export const Education: React.FC = () => {
     {
       title: 'Diploma in ICT: Software Development',
       institution: 'Durban University of Technology',
-      date: 'Expected Dec 2026'
+      date: 'Final exams done · Graduating 2027'
     },
     {
       title: 'Certificate in Computer Programming',

@@ -1,8 +1,33 @@
 import React from 'react';
 import styles from '../../styles/portfolio.module.css';
 
+type ExperienceItem = {
+  title: string;
+  company: string;
+  date: string;
+  bullets: string[];
+  certificate?: {
+    label: string;
+    href: string;
+  };
+};
+
 export const Experience: React.FC = () => {
-  const experiences = [
+  const experiences: ExperienceItem[] = [
+    {
+      title: 'Herald — Social Gaming Support Contractor',
+      company: 'Lightmare Studios Pty Ltd · Remote',
+      date: 'Jul 2026 · Sep 2026',
+      bullets: [
+        'Provided player and community support for a live social gaming product as the studio’s Herald.',
+        'Worked fully remote under an Independent Contractor Agreement, managing my own schedule and deliverables.',
+        'Liaised directly with the studio team on player queries and feedback, keeping communication clear and timely.'
+      ],
+      certificate: {
+        label: 'View certificate of service',
+        href: '/lightmare-studios-certificate-of-service.pdf'
+      }
+    },
     {
       title: 'Field Promoter',
       company: 'Triple 8 / Connexit Promotions, Durban',
@@ -61,6 +86,19 @@ export const Experience: React.FC = () => {
                 <li key={bIndex}>{bullet}</li>
               ))}
             </ul>
+            {exp.certificate && (
+              <a
+                href={exp.certificate.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.certLink}
+                title={`${exp.certificate.label} (opens the PDF in a new tab)`}
+              >
+                <span className={styles.certIcon} aria-hidden="true">📄</span>
+                {exp.certificate.label}
+                <span className={styles.certArrow} aria-hidden="true">↗</span>
+              </a>
+            )}
           </div>
         ))}
       </div>

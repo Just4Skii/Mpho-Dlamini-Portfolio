@@ -7,26 +7,28 @@ export const Hero: React.FC = () => {
     <div className={styles.hero}>
       <div className={styles.heroBadges}>
         <span className={`${styles.badge} ${styles.badgeGreen}`}>
-          <span className={styles.statusDot}></span> Available for Contract Work
+          <span className={styles.statusDot}></span> Available for Freelance Work
         </span>
         <span className={`${styles.badge} ${styles.badgeAmber}`}>
           🏆 Amazon Bursary Recipient
         </span>
         <span className={`${styles.badge} ${styles.badgeBlue}`}>
-          🎓 Final Year, DUT Software Development
+          🎓 ICT &nbsp;·&nbsp; Graduating 2027
         </span>
       </div>
 
       <h1 className={styles.heroTitle}>Mpho Dlamini</h1>
       <div className={styles.heroSubtitle}>
-        Software Developer &nbsp;·&nbsp; Frontend &nbsp;·&nbsp; Full-Stack &nbsp;·&nbsp; Product Experiences
+        Freelance Software Developer
       </div>
 
       <p className={styles.heroBio}>
-        Final year Software Development student at Durban University of Technology and Amazon Bursary recipient,
-        with hands-on experience building full-stack applications in C# and ASP.NET MVC, designing relational databases,
-        and engineering modern frontend product experiences with React and TypeScript.
-        Open to freelance contracts, short-term project work, and developer roles.
+        I build practical software solutions that solve real-world problems. I&rsquo;m a software developer
+        specializing in C#, ASP.NET MVC, SQL, and web application development, and I enjoy turning ideas into
+        functional digital products &mdash; from business systems and database-driven applications to tools that
+        address everyday challenges. I&rsquo;ve completed my final exams in ICT Application Development and am
+        awaiting formal graduation in 2027. I&rsquo;m available for freelance projects, contract work, and junior
+        software development opportunities.
       </p>
 
       <div className={styles.actions}>
