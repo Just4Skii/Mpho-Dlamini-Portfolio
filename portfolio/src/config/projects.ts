@@ -48,7 +48,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 2,
     accentColor: '#f59e0b',
-    previewImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=800&fit=crop&q=80'
+    previewImage: 'apex-preview.png'
   },
   {
     id: 'kasicart',
@@ -72,7 +72,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 3,
     accentColor: '#10b981',
-    previewImage: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&h=800&fit=crop&q=80'
+    previewImage: 'kasicart-preview.png'
   },
   {
     id: 'carepoint',
@@ -95,7 +95,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 4,
     accentColor: '#38bdf8',
-    previewImage: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop&q=80'
+    previewImage: 'carepoint-preview.png'
   },
   {
     id: 'stickerbridge',
@@ -119,7 +119,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 5,
     accentColor: '#3DDC84',
-    previewImage: '/stickerbridge-preview.svg'
+    previewImage: '/stickerbridge-preview.png'
   },
   {
     id: 'skii-os',
@@ -144,7 +144,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 6,
     accentColor: '#FFC65C',
-    previewImage: '/skii-os-preview.svg'
+    previewImage: '/skii-os-preview.png'
   },
     {
     id: 'trustkhaya',
@@ -169,7 +169,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 7,
     accentColor: '#312E81',
-    previewImage: '/trustkhaya-preview.svg'
+    previewImage: '/trustkhaya-preview.png'
   },
 {
     id: 'poc-trust',
