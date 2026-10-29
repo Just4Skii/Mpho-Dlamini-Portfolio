@@ -64,6 +64,9 @@
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
+      } else if (/^/work/(atelier|reechme|poc-trust|popia|westown|mandarin|heraldobserver|fixed-funding|ski-shuffle|poc-trust-case|popia-case)(/|$)/.test(path)) {
+        var slug = path.split('/')[2];
+        l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repoPrefix + '/work/' + slug + '/');
       } else {
         var base = repoPrefix;
         l.replace(

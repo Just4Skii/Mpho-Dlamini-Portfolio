@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ReechMe demo phone - Calling</title>
+<meta http-equiv="refresh" content="2;url=sc-connected.html">
+<style>
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #d8d3c4;
+    color: #0f172a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .device {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    padding: 5px 5px 4px;
+    overflow: hidden;
+    background: #ded8c7;
+    border-left: 1px solid #b9b3a1;
+    border-right: 1px solid #b9b3a1;
+  }
+
+  .brand {
+    height: 18px;
+    overflow: hidden;
+    color: #514d42;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 18px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .brand-tag {
+    float: right;
+    color: #655f51;
+    font-size: 8px;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .lcd {
+    padding: 2px;
+    background: #aebb9d;
+    border: 2px solid #383934;
+  }
+
+  .lcd-bar {
+    height: 10px;
+    overflow: hidden;
+    color: #22301f;
+    font-size: 6px;
+    font-weight: bold;
+    line-height: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .lcd-bar span {
+    float: left;
+  }
+
+  .lcd-bar span + span {
+    float: right;
+  }
+
+  .screen {
+    height: 64px;
+    overflow: hidden;
+    padding: 4px 3px;
+    text-align: center;
+    color: #1f2d1e;
+    background: #c7d3b7;
+    border: 1px solid #7e8f70;
+  }
+
+  .state {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+  }
+
+  .hint {
+    margin-top: 4px;
+    font-size: 7px;
+    line-height: 9px;
+  }
+
+  .body {
+    margin-top: 4px;
+  }
+
+  .label {
+    display: block;
+    margin: 0 0 2px;
+    color: #514d42;
+    font-size: 7px;
+    line-height: 9px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    height: 28px;
+    margin: 0 0 4px;
+    padding: 0 4px;
+    color: #0f172a;
+    background: #ffffff;
+    border: 1px solid #a8a290;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  input:focus {
+    outline: 2px solid #0f172a;
+    outline-offset: 1px;
+  }
+
+  a.btn {
+    display: block;
+    width: 100%;
+    height: 28px;
+    margin: 0 0 4px;
+    padding: 0;
+    overflow: hidden;
+    color: #ffffff;
+    background: #2e6b4e;
+    border: 1px solid #174f3e;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 26px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  a.btn.secondary {
+    color: #514d42;
+    background: #e8e3d5;
+    border-color: #a8a290;
+  }
+
+  a.btn.end {
+    background: #dc2626;
+    border-color: #b91c1c;
+  }
+
+  a.btn:focus {
+    outline: 3px solid #0f172a;
+    outline-offset: 1px;
+    background: #1f6b57;
+  }
+
+  a.btn.secondary:focus {
+    background: #ffffff;
+  }
+
+  a.btn.end:focus {
+    background: #b91c1c;
+  }
+
+  a.btn:active {
+    border-color: #0f172a;
+  }
+
+  .help {
+    margin: 3px 0 0;
+    text-align: center;
+    color: #514d42;
+    font-size: 7px;
+    line-height: 9px;
+  }
+
+  .foot {
+    clear: both;
+    padding-top: 3px;
+    text-align: center;
+    color: #655f51;
+    font-size: 6px;
+    line-height: 8px;
+  }
+
+  @media (min-width: 400px) {
+    body {
+      padding: 24px 0;
+    }
+
+    .device {
+      border: 1px solid #b9b3a1;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+    }
+  }
+
+  @media (max-height: 300px) {
+    .brand {
+      display: none;
+    }
+
+    .screen {
+      height: 52px;
+    }
+
+    .state {
+      margin-top: 6px;
+      font-size: 15px;
+      line-height: 17px;
+    }
+
+    .hint {
+      margin-top: 2px;
+      font-size: 6px;
+      line-height: 8px;
+    }
+
+    .body {
+      margin-top: 3px;
+    }
+
+    a.btn {
+      height: 26px;
+      margin-bottom: 3px;
+      line-height: 24px;
+    }
+
+    input {
+      height: 26px;
+      margin-bottom: 3px;
+    }
+
+    .help {
+      font-size: 6px;
+      line-height: 8px;
+    }
+
+    .foot {
+      display: none;
+    }
+  }
+
+  @media (max-height: 260px) {
+    .screen {
+      height: 46px;
+    }
+
+    .state {
+      margin-top: 4px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .hint {
+      font-size: 6px;
+      line-height: 7px;
+    }
+
+    .label {
+      margin-bottom: 1px;
+      font-size: 6px;
+      line-height: 7px;
+    }
+
+    a.btn {
+      height: 24px;
+      line-height: 22px;
+    }
+
+    input {
+      height: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+<!-- No JavaScript. This fallback uses ordinary links and a native text input. -->
+<div class="device">
+  <div class="brand">ReechMe <span class="brand-tag">demo phone</span></div>
+  <div class="lcd">
+    <div class="lcd-bar"><span>REECHME</span><span>SIMULATION</span></div>
+    <div class="screen">
+      <div class="state">Calling...</div>
+      <div class="hint">Demo service.<br>No real call is placed.</div>
+    </div>
+  </div>
+  <div class="body">
+    <a class="btn call" href="sc-connected.html">CONTINUE TO CONNECTED</a>
+    <a class="btn end" href="sc-ended.html">END CALL</a>
+    <a class="btn secondary" href="sc.html">CANCEL</a>
+    <p class="help">This demo advances automatically in 2 seconds. If it does not, select Continue.</p>
+  </div>
+  <div class="foot">Simulation only. No real call, alert, SMS, or location.</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HeraldObserver — live transcription, evidence &amp; brief</title>
+<meta name="description" content="Interactive demonstration of HeraldObserver: a live session observer that transcribes, timestamps evidence and produces an exportable brief." />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  :root{--accent:#6d28d9;--accent-2:#5b21b6;--soft:#f3eefe}
+  .side{background:#150f24}
+  .session{display:grid;grid-template-columns:1.45fr .85fr;gap:12px}
+  .transcript{height:430px;overflow:auto;display:flex;flex-direction:column;gap:9px;padding-right:4px}
+  .line{display:flex;gap:9px;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .spk{font-size:9.5px;font-weight:800;letter-spacing:.05em;width:58px;flex:none;padding-top:3px}
+  .spk.a{color:#6d28d9}.spk.b{color:#0e7c66}.spk.c{color:#b45309}
+  .txt{font-size:12.5px;line-height:1.55;background:#faf8ff;border:1px solid #ece6fa;border-radius:0 9px 9px 9px;padding:8px 10px;flex:1}
+  .txt time{font-family:var(--mono);font-size:9.5px;color:#8b7fa8;margin-right:6px}
+  .live-dot{width:7px;height:7px;border-radius:50%;background:#e11d48;display:inline-block;animation:pulse 1.2s infinite}
+  @keyframes pulse{50%{opacity:.25}}
+  .brief h4{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:12px 0 5px}
+  .brief ul{margin:0;padding-left:15px;font-size:11.5px;line-height:1.6;color:#3c4a60}
+  .ev{display:flex;gap:8px;font-size:11px;line-height:1.45;padding:7px 0;border-bottom:1px solid #eef2f7}
+  .ev:last-child{border:0}
+  .ev .t{font-family:var(--mono);font-size:9.5px;color:var(--accent);flex:none}
+  .meter{height:6px;background:#eee9f8;border-radius:999px;overflow:hidden;margin-top:4px}
+  .meter i{display:block;height:100%;background:linear-gradient(90deg,#a78bfa,#6d28d9)}
+  .timer{font-family:var(--mono);font-size:20px;letter-spacing:1px;color:var(--accent)}
+  @media(max-width:900px){.session{grid-template-columns:1fr}.transcript{height:300px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="logo"><div class="glyph" style="background:#6d28d9">H</div><div><b>HeraldObserver</b><small>session evidence</small></div></div>
+    <nav><button class="active">Live session</button><button id="pastBtn">Past briefs</button></nav>
+    <div class="note">Demonstration build. Audio is simulated; no microphone, screen capture or model call is performed on this page.</div>
+  </aside>
+  <main class="main">
+    <div class="top">
+      <div><div class="eyebrow">Observe · ground · brief</div><h1>Live session</h1></div>
+      <div class="row"><span class="timer" id="timer">00:00</span><span class="pill accent" id="statePill">idle</span></div>
+    </div>
+
+    <div class="session">
+      <div class="card">
+        <div class="between" style="margin-bottom:10px">
+          <h2>Transcript</h2>
+          <div class="row"><button class="btn primary sm" id="start">Start listening</button><button class="btn sm" id="stop" disabled>Stop &amp; brief</button></div>
+        </div>
+        <div class="transcript" id="transcript"><div class="empty">Start a session to stream a simulated transcript. Each line is timestamped and attributed.</div></div>
+      </div>
+
+      <div class="card brief">
+        <div class="between"><h2>Live brief</h2><span class="mono" id="lineCount">0 lines</span></div>
+        <h4>Summary</h4>
+        <ul id="summary"><li class="muted">Nothing captured yet.</li></ul>
+        <h4>Actions &amp; decisions</h4>
+        <ul id="actions"><li class="muted">—</li></ul>
+        <h4>Evidence captured</h4>
+        <div id="events"><div class="muted" style="font-size:11.5px">No evidence events.</div></div>
+        <h4>Transcription confidence</h4>
+        <div class="meter"><i id="confBar" style="width:0"></i></div>
+        <div class="mono" id="confText" style="margin-top:3px">—</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:12px">
+      <div class="between"><h2>Session controls</h2><span class="mono">deterministic demo script</span></div>
+      <div class="row" style="margin-top:8px">
+        <button class="btn sm" id="inject">Inject urgent finding</button>
+        <button class="btn sm" id="export">Export brief (.md)</button>
+        <button class="btn sm ghost" id="clear">Clear</button>
+      </div>
+      <p class="muted" style="margin:8px 0 0">In a real deployment, HeraldObserver runs on-device capture, keeps an evidence ledger, and sends only consented excerpts to a model. This page simulates that pipeline for demonstration.</p>
+    </div>
+
+    <footer class="foot"><span>HeraldObserver prototype · simulated session</span><a href="../">← GraffGrid</a></footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const SCRIPT = [
+    ["A", "Okay, we're recording. It's Tuesday, 09:14, and we're at the Westown site office.", 0.94],
+    ["B", "The north retaining wall has a visible crack, about two metres, running from the culvert.", 0.91],
+    ["A", "Can you show me the crack on camera?", 0.96],
+    ["B", "I'm walking toward it now. You should see the watermark about half a metre up the wall.", 0.89],
+    ["C", "That watermark is higher than yesterday's. The pump may have been off overnight.", 0.87],
+    ["A", "Let's log that as a finding. Crack plus waterline, possible drainage failure.", 0.95],
+    ["B", "The temporary pump is running now but the discharge is going into the storm drain.", 0.9],
+    ["A", "That's a compliance issue. We need to stop that and call the environmental officer.", 0.93],
+    ["C", "I'll call her now. Do you want the site shut until she arrives?", 0.88],
+    ["A", "No, but no further excavation on the north side until it's cleared.", 0.94],
+  ];
+  const EVENTS = [
+    [1, "Photo captured", "north-wall-crack-0916.jpg"],
+    [3, "Waterline measured", "0.52 m above finished level"],
+    [5, "Finding raised", "Possible drainage failure"],
+    [7, "Compliance flag", "Discharge to storm drain"],
+  ];
+  let running = false, idx = 0, t0 = 0, timer = null, elapsed = 0, confidence = [];
+  const fmtT = (s) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+  const toast = (m) => { const t = $("#toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); };
+
+  function tick() {
+    if (!running) return;
+    elapsed++;
+    $("#timer").textContent = fmtT(elapsed);
+  }
+
+  function addLine(i) {
+    const [who, text, conf] = SCRIPT[i];
+    const d = document.createElement("div");
+    d.className = "line";
+    d.innerHTML = `<div class="spk ${who.toLowerCase()}">SPK ${who}</div><div class="txt"><time>${fmtT(elapsed)}</time>${text}</div>`;
+    $("#transcript").appendChild(d);
+    $("#transcript").scrollTop = 1e6;
+    confidence.push(conf);
+    const avg = confidence.reduce((a, b) => a + b, 0) / confidence.length;
+    $("#confBar").style.width = Math.round(avg * 100) + "%";
+    $("#confText").textContent = Math.round(avg * 100) + "% mean confidence · " + confidence.length + " segments";
+    $("#lineCount").textContent = (i + 1) + " lines";
+    if (i === 4) {
+      $("#summary").innerHTML = "<li>Retaining wall crack with a rising waterline.</li><li>Possible drainage failure on the north side.</li><li>Temporary pump discharging to storm drain.</li>";
+      $("#actions").innerHTML = "<li>Stop discharge and call the environmental officer.</li><li>Pause excavation on the north side.</li>";
+    }
+    const ev = EVENTS.find((e) => e[0] === i);
+    if (ev) {
+      const box = $("#events");
+      if (box.querySelector(".muted")) box.innerHTML = "";
+      const e = document.createElement("div");
+      e.className = "ev";
+      e.innerHTML = `<span class="t">${fmtT(elapsed)}</span><div><strong>${ev[1]}</strong><div class="mono">${ev[2]}</div></div>`;
+      box.appendChild(e);
+    }
+  }
+
+  function start() {
+    if (running) return;
+    running = true; $("#start").textContent = "Pause"; $("#stop").disabled = false; $("#statePill").textContent = "live";
+    timer = setInterval(tick, 1000);
+    step();
+  }
+  function step() {
+    if (!running) return;
+    if (idx >= SCRIPT.length) { stop(); return; }
+    addLine(idx++);
+    setTimeout(step, 1800 + Math.random() * 900);
+  }
+  function stop() {
+    running = false;
+    clearInterval(timer);
+    $("#start").textContent = "Resume"; $("#statePill").textContent = "paused";
+  }
+  $("#start").onclick = start;
+  $("#stop").onclick = () => { stop(); toast("Brief ready to export"); };
+  $("#inject").onclick = () => {
+    const d = document.createElement("div"); d.className = "line";
+    d.innerHTML = `<div class="spk a">SPK A</div><div class="txt"><time>${fmtT(elapsed)}</time><strong style="color:#b45309">Urgent:</strong> the crack has widened since the first measurement — evacuate the north footpath.</div>`;
+    $("#transcript").appendChild(d); $("#transcript").scrollTop = 1e6;
+    $("#actions").innerHTML += "<li><strong>Evacuate the north footpath.</strong></li>";
+    const e = document.createElement("div"); e.className = "ev";
+    e.innerHTML = `<span class="t">${fmtT(elapsed)}</span><div><strong>Urgent finding</strong><div class="mono">crack propagation</div></div>`;
+    if ($("#events").querySelector(".muted")) $("#events").innerHTML = "";
+    $("#events").appendChild(e);
+    toast("Urgent finding injected");
+  };
+  $("#export").onclick = () => {
+    const lines = [...document.querySelectorAll(".txt")].map((t) => t.textContent.trim()).join("\n");
+    const md = `# HeraldObserver session brief\n\nDuration: ${fmtT(elapsed)}\nSegments: ${confidence.length}\n\n## Transcript\n${lines || "(none)"}\n\n## Summary\n${$("#summary").innerText}\n\n## Actions\n${$("#actions").innerText}\n`;
+    const blob = new Blob([md], { type: "text/markdown" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "herald-session-brief.md"; a.click();
+    toast("Brief exported");
+  };
+  $("#clear").onclick = () => {
+    stop(); idx = 0; elapsed = 0; confidence = [];
+    $("#timer").textContent = "00:00"; $("#statePill").textContent = "idle"; $("#start").textContent = "Start listening";
+    $("#stop").disabled = true;
+    $("#transcript").innerHTML = '<div class="empty">Start a session to stream a simulated transcript. Each line is timestamped and attributed.</div>';
+    $("#summary").innerHTML = '<li class="muted">Nothing captured yet.</li>';
+    $("#actions").innerHTML = '<li class="muted">—</li>';
+    $("#events").innerHTML = '<div class="muted" style="font-size:11.5px">No evidence events.</div>';
+    $("#lineCount").textContent = "0 lines"; $("#confBar").style.width = "0"; $("#confText").textContent = "—";
+  };
+  $("#pastBtn").onclick = () => toast("Only the live demo session is available in this build.");
+})();
+</script>
+</body>
+</html>
