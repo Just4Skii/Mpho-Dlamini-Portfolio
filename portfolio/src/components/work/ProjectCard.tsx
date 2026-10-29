@@ -11,6 +11,12 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComingSoon }) => {
   const isLive = project.status === 'live';
+  const isDesktopDownload = Boolean(project.downloadUrl) && /\.(exe|zip)$/i.test(project.downloadUrl ?? '') && !project.externalUrl;
+  const downloadLabel = /\.apk$/i.test(project.downloadUrl ?? '')
+    ? 'Download APK'
+    : /\.zip$/i.test(project.downloadUrl ?? '')
+      ? 'Download for Windows (.zip)'
+      : 'Download for Windows';
   const launchHref = project.externalUrl ?? getAppUrl(project.path);
   const isExternal = Boolean(project.externalUrl);
 
@@ -62,7 +68,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
 
         {/* Card Footer */}
         <div className={styles.cardFooter}>
-          {isLive ? (
+          {isDesktopDownload ? (
+            <a
+              href={project.downloadUrl}
+              className={styles.btnLaunch}
+              download
+            >
+              <span>{downloadLabel}</span>
+              <span>⤓</span>
+            </a>
+          ) : isLive ? (
             <a
               href={launchHref}
               {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -93,7 +108,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
             </a>
           )}
 
-          {project.downloadUrl && (
+          {project.downloadUrl && !isDesktopDownload && (
             <a
               href={project.downloadUrl}
               target="_blank"

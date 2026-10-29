@@ -80,8 +80,8 @@ copyDir(trustkhayaDist, trustkhayaDest);
 
 // 5g. Self-contained demo applications (no build step; source is the deployable artefact).
 const staticSites = [
-  'atelier', 'reechme', 'poc-trust', 'popia', 'westown', 'mandarin',
-  'heraldobserver', 'fixed-funding', 'ski-shuffle', 'poc-trust-case', 'popia-case',
+  'atelier', 'reechme', 'westown', 'mandarin',
+  'fixed-funding',
 ];
 for (const slug of staticSites) {
   const src = path.resolve('projects', slug);
@@ -163,7 +163,7 @@ const master404Html = `<!DOCTYPE html>
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
-      } else if (/^\/work\/(atelier|reechme|poc-trust|popia|westown|mandarin|heraldobserver|fixed-funding|ski-shuffle|poc-trust-case|popia-case)(\/|$)/.test(path)) {
+      } else if (/^\/work\/(atelier|reechme|westown|mandarin|fixed-funding)(\/|$)/.test(path)) {
         var slug = path.split('/')[2];
         l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repoPrefix + '/work/' + slug + '/');
       } else {
