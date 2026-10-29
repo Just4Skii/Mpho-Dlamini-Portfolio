@@ -90,6 +90,9 @@ for (const slug of staticSites) {
   copyDir(src, path.join(rootDist, 'work', slug));
 }
 
+// 5h. /work/ needs a real index so direct navigation doesn't fall through the 404 handler.
+fs.copyFileSync(path.join(rootDist, 'index.html'), path.join(rootDist, 'work', 'index.html'));
+
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
 
