@@ -116,11 +116,16 @@
 .contactBox { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px; border-color: var(--line-strong); }
 .contactInfoTitle { margin-bottom: 12px; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.05; letter-spacing: -.03em; color: var(--text); }
 .contactInfoDetails { font-family: var(--font-mono); font-size: .8rem; line-height: 1.8; color: var(--muted); }
-.footer { padding: 32px var(--pad-x) 40px; border-top: 1px solid var(--line); text-align: center; font-family: var(--font-mono); }
+.footer { position: relative; padding: 32px var(--pad-x) 40px; border-top: 1px solid var(--line); text-align: center; font-family: var(--font-mono); }
 .footerLinks { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 24px; margin-bottom: 14px; }
 .footerLinks a { display: inline-flex; align-items: center; min-height: 44px; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
 .footerLinks a:hover { color: var(--accent); }
 .footerCopy { font-size: .7rem; color: var(--muted); opacity: .75; }
+/* Bare visitor total — deliberately unlabelled. */
+.visitCount { position: absolute; right: var(--pad-x); bottom: 42px; font-size: .7rem; letter-spacing: .08em; color: var(--accent); opacity: .5; font-variant-numeric: tabular-nums; }
+@media (max-width: 680px) {
+  .visitCount { position: static; display: block; margin-top: 12px; opacity: .55; }
+}
 
 /* Motion (progressive, reduced-motion safe) */
 @media (prefers-reduced-motion: no-preference) {

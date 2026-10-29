@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { WorkPage } from './pages/WorkPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { useUniqueVisitorCount } from './hooks/useUniqueVisitorCount';
 
 // Scroll restoration component
 const ScrollToTop: React.FC = () => {
@@ -18,6 +19,9 @@ const ScrollToTop: React.FC = () => {
 };
 
 export const App: React.FC = () => {
+  // Counts one unique visitor per browser, on every route (not just the homepage).
+  useUniqueVisitorCount();
+
   return (
     <>
       <ScrollToTop />

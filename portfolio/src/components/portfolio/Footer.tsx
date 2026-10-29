@@ -1,4 +1,5 @@
 import React from 'react';
+import { VisitCounter } from './VisitCounter';
 import styles from '../../styles/portfolio.module.css';
 
 export const Footer: React.FC = () => {
@@ -12,6 +13,7 @@ export const Footer: React.FC = () => {
       <div className={styles.footerCopy}>
         © {new Date().getFullYear()} Mpho Dlamini · GraffGrid · All rights reserved
       </div>
+      <VisitCounter />
     </footer>
   );
 };
