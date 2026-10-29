@@ -121,10 +121,12 @@
 .footerLinks a { display: inline-flex; align-items: center; min-height: 44px; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
 .footerLinks a:hover { color: var(--accent); }
 .footerCopy { font-size: .7rem; color: var(--muted); opacity: .75; }
-/* Bare visitor total — deliberately unlabelled. */
-.visitCount { position: absolute; right: var(--pad-x); bottom: 42px; font-size: .7rem; letter-spacing: .08em; color: var(--accent); opacity: .5; font-variant-numeric: tabular-nums; }
-@media (max-width: 680px) {
-  .visitCount { position: static; display: block; margin-top: 12px; opacity: .55; }
+/* Labelled visitor total, tucked into the footer corner. */
+.visitCount { position: absolute; right: var(--pad-x); bottom: 36px; display: flex; align-items: baseline; gap: 8px; }
+.visitLabel { font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); opacity: .7; }
+.visitValue { font-size: .8rem; letter-spacing: .06em; color: var(--accent); font-variant-numeric: tabular-nums; }
+@media (max-width: 1000px) {
+  .visitCount { position: static; justify-content: center; margin-top: 14px; }
 }
 
 /* Motion (progressive, reduced-motion safe) */
