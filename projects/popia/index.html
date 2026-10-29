@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>POPIA Enforcement Platform — complaints, intel & audit</title>
+<meta name="description" content="Interactive demonstration of a POPIA enforcement platform: complaint intake, evidence, phone-number reputation intel and an append-only audit trail." />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  :root{--accent:#1f5f8b;--accent-2:#164a6d;--soft:#eaf2f8}
+  .side{background:#0a1b2a}
+  .kpi{display:flex;flex-direction:column;gap:2px}
+  .bars{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+  .bar-row{display:grid;grid-template-columns:118px 1fr 32px;gap:8px;align-items:center;font-size:11.5px;color:#42536a}
+  .bar{height:8px;border-radius:999px;background:#eef2f6;overflow:hidden}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#4f93c4,#1f5f8b);border-radius:999px}
+  .risk{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfe;margin-top:10px}
+  .ring{width:86px;height:86px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:800;color:#1f5f8b;flex:none;
+        background:conic-gradient(#1f5f8b var(--deg,40deg),#e8eef4 0)}
+  .ring span{width:66px;height:66px;border-radius:50%;background:#fff;display:grid;place-items:center}
+  .feed{display:flex;flex-direction:column;gap:9px}
+  .feed-item{display:flex;gap:9px;font-size:11.5px;line-height:1.5;padding-bottom:9px;border-bottom:1px solid #eef2f7}
+  .feed-item:last-child{border:0;padding:0}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);margin-top:5px;flex:none}
+  .timeline-num{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .evidence{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+  .evidence span{font-size:10.5px;border:1px solid var(--line);border-radius:6px;padding:3px 7px;background:#f8fafc;color:#40536a}
+  .big-number{font-size:22px;font-weight:800;letter-spacing:-.4px}
+  .split-2{display:grid;grid-template-columns:1.1fr .9fr;gap:12px}
+  @media(max-width:900px){.split-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side">
+    <div class="logo"><div class="glyph">P</div><div><b>POPIA Platform</b><small>enforcement &amp; complaints</small></div></div>
+    <nav id="nav">
+      <button data-view="dashboard" class="active">Dashboard</button>
+      <button data-view="complaints">Complaints</button>
+      <button data-view="intel">Phone intel</button>
+      <button data-view="audit">Audit log</button>
+    </nav>
+    <div class="note">Demonstration build with synthetic records. No personal data is transmitted or stored off this device.</div>
+  </aside>
+
+  <main class="main">
+    <div class="top">
+      <div><div class="eyebrow">Information Regulator · case operations</div><h1 id="pageTitle">Dashboard</h1></div>
+      <div class="row"><span class="pill accent" id="casePill">8 open cases</span><button class="btn sm ghost" id="reset">Reset demo</button></div>
+    </div>
+
+    <section id="view-dashboard">
+      <div class="grid g4">
+        <div class="card stat warn"><span>Open complaints</span><strong id="kOpen">0</strong><small>awaiting triage</small></div>
+        <div class="card stat good"><span>Resolved</span><strong id="kResolved">0</strong><small>closed this cycle</small></div>
+        <div class="card stat bad"><span>High risk</span><strong id="kHigh">0</strong><small>priority review</small></div>
+        <div class="card stat"><span>Median response</span><strong id="kSla">2.4d</strong><small>intake to first action</small></div>
+      </div>
+
+      <div class="split-2" style="margin-top:12px">
+        <div class="card">
+          <div class="between"><h2>Recent complaints</h2><button class="btn sm" data-goto="complaints">Open register</button></div>
+          <table><thead><tr><th>Ref</th><th>Subject</th><th>Category</th><th>Status</th></tr></thead><tbody id="recent"></tbody></table>
+        </div>
+        <div class="card">
+          <div class="between"><h2>Complaints by category</h2><span class="mono">last 30 days</span></div>
+          <div class="bars" id="bars"></div>
+          <div class="between" style="margin-top:14px"><h2 style="font-size:13px">Evidence completeness</h2><span class="mono" id="evPct">0%</span></div>
+          <div class="progress" style="height:8px;background:#eef2f6;border-radius:999px;overflow:hidden;margin-top:6px"><i id="evBar" style="display:block;height:100%;background:linear-gradient(90deg,#6aa9d0,#1f5f8b)"></i></div>
+          <p class="muted" style="margin:6px 0 0">Cases with at least one verified evidence attachment.</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <div class="between"><h2>Live activity</h2><span class="mono">real-time feed (simulated)</span></div>
+        <div class="feed" id="feed"></div>
+      </div>
+    </section>
+
+    <section id="view-complaints" class="hidden">
+      <div class="card">
+        <div class="between" style="margin-bottom:9px">
+          <div class="row"><input id="search" placeholder="Search reference, subject or organisation" style="width:320px" /><select id="statusFilter"><option value="">All statuses</option><option>New</option><option>Triage</option><option>Investigation</option><option>Resolved</option></select></div>
+          <button class="btn primary sm" id="newBtn">+ New complaint</button>
+        </div>
+        <table><thead><tr><th>Ref</th><th>Subject</th><th>Organisation</th><th>Category</th><th>Evidence</th><th>Status</th><th>Opened</th></tr></thead><tbody id="rows"></tbody></table>
+      </div>
+    </section>
+
+    <section id="view-intel" class="hidden">
+      <div class="split-2">
+        <div class="card">
+          <h2>Phone-number reputation</h2>
+          <p class="muted">Check a number against synthetic complaint and scam reports. This is an intake aid, not a determination.</p>
+          <div class="row" style="margin-top:8px"><input id="phone" placeholder="+27 82 000 0000" style="flex:1" /><button class="btn primary" id="lookup">Look up</button></div>
+          <div id="intelResult"></div>
+        </div>
+        <div class="card">
+          <h2>How scoring works</h2>
+          <p class="muted">The demo derives a risk band from report volume, report recency and category severity. It never identifies a person and never outputs a legal finding.</p>
+          <ul class="muted" style="padding-left:16px;line-height:1.9;margin:8px 0 0">
+            <li>0–2 reports → low</li><li>3–5 reports → elevated</li><li>6+ reports or any fraud report → high</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-audit" class="hidden">
+      <div class="card">
+        <div class="between"><h2>Append-only audit log</h2><span class="mono" id="auditCount"></span></div>
+        <table><thead><tr><th>#</th><th>Time</th><th>Actor</th><th>Action</th><th>Case</th><th>Hash</th></tr></thead><tbody id="auditRows"></tbody></table>
+      </div>
+    </section>
+
+    <footer class="foot"><span>POPIA enforcement prototype · synthetic data</span><a href="../">← GraffGrid</a></footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

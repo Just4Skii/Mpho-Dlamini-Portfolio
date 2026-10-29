@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier — Autonomous Drawing Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="fileProtocolWarning" style="display:none;position:fixed;top:52px;left:0;right:0;z-index:1000;background:#7c3aed;color:white;padding:10px 18px;font-size:13px;text-align:center">You opened this file directly (file://) — image loading is blocked by the browser. Run a local server: double-click <b>start_server.bat</b> or run <b>python -m http.server 8000</b> in this folder, then open <b>http://localhost:8000</b>. <button onclick="this.parentElement.style.display='none'" style="margin-left:12px;background:white;color:#7c3aed;border:none;padding:4px 10px;border-radius:6px;cursor:pointer">Dismiss</button></div>
+<script>if(location.protocol==='file:')document.getElementById('fileProtocolWarning').style.display='block';</script>
+
+<div id="app">
+
+  <header id="topbar">
+    <div class="tb-left">
+      <div id="brand" data-tip="Atelier — autonomous drawing studio">
+        <svg viewBox="0 0 24 24" class="brand-glyph"><path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"/></svg>
+        <span class="brand-name">ATELIER</span>
+        <span class="brand-sub">drawing studio</span>
+      </div>
+      <div class="tb-sep"></div>
+      <button class="tbtn" id="btnNew" data-tip="New canvas">
+        <svg viewBox="0 0 24 24"><path d="M13 3 H6 a1 1 0 0 0 -1 1 V20 a1 1 0 0 0 1 1 H18 a1 1 0 0 0 1 -1 V9 Z"/><path d="M13 3 V9 H19"/></svg>
+        <span>New</span>
+      </button>
+      <button class="tbtn" id="btnOpen" data-tip="Upload image &amp; trace">
+        <svg viewBox="0 0 24 24"><path d="M12 16 V4 M7 9 l5 -5 l5 5"/><path d="M4 15 v4 a2 2 0 0 0 2 2 h12 a2 2 0 0 0 2 -2 v-4"/></svg>
+        <span>Open&nbsp;Image</span>
+      </button>
+      <button class="tbtn" id="btnExport" data-tip="Export artwork (Ctrl+E)">
+        <svg viewBox="0 0 24 24"><path d="M12 4 v12 M7 11 l5 5 l5 -5"/><path d="M4 19 h16"/></svg>
+        <span>Export</span>
+      </button>
+    </div>
+
+    <div class="tb-center" id="stageBadge">
+      <span id="stageLabel">canvas</span>
+    </div>
+
+    <div class="tb-right">
+      <button class="tbtn icon-only" id="btnUndo" data-tip="Undo (Ctrl+Z)" disabled>
+        <svg viewBox="0 0 24 24"><path d="M8 5 L3 10 l5 5"/><path d="M3 10 h11 a6 6 0 0 1 0 12 h-4"/></svg>
+      </button>
+      <button class="tbtn icon-only" id="btnRedo" data-tip="Redo (Ctrl+Shift+Z)" disabled>
+        <svg viewBox="0 0 24 24"><path d="M16 5 l5 5 l-5 5"/><path d="M21 10 H10 a6 6 0 0 0 0 12 h4"/></svg>
+      </button>
+      <div class="tb-sep"></div>
+      <div class="zoom-cluster">
+        <button class="tbtn icon-only" id="zoomOut" data-tip="Zoom out (−)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21 l-4.5 -4.5 M8 11 h6"/></svg></button>
+        <button class="zoom-pct" id="zoomPct" data-tip="Fit to screen (0)">100%</button>
+        <button class="tbtn icon-only" id="zoomIn" data-tip="Zoom in (+)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21 l-4.5 -4.5 M8 11 h6 M11 8 v6"/></svg></button>
+      </div>
+      <div class="tb-sep"></div>
+      <button class="toggle-chip" id="btnArtistMode" data-tip="Artist Mode — animated virtual painter">
+        <svg viewBox="0 0 24 24"><path d="M12 3 l1.8 5.2 L19 10 l-5.2 1.8 L12 17 l-1.8 -5.2 L5 10 l5.2 -1.8 Z"/><path d="M19 16 l.9 2.1 L22 19 l-2.1 .9 L19 22 l-.9 -2.1 L16 19 l2.1 -.9 Z"/></svg>
+        <span>Artist&nbsp;Mode</span>
+      </button>
+      <button class="tbtn icon-only" id="btnPanelToggle" data-tip="Toggle panel (Tab)">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M15 4 v16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div id="main">
+
+    <nav id="toolbar">
+      <button class="tool active" data-tool="flow" data-tip="Flow Ribbon — wave your mouse (F)">
+        <svg viewBox="0 0 24 24"><path d="M3 17 c3 -8 6 8 9 0 c2.5 -6.5 5 4.5 9 -6"/><path d="M3 12 c3 -8 6 8 9 0 c2.5 -6.5 5 4.5 9 -6" opacity=".45"/></svg>
+      </button>
+      <button class="tool" data-tool="brush" data-tip="Brush (B)">
+        <svg viewBox="0 0 24 24"><path d="M20 4 c-5 1 -10 6 -12 10 l2 2 c4 -2 9 -7 10 -12 Z"/><path d="M8 14 c-2 .5 -3 2 -3.5 4.5 c2.5 -.5 4 -1.5 4.5 -3.5"/></svg>
+      </button>
+      <button class="tool" data-tool="pencil" data-tip="Pencil (P)">
+        <svg viewBox="0 0 24 24"><path d="M17 3 l4 4 L8 20 l-5 1 l1 -5 Z"/><path d="M14.5 5.5 l4 4"/></svg>
+      </button>
+      <button class="tool" data-tool="pixel" data-tip="Pixel Pencil (X)">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/><rect x="13" y="4" width="7" height="7" opacity=".35"/><rect x="4" y="13" width="7" height="7" opacity=".35"/></svg>
+      </button>
+      <button class="tool" data-tool="pen" data-tip="Fine-line Pen (N)">
+        <svg viewBox="0 0 24 24"><path d="M4 20 c6 0 14 -2 16 -16"/><path d="M4 20 l3 -1"/></svg>
+      </button>
+      <button class="tool" data-tool="eraser" data-tip="Eraser (E)">
+        <svg viewBox="0 0 24 24"><path d="M9 20 l-5 -5 a1.4 1.4 0 0 1 0 -2 L14 3 a1.4 1.4 0 0 1 2 0 l5 5 a1.4 1.4 0 0 1 0 2 L12 20 Z"/><path d="M9 20 h11"/></svg>
+      </button>
+      <div class="tool-sep"></div>
+      <button class="tool" data-tool="line" data-tip="Line (L) — hold Shift for angles">
+        <svg viewBox="0 0 24 24"><path d="M5 19 L19 5"/><circle cx="5" cy="19" r="1.6"/><circle cx="19" cy="5" r="1.6"/></svg>
+      </button>
+      <button class="tool" data-tool="rect" data-tip="Rectangle (R)">
+        <svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="1"/></svg>
+      </button>
+      <button class="tool" data-tool="ellipse" data-tip="Ellipse (O)">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="8" ry="6"/></svg>
+      </button>
+      <button class="tool" data-tool="fill" data-tip="Fill / Bucket (G)">
+        <svg viewBox="0 0 24 24"><path d="M12 3 l7 7 -7.5 7.5 a2 2 0 0 1 -2.8 0 L4.5 13.3 a2 2 0 0 1 0 -2.8 Z"/><path d="M20 16 c1 2 1.5 3 1.5 4 a1.8 1.8 0 0 1 -3.6 0 c0 -1 .8 -2 2.1 -4 Z"/></svg>
+      </button>
+      <button class="tool" data-tool="eyedrop" data-tip="Eyedropper (I)">
+        <svg viewBox="0 0 24 24"><path d="M14 6 l4 4"/><path d="M11.5 8.5 l-7 7 L3 21 l5.5 -1.5 l7 -7 Z"/><path d="M13 4 a2.4 2.4 0 0 1 4 3 l-1.5 1.5 l-4 -4 Z"/></svg>
+      </button>
+      <div class="tool-sep"></div>
+      <button class="tool" data-tool="pan" data-tip="Pan (H or hold Space)">
+        <svg viewBox="0 0 24 24"><path d="M8 12 V6.5 a1.5 1.5 0 0 1 3 0 V11"/><path d="M11 11 V5 a1.5 1.5 0 0 1 3 0 v6"/><path d="M14 11.5 V6.5 a1.5 1.5 0 0 1 3 0 V13"/><path d="M17 13 c2 0 2.5 1.5 1.8 3 c-1 3 -2 5 -6.3 5 c-3.5 0 -4.5 -1.5 -7.5 -6 c-.8 -1.3 .8 -2.7 2 -1.6 L8 15"/></svg>
+      </button>
+      <div class="flex-spacer"></div>
+      <button class="tool" id="btnClearCanvas" data-tip="Clear layer (Del)">
+        <svg viewBox="0 0 24 24"><path d="M4 7 h16 M9 7 V4 h6 v3 M6.5 7 l1 13 h9 l1 -13"/><path d="M10 11 v5 M14 11 v5"/></svg>
+      </button>
+    </nav>
+
+    <div id="canvas-wrap">
+      <canvas id="view"></canvas>
+      <canvas id="overlay"></canvas>
+
+      <div id="optbar">
+        <div class="opt-group" id="gSize">
+          <label>Size</label>
+          <input type="range" id="optSize" min="1" max="120" value="14">
+          <span class="opt-val" id="optSizeVal">14</span>
+        </div>
+        <div class="opt-group" id="gOpacity">
+          <label>Opacity</label>
+          <input type="range" id="optOpacity" min="5" max="100" value="100">
+          <span class="opt-val" id="optOpacityVal">100%</span>
+        </div>
+        <div class="opt-group hidden" id="gBpx">
+          <label>Pixel brush</label>
+          <input type="range" id="optBpx" min="1" max="8" value="1">
+          <span class="opt-val" id="optBpxVal">1×</span>
+        </div>
+        <div class="opt-group hidden" id="gTolerance">
+          <label>Tolerance</label>
+          <input type="range" id="optTolerance" min="0" max="128" value="32">
+          <span class="opt-val" id="optToleranceVal">32</span>
+        </div>
+        <div class="opt-group hidden" id="gFillShape">
+          <label class="chk-label"><input type="checkbox" id="optFillShape"> Filled</label>
+        </div>
+        <div class="opt-group hidden" id="gSnap">
+          <label class="chk-label"><input type="checkbox" id="optSnap"> Snap to grid</label>
+        </div>
+        <div class="opt-group hidden" id="gSym">
+          <label>Symmetry</label>
+          <select id="optSym">
+            <option value="1">Off</option>
+            <option value="2">2-fold</option>
+            <option value="4">4-fold</option>
+            <option value="6">6-fold</option>
+            <option value="8">8-fold</option>
+          </select>
+        </div>
+        <div class="opt-group hidden" id="gRainbow">
+          <label class="chk-label"><input type="checkbox" id="optRainbow" checked> Rainbow flow</label>
+        </div>
+      </div>
+
+      <div id="emptyState">
+        <div class="es-inner">
+          <svg class="es-quill" viewBox="0 0 64 64"><path d="M52 8 C36 12 20 26 14 44 l-4 10 l10 -4 C38 44 50 28 52 8 Z"/><path d="M14 44 C24 34 34 26 46 16" opacity=".5"/></svg>
+          <h1>Wave your mouse.<br>Create art.</h1>
+          <p>Move across the canvas with the Flow Ribbon — or drop in an image and watch the virtual artist draw it stroke by stroke.</p>
+          <div class="es-actions">
+            <button class="btn primary" id="esStartDraw">Start Drawing</button>
+            <button class="btn ghost" id="esUpload">Upload &amp; Auto‑Draw</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="artistHUD" class="hidden">
+        <div class="hud-stages" id="hudStages"></div>
+        <div class="hud-controls">
+          <button class="hbtn" id="hudPause" data-tip="Pause / Resume"><svg viewBox="0 0 24 24" id="hudPlayIcon"><path d="M8 5 h3 v14 H8 Z M13 5 h3 v14 h-3 Z"/></svg></button>
+          <button class="hbtn" id="hudSkip" data-tip="Skip to final result"><svg viewBox="0 0 24 24"><path d="M6 5 l8 7 l-8 7 Z"/><path d="M17 5 h2.6 v14 H17 Z"/></svg></button>
+          <div class="hud-progress"><div id="hudProgressBar"></div></div>
+          <span id="hudPct">0%</span>
+          <div class="hud-speed">
+            <svg viewBox="0 0 24 24" class="spd-ic"><path d="M12 4 a8 8 0 1 0 8 8"/><path d="M12 8 v4 l3 2"/></svg>
+            <input type="range" id="hudSpeed" min="25" max="800" value="100">
+            <span id="hudSpeedVal">1.0×</span>
+          </div>
+          <span id="hudOpLabel">…</span>
+        </div>
+      </div>
+
+      <div id="statbar">
+        <span id="statPos">—</span>
+        <span class="sb-dot"></span>
+        <span id="statDim">—</span>
+        <span class="sb-dot"></span>
+        <span id="statZoom">100%</span>
+        <span class="flex-spacer"></span>
+        <span id="statHint" class="muted">Scroll = zoom · Space+drag = pan · [ ] = brush size</span>
+      </div>
+    </div>
+
+    <aside id="panel">
+      <div id="panelTabs">
+        <button class="ptab active" data-tab="color" data-tip="Color &amp; palettes">Color</button>
+        <button class="ptab" data-tab="pixels" data-tip="Pixel-art studio">Pixels</button>
+        <button class="ptab" data-tab="layers" data-tip="Layers">Layers</button>
+        <button class="ptab" data-tab="auto" data-tip="Auto Trace &amp; Draw">Auto</button>
+      </div>
+
+      <div class="ppane active" id="paneColor">
+        <div class="pane-title">Color</div>
+        <div class="swatch-row">
+          <div class="swatch main" id="curSwatch" data-tip="Primary color"></div>
+          <div class="swatch sec" id="secSwatch" data-tip="Secondary color -- Swap with button"></div>
+          <div class="color-fields">
+            <input type="color" id="colorInput" value="#7c6cff" data-tip="Pick primary color">
+            <input type="text" id="hexInput" value="#7C6CFF" maxlength="7" spellcheck="false">
+          </div>
+        </div>
+        <div class="pane-title sub">Palette</div>
+        <select id="paletteSelect"></select>
+        <div class="palette-grid" id="paletteGrid"></div>
+        <div class="pane-title sub">Recent</div>
+        <div class="palette-grid recent" id="recentGrid"></div>
+        <div class="pane-title sub">Quick actions</div>
+        <div class="row-btns">
+          <button class="btn tiny" id="btnSwapColors">Swap ⇄</button>
+          <button class="btn tiny" id="btnBgWhite">White background</button>
+        </div>
+      </div>
+
+      <div class="ppane" id="panePixels">
+        <div class="pane-title">Pixel Studio</div>
+        <label class="chk-label big"><input type="checkbox" id="pxModeChk"> Pixel-art mode</label>
+        <p class="hint-text">Snaps every stroke to a real pixel lattice — true pixel art, not a filter.</p>
+        <div class="pane-title sub">Canvas resolution</div>
+        <div class="res-row">
+          <select id="resPreset">
+            <option value="32">32 × 32</option>
+            <option value="48">48 × 48</option>
+            <option value="64" selected>64 × 64</option>
+            <option value="96">96 × 96</option>
+            <option value="128">128 × 128</option>
+            <option value="192">192 × 192</option>
+            <option value="256">256 × 256</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="res-row hidden" id="resCustomRow">
+          <input type="number" id="resW" min="8" max="512" value="64"> ×
+          <input type="number" id="resH" min="8" max="512" value="64">
+        </div>
+        <button class="btn small" id="btnApplyRes">Apply resolution</button>
+        <label class="chk-label" style="margin-top:8px"><input type="checkbox" id="resScaleContent" checked> Scale existing content</label>
+        <div class="pane-title sub">View</div>
+        <label class="chk-label"><input type="checkbox" id="gridChk"> Show pixel grid</label>
+        <div class="slider-row">
+          <label>Cell size <span class="opt-val" id="cellSizeVal">8</span></label>
+          <input type="range" id="cellSize" min="2" max="64" value="8">
+        </div>
+        <p class="hint-text" id="cellHint">Cell size controls the lattice used by pixel tools when pixel mode is off.</p>
+      </div>
+
+      <div class="ppane" id="paneLayers">
+        <div class="pane-title">Layers</div>
+        <div id="layerList"></div>
+        <div class="layer-btns">
+          <button class="lbtn" id="btnAddLayer" data-tip="New layer"><svg viewBox="0 0 24 24"><path d="M12 5 v14 M5 12 h14"/></svg></button>
+          <button class="lbtn" id="btnDupLayer" data-tip="Duplicate layer"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 4 H5 a1 1 0 0 0 -1 1 v11"/></svg></button>
+          <button class="lbtn" id="btnMergeLayer" data-tip="Merge down"><svg viewBox="0 0 24 24"><path d="M12 4 v10 M8 10 l4 4 l4 -4"/><path d="M5 19 h14"/></svg></button>
+          <button class="lbtn" id="btnUpLayer" data-tip="Move up"><svg viewBox="0 0 24 24"><path d="M6 14 l6 -6 l6 6"/></svg></button>
+          <button class="lbtn" id="btnDownLayer" data-tip="Move down"><svg viewBox="0 0 24 24"><path d="M6 10 l6 6 l6 -6"/></svg></button>
+          <button class="lbtn danger" id="btnDelLayer" data-tip="Delete layer"><svg viewBox="0 0 24 24"><path d="M4 7 h16 M9 7 V4 h6 v3 M6.5 7 l1 13 h9 l1 -13"/></svg></button>
+        </div>
+        <div class="slider-row">
+          <label>Layer opacity <span class="opt-val" id="layerOpacityVal">100%</span></label>
+          <input type="range" id="layerOpacity" min="5" max="100" value="100">
+        </div>
+      </div>
+
+      <div class="ppane" id="paneAuto">
+        <div class="pane-title">Auto Trace &amp; Draw</div>
+        <label class="field-label">Style preset</label>
+        <select id="presetSel"></select>
+        <p class="hint-text" id="presetDesc"></p>
+        <label class="field-label">Detail <span class="opt-val" id="detailVal">6</span></label>
+        <input type="range" id="detailRange" min="1" max="10" value="6">
+        <div class="pane-title sub">Drawing stages</div>
+        <div class="stages-grid">
+          <label class="chk-label"><input type="checkbox" id="stCon" checked> Construction</label>
+          <label class="chk-label"><input type="checkbox" id="stSketch" checked> Sketch</label>
+          <label class="chk-label"><input type="checkbox" id="stDetail" checked> Detail</label>
+          <label class="chk-label"><input type="checkbox" id="stShade" checked> Shading</label>
+          <label class="chk-label"><input type="checkbox" id="stFinal" checked> Final ink</label>
+          <label class="chk-label"><input type="checkbox" id="colorizeChk"> Color fill</label>
+        </div>
+        <div class="pane-title sub" id="autoPaletteWrap">Palette <span class="mini-note">(pixel styles)</span></div>
+        <select id="paletteSelAuto"></select>
+        <div class="row-btns" style="margin-top:14px">
+          <button class="btn primary grow" id="btnUploadTrace">Upload &amp; Build Plan</button>
+        </div>
+        <div class="row-btns">
+          <button class="btn small grow" id="btnStartDrawPlan" disabled>▶ Start Artist</button>
+          <button class="btn small ghost" id="btnSkipPlan" disabled>Skip</button>
+        </div>
+        <div id="autoStatus" class="auto-status">No plan loaded yet.</div>
+        <div class="pane-title sub" style="margin-top:16px">AI Depth & Accuracy <span class="mini-note">NVIDIA</span></div>
+        <p class="hint-text">Paste your <code>nvapi-...</code> key — stored only in this browser (localStorage), never sent to our servers. Enables depth-aware tracing and structure detection.</p>
+        <div style="display:flex;gap:6px;margin-top:6px">
+          <input type="password" id="nvidiaKeyInput" placeholder="nvapi-..." autocomplete="off" spellcheck="false" style="flex:1;font-size:12px">
+          <button class="btn tiny" id="btnSaveNvidiaKey">Save</button>
+          <button class="btn tiny ghost" id="btnClearNvidiaKey" title="Remove key">✕</button>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:6px;align-items:center">
+          <span id="nvidiaKeyStatus" class="mono muted" style="font-size:11px">No key saved</span>
+          <span class="flex-spacer"></span>
+          <button class="btn tiny ghost" id="btnTestNvidia">Test API</button>
+        </div>
+        <label class="chk-label" style="margin-top:8px"><input type="checkbox" id="chkUseAI" checked> Use AI structure + depth when key is set</label>
+        <p class="hint-text" id="aiModelsHint" style="font-size:11px;line-height:1.5"></p>
+        <p class="hint-text">Workflow: upload → analyze → the virtual artist draws stage by stage. Pause anytime, edit manually, then resume.</p>
+      </div>
+
+      <div id="panelFooter">
+        <span class="mono" id="footTool">FLOW</span>
+        <span class="flex-spacer"></span>
+        <span class="mono muted" id="footMem">—</span>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<div class="modal-backdrop hidden" id="modalUpload">
+  <div class="modal">
+    <div class="modal-head"><h2>Trace an image</h2><button class="mbtn" id="btnCloseUpload">×</button></div>
+    <div class="modal-body" id="upStep1">
+      <div id="dropzone">
+        <svg viewBox="0 0 24 24"><path d="M12 16 V4 M7 9 l5 -5 l5 5"/><path d="M4 15 v4 a2 2 0 0 0 2 2 h12 a2 2 0 0 0 2 -2 v-4"/></svg>
+        <p><strong>Drop an image here</strong> or click to browse</p>
+        <p class="muted small">PNG · JPG · WebP · SVG — processed entirely in your browser</p>
+      </div>
+      <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden>
+    </div>
+    <div class="modal-body hidden" id="upStep2">
+      <div class="upload-preview">
+        <img id="upPreview" alt="preview">
+        <div class="up-meta" id="upInfo"></div>
+      </div>
+      <div class="row-btns" style="margin-top:14px">
+        <button class="btn primary grow" id="btnAnalyze">Analyze &amp; Build Plan</button>
+        <button class="btn ghost" id="btnChooseOther">Choose another</button>
+      </div>
+    </div>
+    <div class="modal-body hidden" id="upStep3">
+      <div class="analysis-ok">
+        <svg viewBox="0 0 24 24" class="ok-ic"><path d="M4 12 l5 5 L20 6"/></svg>
+        <div>
+          <div class="ok-title">Drawing plan ready</div>
+          <div class="mono" id="planSummary"></div>
+        </div>
+      </div>
+      <div class="row-btns" style="margin-top:16px">
+        <button class="btn primary grow" id="btnLaunchArtist">✦ Start the Artist</button>
+        <button class="btn ghost" id="btnLater">I'll start later</button>
+      </div>
+    </div>
+    <div class="modal-body hidden" id="upError">
+      <div class="analysis-err" id="errMsg"></div>
+      <div class="row-btns" style="margin-top:14px"><button class="btn ghost" id="btnErrBack">Back</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop hidden" id="modalExport">
+  <div class="modal narrow">
+    <div class="modal-head"><h2>Export artwork</h2><button class="mbtn" id="btnCloseExport">×</button></div>
+    <div class="modal-body">
+      <div class="grid2">
+        <div>
+          <label class="field-label">Format</label>
+          <select id="expFormat"><option value="png">PNG</option><option value="jpeg">JPEG</option></select>
+        </div>
+        <div>
+          <label class="field-label">Scale</label>
+          <select id="expScale"><option value="1">1× (native)</option><option value="2">2×</option><option value="4">4×</option><option value="8">8× (pixel art)</option></select>
+        </div>
+      </div>
+      <label class="chk-label" style="margin-top:10px"><input type="checkbox" id="expTransp" checked> Transparent background (PNG)</label>
+      <label class="field-label" style="margin-top:10px">File name</label>
+      <input type="text" id="expName" value="atelier-artwork" spellcheck="false">
+      <div class="row-btns" style="margin-top:16px">
+        <button class="btn primary grow" id="btnDoExport">Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop hidden" id="modalConfirm">
+  <div class="modal narrow">
+    <div class="modal-head"><h2 id="cfTitle">Confirm</h2></div>
+    <div class="modal-body">
+      <p id="cfMsg"></p>
+      <div class="row-btns" style="margin-top:16px">
+        <button class="btn danger grow" id="cfOk">Confirm</button>
+        <button class="btn ghost" id="cfCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="loader" class="hidden">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <div id="loaderText">Working…</div>
+    <div class="loader-bar"><div id="loaderBarFill"></div></div>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<script src="js/utils.js"></script>
+<script src="js/scan.js"></script>
+<script src="js/depth.js"></script>
+<script src="js/nvidia.js"></script>
+<script src="js/priority.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/imageproc.js"></script>
+<script src="js/tracer.js"></script>
+<script src="js/artist.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

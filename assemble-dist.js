@@ -78,6 +78,18 @@ console.log('Copying TrustKhaya output to dist/work/trustkhaya/...');
 const trustkhayaDest = path.join(rootDist, 'work', 'trustkhaya');
 copyDir(trustkhayaDist, trustkhayaDest);
 
+// 5g. Self-contained demo applications (no build step; source is the deployable artefact).
+const staticSites = [
+  'atelier', 'reechme', 'poc-trust', 'popia', 'westown', 'mandarin',
+  'heraldobserver', 'fixed-funding', 'ski-shuffle', 'poc-trust-case', 'popia-case',
+];
+for (const slug of staticSites) {
+  const src = path.resolve('projects', slug);
+  if (!fs.existsSync(src)) continue;
+  console.log(`Copying ${slug} to dist/work/${slug}/...`);
+  copyDir(src, path.join(rootDist, 'work', slug));
+}
+
 // 6. Ensure CNAME
 fs.writeFileSync(path.join(rootDist, 'CNAME'), 'graffgrid.co.za\n', 'utf-8');
 
@@ -148,6 +160,9 @@ const master404Html = `<!DOCTYPE html>
         } else {
           l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + base + '/?/' + rest.slice(1).replace(/&/g, '~and~') + (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') + l.hash);
         }
+      } else if (/^\/work\/(atelier|reechme|poc-trust|popia|westown|mandarin|heraldobserver|fixed-funding|ski-shuffle|poc-trust-case|popia-case)(\/|$)/.test(path)) {
+        var slug = path.split('/')[2];
+        l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + repoPrefix + '/work/' + slug + '/');
       } else {
         var base = repoPrefix;
         l.replace(

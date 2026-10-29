@@ -1,0 +1,21 @@
+{
+  "name": "Mandarin HSK 1 Tutor",
+  "short_name": "HSK 1 Tutor",
+  "description": "Interactive HSK 1 Mandarin Learning App with Voice Chat and Quizzes",
+  "start_url": "/Mandarin.html",
+  "display": "standalone",
+  "background_color": "#f5ede0",
+  "theme_color": "#c0392b",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

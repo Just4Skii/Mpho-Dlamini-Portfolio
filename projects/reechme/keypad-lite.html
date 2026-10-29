@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ReechMe demo phone</title>
+<style>
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #d8d3c4;
+    color: #0f172a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .device {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    padding: 5px 5px 4px;
+    overflow: hidden;
+    background: #ded8c7;
+    border-left: 1px solid #b9b3a1;
+    border-right: 1px solid #b9b3a1;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .brand {
+    height: 18px;
+    line-height: 18px;
+    color: #514d42;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .brand-tag {
+    float: right;
+    color: #655f51;
+    font-size: 8px;
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .lcd {
+    padding: 2px;
+    background: #aebb9d;
+    border: 2px solid #383934;
+  }
+
+  .lcd-bar {
+    height: 10px;
+    line-height: 10px;
+    color: #22301f;
+    font-size: 6px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+  }
+
+  .lcd-bar span {
+    float: left;
+  }
+
+  .lcd-bar span + span {
+    float: right;
+  }
+
+  .lcd-screen {
+    height: 64px;
+    overflow: hidden;
+    padding: 4px 3px;
+    text-align: center;
+    color: #1f2d1e;
+    background: #c7d3b7;
+    border: 1px solid #7e8f70;
+  }
+
+  .digits {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+
+  .hint {
+    margin-top: 4px;
+    font-size: 7px;
+    line-height: 9px;
+  }
+
+  .menu-title {
+    padding-bottom: 1px;
+    text-align: left;
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 9px;
+    border-bottom: 1px solid #7e8f70;
+  }
+
+  .menu-list {
+    margin: 2px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 7px;
+    line-height: 8px;
+  }
+
+  .softrow,
+  .callrow {
+    margin-top: 4px;
+  }
+
+  .softrow button,
+  .callrow button,
+  .key {
+    display: block;
+    float: left;
+    cursor: pointer;
+    font-family: inherit;
+    border: 1px solid #a8a290;
+    border-radius: 3px;
+  }
+
+  .softrow button {
+    width: 49%;
+    height: 22px;
+    margin-right: 2%;
+    color: #514d42;
+    background: #e8e3d5;
+    font-size: 8px;
+    font-weight: bold;
+  }
+
+  .softrow button.last,
+  .callrow button.end {
+    margin-right: 0;
+  }
+
+  .keys {
+    margin-top: 3px;
+  }
+
+  .key {
+    width: 32.3%;
+    height: 29px;
+    margin: 0 1.55% 2px 0;
+    padding: 0;
+    text-align: center;
+    color: #ffffff;
+    background: #5f6059;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .key.last {
+    margin-right: 0;
+  }
+
+  .key.hold {
+    position: relative;
+    color: #184c3b;
+    background: #d9e7dc;
+    border-color: #174f3e;
+  }
+
+  .key.hold.active {
+    color: #ffffff;
+    background: #1f6b57;
+  }
+
+  .hold-tag {
+    display: block;
+    height: 5px;
+    line-height: 5px;
+    color: #1f6b57;
+    font-size: 5px;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .key.hold.active .hold-tag {
+    color: #ffffff;
+  }
+
+  .callrow button {
+    width: 49%;
+    height: 28px;
+    margin-right: 2%;
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .callrow button.call {
+    background: #2e6b4e;
+    border-color: #174f3e;
+  }
+
+  .callrow button.end {
+    background: #dc2626;
+    border-color: #b91c1c;
+  }
+
+  .callrow button:disabled {
+    opacity: 0.45;
+  }
+
+  .foot {
+    clear: both;
+    padding-top: 3px;
+    text-align: center;
+    color: #655f51;
+    font-size: 6px;
+    line-height: 8px;
+  }
+
+  button:focus {
+    outline: 2px solid #0f172a;
+    outline-offset: 1px;
+  }
+
+  button:active {
+    border-color: #0f172a;
+  }
+
+  .desktop-note {
+    max-width: 420px;
+    margin: 18px auto 0;
+    padding: 0 12px;
+    text-align: center;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  @media (min-width: 400px) {
+    body {
+      padding: 24px 0;
+    }
+
+    .device {
+      border: 1px solid #b9b3a1;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+    }
+  }
+
+  @media (max-width: 399px) {
+    .desktop-note {
+      display: none;
+    }
+  }
+
+  @media (max-height: 300px) {
+    .brand {
+      display: none;
+    }
+
+    .lcd-screen {
+      height: 56px;
+    }
+
+    .menu-list {
+      line-height: 7px;
+    }
+
+    .softrow button {
+      height: 20px;
+    }
+
+    .key {
+      height: 26px;
+      font-size: 13px;
+    }
+
+    .callrow button {
+      height: 24px;
+    }
+
+    .foot {
+      display: none;
+    }
+  }
+
+  @media (max-height: 260px) {
+    .lcd-screen {
+      height: 50px;
+    }
+
+    .digits {
+      margin-top: 6px;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .hint {
+      margin-top: 2px;
+      font-size: 6px;
+      line-height: 8px;
+    }
+
+    .menu-title {
+      padding-bottom: 0;
+      font-size: 7px;
+      line-height: 7px;
+    }
+
+    .menu-list {
+      margin-top: 1px;
+      font-size: 6px;
+      line-height: 6px;
+    }
+
+    .softrow button {
+      height: 19px;
+      font-size: 7px;
+    }
+
+    .key {
+      height: 24px;
+      font-size: 12px;
+    }
+
+    .hold-tag {
+      height: 4px;
+      line-height: 4px;
+      font-size: 4px;
+    }
+
+    .callrow button {
+      height: 22px;
+      font-size: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+<h1 class="visually-hidden">ReechMe demo phone</h1>
+<main class="device" role="main">
+  <div class="brand">
+    ReechMe
+    <span class="brand-tag">demo phone</span>
+  </div>
+
+  <div class="lcd">
+    <div class="lcd-bar">
+      <span>REECHME</span>
+      <span>DEMO</span>
+    </div>
+    <div class="lcd-screen" id="screen" aria-live="polite">
+      <div id="dialView">
+        <div class="digits" id="digits">Ready</div>
+        <div class="hint" id="hint">Hold 9 or press CALL</div>
+      </div>
+      <div id="menuView" style="display:none">
+        <div class="menu-title">Menu</div>
+        <ul class="menu-list">
+          <li>1 Hold 9: demo service</li>
+          <li>2 CALL: start demo call</li>
+          <li>3 END: end or cancel</li>
+          <li>4 Clear: delete a digit</li>
+          <li>5 Close menu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="softrow">
+    <button type="button" id="menuBtn" class="soft" aria-label="Open menu">Menu</button>
+    <button type="button" id="clearBtn" class="soft last" aria-label="Clear digits or end demo call">Clear</button>
+  </div>
+
+  <div class="keys" id="keys">
+    <button type="button" class="key" data-key="1" aria-label="Key 1">1</button>
+    <button type="button" class="key" data-key="2" aria-label="Key 2">2</button>
+    <button type="button" class="key last" data-key="3" aria-label="Key 3">3</button>
+    <button type="button" class="key" data-key="4" aria-label="Key 4">4</button>
+    <button type="button" class="key" data-key="5" aria-label="Key 5">5</button>
+    <button type="button" class="key last" data-key="6" aria-label="Key 6">6</button>
+    <button type="button" class="key" data-key="7" aria-label="Key 7">7</button>
+    <button type="button" class="key" data-key="8" aria-label="Key 8">8</button>
+    <button type="button" class="key hold last" id="key9" data-key="9" aria-label="Key 9. Hold for the demo service, or press to type 9.">9<span class="hold-tag">hold</span></button>
+    <button type="button" class="key" data-key="*" aria-label="Star key">*</button>
+    <button type="button" class="key" data-key="0" aria-label="Key 0">0</button>
+    <button type="button" class="key last" data-key="#" aria-label="Hash key">#</button>
+  </div>
+
+  <div class="callrow">
+    <button type="button" id="callBtn" class="call" aria-label="Start demo service call">CALL</button>
+    <button type="button" id="endBtn" class="end" aria-label="End or cancel demo call">END</button>
+  </div>
+
+  <div class="foot">Simulation only. No real call, SMS, alert, or location.</div>
+</main>
+
+<p class="desktop-note">
+  Keyboard: type digits, hold 9 for 1.2 seconds, or use arrow keys and Enter.
+  This page makes no network requests and stores nothing.
+</p>
+
+<script>
+(function () {
+  var HOLD_MS = 1200;
+  var MAX_DIGITS = 18;
+
+  var state = 'idle';
+  var digits = '';
+  var menuOpen = false;
+  var callSeconds = 0;
+  var callTimer = null;
+  var holdTimer = null;
+  var holdActive = false;
+  var holdCompleted = false;
+  var suppressNineClick = false;
+  var nineDown = false;
+  var diallingTimer = null;
+
+  var digitsEl = document.getElementById('digits');
+  var hintEl = document.getElementById('hint');
+  var dialView = document.getElementById('dialView');
+  var menuView = document.getElementById('menuView');
+  var menuBtn = document.getElementById('menuBtn');
+  var clearBtn = document.getElementById('clearBtn');
+  var callBtn = document.getElementById('callBtn');
+  var endBtn = document.getElementById('endBtn');
+  var key9 = document.getElementById('key9');
+  var keyButtons = document.getElementById('keys').getElementsByTagName('button');
+
+  function callBusy() {
+    return state === 'dialling' || state === 'connected';
+  }
+
+  function formatTime(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    var rest = seconds % 60;
+    return (minutes < 10 ? '0' : '') + minutes + ':' + (rest < 10 ? '0' : '') + rest;
+  }
+
+  function setText(element, value) {
+    if (!element) return;
+    if (typeof element.textContent !== 'undefined') {
+      element.textContent = value;
+    } else {
+      element.innerText = value;
+    }
+  }
+
+  function closeMenu() {
+    menuOpen = false;
+    render();
+  }
+
+  function openMenu() {
+    if (callBusy()) return;
+    menuOpen = true;
+    render();
+  }
+
+  function toggleMenu() {
+    if (menuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  function clearDiallingTimer() {
+    if (diallingTimer !== null) {
+      window.clearTimeout(diallingTimer);
+      diallingTimer = null;
+    }
+  }
+
+  function clearCallTimer() {
+    if (callTimer !== null) {
+      window.clearInterval(callTimer);
+      callTimer = null;
+    }
+  }
+
+  function cancelHold() {
+    if (holdTimer !== null) {
+      window.clearTimeout(holdTimer);
+      holdTimer = null;
+    }
+    holdActive = false;
+    holdCompleted = false;
+    if (key9) {
+      key9.className = 'key hold last';
+    }
+  }
+
+  function beginHold() {
+    if (callBusy() || menuOpen) return;
+    cancelHold();
+    holdActive = true;
+    holdCompleted = false;
+    suppressNineClick = false;
+    if (key9) {
+      key9.className = 'key hold active last';
+    }
+    holdTimer = window.setTimeout(function () {
+      holdTimer = null;
+      holdActive = false;
+      holdCompleted = true;
+      suppressNineClick = true;
+      if (key9) {
+        key9.className = 'key hold last';
+      }
+      startCall();
+    }, HOLD_MS);
+  }
+
+  function endPointerHold() {
+    if (!holdActive) return;
+    if (holdTimer !== null) {
+      window.clearTimeout(holdTimer);
+      holdTimer = null;
+    }
+    holdActive = false;
+    if (key9) {
+      key9.className = 'key hold last';
+    }
+    if (holdCompleted) {
+      suppressNineClick = true;
+    }
+  }
+
+  function startCall() {
+    if (callBusy()) return;
+    closeMenu();
+    clearDiallingTimer();
+    clearCallTimer();
+    state = 'dialling';
+    callSeconds = 0;
+    render();
+    diallingTimer = window.setTimeout(function () {
+      diallingTimer = null;
+      if (state !== 'dialling') return;
+      state = 'connected';
+      render();
+      callTimer = window.setInterval(function () {
+        if (state !== 'connected') return;
+        callSeconds += 1;
+        render();
+      }, 1000);
+    }, 900);
+  }
+
+  function endCall() {
+    if (!callBusy()) return;
+    clearDiallingTimer();
+    clearCallTimer();
+    state = 'ended';
+    render();
+  }
+
+  function appendDigit(digit) {
+    if (callBusy()) return;
+    if (menuOpen) {
+      menuOpen = false;
+    }
+    if (state === 'ended') {
+      state = 'idle';
+    }
+    if (digits.length < MAX_DIGITS) {
+      digits += digit;
+    }
+    render();
+  }
+
+  function backspace() {
+    if (callBusy()) return;
+    if (menuOpen) {
+      closeMenu();
+      return;
+    }
+    if (state === 'ended') {
+      state = 'idle';
+    }
+    if (digits.length > 0) {
+      digits = digits.substring(0, digits.length - 1);
+    }
+    render();
+  }
+
+  function clearAll() {
+    if (callBusy()) {
+      endCall();
+      return;
+    }
+    if (menuOpen) {
+      closeMenu();
+      return;
+    }
+    digits = '';
+    state = 'idle';
+    render();
+  }
+
+  function render() {
+    if (menuOpen) {
+      dialView.style.display = 'none';
+      menuView.style.display = 'block';
+      setText(menuBtn, 'Close');
+    } else {
+      dialView.style.display = 'block';
+      menuView.style.display = 'none';
+      setText(menuBtn, 'Menu');
+    }
+
+    var digitText = digits || 'Ready';
+    var hintText = digits ? 'Press CALL to start demo' : 'Hold 9 or press CALL';
+    var size = '16px';
+
+    if (state === 'dialling') {
+      digitText = 'Calling...';
+      hintText = 'Demo service. No real call.';
+      size = '12px';
+    } else if (state === 'connected') {
+      digitText = 'Connected';
+      hintText = 'Demo service &middot; ' + formatTime(callSeconds);
+      size = '12px';
+    } else if (state === 'ended') {
+      digitText = 'Call ended';
+      hintText = 'No real call was made.';
+      size = '12px';
+    } else if (digits.length > 10) {
+      size = '11px';
+    }
+
+    setText(digitsEl, digitText);
+    digitsEl.style.fontSize = size;
+    hintEl.innerHTML = hintText;
+
+    callBtn.disabled = callBusy();
+    endBtn.disabled = !callBusy();
+    clearBtn.disabled = false;
+  }
+
+  function handleMenuDigit(digit) {
+    if (digit === '1' || digit === '2') {
+      closeMenu();
+      startCall();
+    } else if (digit === '3') {
+      closeMenu();
+      endCall();
+    } else if (digit === '4') {
+      closeMenu();
+      backspace();
+    } else if (digit === '5') {
+      closeMenu();
+    } else {
+      appendDigit(digit);
+    }
+  }
+
+  function keyName(event) {
+    var key = event.key || event.keyCode;
+    if (key === 8 || key === 'Backspace') return 'Backspace';
+    if (key === 13 || key === 'Enter') return 'Enter';
+    if (key === 27 || key === 'Escape' || key === 'Esc') return 'Escape';
+    if (key === 32 || key === ' ') return 'Space';
+    if (key === 37 || key === 'ArrowLeft' || key === 'Left') return 'Left';
+    if (key === 38 || key === 'ArrowUp' || key === 'Up') return 'Up';
+    if (key === 39 || key === 'ArrowRight' || key === 'Right') return 'Right';
+    if (key === 40 || key === 'ArrowDown' || key === 'Down') return 'Down';
+    if (key === 112 || key === 'F1') return 'F1';
+    if (key === 113 || key === 'F2') return 'F2';
+
+    var code = event.keyCode || event.which || 0;
+    if (code >= 48 && code <= 57) return String.fromCharCode(code);
+    if (code >= 96 && code <= 105) return String.fromCharCode(code - 48);
+    if (code === 42) return '*';
+    if (code === 35) return '#';
+
+    var text = String(key);
+    if (text.length === 1 && '0123456789*#'.indexOf(text) !== -1) return text;
+    return '';
+  }
+
+  function preventDefault(event) {
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
+    if (event) {
+      event.returnValue = false;
+    }
+  }
+
+  function moveFocus(direction) {
+    var buttons = [];
+    var i;
+    for (i = 0; i < keyButtons.length; i += 1) {
+      if (!keyButtons[i].disabled) buttons.push(keyButtons[i]);
+    }
+    if (!menuBtn.disabled) buttons.unshift(menuBtn);
+    if (!clearBtn.disabled) buttons.splice(1, 0, clearBtn);
+    if (!callBtn.disabled) buttons.push(callBtn);
+    if (!endBtn.disabled) buttons.push(endBtn);
+
+    var active = document.activeElement;
+    var index = -1;
+    for (i = 0; i < buttons.length; i += 1) {
+      if (buttons[i] === active) {
+        index = i;
+        break;
+      }
+    }
+    if (index === -1) {
+      buttons[0].focus();
+      return;
+    }
+    if (direction === 'Left' || direction === 'Up') {
+      index = index - 1;
+      if (index < 0) index = buttons.length - 1;
+    } else {
+      index = index + 1;
+      if (index >= buttons.length) index = 0;
+    }
+    buttons[index].focus();
+  }
+
+  document.onkeydown = function (event) {
+    event = event || window.event;
+    var key = keyName(event);
+
+    if (key === '9') {
+      preventDefault(event);
+      if (menuOpen) {
+        handleMenuDigit('9');
+        return;
+      }
+      if (!nineDown) {
+        nineDown = true;
+        beginHold();
+      }
+      return;
+    }
+
+    if (key === 'Backspace') {
+      preventDefault(event);
+      backspace();
+      return;
+    }
+
+    if (key === 'Escape') {
+      preventDefault(event);
+      if (menuOpen) {
+        closeMenu();
+      } else if (callBusy()) {
+        endCall();
+      } else {
+        clearAll();
+      }
+      return;
+    }
+
+    if (key === 'F1') {
+      preventDefault(event);
+      toggleMenu();
+      return;
+    }
+
+    if (key === 'F2') {
+      preventDefault(event);
+      clearAll();
+      return;
+    }
+
+    if (key === 'Enter') {
+      preventDefault(event);
+      if (menuOpen) {
+        closeMenu();
+      } else if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+        document.activeElement.click();
+      } else {
+        startCall();
+      }
+      return;
+    }
+
+    if (key === 'Space') {
+      if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+        preventDefault(event);
+        document.activeElement.click();
+      }
+      return;
+    }
+
+    if (key === 'Left' || key === 'Right' || key === 'Up' || key === 'Down') {
+      preventDefault(event);
+      moveFocus(key);
+      return;
+    }
+
+    if (key && key.length === 1) {
+      preventDefault(event);
+      if (menuOpen) {
+        handleMenuDigit(key);
+      } else {
+        appendDigit(key);
+      }
+    }
+  };
+
+  document.onkeyup = function (event) {
+    event = event || window.event;
+    if (keyName(event) !== '9') return;
+    preventDefault(event);
+    nineDown = false;
+    if (holdActive) {
+      if (holdTimer !== null) {
+        window.clearTimeout(holdTimer);
+        holdTimer = null;
+      }
+      holdActive = false;
+      holdCompleted = false;
+      if (key9) {
+        key9.className = 'key hold last';
+      }
+      appendDigit('9');
+    } else {
+      holdCompleted = false;
+    }
+  };
+
+  window.onblur = function () {
+    nineDown = false;
+    cancelHold();
+  };
+
+  for (var i = 0; i < keyButtons.length; i += 1) {
+    (function (button) {
+      var digit = button.getAttribute('data-key');
+      if (digit === '9') {
+        button.onmousedown = function (event) {
+          event = event || window.event;
+          if (event.button !== undefined && event.button !== 0) return;
+          beginHold();
+        };
+        button.onmouseup = function () {
+          endPointerHold();
+        };
+        button.onmouseleave = function () {
+          if (holdActive) {
+            cancelHold();
+          }
+        };
+        button.ontouchstart = function () {
+          beginHold();
+        };
+        button.ontouchend = function () {
+          endPointerHold();
+        };
+        button.ontouchcancel = function () {
+          cancelHold();
+        };
+        button.onclick = function (event) {
+          event = event || window.event;
+          preventDefault(event);
+          if (suppressNineClick) {
+            suppressNineClick = false;
+            return;
+          }
+          if (menuOpen) {
+            handleMenuDigit('9');
+          } else {
+            appendDigit('9');
+          }
+        };
+      } else {
+        button.onclick = function (event) {
+          event = event || window.event;
+          preventDefault(event);
+          if (menuOpen) {
+            handleMenuDigit(digit);
+          } else {
+            appendDigit(digit);
+          }
+        };
+      }
+    }(keyButtons[i]));
+  }
+
+  menuBtn.onclick = function (event) {
+    event = event || window.event;
+    preventDefault(event);
+    toggleMenu();
+  };
+
+  clearBtn.onclick = function (event) {
+    event = event || window.event;
+    preventDefault(event);
+    clearAll();
+  };
+
+  callBtn.onclick = function (event) {
+    event = event || window.event;
+    preventDefault(event);
+    startCall();
+  };
+
+  endBtn.onclick = function (event) {
+    event = event || window.event;
+    preventDefault(event);
+    endCall();
+  };
+
+  render();
+}());
+</script>
+</body>
+</html>
