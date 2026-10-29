@@ -24,7 +24,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 1,
     accentColor: '#8b5cf6',
-    previewImage: '/klarrow-preview.svg'
+    previewImage: '/klarrow-preview.png'
   },
   {
     id: 'apex',
