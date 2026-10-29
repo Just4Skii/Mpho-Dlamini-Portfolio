@@ -48,7 +48,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 2,
     accentColor: '#f59e0b',
-    previewImage: 'apex-preview.png'
+    previewImage: '/apex-preview.png'
   },
   {
     id: 'kasicart',
@@ -72,7 +72,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 3,
     accentColor: '#10b981',
-    previewImage: 'kasicart-preview.png'
+    previewImage: '/kasicart-preview.png'
   },
   {
     id: 'carepoint',
@@ -95,7 +95,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     featured: true,
     order: 4,
     accentColor: '#38bdf8',
-    previewImage: 'carepoint-preview.png'
+    previewImage: '/carepoint-preview.png'
   },
   {
     id: 'stickerbridge',
