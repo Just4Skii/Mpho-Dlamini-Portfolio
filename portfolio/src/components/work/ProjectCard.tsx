@@ -34,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
             {isLive ? (
               <span className={styles.badgeLive}>
                 <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
-                Live Application
+                {project.desktopOnly ? "Desktop Application" : "Live Application"}
               </span>
             ) : (
               <span className={styles.badgeComingSoon}>
@@ -68,7 +68,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectComin
 
         {/* Card Footer */}
         <div className={styles.cardFooter}>
-          {isDesktopDownload ? (
+          {project.desktopOnly ? (
+            <span className={styles.btnGhost}>Windows desktop · Spotify</span>
+          ) : isDesktopDownload ? (
             <a
               href={project.downloadUrl}
               className={styles.btnLaunch}

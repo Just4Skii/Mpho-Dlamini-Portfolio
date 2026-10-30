@@ -328,7 +328,7 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     honestDisclosure: 'Windows desktop application. Real playback needs a Spotify account (Premium for the Web Playback SDK); demo mode is simulated and plays no audio.',
     status: 'live',
     path: '/work/ski-shuffle',
-    downloadUrl: '/downloads/ski-shuffle-setup.exe',
+    desktopOnly: true,
     githubUrl: 'https://github.com/Just4Skii',
     capabilities: ['Mood Check-In', 'Quick Vibes', 'Ranked Search', 'Queue + Widget', 'Lyrics & Karaoke', 'Offline Demo Mode'],
     technologies: ['Electron', 'Spotify Web API + Playback SDK', 'PKCE OAuth', 'Electron Store (encrypted)', 'Node.js'],

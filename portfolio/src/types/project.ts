@@ -23,6 +23,7 @@ export interface ProjectRegistryItem {
   path: string;
   externalUrl?: string;
   downloadUrl?: string;
+  desktopOnly?: boolean;
   githubUrl?: string;
   capabilities: string[];
   technologies: string[];
