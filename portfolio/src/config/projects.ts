@@ -337,6 +337,24 @@ export const PROJECTS_REGISTRY: ProjectRegistryItem[] = [
     accentColor: '#a855f7',
     previewImage: '/ski-shuffle-preview.png'
   },
+  {
+    id: 'smart-skii-mer',
+    title: 'Smart Skii-mer',
+    slug: 'smart-skii-mer',
+    category: 'Operational Interface',
+    summary: 'A Windows memory optimiser built with Antigravity: live RAM and commit telemetry, tiered auto-cleaning, standby-list purge, selective trimming and a CPU anti-freeze governor.',
+    detailedDescription: 'A tray-first Windows utility written in C# / WinForms (.NET 10). It reads live memory pressure (physical, commit charge and its own footprint), exposes Smart Clean, Deep Clean, Emergency Unfreeze and CPU Relief actions, and runs an auto-cleaner that triggers above a configurable RAM threshold with a cooldown. Settings cover themes, hotkeys and AI-assisted analysis via a bring-your-own key. Built and iterated inside Antigravity.',
+    honestDisclosure: 'Windows desktop utility (.NET 10 / WinForms), verified running locally. It is not published as a web app and no installer is offered here.',
+    status: 'live',
+    path: '/work/smart-skii-mer',
+    desktopOnly: true,
+    capabilities: ['Live RAM Telemetry', 'Smart & Deep Clean', 'Auto-Clean Thresholds', 'Standby List Purge', 'CPU Anti-Freeze', 'Themeable Tray UI'],
+    technologies: ['C#', '.NET 10', 'WinForms', 'Windows Native APIs', 'Antigravity'],
+    featured: false,
+    order: 17,
+    accentColor: '#1f6f3f',
+    previewImage: '/smart-skii-mer-preview.png'
+  },
 {
     id: 'project-four',
     title: 'Project Four',
