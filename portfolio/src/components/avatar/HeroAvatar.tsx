@@ -160,6 +160,9 @@ export const HeroAvatar: React.FC = () => {
           const probe = new THREE.Vector3();
           gltf.animations.forEach((clip, index) => {
             const action = mixer!.clipAction(clip);
+            // Sample the full clip: a slowed action would otherwise only reach
+            // part way through its own duration.
+            action.timeScale = 1;
             action.reset().play();
             let minY = Infinity;
             let maxY = -Infinity;
@@ -199,35 +202,63 @@ export const HeroAvatar: React.FC = () => {
           const idle = gltf.animations[0];
           const actions = gltf.animations.slice(1);
 
+          // Slowed down: the exported clips read hurried at full speed.
+          const MOTION_SPEED = 0.68;
+          const FADE = 0.9;
+          const clipAction = (clip: THREE.AnimationClip) => {
+            const action = mixer!.clipAction(clip);
+            action.timeScale = MOTION_SPEED;
+            return action;
+          };
+
+          /**
+           * Switch clips with a true crossfade.
+           *
+           * The previous version faded the outgoing clip out and the incoming one
+           * in as two independent tweens, so midway both weights were ~0.5 short of
+           * 1 and the skeleton blended toward its bind pose — a visible T-pose flash.
+           * crossFadeTo keeps the two weights summing to one throughout.
+           */
+          let current = clipAction(idle);
+          current.reset().play();
+
+          const fadeTo = (clip: THREE.AnimationClip, once: boolean) => {
+            if (!mixer) return null;
+            const next = clipAction(clip);
+            if (next === current) return current;
+            next.reset();
+            next.setLoop(once ? THREE.LoopOnce : THREE.LoopRepeat, once ? 1 : Infinity);
+            next.clampWhenFinished = once;
+            next.enabled = true;
+            next.setEffectiveWeight(1);
+            next.play();
+            current.crossFadeTo(next, FADE, false);
+            current = next;
+            return next;
+          };
+
           const playIdle = () => {
-            if (!mixer) return;
-            actions.forEach((c) => mixer!.clipAction(c).fadeOut(0.5));
-            mixer.clipAction(idle).reset().fadeIn(0.5).play();
+            fadeTo(idle, false);
             applyFit(0);
           };
 
           const playRandom = () => {
-            if (!mixer || actions.length === 0) return;
+            if (actions.length === 0) return;
             const pick = Math.floor(Math.random() * actions.length);
-            const clip = actions[pick];
-            mixer.clipAction(idle).fadeOut(0.6);
-            const action = mixer.clipAction(clip);
-            action.reset();
-            action.setLoop(THREE.LoopOnce, 1);
-            action.clampWhenFinished = true;
-            action.fadeIn(0.6).play();
+            fadeTo(actions[pick], true);
             applyFit(pick + 1);
           };
 
           playIdle();
           const scheduleNext = () => {
-            const wait = 9000 + Math.random() * 9000;
+            // Longer gaps: the slowed clips hold attention without feeling busy.
+            const wait = 12000 + Math.random() * 10000;
             window.setTimeout(() => {
               playRandom();
               const back = window.setTimeout(function toIdle() {
                 playIdle();
                 scheduleNext();
-              }, 5200);
+              }, 7200);
               timeouts.push(back);
             }, wait);
           };
@@ -265,14 +296,14 @@ export const HeroAvatar: React.FC = () => {
       if (mixer) mixer.update(dt);
 
       if (pivot) {
-        sway += dt * 0.35;
-        const idleDrift = Math.sin(sway) * 0.06;
+        sway += dt * 0.26;
+        const idleDrift = Math.sin(sway) * 0.05;
         const fall = scroll.fall;
 
-        // Idle: gentle yaw drift. Falling: tumble and descend slightly.
-        pivot.rotation.y = idleDrift + fall * Math.sin(sway * 2.1) * 0.5;
-        pivot.rotation.z = Math.sin(sway * 0.7) * 0.02 + fall * Math.sin(sway * 2.6) * 0.28;
-        pivot.rotation.x = fall * Math.sin(sway * 1.7) * 0.16;
+        // Idle: gentle yaw drift. Falling: tumble and descend slightly (slowed).
+        pivot.rotation.y = idleDrift + fall * Math.sin(sway * 2.1) * 0.42;
+        pivot.rotation.z = Math.sin(sway * 0.7) * 0.018 + fall * Math.sin(sway * 2.6) * 0.24;
+        pivot.rotation.x = fall * Math.sin(sway * 1.7) * 0.13;
         pivot.position.y = -fall * 0.22 + Math.sin(sway * 0.9) * 0.012;
       }
 
