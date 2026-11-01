@@ -17,7 +17,11 @@
 .container section { margin-bottom: var(--gap-section); }
 
 /* Hero */
-.hero { padding: clamp(24px, 6vw, 72px) 0 clamp(48px, 8vw, 96px); margin-bottom: var(--gap-section); border-bottom: 1px solid var(--line); }
+.hero { position: relative; padding: clamp(24px, 6vw, 72px) 0 clamp(48px, 8vw, 96px); margin-bottom: var(--gap-section); border-bottom: 1px solid var(--line); }
+/* The avatar occupies the empty column on the right of the hero copy. */
+.heroStage { position: absolute; top: 0; bottom: 0; right: 0; width: min(34%, 430px); overflow: hidden; pointer-events: none; z-index: 0; }
+.heroCopy { position: relative; z-index: 1; }
+@media (max-width: 900px) { .heroStage { display: none; } }
 .heroBadges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
 .badge { display: inline-flex; align-items: center; gap: 8px; min-height: 28px; padding: 4px 12px; border: 1px solid var(--line-strong); border-radius: 2px; font-family: var(--font-mono); font-size: .7rem; font-weight: 500; letter-spacing: .04em; color: var(--muted); background: var(--surface); }
 .badgeGreen { color: var(--accent); border-color: rgba(198,255,61,.35); }

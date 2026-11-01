@@ -7,8 +7,12 @@ import './styles/base.css';
 function getBasename(): string {
   if (typeof window === 'undefined') return '/';
   const pathname = window.location.pathname;
+  // Only the first segment can be a repository prefix (GitHub project pages).
+  // Known in-app routes are never prefixes — otherwise a deep link such as
+  // /avatar-preview would render the homepage at base "/avatar-preview".
+  const APP_ROUTES = new Set(['work', 'avatar-preview']);
   const match = pathname.match(/^(\/[^\/]+)/);
-  if (match && match[1] && !match[1].startsWith('/work')) {
+  if (match && match[1] && !APP_ROUTES.has(match[1].slice(1))) {
     return match[1];
   }
   return '/';
