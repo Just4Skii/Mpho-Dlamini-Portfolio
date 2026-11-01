@@ -55,29 +55,43 @@ export const HeroAvatar: React.FC = () => {
 
     let mixer: THREE.AnimationMixer | null = null;
     let pivot: THREE.Object3D | null = null;
-    // Fixed model extents (metres). The GLB is a known asset, so framing is
-    // computed from constants instead of a runtime bounding box — measuring the
-    // box after the mixer starts produced wildly different camera distances.
-    const MODEL_HEIGHT = 1.84;
-    const MODEL_WIDTH = 0.92;
-    const fitCamera = () => {
+    // Pending clip-cycle timers, cleared on unmount.
+    const timeouts: number[] = [];
+    type Fit = { z: number; y: number };
+    // Each clip gets its own camera fit: "Just_chilling" is a floor clip where he
+    // lies down, so framing it like the standing clip cut him off at the border.
+    // The camera eases between fits when the clip changes.
+    const fits: Fit[] = [];
+    const DEFAULT_FIT: Fit = { z: 6, y: 0.9 };
+    let activeFit: Fit = { ...DEFAULT_FIT };
+    let targetFit: Fit = { ...DEFAULT_FIT };
+
+    const fitFor = (minY: number, maxY: number, halfWidth: number): Fit => {
       const tanHalf = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
       const aspect = Math.max(0.15, camera.aspect);
-      // Full-fit distance for the column, then the requested enlargement.
-      const distH = MODEL_HEIGHT / (2 * tanHalf);
-      const distW = MODEL_WIDTH / (2 * tanHalf * aspect);
-      const baseZ = Math.max(distH, distW) / SIZE_SCALE;
-      camera.userData.baseZ = baseZ;
-
-      // At >1x the figure is taller than the column, so anchor the top of the
-      // head to the top of the stage and let the legs run past the bottom edge:
-      // an intentional portrait crop rather than a decapitated model.
-      const visibleHalf = baseZ * tanHalf;
-      const anchorY = MODEL_HEIGHT / 2 - visibleHalf * 0.98;
-      camera.position.set(0, anchorY, baseZ);
-      camera.lookAt(0, anchorY, 0);
-      camera.userData.anchorY = anchorY;
+      const height = Math.max(0.6, maxY - minY);
+      const width = Math.max(0.6, halfWidth * 2);
+      const distH = height / (2 * tanHalf);
+      const distW = width / (2 * tanHalf * aspect);
+      const fullFit = Math.max(distH, distW) * 1.02;
+      // Upright poses can be pushed past the frame edges (a tall figure cropped
+      // at the knees reads as deliberate), but a lying pose must fit entirely or
+      // it disappears behind the hero border.
+      const upright = height / width > 1.15;
+      // Upright: enlarge and anchor the top of the head near the top of the
+      // column, so the legs crop at the hero border (reads as a portrait crop).
+      // Lying: zoom out so no part hides behind the border.
+      const zoom = upright ? 1.45 : 0.78;
+      const dist = fullFit / zoom;
+      const halfView = (dist * tanHalf) / 1;
+      const y = upright ? maxY - halfView * 0.97 : (minY + maxY) / 2;
+      return { z: dist, y };
     };
+
+    const applyFit = (clipIndex: number) => {
+      targetFit = fits[clipIndex] ?? DEFAULT_FIT;
+    };
+
     let frameId = 0;
     const clock = new THREE.Clock();
     let sway = 0;
@@ -89,7 +103,9 @@ export const HeroAvatar: React.FC = () => {
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      fitCamera();
+      // The camera now follows the active clip's fit, eased each frame.
+      camera.position.set(0, activeFit.y, activeFit.z);
+      camera.lookAt(0, activeFit.y, 0);
     };
     // ------------------------------------------------------------ visibility
     // Only render while the hero is on screen.
@@ -107,13 +123,12 @@ export const HeroAvatar: React.FC = () => {
         pivot.add(root);
         scene.add(pivot);
 
-        // Centre on the mesh as authored; the camera uses the fixed constants
-        // above, so a mid-animation pose can never skew the framing.
+        // Centre the mesh on its authored origin; per-clip camera fits handle
+        // the fact that one clip is a standing pose and the other lies down.
         root.updateWorldMatrix(true, true);
         const box = new THREE.Box3().setFromObject(root);
         const center = box.getCenter(new THREE.Vector3());
         root.position.sub(center);
-        fitCamera();
 
         // Skin and fabric are dielectric. The export ships a metalness map whose
         // bright texels turn hands and wrists into chrome under the rim light;
@@ -134,7 +149,89 @@ export const HeroAvatar: React.FC = () => {
 
         if (gltf.animations.length) {
           mixer = new THREE.AnimationMixer(root);
-          mixer.clipAction(gltf.animations[0]).reset().play();
+
+          // Per-clip fits, measured by stepping each clip and reading bone world
+          // positions (bones approximate the body well enough for framing, and
+          // avoid the problem that a skinned bounding box is not pose-aware).
+          const bones: THREE.Object3D[] = [];
+          root.traverse((o) => {
+            if ((o as THREE.Bone).isBone) bones.push(o);
+          });
+          const probe = new THREE.Vector3();
+          gltf.animations.forEach((clip, index) => {
+            const action = mixer!.clipAction(clip);
+            action.reset().play();
+            let minY = Infinity;
+            let maxY = -Infinity;
+            let halfWidth = 0;
+            const steps = 30;
+            for (let s = 0; s <= steps; s++) {
+              mixer!.setTime((clip.duration * s) / steps);
+              root.updateWorldMatrix(true, true);
+              for (const bone of bones) {
+                bone.getWorldPosition(probe);
+                // The pivot sits at the origin and is unrotated during probing, so
+                // world coordinates are already the pivot frame — do NOT re-apply
+                // root.position here (it is baked into the world position).
+                minY = Math.min(minY, probe.y);
+                maxY = Math.max(maxY, probe.y);
+                halfWidth = Math.max(halfWidth, Math.abs(probe.x));
+              }
+            }
+            action.stop();
+            // Bones sit inside the body; pad generously for the suit, head and
+            // shoes, which reach further than any joint, especially lying down.
+            const pad = 0.3;
+            fits[index] = fitFor(
+              minY - pad,
+              maxY + pad,
+              Math.max(0.4, halfWidth + pad)
+            );
+          });
+          mixer.setTime(0);
+          activeFit = { ...(fits[0] ?? DEFAULT_FIT) };
+          targetFit = { ...activeFit };
+          camera.position.set(0, activeFit.y, activeFit.z);
+          camera.lookAt(0, activeFit.y, 0);
+
+          // Cycle: idle most of the time, and every so often play one of the
+          // action clips, then fall back to idling. Nobody picks anything.
+          const idle = gltf.animations[0];
+          const actions = gltf.animations.slice(1);
+
+          const playIdle = () => {
+            if (!mixer) return;
+            actions.forEach((c) => mixer!.clipAction(c).fadeOut(0.5));
+            mixer.clipAction(idle).reset().fadeIn(0.5).play();
+            applyFit(0);
+          };
+
+          const playRandom = () => {
+            if (!mixer || actions.length === 0) return;
+            const pick = Math.floor(Math.random() * actions.length);
+            const clip = actions[pick];
+            mixer.clipAction(idle).fadeOut(0.6);
+            const action = mixer.clipAction(clip);
+            action.reset();
+            action.setLoop(THREE.LoopOnce, 1);
+            action.clampWhenFinished = true;
+            action.fadeIn(0.6).play();
+            applyFit(pick + 1);
+          };
+
+          playIdle();
+          const scheduleNext = () => {
+            const wait = 9000 + Math.random() * 9000;
+            window.setTimeout(() => {
+              playRandom();
+              const back = window.setTimeout(function toIdle() {
+                playIdle();
+                scheduleNext();
+              }, 5200);
+              timeouts.push(back);
+            }, wait);
+          };
+          scheduleNext();
         }
       },
       undefined,
@@ -177,10 +274,16 @@ export const HeroAvatar: React.FC = () => {
         pivot.rotation.z = Math.sin(sway * 0.7) * 0.02 + fall * Math.sin(sway * 2.6) * 0.28;
         pivot.rotation.x = fall * Math.sin(sway * 1.7) * 0.16;
         pivot.position.y = -fall * 0.22 + Math.sin(sway * 0.9) * 0.012;
-        // Falling reads better pulled back a little, so nothing crops on rotation.
-        const baseZ = (camera.userData.baseZ as number) ?? camera.position.z;
-        camera.position.z = THREE.MathUtils.lerp(camera.position.z, baseZ * (1 + fall * 0.12), 0.08);
       }
+
+      // Ease the camera toward the active clip's fit (standing vs lying down).
+      activeFit.z = THREE.MathUtils.lerp(activeFit.z, targetFit.z, 0.045);
+      activeFit.y = THREE.MathUtils.lerp(activeFit.y, targetFit.y, 0.045);
+      const fall = scroll.fall;
+      // Falling reads better pulled back a little, so nothing crops on rotation.
+      camera.position.z = activeFit.z * (1 + fall * 0.12);
+      camera.position.y = activeFit.y;
+      camera.lookAt(0, activeFit.y, 0);
 
       renderer.render(scene, camera);
     };
@@ -189,6 +292,7 @@ export const HeroAvatar: React.FC = () => {
     return () => {
       disposed = true;
       cancelAnimationFrame(frameId);
+      timeouts.forEach((id) => window.clearTimeout(id));
       window.removeEventListener('scroll', onScroll);
       io.disconnect();
       observer.disconnect();
