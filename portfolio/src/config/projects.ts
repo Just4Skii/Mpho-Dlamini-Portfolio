@@ -390,6 +390,7 @@ export function getAppUrl(path: string): string {
 
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const target = `${prefix}${cleanPath}`.replace(/\/+/g, '/');
+  if (/\.html?$/i.test(target)) return target;
   return target.endsWith('/') ? target : `${target}/`;
 }
 
