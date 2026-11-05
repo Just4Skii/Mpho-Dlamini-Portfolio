@@ -15,6 +15,18 @@ type ExperienceItem = {
 export const Experience: React.FC = () => {
   const experiences: ExperienceItem[] = [
     {
+      title: 'Tier 2 — Digital Operations & Quality Assurance Specialist',
+      company: 'ModSquad, Inc. · Independent Contractor · Remote (US)',
+      date: 'Nov 2026 · Present',
+      bullets: [
+        'Serve as a Tier 2 escalation point for complex player and community issues.',
+        'Conduct quality reviews of Tier 1 moderation interactions.',
+        'Support moderator onboarding and shadowing.',
+        'Monitor recurring concerns and identify workflow improvements.',
+        'Maintain clear documentation and escalation handoffs.'
+      ]
+    },
+    {
       title: 'Herald — Social Gaming Support Contractor',
       company: 'Lightmare Studios Pty Ltd · Remote',
       date: 'Jul 2026 · Sep 2026',

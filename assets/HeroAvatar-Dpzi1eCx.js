@@ -1,4 +1,4 @@
-import{r as ao,j as Sl}from"./index-DLX-imrz.js";/**
+import{r as ao,j as Sl}from"./index-BkxliD4L.js";/**
  * @license
  * Copyright 2010-2025 Three.js Authors
  * SPDX-License-Identifier: MIT
